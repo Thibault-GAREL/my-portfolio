@@ -6,7 +6,7 @@ export default function Home() {
       {/* Header */}
       <header className="border-b border-streamlit-border bg-white sticky top-0 z-50">
         <div className="max-w-5xl mx-auto px-4 sm:px-6 lg:px-8 py-4">
-          <h1 className="text-2xl font-bold text-streamlit-text">Thibault GAREL</h1>
+          <h1 className="text-2xl font-bold text-streamlit-text">Thibault GAREL&apos;s Portfolio</h1>
         </div>
       </header>
 
@@ -27,22 +27,18 @@ export default function Home() {
               Since 2022, I've been building personal projects mostly on <strong>AI</strong> 🤖.
             </p>
 
-            <p className="mb-4 text-2xl font-semibold text-streamlit-accent">
-              I'm looking for an <strong>internship</strong> in AI for 4 months starting <strong>April 13, 2026</strong>!
-            </p>
-
             <p className="mb-6">
               I'm a maker in <a href="https://github.com/intelligenceLab-ECE" target="_blank" rel="noopener noreferrer" className="text-blue-600 hover:underline">Intelligence Lab</a>!
             </p>
           </div>
 
           {/* Contact Links */}
-          <div className="flex flex-wrap gap-4 mb-8">
+          <div className="flex justify-center gap-4 mb-8">
             <a
               href="https://www.linkedin.com/in/thibaultgarel/"
               target="_blank"
               rel="noopener noreferrer"
-              className="inline-flex items-center px-6 py-3 bg-blue-600 text-white rounded-lg hover:bg-blue-700 transition-colors"
+              className="text-blue-600 hover:underline"
             >
               💼 LinkedIn
             </a>
@@ -50,13 +46,13 @@ export default function Home() {
               href="https://huggingface.co/Thibault-GAREL"
               target="_blank"
               rel="noopener noreferrer"
-              className="inline-flex items-center px-6 py-3 bg-yellow-500 text-white rounded-lg hover:bg-yellow-600 transition-colors"
+              className="text-yellow-600 hover:underline"
             >
               🤗 Hugging Face
             </a>
             <a
               href="mailto:thibault.garel@edu.ece.fr"
-              className="inline-flex items-center px-6 py-3 bg-green-600 text-white rounded-lg hover:bg-green-700 transition-colors"
+              className="text-green-600 hover:underline"
             >
               📬 Contact
             </a>
@@ -309,27 +305,60 @@ export default function Home() {
 
           <SkillCategory
             title="Languages"
-            skills={["Python", "C", "C++", "SQL", "Java"]}
+            skills={[
+              { name: "Python", icon: "https://cdn.simpleicons.org/python/3776AB", url: "https://www.python.org/" },
+              { name: "C", icon: "https://cdn.simpleicons.org/c/00599C", url: "https://isocpp.org/" },
+              { name: "C++", icon: "https://cdn.simpleicons.org/cplusplus/00599C", url: "https://isocpp.org/" },
+              { name: "SQL", icon: "https://cdn.simpleicons.org/mysql/4479A1", url: "https://www.mysql.com/" },
+              { name: "Java", icon: "https://upload.wikimedia.org/wikipedia/en/3/30/Java_programming_language_logo.svg", url: "https://www.java.com/" }
+            ]}
           />
 
           <SkillCategory
             title="Web"
-            skills={["HTML5", "CSS3", "PHP", "JavaScript"]}
+            skills={[
+              { name: "HTML5", icon: "https://cdn.simpleicons.org/html5/E34F26", url: "https://developer.mozilla.org/en-US/docs/Web/HTML" },
+              { name: "CSS3", icon: "https://upload.wikimedia.org/wikipedia/commons/6/62/CSS3_logo.svg", url: "https://developer.mozilla.org/en-US/docs/Web/CSS" },
+              { name: "PHP", icon: "https://cdn.simpleicons.org/php/777BB4", url: "https://www.php.net/" },
+              { name: "JavaScript", icon: "https://cdn.simpleicons.org/javascript/F7DF1E", url: "https://developer.mozilla.org/en-US/docs/Web/JavaScript" }
+            ]}
           />
 
           <SkillCategory
             title="Libraries"
-            skills={["TensorFlow", "PyTorch", "scikit-learn", "NumPy", "Pandas"]}
+            skills={[
+              { name: "TensorFlow", icon: "https://cdn.simpleicons.org/tensorflow/FF6F00", url: "https://www.tensorflow.org/" },
+              { name: "PyTorch", icon: "https://cdn.simpleicons.org/pytorch/EE4C2C", url: "https://pytorch.org/" },
+              { name: "scikit-learn", icon: "https://upload.wikimedia.org/wikipedia/commons/0/05/Scikit_learn_logo_small.svg", url: "https://scikit-learn.org/" },
+              { name: "NumPy", icon: "https://cdn.simpleicons.org/numpy/013243", url: "https://numpy.org/" },
+              { name: "Pandas", icon: "https://cdn.simpleicons.org/pandas/150458", url: "https://pandas.pydata.org/" }
+            ]}
           />
 
           <SkillCategory
             title="Visualization"
-            skills={["Matplotlib", "Power BI", "Pygame", "Allegro"]}
+            skills={[
+              { name: "Matplotlib", icon: "https://upload.wikimedia.org/wikipedia/commons/8/84/Matplotlib_icon.svg", url: "https://matplotlib.org/" },
+              { name: "Power BI", icon: "https://upload.wikimedia.org/wikipedia/commons/c/cf/New_Power_BI_Logo.svg", url: "https://powerbi.microsoft.com/" },
+              { name: "Pygame", icon: "https://upload.wikimedia.org/wikipedia/commons/a/a9/Pygame_logo.svg", url: "https://www.pygame.org/" },
+              { name: "Allegro", icon: "https://upload.wikimedia.org/wikipedia/commons/f/f3/Allegro-logo.svg", url: "https://liballeg.org/" },
+              { name: "Streamlit", icon: "https://streamlit.io/images/brand/streamlit-mark-color.png", url: "https://streamlit.io/" }
+            ]}
           />
 
           <SkillCategory
             title="Other Tools"
-            skills={["GitHub", "Git", "Excel", "Ollama", "n8n", "Raspberry Pi", "CUDA", "Arduino", "ESP32"]}
+            skills={[
+              { name: "GitHub", icon: "https://cdn.simpleicons.org/github/181717", url: "https://github.com/" },
+              { name: "Git", icon: "https://cdn.simpleicons.org/git/F05032", url: "https://git-scm.com/" },
+              { name: "Excel", icon: "https://upload.wikimedia.org/wikipedia/commons/3/34/Microsoft_Office_Excel_%282019%E2%80%93present%29.svg", url: "https://www.microsoft.com/en-us/microsoft-365/excel" },
+              { name: "Ollama", icon: "https://avatars.githubusercontent.com/u/151674099", url: "https://ollama.com/" },
+              { name: "n8n", icon: "https://cdn.simpleicons.org/n8n/EA4C89", url: "https://n8n.io/" },
+              { name: "Raspberry Pi", icon: "https://cdn.simpleicons.org/raspberrypi/C51A4A", url: "https://www.raspberrypi.com/" },
+              { name: "CUDA", icon: "https://cdn.simpleicons.org/nvidia/76B900", url: "https://developer.nvidia.com/cuda-zone" },
+              { name: "Arduino", icon: "https://cdn.simpleicons.org/arduino/00979D", url: "https://www.arduino.cc/" },
+              { name: "ESP32", icon: "https://cdn.simpleicons.org/espressif/000000", url: "https://www.espressif.com/en/products/socs/esp32" }
+            ]}
           />
         </section>
 
@@ -415,6 +444,7 @@ function ProjectCategory({
     description: string
     link: string
     inProgress?: boolean
+    image?: string
   }>
 }) {
   return (
@@ -429,6 +459,15 @@ function ProjectCategory({
             rel="noopener noreferrer"
             className="bg-streamlit-secondary rounded-xl p-5 border border-streamlit-border hover:shadow-lg transition-shadow group"
           >
+            {project.image && (
+              <div className="mb-3 rounded-lg overflow-hidden">
+                <img
+                  src={project.image}
+                  alt={project.name}
+                  className="w-full h-48 object-cover"
+                />
+              </div>
+            )}
             <h4 className="text-lg font-semibold text-streamlit-text group-hover:text-blue-600 mb-2">
               {project.name}
               {project.inProgress && (
@@ -449,19 +488,34 @@ function SkillCategory({
   skills
 }: {
   title: string
-  skills: string[]
+  skills: Array<{ name: string; icon?: string; url?: string }>
 }) {
   return (
     <div className="mb-6">
       <h3 className="text-xl font-bold text-streamlit-text mb-3">{title}</h3>
-      <div className="flex flex-wrap gap-2">
+      <div className="flex flex-wrap gap-3 items-center">
         {skills.map((skill) => (
-          <span
-            key={skill}
-            className="bg-streamlit-secondary px-4 py-2 rounded-lg border border-streamlit-border text-streamlit-text"
+          <div
+            key={skill.name}
+            className="flex items-center gap-2 bg-streamlit-secondary px-4 py-2 rounded-lg border border-streamlit-border"
           >
-            {skill}
-          </span>
+            {skill.icon && skill.url ? (
+              <a href={skill.url} target="_blank" rel="noopener noreferrer">
+                <img
+                  src={skill.icon}
+                  alt={skill.name}
+                  className="w-6 h-6 object-contain"
+                />
+              </a>
+            ) : skill.icon ? (
+              <img
+                src={skill.icon}
+                alt={skill.name}
+                className="w-6 h-6 object-contain"
+              />
+            ) : null}
+            <span className="text-streamlit-text">{skill.name}</span>
+          </div>
         ))}
       </div>
     </div>
