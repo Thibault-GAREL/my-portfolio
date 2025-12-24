@@ -19,9 +19,44 @@ export default function Home() {
               alt="Thibault GAREL"
               className="w-32 h-32 rounded-full border-4 border-streamlit-border shadow-lg"
             />
-            <h1 className="text-5xl font-bold text-streamlit-text">
-              Hi! My name is Thibault GAREL
-            </h1>
+            <div>
+              <h1 className="text-5xl font-bold text-streamlit-text mb-4">
+                Hi! My name is Thibault GAREL
+              </h1>
+              {/* Contact Links */}
+              <div className="flex gap-4">
+                <a
+                  href="https://www.linkedin.com/in/thibaultgarel/"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="text-blue-600 hover:underline"
+                >
+                  💼 LinkedIn
+                </a>
+                <a
+                  href="https://github.com/Thibault-GAREL"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="text-purple-600 hover:underline"
+                >
+                  🐙 GitHub
+                </a>
+                <a
+                  href="https://huggingface.co/Thibault-GAREL"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="text-yellow-600 hover:underline"
+                >
+                  🤗 Hugging Face
+                </a>
+                <a
+                  href="mailto:thibault.garel@edu.ece.fr"
+                  className="text-green-600 hover:underline"
+                >
+                  📬 Contact
+                </a>
+              </div>
+            </div>
           </div>
 
           <div className="text-xl text-gray-700 mb-6 leading-relaxed">
@@ -34,43 +69,55 @@ export default function Home() {
               Since 2022, I've been building personal projects mostly on <strong>AI</strong> 🤖.
             </p>
 
-            <p className="mb-6">
-              I'm a maker in <a href="https://github.com/intelligenceLab-ECE" target="_blank" rel="noopener noreferrer" className="text-blue-600 hover:underline">Intelligence Lab</a>!
-            </p>
-          </div>
-
-          {/* Contact Links */}
-          <div className="flex justify-center gap-4 mb-8">
-            <a
-              href="https://www.linkedin.com/in/thibaultgarel/"
-              target="_blank"
-              rel="noopener noreferrer"
-              className="text-blue-600 hover:underline"
-            >
-              💼 LinkedIn
-            </a>
-            <a
-              href="https://huggingface.co/Thibault-GAREL"
-              target="_blank"
-              rel="noopener noreferrer"
-              className="text-yellow-600 hover:underline"
-            >
-              🤗 Hugging Face
-            </a>
-            <a
-              href="https://github.com/Thibault-GAREL"
-              target="_blank"
-              rel="noopener noreferrer"
-              className="text-purple-600 hover:underline"
-            >
-              🐙 GitHub
-            </a>
-            <a
-              href="mailto:thibault.garel@edu.ece.fr"
-              className="text-green-600 hover:underline"
-            >
-              📬 Contact
-            </a>
+            <div className="mb-6 flex items-center gap-4">
+              <span>I'm a maker in</span>
+              <div className="flex items-center gap-3 bg-streamlit-secondary px-4 py-2 rounded-lg border border-streamlit-border">
+                <img
+                  src="https://github.com/intelligenceLab-ECE.png"
+                  alt="Intelligence Lab"
+                  className="w-8 h-8 rounded-full"
+                />
+                <span className="font-bold">Intelligence Lab</span>
+                <div className="flex gap-2 ml-2">
+                  <a
+                    href="https://www.linkedin.com/company/intelligence-lab-by-ece"
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    className="text-blue-600 hover:underline text-sm"
+                    title="LinkedIn"
+                  >
+                    💼
+                  </a>
+                  <a
+                    href="https://github.com/intelligenceLab-ECE"
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    className="text-purple-600 hover:underline text-sm"
+                    title="GitHub"
+                  >
+                    🐙
+                  </a>
+                  <a
+                    href="https://huggingface.co/ECE-ILAB"
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    className="text-yellow-600 hover:underline text-sm"
+                    title="Hugging Face"
+                  >
+                    🤗
+                  </a>
+                  <a
+                    href="http://intelligencelab.ai/"
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    className="text-gray-600 hover:underline text-sm"
+                    title="Website"
+                  >
+                    🌐
+                  </a>
+                </div>
+              </div>
+            </div>
           </div>
         </section>
 
