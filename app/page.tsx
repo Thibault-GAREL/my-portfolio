@@ -51,6 +51,14 @@ export default function Home() {
               🤗 Hugging Face
             </a>
             <a
+              href="https://github.com/Thibault-GAREL"
+              target="_blank"
+              rel="noopener noreferrer"
+              className="text-gray-800 hover:underline"
+            >
+              🐙 GitHub
+            </a>
+            <a
               href="mailto:thibault.garel@edu.ece.fr"
               className="text-green-600 hover:underline"
             >
