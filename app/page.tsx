@@ -69,7 +69,7 @@ export default function Home() {
               Since 2022, I've been building personal projects mostly on <strong>AI</strong> 🤖.
             </p>
 
-            <div className="mb-6 flex items-center gap-4">
+            <div className="mb-6 flex flex-col sm:flex-row items-center gap-4">
               <span>I'm an AI maker in</span>
               <div className="flex items-center gap-3 bg-streamlit-secondary px-4 py-2 rounded-lg border border-streamlit-border">
                 <img
