@@ -54,7 +54,7 @@ export default function Home() {
               href="https://github.com/Thibault-GAREL"
               target="_blank"
               rel="noopener noreferrer"
-              className="text-gray-800 hover:underline"
+              className="text-purple-600 hover:underline"
             >
               🐙 GitHub
             </a>
@@ -376,8 +376,8 @@ export default function Home() {
             skills={[
               { name: "Matplotlib", icon: "https://upload.wikimedia.org/wikipedia/commons/8/84/Matplotlib_icon.svg", url: "https://matplotlib.org/" },
               { name: "Power BI", icon: "https://upload.wikimedia.org/wikipedia/commons/c/cf/New_Power_BI_Logo.svg", url: "https://powerbi.microsoft.com/" },
-              { name: "Pygame", icon: "https://upload.wikimedia.org/wikipedia/commons/a/a9/Pygame_logo.svg", url: "https://www.pygame.org/" },
-              { name: "Allegro", icon: "https://upload.wikimedia.org/wikipedia/commons/f/f3/Allegro-logo.svg", url: "https://liballeg.org/" },
+              { name: "Pygame", icon: "https://www.pygame.org/docs/_static/pygame_logo.svg", url: "https://www.pygame.org/" },
+              { name: "Allegro", icon: "https://avatars.githubusercontent.com/u/5460870?s=200&v=4", url: "https://liballeg.org/" },
               { name: "Streamlit", icon: "https://streamlit.io/images/brand/streamlit-mark-color.png", url: "https://streamlit.io/" }
             ]}
           />
@@ -387,7 +387,7 @@ export default function Home() {
             skills={[
               { name: "GitHub", icon: "https://cdn.simpleicons.org/github/181717", url: "https://github.com/" },
               { name: "Git", icon: "https://cdn.simpleicons.org/git/F05032", url: "https://git-scm.com/" },
-              { name: "Excel", icon: "https://upload.wikimedia.org/wikipedia/commons/3/34/Microsoft_Office_Excel_%282019%E2%80%93present%29.svg", url: "https://www.microsoft.com/en-us/microsoft-365/excel" },
+              { name: "Excel", icon: "https://cdn.simpleicons.org/microsoftexcel/217346", url: "https://www.microsoft.com/en-us/microsoft-365/excel" },
               { name: "Ollama", icon: "https://avatars.githubusercontent.com/u/151674099", url: "https://ollama.com/" },
               { name: "n8n", icon: "https://cdn.simpleicons.org/n8n/EA4C89", url: "https://n8n.io/" },
               { name: "Raspberry Pi", icon: "https://cdn.simpleicons.org/raspberrypi/C51A4A", url: "https://www.raspberrypi.com/" },
