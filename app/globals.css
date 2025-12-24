@@ -1,0 +1,40 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+:root {
+  --streamlit-bg: #FFFFFF;
+  --streamlit-secondary: #F0F2F6;
+  --streamlit-text: #262730;
+  --streamlit-accent: #FF4B4B;
+  --streamlit-border: #E6E9EF;
+}
+
+body {
+  background-color: var(--streamlit-bg);
+  color: var(--streamlit-text);
+  font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', 'Oxygen',
+    'Ubuntu', 'Cantarell', 'Fira Sans', 'Droid Sans', 'Helvetica Neue',
+    sans-serif;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+/* Streamlit-inspired scrollbar */
+::-webkit-scrollbar {
+  width: 8px;
+  height: 8px;
+}
+
+::-webkit-scrollbar-track {
+  background: var(--streamlit-secondary);
+}
+
+::-webkit-scrollbar-thumb {
+  background: #b0b3bb;
+  border-radius: 4px;
+}
+
+::-webkit-scrollbar-thumb:hover {
+  background: #888;
+}
