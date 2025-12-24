@@ -86,13 +86,13 @@ export default function Home() {
             projects={[
               {
                 name: "Image Generator - GAN",
-                description: "Generative Adversarial Network for image generation",
+                description: "Generative Adversarial Network built from scratch for image generation",
                 link: "https://github.com/Thibault-GAREL/Image_generator_GAN",
                 image: "https://raw.githubusercontent.com/Thibault-GAREL/Image_generator_GAN/main/Img/Titre.png"
               },
               {
                 name: "Language Models",
-                description: "Bigram & Transformer Models implementation",
+                description: "Bigram & Transformer Models coded from scratch",
                 link: "https://github.com/Thibault-GAREL/Language_Models",
                 image: "https://raw.githubusercontent.com/Thibault-GAREL/Language_Models/main/img/Titre-GPT_from_scratch.png"
               },
