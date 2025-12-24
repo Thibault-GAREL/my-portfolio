@@ -13,9 +13,16 @@ export default function Home() {
       <div className="max-w-5xl mx-auto px-4 sm:px-6 lg:px-8 py-12">
         {/* Hero Section */}
         <section className="mb-16">
-          <h1 className="text-5xl font-bold text-streamlit-text mb-6">
-            Hi! My name is Thibault GAREL
-          </h1>
+          <div className="flex items-center gap-6 mb-6">
+            <img
+              src="https://github.com/Thibault-GAREL.png"
+              alt="Thibault GAREL"
+              className="w-32 h-32 rounded-full border-4 border-streamlit-border shadow-lg"
+            />
+            <h1 className="text-5xl font-bold text-streamlit-text">
+              Hi! My name is Thibault GAREL
+            </h1>
+          </div>
 
           <div className="text-xl text-gray-700 mb-6 leading-relaxed">
             <p className="mb-4">
@@ -387,7 +394,7 @@ export default function Home() {
             skills={[
               { name: "GitHub", icon: "https://cdn.simpleicons.org/github/181717", url: "https://github.com/" },
               { name: "Git", icon: "https://cdn.simpleicons.org/git/F05032", url: "https://git-scm.com/" },
-              { name: "Excel", icon: "https://cdn.simpleicons.org/microsoftexcel/217346", url: "https://www.microsoft.com/en-us/microsoft-365/excel" },
+              { name: "Excel", icon: "https://img.icons8.com/color/48/microsoft-excel-2019--v1.png", url: "https://www.microsoft.com/en-us/microsoft-365/excel" },
               { name: "Ollama", icon: "https://avatars.githubusercontent.com/u/151674099", url: "https://ollama.com/" },
               { name: "n8n", icon: "https://cdn.simpleicons.org/n8n/EA4C89", url: "https://n8n.io/" },
               { name: "Raspberry Pi", icon: "https://cdn.simpleicons.org/raspberrypi/C51A4A", url: "https://www.raspberrypi.com/" },
