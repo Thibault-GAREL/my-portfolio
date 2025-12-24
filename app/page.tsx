@@ -13,18 +13,18 @@ export default function Home() {
       <div className="max-w-5xl mx-auto px-4 sm:px-6 lg:px-8 py-12">
         {/* Hero Section */}
         <section className="mb-16">
-          <div className="flex items-center gap-6 mb-6">
+          <div className="flex flex-col sm:flex-row items-center gap-6 mb-6">
             <img
               src="https://github.com/Thibault-GAREL.png"
               alt="Thibault GAREL"
               className="w-32 h-32 rounded-full border-4 border-streamlit-border shadow-lg"
             />
-            <div>
-              <h1 className="text-5xl font-bold text-streamlit-text mb-4">
+            <div className="text-center sm:text-left">
+              <h1 className="text-3xl sm:text-5xl font-bold text-streamlit-text mb-4">
                 Hi! My name is Thibault GAREL
               </h1>
               {/* Contact Links */}
-              <div className="flex gap-4">
+              <div className="flex flex-wrap justify-center sm:justify-start gap-3 sm:gap-4">
                 <a
                   href="https://www.linkedin.com/in/thibaultgarel/"
                   target="_blank"
@@ -314,7 +314,7 @@ export default function Home() {
         {/* Group Projects */}
         <section className="mb-16">
           <h2 className="text-4xl font-bold text-streamlit-text mb-8 pb-2 border-b-2 border-streamlit-border">
-            👥 Projects in Group
+            👥 Project in Group
           </h2>
 
           <div className="bg-streamlit-secondary rounded-xl p-6 mb-6 border border-streamlit-border">
