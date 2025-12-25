@@ -292,7 +292,8 @@ export default function Home() {
               {
                 name: "Smart Mail Labeling",
                 description: "Automatic and intelligent email sorting with labeling",
-                link: "https://github.com/Thibault-GAREL/"
+                link: "https://github.com/Thibault-GAREL/n8n_smart_mail_labeling",
+                image: "https://raw.githubusercontent.com/Thibault-GAREL/n8n_smart_mail_labeling/main/img/logo.png"
               }
             ]}
           />
