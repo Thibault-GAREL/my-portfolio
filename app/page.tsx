@@ -71,49 +71,47 @@ export default function Home() {
 
             <div className="mb-6 flex flex-col sm:flex-row items-center gap-4">
               <span>I'm an AI maker in</span>
-              <div className="flex items-center gap-3 bg-streamlit-secondary px-4 py-2 rounded-lg border border-streamlit-border">
-                <img
-                  src="https://github.com/intelligenceLab-ECE.png"
-                  alt="Intelligence Lab"
-                  className="w-8 h-8 rounded-full"
-                />
-                <span className="font-bold">Intelligence Lab</span>
-                <div className="flex gap-2 ml-2">
+              <div className="flex flex-col sm:flex-row items-center gap-3 bg-streamlit-secondary px-4 py-3 rounded-lg border border-streamlit-border">
+                <div className="flex items-center gap-3">
+                  <img
+                    src="https://github.com/intelligenceLab-ECE.png"
+                    alt="Intelligence Lab"
+                    className="w-8 h-8 rounded-full"
+                  />
+                  <span className="font-bold">Intelligence Lab</span>
+                </div>
+                <div className="flex flex-wrap justify-center gap-2 sm:gap-3">
                   <a
                     href="https://www.linkedin.com/company/intelligence-lab-by-ece"
                     target="_blank"
                     rel="noopener noreferrer"
                     className="text-blue-600 hover:underline text-sm"
-                    title="LinkedIn"
                   >
-                    💼
+                    💼 LinkedIn
                   </a>
                   <a
                     href="https://github.com/intelligenceLab-ECE"
                     target="_blank"
                     rel="noopener noreferrer"
                     className="text-purple-600 hover:underline text-sm"
-                    title="GitHub"
                   >
-                    🐙
+                    🐙 GitHub
                   </a>
                   <a
                     href="https://huggingface.co/ECE-ILAB"
                     target="_blank"
                     rel="noopener noreferrer"
                     className="text-yellow-600 hover:underline text-sm"
-                    title="Hugging Face"
                   >
-                    🤗
+                    🤗 Hugging Face
                   </a>
                   <a
                     href="http://intelligencelab.ai/"
                     target="_blank"
                     rel="noopener noreferrer"
                     className="text-gray-600 hover:underline text-sm"
-                    title="Website"
                   >
-                    🌐
+                    🌐 Website
                   </a>
                 </div>
               </div>
