@@ -1,6 +1,10 @@
-import React from 'react'
+'use client'
+
+import React, { useState } from 'react'
 
 export default function Home() {
+  const [sortBy, setSortBy] = useState<'category' | 'date'>('category')
+
   return (
     <main className="min-h-screen bg-streamlit-bg">
       {/* Header */}
@@ -121,193 +125,41 @@ export default function Home() {
 
         {/* Featured Projects Section */}
         <section className="mb-16">
-          <h2 className="text-4xl font-bold text-streamlit-text mb-8 pb-2 border-b-2 border-streamlit-border">
-            ✨ Featured Projects
-          </h2>
+          <div className="flex flex-col sm:flex-row justify-between items-start sm:items-center mb-8 gap-4">
+            <h2 className="text-4xl font-bold text-streamlit-text pb-2 border-b-2 border-streamlit-border">
+              ✨ Featured Projects
+            </h2>
 
-          {/* Generative AI */}
-          <ProjectCategory
-            title="Generative AI"
-            projects={[
-              {
-                name: "Image Generator - GAN",
-                description: "Generative Adversarial Network built from scratch for image generation",
-                link: "https://github.com/Thibault-GAREL/Image_generator_GAN",
-                image: "https://raw.githubusercontent.com/Thibault-GAREL/Image_generator_GAN/main/Img/Titre.png"
-              },
-              {
-                name: "Language Models",
-                description: "Bigram & Transformer Models coded from scratch",
-                link: "https://github.com/Thibault-GAREL/Language_Models",
-                image: "https://raw.githubusercontent.com/Thibault-GAREL/Language_Models/main/img/Titre-GPT_from_scratch.png"
-              },
-              {
-                name: "RAG - PDF ChatBot",
-                description: "Retrieval Augmented Generation - A chatbot that reads PDFs",
-                link: "https://github.com/Thibault-GAREL/RAG_pdf",
-                image: "https://raw.githubusercontent.com/Thibault-GAREL/RAG_pdf/main/Video/Gif-video.gif"
-              }
-            ]}
-          />
+            {/* Sort Toggle */}
+            <div className="flex gap-2 bg-streamlit-secondary rounded-lg p-1 border border-streamlit-border">
+              <button
+                onClick={() => setSortBy('category')}
+                className={`px-4 py-2 rounded-md transition-colors ${
+                  sortBy === 'category'
+                    ? 'bg-white text-streamlit-text font-semibold shadow-sm'
+                    : 'text-gray-600 hover:text-streamlit-text'
+                }`}
+              >
+                By Category
+              </button>
+              <button
+                onClick={() => setSortBy('date')}
+                className={`px-4 py-2 rounded-md transition-colors ${
+                  sortBy === 'date'
+                    ? 'bg-white text-streamlit-text font-semibold shadow-sm'
+                    : 'text-gray-600 hover:text-streamlit-text'
+                }`}
+              >
+                By Date
+              </button>
+            </div>
+          </div>
 
-          {/* Neural Networks */}
-          <ProjectCategory
-            title="Neural Networks"
-            projects={[
-              {
-                name: "Neural Networks Library",
-                description: "Built from scratch in C",
-                link: "https://github.com/Thibault-GAREL/Neural_Network_from_Scratch",
-                image: "https://raw.githubusercontent.com/Thibault-GAREL/Neural_Network_from_Scratch/main/Images/Gif-neural-network.gif"
-              }
-            ]}
-          />
-
-          {/* Reinforcement Learning */}
-          <ProjectCategory
-            title="Reinforcement Learning"
-            projects={[
-              {
-                name: "Snake AI - Genetic Algorithm",
-                description: "Snake game AI using genetic algorithms",
-                link: "https://github.com/Thibault-GAREL/AI_snake_genetic_version",
-                image: "https://raw.githubusercontent.com/Thibault-GAREL/AI_snake_genetic_version/main/Images/score13.gif"
-              },
-              {
-                name: "Driving AI - Genetic Algorithm",
-                description: "Self-driving car using genetic algorithms",
-                link: "https://github.com/Thibault-GAREL/AI_driving_genetic_version",
-                image: "https://raw.githubusercontent.com/Thibault-GAREL/AI_driving_genetic_version/main/Img/Driving_NEAT_gif.gif"
-              },
-              {
-                name: "Walking AI - Genetic Algorithm",
-                description: "AI learning to walk with complete physics engine (Box2D)",
-                link: "https://github.com/Thibault-GAREL/test_box2D_pygame",
-                image: "https://raw.githubusercontent.com/Thibault-GAREL/test_box2D_pygame/main/img/logo.png"
-              },
-              {
-                name: "Snake AI - Deep Q-Learning",
-                description: "Snake game AI using DQN (in progress)",
-                link: "https://github.com/Thibault-GAREL/AI_snake_DQN_version",
-                inProgress: true,
-                image: "https://cdn-icons-png.flaticon.com/512/3176/3176366.png"
-              },
-              {
-                name: "Driving AI - Deep Q-Learning",
-                description: "Self-driving car using Deep Q-Learning",
-                link: "https://github.com/Thibault-GAREL/AI_driving_DQN_version",
-                image: "https://raw.githubusercontent.com/Thibault-GAREL/AI_driving_DQN_version/main/Images/gif-driving.gif"
-              },
-              {
-                name: "Q-Learning Pathfinding",
-                description: "Q-Learning algorithm to find optimal paths",
-                link: "https://github.com/Thibault-GAREL/Q-Learning",
-                image: "https://raw.githubusercontent.com/Thibault-GAREL/Q-Learning/main/img/Gif-DQN.gif"
-              }
-            ]}
-          />
-
-          {/* Speech Recognition */}
-          <ProjectCategory
-            title="Speech Recognition"
-            projects={[
-              {
-                name: "ASR - Automatic Speech Recognition",
-                description: "School project on speech recognition",
-                link: "https://github.com/Thibault-GAREL/Speech_recognition",
-                image: "https://raw.githubusercontent.com/Thibault-GAREL/Speech_recognition/main/logo.png"
-              }
-            ]}
-          />
-
-          {/* Robotics */}
-          <ProjectCategory
-            title="Robotics"
-            projects={[
-              {
-                name: "Bot controlled by ChatBot RAG",
-                description: "Two-wheeled robot controlled by a RAG chatbot",
-                link: "https://github.com/Thibault-GAREL/Bot_controlled_by_a_Chatbot_RAG",
-                image: "https://raw.githubusercontent.com/Thibault-GAREL/Bot_controlled_by_a_Chatbot_RAG/main/img/Gif-bot.gif"
-              }
-            ]}
-          />
-
-          {/* Games */}
-          <ProjectCategory
-            title="Games (for training AI)"
-            projects={[
-              {
-                name: "Snake Game",
-                description: "Classic snake game for AI training",
-                link: "https://github.com/Thibault-GAREL/snake_game",
-                image: "https://raw.githubusercontent.com/Thibault-GAREL/snake_game/main/img/Snake-game.gif"
-              },
-              {
-                name: "Driving Game",
-                description: "Driving simulation for AI training",
-                link: "https://github.com/Thibault-GAREL/driving_game",
-                image: "https://raw.githubusercontent.com/Thibault-GAREL/driving_game/main/img/Gif_driving_game.gif"
-              },
-              {
-                name: "Human Sandbox",
-                description: "Natural Selection Simulation Engine",
-                link: "https://github.com/Thibault-GAREL/human_sandbox",
-                image: "https://raw.githubusercontent.com/Thibault-GAREL/human_sandbox/main/img/Gif-human-sandbox.gif"
-              }
-            ]}
-          />
-
-          {/* Physics Simulation */}
-          <ProjectCategory
-            title="Physics Simulation"
-            projects={[
-              {
-                name: "Gravity Simulation 2D",
-                description: "2D gravity and orbital mechanics simulation",
-                link: "https://github.com/Thibault-GAREL/gravity_simulation",
-                image: "https://raw.githubusercontent.com/Thibault-GAREL/gravity_simulation/main/img/Gif-gravity.gif"
-              },
-              {
-                name: "Attraction/Repulsion Simulation",
-                description: "Particle attraction and repulsion physics",
-                link: "https://github.com/Thibault-GAREL/Attraction_repulsion",
-                image: "https://raw.githubusercontent.com/Thibault-GAREL/Attraction_repulsion/main/img/Gif-orbit.gif"
-              }
-            ]}
-          />
-
-          {/* n8n Projects */}
-          <ProjectCategory
-            title="n8n Automation"
-            projects={[
-              {
-                name: "WhatsApp AI",
-                description: "My own local AI accessible through WhatsApp",
-                link: "https://github.com/Thibault-GAREL/n8n_Whatsapp_LLM",
-                image: "https://raw.githubusercontent.com/Thibault-GAREL/n8n_Whatsapp_LLM/main/img/img.png"
-              },
-              {
-                name: "Smart Mail Labeling",
-                description: "Automatic and intelligent email sorting with labeling",
-                link: "https://github.com/Thibault-GAREL/n8n_smart_mail_labeling",
-                image: "https://raw.githubusercontent.com/Thibault-GAREL/n8n_smart_mail_labeling/main/img/logo.png"
-              }
-            ]}
-          />
-
-          {/* Data Analysis */}
-          <ProjectCategory
-            title="Data Analysis"
-            projects={[
-              {
-                name: "ISS Analysis with Spark",
-                description: "Real-time ISS data analysis using Apache Spark",
-                link: "https://github.com/Thibault-GAREL/ISS_Analysis_Spark",
-                image: "https://raw.githubusercontent.com/Thibault-GAREL/ISS_Analysis_Spark/master/Img/ISS-img.jpg"
-              }
-            ]}
-          />
+          {sortBy === 'category' ? (
+            <ProjectsByCategory />
+          ) : (
+            <ProjectsByDate />
+          )}
         </section>
 
         {/* Group Projects */}
@@ -336,9 +188,10 @@ export default function Home() {
                   <span className="text-lg text-green-600 ml-3">🏆 3rd / 15 schools</span>
                 </h3>
 
-                <p className="text-lg">
+                <p className="text-lg mb-2">
                   AI system to detect anomalies and breakdowns in French army logs
                 </p>
+                <p className="text-sm text-gray-600">📅 November 18-20, 2025 • 4th year</p>
               </div>
             </div>
 
@@ -501,6 +354,14 @@ export default function Home() {
                 💼 LinkedIn
               </a>
               <a
+                href="https://github.com/Thibault-GAREL"
+                target="_blank"
+                rel="noopener noreferrer"
+                className="text-purple-600 hover:underline"
+              >
+                🐙 GitHub
+              </a>
+              <a
                 href="https://huggingface.co/Thibault-GAREL"
                 target="_blank"
                 rel="noopener noreferrer"
@@ -522,6 +383,634 @@ export default function Home() {
   )
 }
 
+// Projects sorted by category
+function ProjectsByCategory() {
+  return (
+    <>
+      {/* Generative AI */}
+      <ProjectCategory
+        title="Generative AI"
+        projects={[
+          {
+            name: "Image Generator - GAN",
+            description: "Generative Adversarial Network built from scratch for image generation",
+            link: "https://github.com/Thibault-GAREL/Image_generator_GAN",
+            image: "https://raw.githubusercontent.com/Thibault-GAREL/Image_generator_GAN/main/Img/Titre.png",
+            date: "Feb - Sep 2025",
+            year: "4th year"
+          },
+          {
+            name: "Language Models",
+            description: "Bigram & Transformer Models coded from scratch",
+            link: "https://github.com/Thibault-GAREL/Language_Models",
+            image: "https://raw.githubusercontent.com/Thibault-GAREL/Language_Models/main/img/Titre-GPT_from_scratch.png",
+            date: "Sep - Dec 2025",
+            year: "4th year"
+          },
+          {
+            name: "RAG - PDF ChatBot",
+            description: "Retrieval Augmented Generation - A chatbot that reads PDFs",
+            link: "https://github.com/Thibault-GAREL/RAG_pdf",
+            image: "https://raw.githubusercontent.com/Thibault-GAREL/RAG_pdf/main/Video/Gif-video.gif",
+            date: "Oct 2025",
+            year: "4th year"
+          },
+          {
+            name: "CLIP Embedding Tools",
+            description: "Opposite Embedding Finder and Embedding Arithmetic",
+            link: "https://github.com/Thibault-GAREL/CLIP_Embedding_Tools",
+            image: "https://raw.githubusercontent.com/Thibault-GAREL/CLIP_Embedding_Tools/main/img/logo.png",
+            date: "Dec 2025",
+            year: "4th year"
+          }
+        ]}
+      />
+
+      {/* Neural Networks */}
+      <ProjectCategory
+        title="Neural Networks"
+        projects={[
+          {
+            name: "Neural Networks Library",
+            description: "Built from scratch in C",
+            link: "https://github.com/Thibault-GAREL/Neural_Network_from_Scratch",
+            image: "https://raw.githubusercontent.com/Thibault-GAREL/Neural_Network_from_Scratch/main/Images/Gif-neural-network.gif",
+            date: "Mar 2024 - Jan 2025",
+            year: "3rd - 4th year"
+          }
+        ]}
+      />
+
+      {/* Reinforcement Learning */}
+      <div className="mb-10">
+        <h3 className="text-2xl font-bold text-streamlit-text mb-6">Reinforcement Learning</h3>
+
+        {/* Genetic Algorithm */}
+        <div className="mb-8">
+          <h4 className="text-xl font-semibold text-gray-700 mb-4 ml-4">🧬 Genetic Algorithm</h4>
+          <div className="grid gap-4 md:grid-cols-2">
+            {[
+              {
+                name: "Snake AI - Genetic Algorithm",
+                description: "Snake game AI using genetic algorithms",
+                link: "https://github.com/Thibault-GAREL/AI_snake_genetic_version",
+                image: "https://raw.githubusercontent.com/Thibault-GAREL/AI_snake_genetic_version/main/Images/score13.gif",
+                date: "Aug 2024 - Sep 2025",
+                year: "3rd - 4th year"
+              },
+              {
+                name: "Driving AI - Genetic Algorithm",
+                description: "Self-driving car using genetic algorithms",
+                link: "https://github.com/Thibault-GAREL/AI_driving_genetic_version",
+                image: "https://raw.githubusercontent.com/Thibault-GAREL/AI_driving_genetic_version/main/Img/Driving_NEAT_gif.gif",
+                date: "Jan - Sep 2025",
+                year: "4th year"
+              },
+              {
+                name: "Walking AI - Genetic Algorithm",
+                description: "AI learning to walk with complete physics engine (Box2D)",
+                link: "https://github.com/Thibault-GAREL/test_box2D_pygame",
+                image: "https://raw.githubusercontent.com/Thibault-GAREL/test_box2D_pygame/main/img/logo.png",
+                inProgress: true,
+                date: "Oct 2025 - Present",
+                year: "4th year"
+              }
+            ].map((project) => (
+              <ProjectCard key={project.name} project={project} />
+            ))}
+          </div>
+        </div>
+
+        {/* Deep Q-Learning */}
+        <div className="mb-8">
+          <h4 className="text-xl font-semibold text-gray-700 mb-4 ml-4">🎯 Deep Q-Learning</h4>
+          <div className="grid gap-4 md:grid-cols-2">
+            {[
+              {
+                name: "Snake AI - Deep Q-Learning",
+                description: "Snake game AI using DQN (in progress)",
+                link: "https://github.com/Thibault-GAREL/AI_snake_DQN_version",
+                inProgress: true,
+                image: "https://cdn-icons-png.flaticon.com/512/3176/3176366.png",
+                date: "Jul 2024 - Present",
+                year: "3rd - 4th year"
+              },
+              {
+                name: "Driving AI - Deep Q-Learning",
+                description: "Self-driving car using Deep Q-Learning",
+                link: "https://github.com/Thibault-GAREL/AI_driving_DQN_version",
+                image: "https://raw.githubusercontent.com/Thibault-GAREL/AI_driving_DQN_version/main/Images/gif-driving.gif",
+                date: "Jan - Sep 2025",
+                year: "4th year"
+              }
+            ].map((project) => (
+              <ProjectCard key={project.name} project={project} />
+            ))}
+          </div>
+        </div>
+
+        {/* Q-Learning */}
+        <div className="mb-8">
+          <h4 className="text-xl font-semibold text-gray-700 mb-4 ml-4">🗺️ Q-Learning</h4>
+          <div className="grid gap-4 md:grid-cols-2">
+            <ProjectCard
+              project={{
+                name: "Q-Learning Pathfinding",
+                description: "Q-Learning algorithm to find optimal paths",
+                link: "https://github.com/Thibault-GAREL/Q-Learning",
+                image: "https://raw.githubusercontent.com/Thibault-GAREL/Q-Learning/main/img/Gif-DQN.gif",
+                date: "Sep 2023",
+                year: "2nd year"
+              }}
+            />
+          </div>
+        </div>
+
+        {/* PPO */}
+        <div className="mb-8">
+          <h4 className="text-xl font-semibold text-gray-700 mb-4 ml-4">🚀 PPO (Proximal Policy Optimization)</h4>
+          <div className="grid gap-4 md:grid-cols-2">
+            {[
+              {
+                name: "Snake AI - PPO",
+                description: "Snake game AI using Proximal Policy Optimization",
+                link: "https://github.com/Thibault-GAREL/AI_snake_PPO_version",
+                image: "https://raw.githubusercontent.com/Thibault-GAREL/AI_snake_PPO_version/main/img/logo.png",
+                inProgress: true,
+                date: "Dec 2025 - Present",
+                year: "4th year"
+              },
+              {
+                name: "StarCraft 2 AI (VLM + RL)",
+                description: "A StarCraft 2 AI combining Vision-Language Model and Reinforcement Learning",
+                link: "https://github.com/Thibault-GAREL/AI-StarCraft2-VLM-RL",
+                image: "https://raw.githubusercontent.com/Thibault-GAREL/AI-StarCraft2-VLM-RL/main/img/logo.png",
+                inProgress: true,
+                date: "Oct 2025 - Present",
+                year: "4th year"
+              },
+              {
+                name: "Unity AI - Movement",
+                description: "Unity AI learning to move using PPO",
+                link: "https://github.com/Thibault-GAREL/Unity_move",
+                image: "https://raw.githubusercontent.com/Thibault-GAREL/Unity_move/main/img/logo.png",
+                date: "2025",
+                year: "4th year"
+              },
+              {
+                name: "Unity AI - Greedy",
+                description: "Unity AI learning to catch money using PPO",
+                link: "https://github.com/Thibault-GAREL/Unity_greedy",
+                image: "https://raw.githubusercontent.com/Thibault-GAREL/Unity_greedy/main/img/logo.png",
+                date: "2025",
+                year: "4th year"
+              },
+              {
+                name: "Unity AI - Driving",
+                description: "Unity AI learning to drive using PPO",
+                link: "https://github.com/Thibault-GAREL/Unity_drive",
+                image: "https://raw.githubusercontent.com/Thibault-GAREL/Unity_drive/main/img/logo.png",
+                date: "2025",
+                year: "4th year"
+              }
+            ].map((project) => (
+              <ProjectCard key={project.name} project={project} />
+            ))}
+          </div>
+        </div>
+      </div>
+
+      {/* Speech Recognition */}
+      <ProjectCategory
+        title="Speech Recognition"
+        projects={[
+          {
+            name: "ASR - Automatic Speech Recognition",
+            description: "School project on speech recognition",
+            link: "https://github.com/Thibault-GAREL/Speech_recognition",
+            image: "https://raw.githubusercontent.com/Thibault-GAREL/Speech_recognition/main/logo.png",
+            date: "Apr - Jun 2025",
+            year: "4th year"
+          }
+        ]}
+      />
+
+      {/* Robotics */}
+      <ProjectCategory
+        title="Robotics"
+        projects={[
+          {
+            name: "Bot controlled by ChatBot RAG",
+            description: "Two-wheeled robot controlled by a RAG chatbot",
+            link: "https://github.com/Thibault-GAREL/Bot_controlled_by_a_Chatbot_RAG",
+            image: "https://raw.githubusercontent.com/Thibault-GAREL/Bot_controlled_by_a_Chatbot_RAG/main/img/Gif-bot.gif",
+            date: "2025",
+            year: "4th year"
+          }
+        ]}
+      />
+
+      {/* Games */}
+      <ProjectCategory
+        title="Games (for training AI)"
+        projects={[
+          {
+            name: "Snake Game",
+            description: "Classic snake game for AI training",
+            link: "https://github.com/Thibault-GAREL/snake_game",
+            image: "https://raw.githubusercontent.com/Thibault-GAREL/snake_game/main/img/Snake-game.gif",
+            date: "Jul 2024 - Sep 2025",
+            year: "3rd - 4th year"
+          },
+          {
+            name: "Driving Game",
+            description: "Driving simulation for AI training",
+            link: "https://github.com/Thibault-GAREL/driving_game",
+            image: "https://raw.githubusercontent.com/Thibault-GAREL/driving_game/main/img/Gif_driving_game.gif",
+            date: "Jan - Sep 2025",
+            year: "4th year"
+          },
+          {
+            name: "Human Sandbox",
+            description: "Natural Selection Simulation Engine",
+            link: "https://github.com/Thibault-GAREL/human_sandbox",
+            image: "https://raw.githubusercontent.com/Thibault-GAREL/human_sandbox/main/img/Gif-human-sandbox.gif",
+            date: "Jun - Sep 2025",
+            year: "4th year"
+          }
+        ]}
+      />
+
+      {/* Physics Simulation */}
+      <ProjectCategory
+        title="Physics Simulation"
+        projects={[
+          {
+            name: "Gravity Simulation 2D",
+            description: "2D gravity and orbital mechanics simulation",
+            link: "https://github.com/Thibault-GAREL/gravity_simulation",
+            image: "https://raw.githubusercontent.com/Thibault-GAREL/gravity_simulation/main/img/Gif-gravity.gif",
+            date: "Jun - Aug 2023",
+            year: "2nd year"
+          },
+          {
+            name: "Attraction/Repulsion Simulation",
+            description: "Particle attraction and repulsion physics",
+            link: "https://github.com/Thibault-GAREL/Attraction_repulsion",
+            image: "https://raw.githubusercontent.com/Thibault-GAREL/Attraction_repulsion/main/img/Gif-orbit.gif",
+            date: "Jan - Sep 2025",
+            year: "4th year"
+          }
+        ]}
+      />
+
+      {/* n8n Projects */}
+      <ProjectCategory
+        title="n8n Automation"
+        projects={[
+          {
+            name: "WhatsApp AI",
+            description: "My own local AI accessible through WhatsApp",
+            link: "https://github.com/Thibault-GAREL/n8n_Whatsapp_LLM",
+            image: "https://raw.githubusercontent.com/Thibault-GAREL/n8n_Whatsapp_LLM/main/img/img.png",
+            date: "Jul 2025",
+            year: "4th year"
+          },
+          {
+            name: "Smart Mail Labeling",
+            description: "Automatic and intelligent email sorting with labeling",
+            link: "https://github.com/Thibault-GAREL/n8n_smart_mail_labeling",
+            image: "https://raw.githubusercontent.com/Thibault-GAREL/n8n_smart_mail_labeling/main/img/logo.png",
+            date: "Jul 2025",
+            year: "4th year"
+          }
+        ]}
+      />
+
+      {/* Data Analysis */}
+      <ProjectCategory
+        title="Data Analysis"
+        projects={[
+          {
+            name: "ISS Analysis with Spark",
+            description: "Real-time ISS data analysis using Apache Spark",
+            link: "https://github.com/Thibault-GAREL/ISS_Analysis_Spark",
+            image: "https://raw.githubusercontent.com/Thibault-GAREL/ISS_Analysis_Spark/master/Img/ISS-img.jpg",
+            date: "Nov - Dec 2025",
+            year: "4th year"
+          }
+        ]}
+      />
+    </>
+  )
+}
+
+// Projects sorted by date
+function ProjectsByDate() {
+  const allProjects = [
+    {
+      name: "CLIP Embedding Tools",
+      description: "Opposite Embedding Finder and Embedding Arithmetic",
+      link: "https://github.com/Thibault-GAREL/CLIP_Embedding_Tools",
+      image: "https://raw.githubusercontent.com/Thibault-GAREL/CLIP_Embedding_Tools/main/img/logo.png",
+      date: "Dec 2025",
+      year: "4th year",
+      category: "Generative AI",
+      sortDate: new Date("2025-12-27")
+    },
+    {
+      name: "Snake AI - PPO",
+      description: "Snake game AI using Proximal Policy Optimization",
+      link: "https://github.com/Thibault-GAREL/AI_snake_PPO_version",
+      image: "https://raw.githubusercontent.com/Thibault-GAREL/AI_snake_PPO_version/main/img/logo.png",
+      inProgress: true,
+      date: "Dec 2025 - Present",
+      year: "4th year",
+      category: "Reinforcement Learning - PPO",
+      sortDate: new Date("2025-12-27")
+    },
+    {
+      name: "Language Models",
+      description: "Bigram & Transformer Models coded from scratch",
+      link: "https://github.com/Thibault-GAREL/Language_Models",
+      image: "https://raw.githubusercontent.com/Thibault-GAREL/Language_Models/main/img/Titre-GPT_from_scratch.png",
+      date: "Sep - Dec 2025",
+      year: "4th year",
+      category: "Generative AI",
+      sortDate: new Date("2025-12-24")
+    },
+    {
+      name: "ISS Analysis with Spark",
+      description: "Real-time ISS data analysis using Apache Spark",
+      link: "https://github.com/Thibault-GAREL/ISS_Analysis_Spark",
+      image: "https://raw.githubusercontent.com/Thibault-GAREL/ISS_Analysis_Spark/master/Img/ISS-img.jpg",
+      date: "Nov - Dec 2025",
+      year: "4th year",
+      category: "Data Analysis",
+      sortDate: new Date("2025-12-21")
+    },
+    {
+      name: "StarCraft 2 AI (VLM + RL)",
+      description: "A StarCraft 2 AI combining Vision-Language Model and Reinforcement Learning",
+      link: "https://github.com/Thibault-GAREL/AI-StarCraft2-VLM-RL",
+      image: "https://raw.githubusercontent.com/Thibault-GAREL/AI-StarCraft2-VLM-RL/main/img/logo.png",
+      inProgress: true,
+      date: "Oct 2025 - Present",
+      year: "4th year",
+      category: "Reinforcement Learning - PPO",
+      sortDate: new Date("2025-10-22")
+    },
+    {
+      name: "Walking AI - Genetic Algorithm",
+      description: "AI learning to walk with complete physics engine (Box2D)",
+      link: "https://github.com/Thibault-GAREL/test_box2D_pygame",
+      image: "https://raw.githubusercontent.com/Thibault-GAREL/test_box2D_pygame/main/img/logo.png",
+      inProgress: true,
+      date: "Oct 2025 - Present",
+      year: "4th year",
+      category: "Reinforcement Learning - GA",
+      sortDate: new Date("2025-10-12")
+    },
+    {
+      name: "RAG - PDF ChatBot",
+      description: "Retrieval Augmented Generation - A chatbot that reads PDFs",
+      link: "https://github.com/Thibault-GAREL/RAG_pdf",
+      image: "https://raw.githubusercontent.com/Thibault-GAREL/RAG_pdf/main/Video/Gif-video.gif",
+      date: "Oct 2025",
+      year: "4th year",
+      category: "Generative AI",
+      sortDate: new Date("2025-10-12")
+    },
+    {
+      name: "Image Generator - GAN",
+      description: "Generative Adversarial Network built from scratch for image generation",
+      link: "https://github.com/Thibault-GAREL/Image_generator_GAN",
+      image: "https://raw.githubusercontent.com/Thibault-GAREL/Image_generator_GAN/main/Img/Titre.png",
+      date: "Feb - Sep 2025",
+      year: "4th year",
+      category: "Generative AI",
+      sortDate: new Date("2025-09-24")
+    },
+    {
+      name: "Attraction/Repulsion Simulation",
+      description: "Particle attraction and repulsion physics",
+      link: "https://github.com/Thibault-GAREL/Attraction_repulsion",
+      image: "https://raw.githubusercontent.com/Thibault-GAREL/Attraction_repulsion/main/img/Gif-orbit.gif",
+      date: "Jan - Sep 2025",
+      year: "4th year",
+      category: "Physics Simulation",
+      sortDate: new Date("2025-09-29")
+    },
+    {
+      name: "Driving AI - Genetic Algorithm",
+      description: "Self-driving car using genetic algorithms",
+      link: "https://github.com/Thibault-GAREL/AI_driving_genetic_version",
+      image: "https://raw.githubusercontent.com/Thibault-GAREL/AI_driving_genetic_version/main/Img/Driving_NEAT_gif.gif",
+      date: "Jan - Sep 2025",
+      year: "4th year",
+      category: "Reinforcement Learning - GA",
+      sortDate: new Date("2025-09-28")
+    },
+    {
+      name: "Driving Game",
+      description: "Driving simulation for AI training",
+      link: "https://github.com/Thibault-GAREL/driving_game",
+      image: "https://raw.githubusercontent.com/Thibault-GAREL/driving_game/main/img/Gif_driving_game.gif",
+      date: "Jan - Sep 2025",
+      year: "4th year",
+      category: "Games",
+      sortDate: new Date("2025-09-25")
+    },
+    {
+      name: "Human Sandbox",
+      description: "Natural Selection Simulation Engine",
+      link: "https://github.com/Thibault-GAREL/human_sandbox",
+      image: "https://raw.githubusercontent.com/Thibault-GAREL/human_sandbox/main/img/Gif-human-sandbox.gif",
+      date: "Jun - Sep 2025",
+      year: "4th year",
+      category: "Games",
+      sortDate: new Date("2025-09-21")
+    },
+    {
+      name: "Snake Game",
+      description: "Classic snake game for AI training",
+      link: "https://github.com/Thibault-GAREL/snake_game",
+      image: "https://raw.githubusercontent.com/Thibault-GAREL/snake_game/main/img/Snake-game.gif",
+      date: "Jul 2024 - Sep 2025",
+      year: "3rd - 4th year",
+      category: "Games",
+      sortDate: new Date("2025-09-20")
+    },
+    {
+      name: "Snake AI - Genetic Algorithm",
+      description: "Snake game AI using genetic algorithms",
+      link: "https://github.com/Thibault-GAREL/AI_snake_genetic_version",
+      image: "https://raw.githubusercontent.com/Thibault-GAREL/AI_snake_genetic_version/main/Images/score13.gif",
+      date: "Aug 2024 - Sep 2025",
+      year: "3rd - 4th year",
+      category: "Reinforcement Learning - GA",
+      sortDate: new Date("2025-09-11")
+    },
+    {
+      name: "Driving AI - Deep Q-Learning",
+      description: "Self-driving car using Deep Q-Learning",
+      link: "https://github.com/Thibault-GAREL/AI_driving_DQN_version",
+      image: "https://raw.githubusercontent.com/Thibault-GAREL/AI_driving_DQN_version/main/Images/gif-driving.gif",
+      date: "Jan - Sep 2025",
+      year: "4th year",
+      category: "Reinforcement Learning - DQL",
+      sortDate: new Date("2025-09-09")
+    },
+    {
+      name: "Unity AI - Movement",
+      description: "Unity AI learning to move using PPO",
+      link: "https://github.com/Thibault-GAREL/Unity_move",
+      image: "https://raw.githubusercontent.com/Thibault-GAREL/Unity_move/main/img/logo.png",
+      date: "2025",
+      year: "4th year",
+      category: "Reinforcement Learning - PPO",
+      sortDate: new Date("2025-12-31")
+    },
+    {
+      name: "Unity AI - Greedy",
+      description: "Unity AI learning to catch money using PPO",
+      link: "https://github.com/Thibault-GAREL/Unity_greedy",
+      image: "https://raw.githubusercontent.com/Thibault-GAREL/Unity_greedy/main/img/logo.png",
+      date: "2025",
+      year: "4th year",
+      category: "Reinforcement Learning - PPO",
+      sortDate: new Date("2025-12-31")
+    },
+    {
+      name: "Unity AI - Driving",
+      description: "Unity AI learning to drive using PPO",
+      link: "https://github.com/Thibault-GAREL/Unity_drive",
+      image: "https://raw.githubusercontent.com/Thibault-GAREL/Unity_drive/main/img/logo.png",
+      date: "2025",
+      year: "4th year",
+      category: "Reinforcement Learning - PPO",
+      sortDate: new Date("2025-12-31")
+    },
+    {
+      name: "Smart Mail Labeling",
+      description: "Automatic and intelligent email sorting with labeling",
+      link: "https://github.com/Thibault-GAREL/n8n_smart_mail_labeling",
+      image: "https://raw.githubusercontent.com/Thibault-GAREL/n8n_smart_mail_labeling/main/img/logo.png",
+      date: "Jul 2025",
+      year: "4th year",
+      category: "n8n Automation",
+      sortDate: new Date("2025-07-26")
+    },
+    {
+      name: "WhatsApp AI",
+      description: "My own local AI accessible through WhatsApp",
+      link: "https://github.com/Thibault-GAREL/n8n_Whatsapp_LLM",
+      image: "https://raw.githubusercontent.com/Thibault-GAREL/n8n_Whatsapp_LLM/main/img/img.png",
+      date: "Jul 2025",
+      year: "4th year",
+      category: "n8n Automation",
+      sortDate: new Date("2025-07-24")
+    },
+    {
+      name: "ASR - Automatic Speech Recognition",
+      description: "School project on speech recognition",
+      link: "https://github.com/Thibault-GAREL/Speech_recognition",
+      image: "https://raw.githubusercontent.com/Thibault-GAREL/Speech_recognition/main/logo.png",
+      date: "Apr - Jun 2025",
+      year: "4th year",
+      category: "Speech Recognition",
+      sortDate: new Date("2025-06-11")
+    },
+    {
+      name: "Neural Networks Library",
+      description: "Built from scratch in C",
+      link: "https://github.com/Thibault-GAREL/Neural_Network_from_Scratch",
+      image: "https://raw.githubusercontent.com/Thibault-GAREL/Neural_Network_from_Scratch/main/Images/Gif-neural-network.gif",
+      date: "Mar 2024 - Jan 2025",
+      year: "3rd - 4th year",
+      category: "Neural Networks",
+      sortDate: new Date("2025-01-13")
+    },
+    {
+      name: "Snake AI - Deep Q-Learning",
+      description: "Snake game AI using DQN (in progress)",
+      link: "https://github.com/Thibault-GAREL/AI_snake_DQN_version",
+      inProgress: true,
+      image: "https://cdn-icons-png.flaticon.com/512/3176/3176366.png",
+      date: "Jul 2024 - Present",
+      year: "3rd - 4th year",
+      category: "Reinforcement Learning - DQL",
+      sortDate: new Date("2024-07-13")
+    },
+    {
+      name: "Gravity Simulation 2D",
+      description: "2D gravity and orbital mechanics simulation",
+      link: "https://github.com/Thibault-GAREL/gravity_simulation",
+      image: "https://raw.githubusercontent.com/Thibault-GAREL/gravity_simulation/main/img/Gif-gravity.gif",
+      date: "Jun - Aug 2023",
+      year: "2nd year",
+      category: "Physics Simulation",
+      sortDate: new Date("2023-08-30")
+    },
+    {
+      name: "Q-Learning Pathfinding",
+      description: "Q-Learning algorithm to find optimal paths",
+      link: "https://github.com/Thibault-GAREL/Q-Learning",
+      image: "https://raw.githubusercontent.com/Thibault-GAREL/Q-Learning/main/img/Gif-DQN.gif",
+      date: "Sep 2023",
+      year: "2nd year",
+      category: "Reinforcement Learning - Q-Learning",
+      sortDate: new Date("2023-09-20")
+    }
+  ]
+
+  // Sort by date (newest first)
+  const sortedProjects = allProjects.sort((a, b) => b.sortDate.getTime() - a.sortDate.getTime())
+
+  return (
+    <div className="space-y-6">
+      {sortedProjects.map((project) => (
+        <div key={project.name} className="bg-streamlit-secondary rounded-xl p-4 border border-streamlit-border hover:shadow-lg transition-shadow">
+          <div className="flex gap-4">
+            {project.image && (
+              <div className="flex-shrink-0 w-32 h-32 rounded-lg overflow-hidden">
+                <img
+                  src={project.image}
+                  alt={project.name}
+                  className="w-full h-full object-cover"
+                />
+              </div>
+            )}
+            <div className="flex-1 min-w-0">
+              <div className="flex justify-between items-start mb-2">
+                <div className="flex-1">
+                  <a
+                    href={project.link}
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    className="text-lg font-semibold text-streamlit-text hover:text-blue-600 mb-1 inline-block"
+                  >
+                    {project.name}
+                    {project.inProgress && (
+                      <span className="ml-2 text-sm text-orange-600">🚧 In Progress</span>
+                    )}
+                  </a>
+                  <p className="text-sm text-gray-500 mb-1">{project.category}</p>
+                </div>
+              </div>
+              <p className="text-gray-600 text-sm mb-2">{project.description}</p>
+              <div className="flex gap-4 text-xs text-gray-500">
+                <span>📅 {project.date}</span>
+                <span>🎓 {project.year}</span>
+              </div>
+            </div>
+          </div>
+        </div>
+      ))}
+    </div>
+  )
+}
+
 // Component for project categories
 function ProjectCategory({
   title,
@@ -534,6 +1023,8 @@ function ProjectCategory({
     link: string
     inProgress?: boolean
     image?: string
+    date?: string
+    year?: string
   }>
 }) {
   return (
@@ -541,35 +1032,59 @@ function ProjectCategory({
       <h3 className="text-2xl font-bold text-streamlit-text mb-4">{title}</h3>
       <div className="grid gap-4 md:grid-cols-2">
         {projects.map((project) => (
-          <a
-            key={project.name}
-            href={project.link}
-            target="_blank"
-            rel="noopener noreferrer"
-            className="bg-streamlit-secondary rounded-xl p-4 border border-streamlit-border hover:shadow-lg transition-shadow group flex gap-4"
-          >
-            {project.image && (
-              <div className="flex-shrink-0 w-32 h-32 rounded-lg overflow-hidden">
-                <img
-                  src={project.image}
-                  alt={project.name}
-                  className="w-full h-full object-cover"
-                />
-              </div>
-            )}
-            <div className="flex-1 min-w-0">
-              <h4 className="text-lg font-semibold text-streamlit-text group-hover:text-blue-600 mb-2">
-                {project.name}
-                {project.inProgress && (
-                  <span className="ml-2 text-sm text-orange-600">🚧 In Progress</span>
-                )}
-              </h4>
-              <p className="text-gray-600 text-sm">{project.description}</p>
-            </div>
-          </a>
+          <ProjectCard key={project.name} project={project} />
         ))}
       </div>
     </div>
+  )
+}
+
+// Project card component
+function ProjectCard({
+  project
+}: {
+  project: {
+    name: string
+    description: string
+    link: string
+    inProgress?: boolean
+    image?: string
+    date?: string
+    year?: string
+  }
+}) {
+  return (
+    <a
+      href={project.link}
+      target="_blank"
+      rel="noopener noreferrer"
+      className="bg-streamlit-secondary rounded-xl p-4 border border-streamlit-border hover:shadow-lg transition-shadow group flex gap-4"
+    >
+      {project.image && (
+        <div className="flex-shrink-0 w-32 h-32 rounded-lg overflow-hidden">
+          <img
+            src={project.image}
+            alt={project.name}
+            className="w-full h-full object-cover"
+          />
+        </div>
+      )}
+      <div className="flex-1 min-w-0">
+        <h4 className="text-lg font-semibold text-streamlit-text group-hover:text-blue-600 mb-2">
+          {project.name}
+          {project.inProgress && (
+            <span className="ml-2 text-sm text-orange-600">🚧 In Progress</span>
+          )}
+        </h4>
+        <p className="text-gray-600 text-sm mb-2">{project.description}</p>
+        {(project.date || project.year) && (
+          <div className="flex gap-3 text-xs text-gray-500">
+            {project.date && <span>📅 {project.date}</span>}
+            {project.year && <span>🎓 {project.year}</span>}
+          </div>
+        )}
+      </div>
+    </a>
   )
 }
 
