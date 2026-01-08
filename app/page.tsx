@@ -169,12 +169,12 @@ export default function Home() {
           </h2>
 
           <div className="bg-streamlit-secondary rounded-xl p-6 mb-6 border border-streamlit-border">
-            <div className="grid grid-cols-[auto_1fr_auto] gap-6 mb-4">
-              {/* Logo on the left */}
+            <div className="grid grid-cols-1 lg:grid-cols-[auto_1fr_auto] gap-6 mb-4">
+              {/* Logo on the left (hidden on mobile, shown on desktop) */}
               <img
                 src="https://www.defense.gouv.fr/sites/default/files/styles/homepage_medallion/public/cnd/Logo_CND_PA.png?itok=MRux1fZ_"
                 alt="CND Logo"
-                className="w-24 h-24 object-contain"
+                className="hidden lg:block w-24 h-24 object-contain"
               />
 
               {/* Main content in the middle */}
@@ -220,13 +220,13 @@ export default function Home() {
                 </div>
               </div>
 
-              {/* Code links in a column on the right */}
-              <div className="flex flex-col gap-3 justify-center">
+              {/* Code links - column on desktop, row on mobile */}
+              <div className="flex flex-row lg:flex-col gap-3 justify-center">
                 <a
                   href="https://github.com/Rqbln/dirisi25-hackathon-frontend"
                   target="_blank"
                   rel="noopener noreferrer"
-                  className="bg-white px-4 py-3 rounded-lg border border-streamlit-border text-blue-600 hover:bg-blue-50 transition-colors text-center whitespace-nowrap"
+                  className="bg-white px-4 py-3 rounded-lg border border-streamlit-border text-blue-600 hover:bg-blue-50 transition-colors text-center whitespace-nowrap flex-1 lg:flex-none"
                 >
                   🐱 Frontend Code
                 </a>
@@ -234,7 +234,7 @@ export default function Home() {
                   href="https://github.com/Rqbln/dirisi25-hackathon-backend"
                   target="_blank"
                   rel="noopener noreferrer"
-                  className="bg-white px-4 py-3 rounded-lg border border-streamlit-border text-blue-600 hover:bg-blue-50 transition-colors text-center whitespace-nowrap"
+                  className="bg-white px-4 py-3 rounded-lg border border-streamlit-border text-blue-600 hover:bg-blue-50 transition-colors text-center whitespace-nowrap flex-1 lg:flex-none"
                 >
                   🐱 Backend Code
                 </a>
@@ -1198,28 +1198,32 @@ function GanttChart() {
     }
   }
 
-  // Generate quarterly markers
+  // Generate monthly markers for more precision
   const timelineMarkers = []
+  const monthNames = ["Jan", "Feb", "Mar", "Apr", "May", "Jun", "Jul", "Aug", "Sep", "Oct", "Nov", "Dec"]
   let currentDate = new Date("2023-06-01")
+
   while (currentDate <= endDate) {
     const position = ((currentDate.getTime() - startDate.getTime()) / (totalDays * 24 * 60 * 60 * 1000)) * 100
     const month = currentDate.getMonth()
     const year = currentDate.getFullYear()
 
-    // Show year at the beginning of each year
+    // Show year label at the beginning of each year
     if (month === 0 || (year === 2023 && month === 6)) {
       timelineMarkers.push({
         position,
         label: year.toString(),
-        isYear: true
+        isYear: true,
+        isMajor: true
       })
-    } else if (month % 3 === 0) {
-      // Show quarter markers (Q1, Q2, Q3, Q4)
-      const quarter = Math.floor(month / 3) + 1
+    }
+    // Show month abbreviation for every month
+    else {
       timelineMarkers.push({
         position,
-        label: `Q${quarter}`,
-        isYear: false
+        label: monthNames[month],
+        isYear: false,
+        isMajor: month % 3 === 0 // Highlight quarters
       })
     }
 
@@ -1229,11 +1233,12 @@ function GanttChart() {
   // Group projects by category for legend
   const categories = Array.from(new Set(projects.map(p => p.category)))
 
-  // Calculate year periods for the header
+  // Calculate year periods for the header - separate all academic years
   const yearPeriods = [
-    { label: "1st-2nd year", start: "2023-06-01", end: "2024-06-30" },
-    { label: "3rd year", start: "2024-07-01", end: "2024-12-31" },
-    { label: "4th year", start: "2025-01-01", end: "2026-05-31" }
+    { label: "1st year", start: "2023-06-01", end: "2023-12-31", color: "#E3F2FD" },
+    { label: "2nd year", start: "2024-01-01", end: "2024-06-30", color: "#F3E5F5" },
+    { label: "3rd year", start: "2024-07-01", end: "2025-06-30", color: "#FFF3E0" },
+    { label: "4th year", start: "2025-07-01", end: "2026-05-31", color: "#E8F5E9" }
   ]
 
   return (
@@ -1241,32 +1246,32 @@ function GanttChart() {
       {/* Timeline */}
       <div className="bg-white rounded-lg p-4 border border-streamlit-border overflow-x-auto">
         {/* Year periods header */}
-        <div className="mb-2 relative h-10">
+        <div className="mb-3 relative h-12">
           {yearPeriods.map((period, idx) => {
             const periodStyle = getBarStyle(period.start, period.end)
             return (
               <div
                 key={idx}
-                className="absolute h-10 rounded-lg border-2 border-streamlit-border flex items-center justify-center"
+                className="absolute h-12 rounded-lg border-2 border-gray-400 flex items-center justify-center shadow-sm"
                 style={{
                   left: periodStyle.left,
                   width: periodStyle.width,
-                  backgroundColor: '#f8f9fa'
+                  backgroundColor: period.color
                 }}
               >
-                <span className="text-xs font-bold text-streamlit-text">{period.label}</span>
+                <span className="text-sm font-bold text-streamlit-text">{period.label}</span>
               </div>
             )
           })}
         </div>
 
-        {/* Timeline header with precise markers */}
-        <div className="mb-4 relative h-12 border-b-2 border-gray-300">
+        {/* Timeline header with monthly markers */}
+        <div className="mb-4 relative h-16 border-b-2 border-gray-300">
           {/* Vertical grid lines */}
           {timelineMarkers.map((marker, idx) => (
             <div
-              key={idx}
-              className="absolute top-0 bottom-0 border-l border-gray-200"
+              key={`line-${idx}`}
+              className={`absolute top-0 bottom-0 ${marker.isYear || marker.isMajor ? 'border-l-2 border-gray-300' : 'border-l border-gray-200'}`}
               style={{ left: `${marker.position}%` }}
             />
           ))}
@@ -1274,8 +1279,8 @@ function GanttChart() {
           {/* Timeline labels */}
           {timelineMarkers.map((marker, idx) => (
             <div
-              key={idx}
-              className={`absolute bottom-1 ${marker.isYear ? 'font-bold text-sm' : 'text-xs text-gray-600'}`}
+              key={`label-${idx}`}
+              className={`absolute ${marker.isYear ? 'bottom-6 font-bold text-base' : marker.isMajor ? 'bottom-2 font-semibold text-xs' : 'bottom-0 text-[10px] text-gray-500'}`}
               style={{
                 left: `${marker.position}%`,
                 transform: 'translateX(-50%)'
@@ -1289,10 +1294,10 @@ function GanttChart() {
         {/* Gantt bars with names */}
         <div className="space-y-2 relative min-h-[600px]">
           {/* Vertical grid lines extending through bars */}
-          {timelineMarkers.filter(m => m.isYear).map((marker, idx) => (
+          {timelineMarkers.filter(m => m.isYear || m.isMajor).map((marker, idx) => (
             <div
-              key={idx}
-              className="absolute top-0 bottom-0 border-l border-gray-100 pointer-events-none"
+              key={`grid-${idx}`}
+              className={`absolute top-0 bottom-0 pointer-events-none ${marker.isYear ? 'border-l border-gray-200' : 'border-l border-gray-100'}`}
               style={{ left: `${marker.position}%` }}
             />
           ))}
