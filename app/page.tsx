@@ -43,7 +43,7 @@ export default function Home() {
                   rel="noopener noreferrer"
                   className="text-purple-600 hover:underline"
                 >
-                  🐙 GitHub
+                  🐱 GitHub
                 </a>
                 <a
                   href="https://huggingface.co/Thibault-GAREL"
@@ -99,7 +99,7 @@ export default function Home() {
                     rel="noopener noreferrer"
                     className="text-purple-600 hover:underline text-sm"
                   >
-                    🐙 GitHub
+                    🐱 GitHub
                   </a>
                   <a
                     href="https://huggingface.co/ECE-ILAB"
@@ -121,6 +121,14 @@ export default function Home() {
               </div>
             </div>
           </div>
+        </section>
+
+        {/* Project Timeline - Gantt Chart */}
+        <section className="mb-16">
+          <h2 className="text-4xl font-bold text-streamlit-text mb-8 pb-2 border-b-2 border-streamlit-border">
+            📊 Project Timeline
+          </h2>
+          <GanttChart />
         </section>
 
         {/* Featured Projects Section */}
@@ -359,7 +367,7 @@ export default function Home() {
                 rel="noopener noreferrer"
                 className="text-purple-600 hover:underline"
               >
-                🐙 GitHub
+                🐱 GitHub
               </a>
               <a
                 href="https://huggingface.co/Thibault-GAREL"
@@ -1104,6 +1112,156 @@ function SkillCategory({
               />
             ) : null}
             <span className="text-streamlit-text">{skill.name}</span>
+          </div>
+        ))}
+      </div>
+    </div>
+  )
+}
+
+// Gantt Chart Component
+function GanttChart() {
+  // Category colors
+  const categoryColors: Record<string, string> = {
+    "Generative AI": "#8B5CF6",
+    "Neural Networks": "#3B82F6",
+    "Reinforcement Learning": "#EF4444",
+    "Speech Recognition": "#10B981",
+    "Robotics": "#06B6D4",
+    "Games": "#F59E0B",
+    "Physics Simulation": "#EC4899",
+    "n8n Automation": "#6366F1",
+    "Data Analysis": "#14B8A6"
+  }
+
+  // All projects with dates and categories
+  const projects = [
+    // 1st - 2nd year
+    { name: "Gravity Simulation 2D", start: "2023-06-06", end: "2023-08-30", category: "Physics Simulation" },
+    { name: "Neural Networks Library", start: "2023-07-01", end: "2024-05-31", category: "Neural Networks" },
+    { name: "Q-Learning Pathfinding", start: "2023-09-10", end: "2023-09-20", category: "Reinforcement Learning" },
+
+    // 3rd year
+    { name: "Snake Game", start: "2024-07-13", end: "2025-09-20", category: "Games" },
+    { name: "Snake AI - DQL", start: "2024-07-13", end: "2026-01-08", category: "Reinforcement Learning", inProgress: true },
+    { name: "Snake AI - GA", start: "2024-08-04", end: "2024-10-14", category: "Reinforcement Learning" },
+
+    // 4th year
+    { name: "Unity AI - Movement", start: "2025-01-01", end: "2025-12-31", category: "Reinforcement Learning" },
+    { name: "Unity AI - Greedy", start: "2025-01-01", end: "2025-12-31", category: "Reinforcement Learning" },
+    { name: "Unity AI - Driving", start: "2025-01-01", end: "2025-12-31", category: "Reinforcement Learning" },
+    { name: "Driving AI - DQL", start: "2025-01-04", end: "2025-09-09", category: "Reinforcement Learning" },
+    { name: "Driving AI - GA", start: "2025-01-09", end: "2025-09-28", category: "Reinforcement Learning" },
+    { name: "Attraction/Repulsion", start: "2025-01-23", end: "2025-09-29", category: "Physics Simulation" },
+    { name: "Driving Game", start: "2025-01-25", end: "2025-09-25", category: "Games" },
+    { name: "Image Generator - GAN", start: "2025-02-22", end: "2025-09-24", category: "Generative AI" },
+    { name: "ASR", start: "2025-04-12", end: "2025-06-11", category: "Speech Recognition" },
+    { name: "Human Sandbox", start: "2025-06-01", end: "2025-09-30", category: "Games" },
+    { name: "WhatsApp AI", start: "2025-07-11", end: "2025-07-24", category: "n8n Automation" },
+    { name: "Smart Mail Labeling", start: "2025-07-16", end: "2025-07-26", category: "n8n Automation" },
+    { name: "Bot controlled by ChatBot RAG", start: "2025-07-22", end: "2025-10-11", category: "Robotics" },
+    { name: "Language Models", start: "2025-09-27", end: "2025-12-24", category: "Generative AI" },
+    { name: "RAG - PDF ChatBot", start: "2025-10-11", end: "2025-10-12", category: "Generative AI" },
+    { name: "Walking AI - GA", start: "2025-10-12", end: "2026-01-08", category: "Reinforcement Learning", inProgress: true },
+    { name: "StarCraft 2 AI", start: "2025-10-22", end: "2026-01-08", category: "Reinforcement Learning", inProgress: true },
+    { name: "ISS Analysis", start: "2025-11-12", end: "2025-12-21", category: "Data Analysis" },
+    { name: "CLIP Embedding Tools", start: "2025-12-25", end: "2025-12-27", category: "Generative AI" },
+    { name: "Snake AI - PPO", start: "2025-12-27", end: "2026-01-08", category: "Reinforcement Learning", inProgress: true }
+  ]
+
+  // Calculate timeline bounds
+  const startDate = new Date("2023-06-01")
+  const endDate = new Date("2026-01-31")
+  const totalDays = Math.ceil((endDate.getTime() - startDate.getTime()) / (1000 * 60 * 60 * 24))
+
+  // Function to calculate position and width
+  const getBarStyle = (start: string, end: string) => {
+    const projectStart = new Date(start)
+    const projectEnd = new Date(end)
+    const daysFromStart = Math.ceil((projectStart.getTime() - startDate.getTime()) / (1000 * 60 * 60 * 24))
+    const projectDuration = Math.ceil((projectEnd.getTime() - projectStart.getTime()) / (1000 * 60 * 60 * 24))
+
+    const left = (daysFromStart / totalDays) * 100
+    const width = (projectDuration / totalDays) * 100
+
+    return { left: `${left}%`, width: `${Math.max(width, 0.5)}%` }
+  }
+
+  // Group projects by category for legend
+  const categories = Array.from(new Set(projects.map(p => p.category)))
+
+  return (
+    <div className="bg-streamlit-secondary rounded-xl p-6 border border-streamlit-border">
+      {/* Legend */}
+      <div className="mb-6 flex flex-wrap gap-3 justify-center">
+        {categories.map(category => (
+          <div key={category} className="flex items-center gap-2">
+            <div
+              className="w-4 h-4 rounded"
+              style={{ backgroundColor: categoryColors[category] }}
+            />
+            <span className="text-sm text-streamlit-text">{category}</span>
+          </div>
+        ))}
+      </div>
+
+      {/* Timeline header with years */}
+      <div className="mb-4 relative h-8 border-b border-gray-300">
+        <div className="absolute left-0 text-sm font-semibold text-streamlit-text">2023</div>
+        <div className="absolute left-1/4 text-sm font-semibold text-streamlit-text">2024</div>
+        <div className="absolute left-1/2 text-sm font-semibold text-streamlit-text">2025</div>
+        <div className="absolute left-3/4 text-sm font-semibold text-streamlit-text">2026</div>
+      </div>
+
+      {/* Gantt bars */}
+      <div className="space-y-1 overflow-x-auto">
+        {projects.map((project, idx) => (
+          <div key={idx} className="relative h-8 group">
+            {/* Project bar */}
+            <div
+              className="absolute h-6 rounded transition-all hover:h-7 hover:-translate-y-0.5 cursor-pointer"
+              style={{
+                ...getBarStyle(project.start, project.end),
+                backgroundColor: categoryColors[project.category],
+                opacity: project.inProgress ? 0.85 : 0.7
+              }}
+              title={`${project.name} (${project.start} - ${project.end})`}
+            >
+              {/* Project name inside bar (visible on hover or if bar is wide enough) */}
+              <div className="px-2 text-xs text-white truncate leading-6 opacity-0 group-hover:opacity-100 transition-opacity">
+                {project.name}
+              </div>
+            </div>
+
+            {/* In progress indicator */}
+            {project.inProgress && (
+              <div
+                className="absolute h-6 flex items-center justify-end pr-1"
+                style={{
+                  ...getBarStyle(project.start, project.end),
+                  left: `calc(${getBarStyle(project.start, project.end).left} + ${getBarStyle(project.start, project.end).width})`
+                }}
+              >
+                <div className="w-0 h-0 border-t-4 border-t-transparent border-b-4 border-b-transparent border-l-4"
+                     style={{ borderLeftColor: categoryColors[project.category] }}
+                />
+              </div>
+            )}
+          </div>
+        ))}
+      </div>
+
+      {/* Project names on the left (for mobile/tablet) */}
+      <div className="mt-6 grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-2">
+        {projects.map((project, idx) => (
+          <div key={idx} className="flex items-center gap-2 text-xs">
+            <div
+              className="w-3 h-3 rounded flex-shrink-0"
+              style={{ backgroundColor: categoryColors[project.category] }}
+            />
+            <span className="text-streamlit-text truncate">
+              {project.name} {project.inProgress && "🚧"}
+            </span>
           </div>
         ))}
       </div>
