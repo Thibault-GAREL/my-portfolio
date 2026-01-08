@@ -169,12 +169,15 @@ export default function Home() {
           </h2>
 
           <div className="bg-streamlit-secondary rounded-xl p-6 mb-6 border border-streamlit-border">
-            <div className="flex items-start gap-6 mb-4">
+            <div className="grid grid-cols-[auto_1fr_auto] gap-6 mb-4">
+              {/* Logo on the left */}
               <img
                 src="https://www.defense.gouv.fr/sites/default/files/styles/homepage_medallion/public/cnd/Logo_CND_PA.png?itok=MRux1fZ_"
                 alt="CND Logo"
                 className="w-24 h-24 object-contain"
               />
+
+              {/* Main content in the middle */}
               <div className="flex-1">
                 <h3 className="text-2xl font-bold mb-2">
                   <a
@@ -191,50 +194,51 @@ export default function Home() {
                 <p className="text-lg mb-2">
                   AI system to detect anomalies and breakdowns in French army logs
                 </p>
-                <p className="text-sm text-gray-600">📅 November 18-20, 2025 • 4th year</p>
-              </div>
-            </div>
+                <p className="text-sm text-gray-600 mb-4">📅 November 18-20, 2025 • 4th year</p>
 
-            <div className="mb-4">
-              <p className="font-semibold mb-2">Team:</p>
-              <div className="flex flex-wrap gap-2">
-                {[
-                  { name: "Thibault GAREL", link: "https://github.com/Thibault-GAREL" },
-                  { name: "Alfred de Vulpian", link: "https://github.com/Alfred0404" },
-                  { name: "Axel Bröns", link: "https://github.com/axelbrons" },
-                  { name: "Robin Quériaux", link: "https://github.com/Rqbln" },
-                  { name: "Ziyad Amzil", link: "https://github.com/ziyadamz2" }
-                ].map((member) => (
-                  <a
-                    key={member.name}
-                    href={member.link}
-                    target="_blank"
-                    rel="noopener noreferrer"
-                    className="bg-white px-3 py-1 rounded-md text-blue-600 hover:bg-blue-50 transition-colors"
-                  >
-                    {member.name}
-                  </a>
-                ))}
+                <div>
+                  <p className="font-semibold mb-2">Team:</p>
+                  <div className="flex flex-wrap gap-2">
+                    {[
+                      { name: "Thibault GAREL", link: "https://github.com/Thibault-GAREL" },
+                      { name: "Alfred de Vulpian", link: "https://github.com/Alfred0404" },
+                      { name: "Axel Bröns", link: "https://github.com/axelbrons" },
+                      { name: "Robin Quériaux", link: "https://github.com/Rqbln" },
+                      { name: "Ziyad Amzil", link: "https://github.com/ziyadamz2" }
+                    ].map((member) => (
+                      <a
+                        key={member.name}
+                        href={member.link}
+                        target="_blank"
+                        rel="noopener noreferrer"
+                        className="bg-white px-3 py-1 rounded-md text-blue-600 hover:bg-blue-50 transition-colors"
+                      >
+                        {member.name}
+                      </a>
+                    ))}
+                  </div>
+                </div>
               </div>
-            </div>
 
-            <div className="flex gap-4">
-              <a
-                href="https://github.com/Rqbln/dirisi25-hackathon-frontend"
-                target="_blank"
-                rel="noopener noreferrer"
-                className="text-blue-600 hover:underline"
-              >
-                Frontend Code →
-              </a>
-              <a
-                href="https://github.com/Rqbln/dirisi25-hackathon-backend"
-                target="_blank"
-                rel="noopener noreferrer"
-                className="text-blue-600 hover:underline"
-              >
-                Backend Code →
-              </a>
+              {/* Code links in a column on the right */}
+              <div className="flex flex-col gap-3 justify-center">
+                <a
+                  href="https://github.com/Rqbln/dirisi25-hackathon-frontend"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="bg-white px-4 py-3 rounded-lg border border-streamlit-border text-blue-600 hover:bg-blue-50 transition-colors text-center whitespace-nowrap"
+                >
+                  🐱 Frontend Code
+                </a>
+                <a
+                  href="https://github.com/Rqbln/dirisi25-hackathon-backend"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="bg-white px-4 py-3 rounded-lg border border-streamlit-border text-blue-600 hover:bg-blue-50 transition-colors text-center whitespace-nowrap"
+                >
+                  🐱 Backend Code
+                </a>
+              </div>
             </div>
           </div>
         </section>
@@ -1121,6 +1125,8 @@ function SkillCategory({
 
 // Gantt Chart Component
 function GanttChart() {
+  const [hoveredIndex, setHoveredIndex] = React.useState<number | null>(null)
+
   // Category colors
   const categoryColors: Record<string, string> = {
     "Generative AI": "#8B5CF6",
@@ -1190,6 +1196,34 @@ function GanttChart() {
     return { left: `${left}%`, width: `${Math.max(width, 0.5)}%` }
   }
 
+  // Generate quarterly markers
+  const timelineMarkers = []
+  let currentDate = new Date("2023-06-01")
+  while (currentDate <= endDate) {
+    const position = ((currentDate.getTime() - startDate.getTime()) / (totalDays * 24 * 60 * 60 * 1000)) * 100
+    const month = currentDate.getMonth()
+    const year = currentDate.getFullYear()
+
+    // Show year at the beginning of each year
+    if (month === 0 || (year === 2023 && month === 6)) {
+      timelineMarkers.push({
+        position,
+        label: year.toString(),
+        isYear: true
+      })
+    } else if (month % 3 === 0) {
+      // Show quarter markers (Q1, Q2, Q3, Q4)
+      const quarter = Math.floor(month / 3) + 1
+      timelineMarkers.push({
+        position,
+        label: `Q${quarter}`,
+        isYear: false
+      })
+    }
+
+    currentDate.setMonth(currentDate.getMonth() + 1)
+  }
+
   // Group projects by category for legend
   const categories = Array.from(new Set(projects.map(p => p.category)))
 
@@ -1199,12 +1233,19 @@ function GanttChart() {
       <div className="grid grid-cols-[auto_1fr] gap-4 mb-6">
         {/* Left column: Project names */}
         <div className="bg-white rounded-lg p-4 border border-streamlit-border">
-          <div className="h-8 mb-4 flex items-end pb-1 font-semibold text-sm text-streamlit-text">
+          <div className="h-12 mb-4 flex items-end pb-1 font-semibold text-sm text-streamlit-text border-b-2 border-gray-300">
             Projects
           </div>
           <div className="space-y-1">
             {projects.map((project, idx) => (
-              <div key={idx} className="flex items-center gap-2 h-8">
+              <div
+                key={idx}
+                className={`flex items-center gap-2 h-8 rounded px-2 transition-colors ${
+                  hoveredIndex === idx ? 'bg-blue-50' : ''
+                }`}
+                onMouseEnter={() => setHoveredIndex(idx)}
+                onMouseLeave={() => setHoveredIndex(null)}
+              >
                 <div
                   className="w-3 h-3 rounded flex-shrink-0"
                   style={{ backgroundColor: categoryColors[project.category] }}
@@ -1219,30 +1260,66 @@ function GanttChart() {
 
         {/* Right column: Timeline */}
         <div className="bg-white rounded-lg p-4 border border-streamlit-border overflow-x-auto">
-          {/* Timeline header with years */}
-          <div className="mb-4 relative h-8 border-b border-gray-300">
-            <div className="absolute left-0 text-sm font-semibold text-streamlit-text">2023</div>
-            <div className="absolute left-1/4 text-sm font-semibold text-streamlit-text">2024</div>
-            <div className="absolute left-1/2 text-sm font-semibold text-streamlit-text">2025</div>
-            <div className="absolute left-3/4 text-sm font-semibold text-streamlit-text">2026</div>
+          {/* Timeline header with precise markers */}
+          <div className="mb-4 relative h-12 border-b-2 border-gray-300">
+            {/* Vertical grid lines */}
+            {timelineMarkers.map((marker, idx) => (
+              <div
+                key={idx}
+                className="absolute top-0 bottom-0 border-l border-gray-200"
+                style={{ left: `${marker.position}%` }}
+              />
+            ))}
+
+            {/* Timeline labels */}
+            {timelineMarkers.map((marker, idx) => (
+              <div
+                key={idx}
+                className={`absolute bottom-1 ${marker.isYear ? 'font-bold text-sm' : 'text-xs text-gray-600'}`}
+                style={{
+                  left: `${marker.position}%`,
+                  transform: 'translateX(-50%)'
+                }}
+              >
+                {marker.label}
+              </div>
+            ))}
           </div>
 
           {/* Gantt bars */}
-          <div className="space-y-1">
+          <div className="space-y-1 relative">
+            {/* Vertical grid lines extending through bars */}
+            {timelineMarkers.filter(m => m.isYear).map((marker, idx) => (
+              <div
+                key={idx}
+                className="absolute top-0 bottom-0 border-l border-gray-100 pointer-events-none"
+                style={{ left: `${marker.position}%` }}
+              />
+            ))}
+
             {projects.map((project, idx) => (
-              <div key={idx} className="relative h-8 group">
+              <div
+                key={idx}
+                className="relative h-8 z-10"
+                onMouseEnter={() => setHoveredIndex(idx)}
+                onMouseLeave={() => setHoveredIndex(null)}
+              >
                 {/* Project bar */}
                 <div
-                  className="absolute h-6 rounded transition-all hover:h-7 hover:-translate-y-0.5 cursor-pointer flex items-center justify-end pr-1"
+                  className={`absolute h-6 rounded transition-all cursor-pointer flex items-center justify-end pr-1 ${
+                    hoveredIndex === idx ? 'h-7 -translate-y-0.5 shadow-lg ring-2 ring-offset-1' : ''
+                  }`}
                   style={{
                     ...getBarStyle(project.start, project.end),
                     backgroundColor: categoryColors[project.category],
-                    opacity: project.inProgress ? 0.85 : 0.7
+                    opacity: hoveredIndex === idx ? 1 : (project.inProgress ? 0.85 : 0.7)
                   }}
                   title={`${project.name} (${project.start} - ${project.end})`}
                 >
                   {/* Project name inside bar (visible on hover) */}
-                  <div className="absolute left-0 right-0 px-2 text-xs text-white truncate leading-6 opacity-0 group-hover:opacity-100 transition-opacity">
+                  <div className={`absolute left-0 right-0 px-2 text-xs text-white font-semibold truncate leading-6 transition-opacity ${
+                    hoveredIndex === idx ? 'opacity-100' : 'opacity-0'
+                  }`}>
                     {project.name}
                   </div>
 
