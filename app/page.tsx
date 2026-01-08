@@ -9,12 +9,12 @@ export default function Home() {
     <main className="min-h-screen bg-streamlit-bg">
       {/* Header */}
       <header className="border-b border-streamlit-border bg-white sticky top-0 z-50">
-        <div className="max-w-5xl mx-auto px-4 sm:px-6 lg:px-8 py-4">
+        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-4">
           <h1 className="text-2xl font-bold text-streamlit-text">Thibault GAREL&apos;s Portfolio</h1>
         </div>
       </header>
 
-      <div className="max-w-5xl mx-auto px-4 sm:px-6 lg:px-8 py-12">
+      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-12">
         {/* Hero Section */}
         <section className="mb-16">
           <div className="flex flex-col sm:flex-row items-center gap-6 mb-6">
@@ -1194,25 +1194,14 @@ function GanttChart() {
   const categories = Array.from(new Set(projects.map(p => p.category)))
 
   return (
-    <div className="bg-streamlit-secondary rounded-xl p-6 border border-streamlit-border overflow-hidden">
-      {/* Legend */}
-      <div className="mb-6 flex flex-wrap gap-3 justify-center">
-        {categories.map(category => (
-          <div key={category} className="flex items-center gap-2">
-            <div
-              className="w-4 h-4 rounded"
-              style={{ backgroundColor: categoryColors[category] }}
-            />
-            <span className="text-sm text-streamlit-text">{category}</span>
+    <div className="bg-streamlit-secondary rounded-xl p-6 border border-streamlit-border">
+      {/* Gantt chart main container */}
+      <div className="grid grid-cols-[auto_1fr] gap-4 mb-6">
+        {/* Left column: Project names */}
+        <div className="bg-white rounded-lg p-4 border border-streamlit-border">
+          <div className="h-8 mb-4 flex items-end pb-1 font-semibold text-sm text-streamlit-text">
+            Projects
           </div>
-        ))}
-      </div>
-
-      {/* Gantt chart container */}
-      <div className="flex gap-4">
-        {/* Project names column - fixed width */}
-        <div className="w-48 sm:w-64 lg:w-80 flex-shrink-0">
-          <div className="h-8 mb-4 border-b border-gray-300"></div>
           <div className="space-y-1">
             {projects.map((project, idx) => (
               <div key={idx} className="flex items-center gap-2 h-8">
@@ -1220,16 +1209,16 @@ function GanttChart() {
                   className="w-3 h-3 rounded flex-shrink-0"
                   style={{ backgroundColor: categoryColors[project.category] }}
                 />
-                <span className="text-xs text-streamlit-text truncate">
-                  {project.name} {project.inProgress && "🚧"}
+                <span className="text-xs text-streamlit-text whitespace-nowrap">
+                  {project.name}
                 </span>
               </div>
             ))}
           </div>
         </div>
 
-        {/* Timeline area - flexible width */}
-        <div className="flex-1 min-w-0">
+        {/* Right column: Timeline */}
+        <div className="bg-white rounded-lg p-4 border border-streamlit-border overflow-x-auto">
           {/* Timeline header with years */}
           <div className="mb-4 relative h-8 border-b border-gray-300">
             <div className="absolute left-0 text-sm font-semibold text-streamlit-text">2023</div>
@@ -1244,7 +1233,7 @@ function GanttChart() {
               <div key={idx} className="relative h-8 group">
                 {/* Project bar */}
                 <div
-                  className="absolute h-6 rounded transition-all hover:h-7 hover:-translate-y-0.5 cursor-pointer"
+                  className="absolute h-6 rounded transition-all hover:h-7 hover:-translate-y-0.5 cursor-pointer flex items-center justify-end pr-1"
                   style={{
                     ...getBarStyle(project.start, project.end),
                     backgroundColor: categoryColors[project.category],
@@ -1252,29 +1241,34 @@ function GanttChart() {
                   }}
                   title={`${project.name} (${project.start} - ${project.end})`}
                 >
-                  {/* Project name inside bar (visible on hover or if bar is wide enough) */}
-                  <div className="px-2 text-xs text-white truncate leading-6 opacity-0 group-hover:opacity-100 transition-opacity">
+                  {/* Project name inside bar (visible on hover) */}
+                  <div className="absolute left-0 right-0 px-2 text-xs text-white truncate leading-6 opacity-0 group-hover:opacity-100 transition-opacity">
                     {project.name}
                   </div>
-                </div>
 
-                {/* In progress indicator */}
-                {project.inProgress && (
-                  <div
-                    className="absolute h-6 flex items-center justify-end pr-1"
-                    style={{
-                      ...getBarStyle(project.start, project.end),
-                      left: `calc(${getBarStyle(project.start, project.end).left} + ${getBarStyle(project.start, project.end).width})`
-                    }}
-                  >
-                    <div className="w-0 h-0 border-t-4 border-t-transparent border-b-4 border-b-transparent border-l-4"
-                         style={{ borderLeftColor: categoryColors[project.category] }}
-                    />
-                  </div>
-                )}
+                  {/* In progress indicator - three dots */}
+                  {project.inProgress && (
+                    <span className="text-white text-xs font-bold">...</span>
+                  )}
+                </div>
               </div>
             ))}
           </div>
+        </div>
+      </div>
+
+      {/* Legend at the bottom */}
+      <div className="bg-white rounded-lg p-4 border border-streamlit-border">
+        <div className="flex flex-wrap gap-3 justify-center">
+          {categories.map(category => (
+            <div key={category} className="flex items-center gap-2">
+              <div
+                className="w-4 h-4 rounded"
+                style={{ backgroundColor: categoryColors[category] }}
+              />
+              <span className="text-sm text-streamlit-text">{category}</span>
+            </div>
+          ))}
         </div>
       </div>
     </div>
