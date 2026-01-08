@@ -70,7 +70,7 @@ export default function Home() {
             </p>
 
             <p className="mb-4">
-              Since 2022, I've been building personal projects mostly on <strong>AI</strong> 🤖.
+              Since 2023, I've been building personal projects mostly on <strong>AI</strong> 🤖.
             </p>
 
             <div className="mb-6 flex flex-col sm:flex-row items-center gap-4">
@@ -1150,10 +1150,10 @@ function GanttChart() {
     { name: "Unity AI - Movement", start: "2025-01-01", end: "2025-12-31", category: "Reinforcement Learning" },
     { name: "Unity AI - Greedy", start: "2025-01-01", end: "2025-12-31", category: "Reinforcement Learning" },
     { name: "Unity AI - Driving", start: "2025-01-01", end: "2025-12-31", category: "Reinforcement Learning" },
+    { name: "Driving Game", start: "2025-01-25", end: "2025-09-25", category: "Games" },
     { name: "Driving AI - DQL", start: "2025-01-04", end: "2025-09-09", category: "Reinforcement Learning" },
     { name: "Driving AI - GA", start: "2025-01-09", end: "2025-09-28", category: "Reinforcement Learning" },
     { name: "Attraction/Repulsion", start: "2025-01-23", end: "2025-09-29", category: "Physics Simulation" },
-    { name: "Driving Game", start: "2025-01-25", end: "2025-09-25", category: "Games" },
     { name: "Image Generator - GAN", start: "2025-02-22", end: "2025-09-24", category: "Generative AI" },
     { name: "ASR", start: "2025-04-12", end: "2025-06-11", category: "Speech Recognition" },
     { name: "Human Sandbox", start: "2025-06-01", end: "2025-09-30", category: "Games" },
