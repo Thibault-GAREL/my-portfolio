@@ -1242,73 +1242,74 @@ function GanttChart() {
     <div className="bg-streamlit-secondary rounded-xl p-6 border border-streamlit-border">
       {/* Timeline */}
       <div className="bg-white rounded-lg p-4 border border-streamlit-border overflow-x-auto">
-        {/* Three-level timeline header */}
+        {/* Three-level timeline header - Sticky */}
+        <div className="sticky top-0 bg-white z-20 pb-2">
+          {/* Level 1: Academic years (Engineer school years) */}
+          <div className="mb-2 relative h-12 border-b border-gray-300">
+            {academicYears.map((period, idx) => {
+              const periodStyle = getBarStyle(period.start, period.end)
+              return (
+                <div
+                  key={idx}
+                  className="absolute h-10 rounded-lg border-2 border-gray-400 flex items-center justify-center shadow-sm"
+                  style={{
+                    left: periodStyle.left,
+                    width: periodStyle.width,
+                    backgroundColor: period.color,
+                    top: '0px'
+                  }}
+                >
+                  <span className="text-sm font-bold text-streamlit-text">{period.label}</span>
+                </div>
+              )
+            })}
+          </div>
 
-        {/* Level 1: Academic years (Engineer school years) */}
-        <div className="mb-2 relative h-12 border-b border-gray-300">
-          {academicYears.map((period, idx) => {
-            const periodStyle = getBarStyle(period.start, period.end)
-            return (
+          {/* Level 2: Civil years (2022, 2023, 2024, 2025, 2026) */}
+          <div className="mb-2 relative h-10 border-b border-gray-300">
+            {civilYears.map((year, idx) => {
+              const yearStyle = getBarStyle(year.start, year.end)
+              return (
+                <div
+                  key={idx}
+                  className="absolute h-8 flex items-center justify-center border-r border-gray-300"
+                  style={{
+                    left: yearStyle.left,
+                    width: yearStyle.width,
+                    top: '0px'
+                  }}
+                >
+                  <span className="text-base font-bold text-gray-700">{year.label}</span>
+                </div>
+              )
+            })}
+          </div>
+
+          {/* Level 3: Months */}
+          <div className="relative h-12 border-b-2 border-gray-400">
+            {/* Vertical grid lines for each month */}
+            {monthMarkers.map((marker, idx) => (
               <div
-                key={idx}
-                className="absolute h-10 rounded-lg border-2 border-gray-400 flex items-center justify-center shadow-sm"
+                key={`line-${idx}`}
+                className={`absolute top-0 bottom-0 ${marker.month === 0 ? 'border-l-2 border-gray-400' : 'border-l border-gray-200'}`}
+                style={{ left: `${marker.position}%` }}
+              />
+            ))}
+
+            {/* Month labels */}
+            {monthMarkers.map((marker, idx) => (
+              <div
+                key={`label-${idx}`}
+                className="absolute bottom-1 text-[10px] text-gray-600"
                 style={{
-                  left: periodStyle.left,
-                  width: periodStyle.width,
-                  backgroundColor: period.color,
-                  top: '0px'
+                  left: `${marker.position}%`,
+                  transform: 'translateX(-50%)'
                 }}
               >
-                <span className="text-sm font-bold text-streamlit-text">{period.label}</span>
+                {marker.label}
               </div>
-            )
-          })}
-        </div>
-
-        {/* Level 2: Civil years (2022, 2023, 2024, 2025, 2026) */}
-        <div className="mb-2 relative h-10 border-b border-gray-300">
-          {civilYears.map((year, idx) => {
-            const yearStyle = getBarStyle(year.start, year.end)
-            return (
-              <div
-                key={idx}
-                className="absolute h-8 flex items-center justify-center border-r border-gray-300"
-                style={{
-                  left: yearStyle.left,
-                  width: yearStyle.width,
-                  top: '0px'
-                }}
-              >
-                <span className="text-base font-bold text-gray-700">{year.label}</span>
-              </div>
-            )
-          })}
-        </div>
-
-        {/* Level 3: Months */}
-        <div className="mb-4 relative h-12 border-b-2 border-gray-400">
-          {/* Vertical grid lines for each month */}
-          {monthMarkers.map((marker, idx) => (
-            <div
-              key={`line-${idx}`}
-              className={`absolute top-0 bottom-0 ${marker.month === 0 ? 'border-l-2 border-gray-400' : 'border-l border-gray-200'}`}
-              style={{ left: `${marker.position}%` }}
-            />
-          ))}
-
-          {/* Month labels */}
-          {monthMarkers.map((marker, idx) => (
-            <div
-              key={`label-${idx}`}
-              className="absolute bottom-1 text-[10px] text-gray-600"
-              style={{
-                left: `${marker.position}%`,
-                transform: 'translateX(-50%)'
-              }}
-            >
-              {marker.label}
-            </div>
-          ))}
+            ))}
+          </div>
         </div>
 
         {/* Gantt bars with names */}
