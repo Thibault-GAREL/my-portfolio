@@ -1242,8 +1242,8 @@ function GanttChart() {
     <div className="bg-streamlit-secondary rounded-xl p-6 border border-streamlit-border">
       {/* Timeline */}
       <div className="bg-white rounded-lg p-4 border border-streamlit-border overflow-x-auto">
-        {/* Three-level timeline header - Sticky */}
-        <div className="sticky top-0 bg-white z-20 pb-2">
+        {/* Three-level timeline header - Sticky (positioned below the main header) */}
+        <div className="sticky top-[60px] bg-white z-20 pb-2 shadow-md">
           {/* Level 1: Academic years (Engineer school years) */}
           <div className="mb-2 relative h-12 border-b border-gray-300">
             {academicYears.map((period, idx) => {
