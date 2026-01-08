@@ -10,7 +10,33 @@ export default function Home() {
       {/* Header */}
       <header className="border-b border-streamlit-border bg-white sticky top-0 z-50">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-4">
-          <h1 className="text-2xl font-bold text-streamlit-text">Thibault GAREL&apos;s Portfolio</h1>
+          <div className="flex justify-between items-center">
+            <h1 className="text-2xl font-bold text-streamlit-text">Thibault GAREL&apos;s Portfolio</h1>
+
+            {/* Sort Toggle */}
+            <div className="flex gap-2 bg-streamlit-secondary rounded-lg p-1 border border-streamlit-border">
+              <button
+                onClick={() => setSortBy('category')}
+                className={`px-4 py-2 rounded-md transition-colors ${
+                  sortBy === 'category'
+                    ? 'bg-white text-streamlit-text font-semibold shadow-sm'
+                    : 'text-gray-600 hover:text-streamlit-text'
+                }`}
+              >
+                By Category
+              </button>
+              <button
+                onClick={() => setSortBy('date')}
+                className={`px-4 py-2 rounded-md transition-colors ${
+                  sortBy === 'date'
+                    ? 'bg-white text-streamlit-text font-semibold shadow-sm'
+                    : 'text-gray-600 hover:text-streamlit-text'
+                }`}
+              >
+                By Date
+              </button>
+            </div>
+          </div>
         </div>
       </header>
 
@@ -125,35 +151,9 @@ export default function Home() {
 
         {/* Featured Projects Section */}
         <section className="mb-16">
-          <div className="flex flex-col sm:flex-row justify-between items-start sm:items-center mb-8 gap-4">
-            <h2 className="text-4xl font-bold text-streamlit-text pb-2 border-b-2 border-streamlit-border">
-              ✨ Featured Projects
-            </h2>
-
-            {/* Sort Toggle */}
-            <div className="flex gap-2 bg-streamlit-secondary rounded-lg p-1 border border-streamlit-border">
-              <button
-                onClick={() => setSortBy('category')}
-                className={`px-4 py-2 rounded-md transition-colors ${
-                  sortBy === 'category'
-                    ? 'bg-white text-streamlit-text font-semibold shadow-sm'
-                    : 'text-gray-600 hover:text-streamlit-text'
-                }`}
-              >
-                By Category
-              </button>
-              <button
-                onClick={() => setSortBy('date')}
-                className={`px-4 py-2 rounded-md transition-colors ${
-                  sortBy === 'date'
-                    ? 'bg-white text-streamlit-text font-semibold shadow-sm'
-                    : 'text-gray-600 hover:text-streamlit-text'
-                }`}
-              >
-                By Date
-              </button>
-            </div>
-          </div>
+          <h2 className="text-4xl font-bold text-streamlit-text mb-8 pb-2 border-b-2 border-streamlit-border">
+            ✨ Featured Projects
+          </h2>
 
           {sortBy === 'category' ? (
             <ProjectsByCategory />
