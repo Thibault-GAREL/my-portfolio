@@ -123,14 +123,6 @@ export default function Home() {
           </div>
         </section>
 
-        {/* Project Timeline - Gantt Chart */}
-        <section className="mb-16">
-          <h2 className="text-4xl font-bold text-streamlit-text mb-8 pb-2 border-b-2 border-streamlit-border">
-            📊 Project Timeline
-          </h2>
-          <GanttChart />
-        </section>
-
         {/* Featured Projects Section */}
         <section className="mb-16">
           <div className="flex flex-col sm:flex-row justify-between items-start sm:items-center mb-8 gap-4">
@@ -949,31 +941,11 @@ function ProjectsByDate() {
 
   return (
     <>
-      {/* In Progress Projects */}
+      {/* 1st Year Projects */}
       <div className="mb-10">
-        <h3 className="text-2xl font-bold text-streamlit-text mb-6">🚧 In Progress</h3>
+        <h3 className="text-2xl font-bold text-streamlit-text mb-6">1st Year</h3>
         <div className="grid gap-4 md:grid-cols-2">
-          {inProgressProjects.map((project) => (
-            <ProjectCard key={project.name} project={project} />
-          ))}
-        </div>
-      </div>
-
-      {/* 4th Year Projects */}
-      <div className="mb-10">
-        <h3 className="text-2xl font-bold text-streamlit-text mb-6">4th Year</h3>
-        <div className="grid gap-4 md:grid-cols-2">
-          {fourthYearProjects.map((project) => (
-            <ProjectCard key={project.name} project={project} />
-          ))}
-        </div>
-      </div>
-
-      {/* 3rd Year Projects */}
-      <div className="mb-10">
-        <h3 className="text-2xl font-bold text-streamlit-text mb-6">3rd Year</h3>
-        <div className="grid gap-4 md:grid-cols-2">
-          {thirdYearProjects.map((project) => (
+          {firstYearProjects.map((project) => (
             <ProjectCard key={project.name} project={project} />
           ))}
         </div>
@@ -989,14 +961,42 @@ function ProjectsByDate() {
         </div>
       </div>
 
-      {/* 1st Year Projects */}
+      {/* 3rd Year Projects */}
       <div className="mb-10">
-        <h3 className="text-2xl font-bold text-streamlit-text mb-6">1st Year</h3>
+        <h3 className="text-2xl font-bold text-streamlit-text mb-6">3rd Year</h3>
         <div className="grid gap-4 md:grid-cols-2">
-          {firstYearProjects.map((project) => (
+          {thirdYearProjects.map((project) => (
             <ProjectCard key={project.name} project={project} />
           ))}
         </div>
+      </div>
+
+      {/* 4th Year Projects */}
+      <div className="mb-10">
+        <h3 className="text-2xl font-bold text-streamlit-text mb-6">4th Year</h3>
+        <div className="grid gap-4 md:grid-cols-2">
+          {fourthYearProjects.map((project) => (
+            <ProjectCard key={project.name} project={project} />
+          ))}
+        </div>
+      </div>
+
+      {/* In Progress Projects */}
+      <div className="mb-10">
+        <h3 className="text-2xl font-bold text-streamlit-text mb-6">🚧 In Progress</h3>
+        <div className="grid gap-4 md:grid-cols-2">
+          {inProgressProjects.map((project) => (
+            <ProjectCard key={project.name} project={project} />
+          ))}
+        </div>
+      </div>
+
+      {/* Project Timeline - Gantt Chart */}
+      <div className="mt-16">
+        <h3 className="text-3xl font-bold text-streamlit-text mb-8 pb-2 border-b-2 border-streamlit-border">
+          📊 Project Timeline
+        </h3>
+        <GanttChart />
       </div>
     </>
   )
@@ -1134,8 +1134,8 @@ function GanttChart() {
     "Data Analysis": "#14B8A6"
   }
 
-  // All projects with dates and categories
-  const projects = [
+  // All projects with dates and categories (ordered from oldest to newest for display)
+  const allProjects = [
     // 1st - 2nd year
     { name: "Gravity Simulation 2D", start: "2023-06-06", end: "2023-08-30", category: "Physics Simulation" },
     { name: "Neural Networks Library", start: "2023-07-01", end: "2024-05-31", category: "Neural Networks" },
@@ -1168,6 +1168,9 @@ function GanttChart() {
     { name: "CLIP Embedding Tools", start: "2025-12-25", end: "2025-12-27", category: "Generative AI" },
     { name: "Snake AI - PPO", start: "2025-12-27", end: "2026-01-08", category: "Reinforcement Learning", inProgress: true }
   ]
+
+  // Sort projects by start date (oldest first for display from top to bottom)
+  const projects = [...allProjects].sort((a, b) => new Date(a.start).getTime() - new Date(b.start).getTime())
 
   // Calculate timeline bounds
   const startDate = new Date("2023-06-01")
