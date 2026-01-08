@@ -1125,8 +1125,6 @@ function SkillCategory({
 
 // Gantt Chart Component
 function GanttChart() {
-  const [hoveredIndex, setHoveredIndex] = React.useState<number | null>(null)
-
   // Category colors
   const categoryColors: Record<string, string> = {
     "Generative AI": "#8B5CF6",
@@ -1140,39 +1138,39 @@ function GanttChart() {
     "Data Analysis": "#14B8A6"
   }
 
-  // All projects with dates and categories (ordered from oldest to newest for display)
+  // All projects with dates and categories - with updated dates
   const allProjects = [
     // 1st - 2nd year
-    { name: "Gravity Simulation 2D", start: "2023-06-06", end: "2023-08-30", category: "Physics Simulation" },
-    { name: "Neural Networks Library", start: "2023-07-01", end: "2024-05-31", category: "Neural Networks" },
-    { name: "Q-Learning Pathfinding", start: "2023-09-10", end: "2023-09-20", category: "Reinforcement Learning" },
+    { name: "Gravity Simulation 2D", start: "2023-06-06", end: "2023-08-30", category: "Physics Simulation", year: "1st year" },
+    { name: "Neural Networks Library", start: "2023-07-01", end: "2024-05-31", category: "Neural Networks", year: "1st-2nd year" },
+    { name: "Q-Learning Pathfinding", start: "2023-08-01", end: "2023-10-20", category: "Reinforcement Learning", year: "1st year" },
 
     // 3rd year
-    { name: "Snake Game", start: "2024-07-13", end: "2025-09-20", category: "Games" },
-    { name: "Snake AI - DQL", start: "2024-07-13", end: "2026-01-08", category: "Reinforcement Learning", inProgress: true },
-    { name: "Snake AI - GA", start: "2024-08-04", end: "2024-10-14", category: "Reinforcement Learning" },
+    { name: "Snake Game", start: "2024-07-13", end: "2025-09-20", category: "Games", year: "3rd year" },
+    { name: "Snake AI - DQL", start: "2024-07-13", end: "2026-04-08", category: "Reinforcement Learning", inProgress: true, year: "3rd year" },
+    { name: "Snake AI - GA", start: "2024-08-04", end: "2024-10-14", category: "Reinforcement Learning", year: "3rd year" },
 
     // 4th year
-    { name: "Unity AI - Movement", start: "2025-01-01", end: "2025-12-31", category: "Reinforcement Learning" },
-    { name: "Unity AI - Greedy", start: "2025-01-01", end: "2025-12-31", category: "Reinforcement Learning" },
-    { name: "Unity AI - Driving", start: "2025-01-01", end: "2025-12-31", category: "Reinforcement Learning" },
-    { name: "Driving Game", start: "2025-01-25", end: "2025-09-25", category: "Games" },
-    { name: "Driving AI - DQL", start: "2025-01-04", end: "2025-09-09", category: "Reinforcement Learning" },
-    { name: "Driving AI - GA", start: "2025-01-09", end: "2025-09-28", category: "Reinforcement Learning" },
-    { name: "Attraction/Repulsion", start: "2025-01-23", end: "2025-09-29", category: "Physics Simulation" },
-    { name: "Image Generator - GAN", start: "2025-02-22", end: "2025-09-24", category: "Generative AI" },
-    { name: "ASR", start: "2025-04-12", end: "2025-06-11", category: "Speech Recognition" },
-    { name: "Human Sandbox", start: "2025-06-01", end: "2025-09-30", category: "Games" },
-    { name: "WhatsApp AI", start: "2025-07-11", end: "2025-07-24", category: "n8n Automation" },
-    { name: "Smart Mail Labeling", start: "2025-07-16", end: "2025-07-26", category: "n8n Automation" },
-    { name: "Bot controlled by ChatBot RAG", start: "2025-07-22", end: "2025-10-11", category: "Robotics" },
-    { name: "Language Models", start: "2025-09-27", end: "2025-12-24", category: "Generative AI" },
-    { name: "RAG - PDF ChatBot", start: "2025-10-11", end: "2025-10-12", category: "Generative AI" },
-    { name: "Walking AI - GA", start: "2025-10-12", end: "2026-01-08", category: "Reinforcement Learning", inProgress: true },
-    { name: "StarCraft 2 AI", start: "2025-10-22", end: "2026-01-08", category: "Reinforcement Learning", inProgress: true },
-    { name: "ISS Analysis", start: "2025-11-12", end: "2025-12-21", category: "Data Analysis" },
-    { name: "CLIP Embedding Tools", start: "2025-12-25", end: "2025-12-27", category: "Generative AI" },
-    { name: "Snake AI - PPO", start: "2025-12-27", end: "2026-01-08", category: "Reinforcement Learning", inProgress: true }
+    { name: "Unity AI - Movement", start: "2025-01-01", end: "2025-01-31", category: "Reinforcement Learning", year: "4th year" },
+    { name: "Unity AI - Greedy", start: "2025-01-01", end: "2025-01-31", category: "Reinforcement Learning", year: "4th year" },
+    { name: "Unity AI - Driving", start: "2025-01-01", end: "2025-01-31", category: "Reinforcement Learning", year: "4th year" },
+    { name: "Driving Game", start: "2025-01-04", end: "2025-09-20", category: "Games", year: "4th year" },
+    { name: "Driving AI - DQL", start: "2025-01-04", end: "2025-09-09", category: "Reinforcement Learning", year: "4th year" },
+    { name: "Driving AI - GA", start: "2025-01-09", end: "2025-09-28", category: "Reinforcement Learning", year: "4th year" },
+    { name: "Attraction/Repulsion", start: "2025-01-23", end: "2025-01-29", category: "Physics Simulation", year: "4th year" },
+    { name: "Image Generator - GAN", start: "2025-02-22", end: "2025-09-24", category: "Generative AI", year: "4th year" },
+    { name: "ASR", start: "2025-04-12", end: "2025-06-11", category: "Speech Recognition", year: "4th year" },
+    { name: "Human Sandbox", start: "2025-06-27", end: "2025-07-21", category: "Games", year: "4th year" },
+    { name: "WhatsApp AI", start: "2025-07-11", end: "2025-07-24", category: "n8n Automation", year: "4th year" },
+    { name: "Smart Mail Labeling", start: "2025-07-16", end: "2025-07-26", category: "n8n Automation", year: "4th year" },
+    { name: "Bot controlled by ChatBot RAG", start: "2025-07-22", end: "2025-10-11", category: "Robotics", year: "4th year" },
+    { name: "Language Models", start: "2025-09-27", end: "2025-12-24", category: "Generative AI", year: "4th year" },
+    { name: "RAG - PDF ChatBot", start: "2025-10-11", end: "2025-10-12", category: "Generative AI", year: "4th year" },
+    { name: "Walking AI - GA", start: "2025-10-12", end: "2026-04-08", category: "Reinforcement Learning", inProgress: true, year: "4th year" },
+    { name: "StarCraft 2 AI", start: "2025-10-22", end: "2026-04-08", category: "Reinforcement Learning", inProgress: true, year: "4th year" },
+    { name: "ISS Analysis", start: "2025-11-12", end: "2025-12-21", category: "Data Analysis", year: "4th year" },
+    { name: "CLIP Embedding Tools", start: "2025-12-25", end: "2025-12-27", category: "Generative AI", year: "4th year" },
+    { name: "Snake AI - PPO", start: "2025-12-27", end: "2026-04-08", category: "Reinforcement Learning", inProgress: true, year: "4th year" }
   ]
 
   // Sort projects by start date (oldest first for display from top to bottom)
@@ -1180,7 +1178,7 @@ function GanttChart() {
 
   // Calculate timeline bounds
   const startDate = new Date("2023-06-01")
-  const endDate = new Date("2026-01-31")
+  const endDate = new Date("2026-05-31")
   const totalDays = Math.ceil((endDate.getTime() - startDate.getTime()) / (1000 * 60 * 60 * 24))
 
   // Function to calculate position and width
@@ -1193,7 +1191,11 @@ function GanttChart() {
     const left = (daysFromStart / totalDays) * 100
     const width = (projectDuration / totalDays) * 100
 
-    return { left: `${left}%`, width: `${Math.max(width, 0.5)}%` }
+    return {
+      left: `${left}%`,
+      width: `${Math.max(width, 0.5)}%`,
+      widthValue: width
+    }
   }
 
   // Generate quarterly markers
@@ -1229,113 +1231,113 @@ function GanttChart() {
 
   return (
     <div className="bg-streamlit-secondary rounded-xl p-6 border border-streamlit-border">
-      {/* Gantt chart main container */}
-      <div className="grid grid-cols-[auto_1fr] gap-4 mb-6">
-        {/* Left column: Project names */}
-        <div className="bg-white rounded-lg p-4 border border-streamlit-border">
-          <div className="h-12 mb-4 flex items-end pb-1 font-semibold text-sm text-streamlit-text border-b-2 border-gray-300">
-            Projects
-          </div>
-          <div className="space-y-1">
-            {projects.map((project, idx) => (
-              <div
-                key={idx}
-                className={`flex items-center gap-2 h-8 rounded px-2 transition-colors ${
-                  hoveredIndex === idx ? 'bg-blue-50' : ''
-                }`}
-                onMouseEnter={() => setHoveredIndex(idx)}
-                onMouseLeave={() => setHoveredIndex(null)}
-              >
-                <div
-                  className="w-3 h-3 rounded flex-shrink-0"
-                  style={{ backgroundColor: categoryColors[project.category] }}
-                />
-                <span className="text-xs text-streamlit-text whitespace-nowrap">
-                  {project.name}
-                </span>
-              </div>
-            ))}
-          </div>
+      {/* Timeline */}
+      <div className="bg-white rounded-lg p-4 border border-streamlit-border overflow-x-auto">
+        {/* Timeline header with precise markers */}
+        <div className="mb-4 relative h-12 border-b-2 border-gray-300">
+          {/* Vertical grid lines */}
+          {timelineMarkers.map((marker, idx) => (
+            <div
+              key={idx}
+              className="absolute top-0 bottom-0 border-l border-gray-200"
+              style={{ left: `${marker.position}%` }}
+            />
+          ))}
+
+          {/* Timeline labels */}
+          {timelineMarkers.map((marker, idx) => (
+            <div
+              key={idx}
+              className={`absolute bottom-1 ${marker.isYear ? 'font-bold text-sm' : 'text-xs text-gray-600'}`}
+              style={{
+                left: `${marker.position}%`,
+                transform: 'translateX(-50%)'
+              }}
+            >
+              {marker.label}
+            </div>
+          ))}
         </div>
 
-        {/* Right column: Timeline */}
-        <div className="bg-white rounded-lg p-4 border border-streamlit-border overflow-x-auto">
-          {/* Timeline header with precise markers */}
-          <div className="mb-4 relative h-12 border-b-2 border-gray-300">
-            {/* Vertical grid lines */}
-            {timelineMarkers.map((marker, idx) => (
-              <div
-                key={idx}
-                className="absolute top-0 bottom-0 border-l border-gray-200"
-                style={{ left: `${marker.position}%` }}
-              />
-            ))}
+        {/* Gantt bars with names */}
+        <div className="space-y-2 relative min-h-[600px]">
+          {/* Vertical grid lines extending through bars */}
+          {timelineMarkers.filter(m => m.isYear).map((marker, idx) => (
+            <div
+              key={idx}
+              className="absolute top-0 bottom-0 border-l border-gray-100 pointer-events-none"
+              style={{ left: `${marker.position}%` }}
+            />
+          ))}
 
-            {/* Timeline labels */}
-            {timelineMarkers.map((marker, idx) => (
+          {projects.map((project, idx) => {
+            const barStyle = getBarStyle(project.start, project.end)
+            const widthPercent = barStyle.widthValue || 0
+            const isLongProject = widthPercent > 8 // If project bar is wide enough for text inside
+
+            return (
               <div
                 key={idx}
-                className={`absolute bottom-1 ${marker.isYear ? 'font-bold text-sm' : 'text-xs text-gray-600'}`}
-                style={{
-                  left: `${marker.position}%`,
-                  transform: 'translateX(-50%)'
-                }}
+                className="relative h-8 z-10 flex items-center"
               >
-                {marker.label}
-              </div>
-            ))}
-          </div>
+                {/* Year label before the bar */}
+                <div
+                  className="absolute text-xs font-semibold text-gray-500 whitespace-nowrap"
+                  style={{
+                    left: `${parseFloat(barStyle.left) - 0.5}%`,
+                    transform: 'translateX(-100%)',
+                    paddingRight: '8px'
+                  }}
+                >
+                  {project.year}
+                </div>
 
-          {/* Gantt bars */}
-          <div className="space-y-1 relative">
-            {/* Vertical grid lines extending through bars */}
-            {timelineMarkers.filter(m => m.isYear).map((marker, idx) => (
-              <div
-                key={idx}
-                className="absolute top-0 bottom-0 border-l border-gray-100 pointer-events-none"
-                style={{ left: `${marker.position}%` }}
-              />
-            ))}
-
-            {projects.map((project, idx) => (
-              <div
-                key={idx}
-                className="relative h-8 z-10"
-                onMouseEnter={() => setHoveredIndex(idx)}
-                onMouseLeave={() => setHoveredIndex(null)}
-              >
                 {/* Project bar */}
                 <div
-                  className={`absolute h-6 rounded transition-all cursor-pointer flex items-center justify-end pr-1 ${
-                    hoveredIndex === idx ? 'h-7 -translate-y-0.5 shadow-lg ring-2 ring-offset-1' : ''
-                  }`}
+                  className="absolute h-7 rounded cursor-pointer flex items-center transition-all hover:shadow-lg hover:scale-105"
                   style={{
-                    ...getBarStyle(project.start, project.end),
+                    ...barStyle,
                     backgroundColor: categoryColors[project.category],
-                    opacity: hoveredIndex === idx ? 1 : (project.inProgress ? 0.85 : 0.7)
+                    opacity: 0.85
                   }}
                   title={`${project.name} (${project.start} - ${project.end})`}
                 >
-                  {/* Project name inside bar (visible on hover) */}
-                  <div className={`absolute left-0 right-0 px-2 text-xs text-white font-semibold truncate leading-6 transition-opacity ${
-                    hoveredIndex === idx ? 'opacity-100' : 'opacity-0'
-                  }`}>
-                    {project.name}
-                  </div>
+                  {/* Name inside bar for long projects */}
+                  {isLongProject && (
+                    <div className="absolute left-0 right-0 px-2 text-xs text-white font-semibold truncate flex items-center justify-between h-full">
+                      <span className="truncate">{project.name}</span>
+                      {project.inProgress && (
+                        <span className="ml-1 flex-shrink-0">🚧</span>
+                      )}
+                    </div>
+                  )}
 
-                  {/* In progress indicator - three dots */}
-                  {project.inProgress && (
-                    <span className="text-white text-xs font-bold">...</span>
+                  {/* In progress indicator inside bar for long projects */}
+                  {!isLongProject && project.inProgress && (
+                    <div className="absolute right-1 text-white text-xs">🚧</div>
                   )}
                 </div>
+
+                {/* Name next to bar for short projects */}
+                {!isLongProject && (
+                  <div
+                    className="absolute text-xs text-streamlit-text font-medium whitespace-nowrap flex items-center gap-1"
+                    style={{
+                      left: `calc(${barStyle.left} + ${barStyle.width} + 8px)`
+                    }}
+                  >
+                    {project.name}
+                    {project.inProgress && <span>🚧</span>}
+                  </div>
+                )}
               </div>
-            ))}
-          </div>
+            )
+          })}
         </div>
       </div>
 
       {/* Legend at the bottom */}
-      <div className="bg-white rounded-lg p-4 border border-streamlit-border">
+      <div className="bg-white rounded-lg p-4 border border-streamlit-border mt-6">
         <div className="flex flex-wrap gap-3 justify-center">
           {categories.map(category => (
             <div key={category} className="flex items-center gap-2">
