@@ -1177,8 +1177,8 @@ function GanttChart() {
   const projects = [...allProjects].sort((a, b) => new Date(a.start).getTime() - new Date(b.start).getTime())
 
   // Calculate timeline bounds
-  const startDate = new Date("2023-06-01")
-  const endDate = new Date("2026-05-31")
+  const startDate = new Date("2022-09-01")
+  const endDate = new Date("2026-09-30")
   const totalDays = Math.ceil((endDate.getTime() - startDate.getTime()) / (1000 * 60 * 60 * 24))
 
   // Function to calculate position and width
@@ -1198,65 +1198,65 @@ function GanttChart() {
     }
   }
 
-  // Generate monthly markers for more precision
-  const timelineMarkers = []
+  // Generate monthly markers
+  const monthMarkers = []
   const monthNames = ["Jan", "Feb", "Mar", "Apr", "May", "Jun", "Jul", "Aug", "Sep", "Oct", "Nov", "Dec"]
-  let currentDate = new Date("2023-06-01")
+  let currentDate = new Date("2022-09-01")
 
   while (currentDate <= endDate) {
     const position = ((currentDate.getTime() - startDate.getTime()) / (totalDays * 24 * 60 * 60 * 1000)) * 100
     const month = currentDate.getMonth()
     const year = currentDate.getFullYear()
 
-    // Show year label at the beginning of each year
-    if (month === 0 || (year === 2023 && month === 6)) {
-      timelineMarkers.push({
-        position,
-        label: year.toString(),
-        isYear: true,
-        isMajor: true
-      })
-    }
-    // Show month abbreviation for every month
-    else {
-      timelineMarkers.push({
-        position,
-        label: monthNames[month],
-        isYear: false,
-        isMajor: month % 3 === 0 // Highlight quarters
-      })
-    }
+    monthMarkers.push({
+      position,
+      label: monthNames[month],
+      month,
+      year
+    })
 
     currentDate.setMonth(currentDate.getMonth() + 1)
   }
 
+  // Generate civil year markers (2022, 2023, 2024, 2025, 2026)
+  const civilYears = [
+    { label: "2022", start: "2022-09-01", end: "2022-12-31" },
+    { label: "2023", start: "2023-01-01", end: "2023-12-31" },
+    { label: "2024", start: "2024-01-01", end: "2024-12-31" },
+    { label: "2025", start: "2025-01-01", end: "2025-12-31" },
+    { label: "2026", start: "2026-01-01", end: "2026-09-30" }
+  ]
+
+  // Calculate academic year periods (engineer school years)
+  const academicYears = [
+    { label: "1st year", start: "2022-09-01", end: "2023-08-31", color: "#E3F2FD" },
+    { label: "2nd year", start: "2023-09-01", end: "2024-08-31", color: "#F3E5F5" },
+    { label: "3rd year", start: "2024-09-01", end: "2025-08-31", color: "#FFF3E0" },
+    { label: "4th year", start: "2025-09-01", end: "2026-08-31", color: "#E8F5E9" }
+  ]
+
   // Group projects by category for legend
   const categories = Array.from(new Set(projects.map(p => p.category)))
-
-  // Calculate year periods for the header - separate all academic years
-  const yearPeriods = [
-    { label: "1st year", start: "2023-06-01", end: "2023-12-31", color: "#E3F2FD" },
-    { label: "2nd year", start: "2024-01-01", end: "2024-06-30", color: "#F3E5F5" },
-    { label: "3rd year", start: "2024-07-01", end: "2025-06-30", color: "#FFF3E0" },
-    { label: "4th year", start: "2025-07-01", end: "2026-05-31", color: "#E8F5E9" }
-  ]
 
   return (
     <div className="bg-streamlit-secondary rounded-xl p-6 border border-streamlit-border">
       {/* Timeline */}
       <div className="bg-white rounded-lg p-4 border border-streamlit-border overflow-x-auto">
-        {/* Year periods header */}
-        <div className="mb-3 relative h-12">
-          {yearPeriods.map((period, idx) => {
+        {/* Three-level timeline header */}
+
+        {/* Level 1: Academic years (Engineer school years) */}
+        <div className="mb-2 relative h-12 border-b border-gray-300">
+          {academicYears.map((period, idx) => {
             const periodStyle = getBarStyle(period.start, period.end)
             return (
               <div
                 key={idx}
-                className="absolute h-12 rounded-lg border-2 border-gray-400 flex items-center justify-center shadow-sm"
+                className="absolute h-10 rounded-lg border-2 border-gray-400 flex items-center justify-center shadow-sm"
                 style={{
                   left: periodStyle.left,
                   width: periodStyle.width,
-                  backgroundColor: period.color
+                  backgroundColor: period.color,
+                  top: '0px'
                 }}
               >
                 <span className="text-sm font-bold text-streamlit-text">{period.label}</span>
@@ -1265,22 +1265,42 @@ function GanttChart() {
           })}
         </div>
 
-        {/* Timeline header with monthly markers */}
-        <div className="mb-4 relative h-16 border-b-2 border-gray-300">
-          {/* Vertical grid lines */}
-          {timelineMarkers.map((marker, idx) => (
+        {/* Level 2: Civil years (2022, 2023, 2024, 2025, 2026) */}
+        <div className="mb-2 relative h-10 border-b border-gray-300">
+          {civilYears.map((year, idx) => {
+            const yearStyle = getBarStyle(year.start, year.end)
+            return (
+              <div
+                key={idx}
+                className="absolute h-8 flex items-center justify-center border-r border-gray-300"
+                style={{
+                  left: yearStyle.left,
+                  width: yearStyle.width,
+                  top: '0px'
+                }}
+              >
+                <span className="text-base font-bold text-gray-700">{year.label}</span>
+              </div>
+            )
+          })}
+        </div>
+
+        {/* Level 3: Months */}
+        <div className="mb-4 relative h-12 border-b-2 border-gray-400">
+          {/* Vertical grid lines for each month */}
+          {monthMarkers.map((marker, idx) => (
             <div
               key={`line-${idx}`}
-              className={`absolute top-0 bottom-0 ${marker.isYear || marker.isMajor ? 'border-l-2 border-gray-300' : 'border-l border-gray-200'}`}
+              className={`absolute top-0 bottom-0 ${marker.month === 0 ? 'border-l-2 border-gray-400' : 'border-l border-gray-200'}`}
               style={{ left: `${marker.position}%` }}
             />
           ))}
 
-          {/* Timeline labels */}
-          {timelineMarkers.map((marker, idx) => (
+          {/* Month labels */}
+          {monthMarkers.map((marker, idx) => (
             <div
               key={`label-${idx}`}
-              className={`absolute ${marker.isYear ? 'bottom-6 font-bold text-base' : marker.isMajor ? 'bottom-2 font-semibold text-xs' : 'bottom-0 text-[10px] text-gray-500'}`}
+              className="absolute bottom-1 text-[10px] text-gray-600"
               style={{
                 left: `${marker.position}%`,
                 transform: 'translateX(-50%)'
@@ -1293,11 +1313,11 @@ function GanttChart() {
 
         {/* Gantt bars with names */}
         <div className="space-y-2 relative min-h-[600px]">
-          {/* Vertical grid lines extending through bars */}
-          {timelineMarkers.filter(m => m.isYear || m.isMajor).map((marker, idx) => (
+          {/* Vertical grid lines extending through bars - show year boundaries */}
+          {monthMarkers.filter(m => m.month === 0).map((marker, idx) => (
             <div
               key={`grid-${idx}`}
-              className={`absolute top-0 bottom-0 pointer-events-none ${marker.isYear ? 'border-l border-gray-200' : 'border-l border-gray-100'}`}
+              className="absolute top-0 bottom-0 pointer-events-none border-l border-gray-200"
               style={{ left: `${marker.position}%` }}
             />
           ))}
