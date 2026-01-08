@@ -1229,10 +1229,37 @@ function GanttChart() {
   // Group projects by category for legend
   const categories = Array.from(new Set(projects.map(p => p.category)))
 
+  // Calculate year periods for the header
+  const yearPeriods = [
+    { label: "1st-2nd year", start: "2023-06-01", end: "2024-06-30" },
+    { label: "3rd year", start: "2024-07-01", end: "2024-12-31" },
+    { label: "4th year", start: "2025-01-01", end: "2026-05-31" }
+  ]
+
   return (
     <div className="bg-streamlit-secondary rounded-xl p-6 border border-streamlit-border">
       {/* Timeline */}
       <div className="bg-white rounded-lg p-4 border border-streamlit-border overflow-x-auto">
+        {/* Year periods header */}
+        <div className="mb-2 relative h-10">
+          {yearPeriods.map((period, idx) => {
+            const periodStyle = getBarStyle(period.start, period.end)
+            return (
+              <div
+                key={idx}
+                className="absolute h-10 rounded-lg border-2 border-streamlit-border flex items-center justify-center"
+                style={{
+                  left: periodStyle.left,
+                  width: periodStyle.width,
+                  backgroundColor: '#f8f9fa'
+                }}
+              >
+                <span className="text-xs font-bold text-streamlit-text">{period.label}</span>
+              </div>
+            )
+          })}
+        </div>
+
         {/* Timeline header with precise markers */}
         <div className="mb-4 relative h-12 border-b-2 border-gray-300">
           {/* Vertical grid lines */}
@@ -1280,18 +1307,6 @@ function GanttChart() {
                 key={idx}
                 className="relative h-8 z-10 flex items-center"
               >
-                {/* Year label before the bar */}
-                <div
-                  className="absolute text-xs font-semibold text-gray-500 whitespace-nowrap"
-                  style={{
-                    left: `${parseFloat(barStyle.left) - 0.5}%`,
-                    transform: 'translateX(-100%)',
-                    paddingRight: '8px'
-                  }}
-                >
-                  {project.year}
-                </div>
-
                 {/* Project bar */}
                 <div
                   className="absolute h-7 rounded cursor-pointer flex items-center transition-all hover:shadow-lg hover:scale-105"
