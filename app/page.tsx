@@ -1240,10 +1240,9 @@ function GanttChart() {
 
   return (
     <div className="bg-streamlit-secondary rounded-xl p-6 border border-streamlit-border">
-      {/* Timeline */}
-      <div className="bg-white rounded-lg p-4 border border-streamlit-border overflow-x-auto">
-        {/* Three-level timeline header - Sticky (positioned below the main header) */}
-        <div className="sticky top-[60px] bg-white z-20 pb-2 shadow-md">
+      {/* Three-level timeline header - Sticky outside overflow container */}
+      <div className="sticky top-[60px] bg-white z-20 rounded-t-lg border border-b-0 border-streamlit-border shadow-md overflow-x-auto">
+        <div className="p-4 min-w-[800px]">
           {/* Level 1: Academic years (Engineer school years) */}
           <div className="mb-2 relative h-12 border-b border-gray-300">
             {academicYears.map((period, idx) => {
@@ -1311,9 +1310,13 @@ function GanttChart() {
             ))}
           </div>
         </div>
+      </div>
 
-        {/* Gantt bars with names */}
-        <div className="space-y-2 relative min-h-[600px]">
+      {/* Timeline content with scrollable Gantt bars */}
+      <div className="bg-white rounded-b-lg border border-t-0 border-streamlit-border overflow-x-auto">
+        <div className="p-4 min-w-[800px]">
+          {/* Gantt bars with names */}
+          <div className="space-y-2 relative min-h-[600px]">
           {/* Vertical grid lines extending through bars - show year boundaries */}
           {monthMarkers.filter(m => m.month === 0).map((marker, idx) => (
             <div
@@ -1374,6 +1377,7 @@ function GanttChart() {
               </div>
             )
           })}
+          </div>
         </div>
       </div>
 
