@@ -1194,7 +1194,7 @@ function GanttChart() {
   const categories = Array.from(new Set(projects.map(p => p.category)))
 
   return (
-    <div className="bg-streamlit-secondary rounded-xl p-6 border border-streamlit-border">
+    <div className="bg-streamlit-secondary rounded-xl p-6 border border-streamlit-border overflow-hidden">
       {/* Legend */}
       <div className="mb-6 flex flex-wrap gap-3 justify-center">
         {categories.map(category => (
@@ -1208,64 +1208,74 @@ function GanttChart() {
         ))}
       </div>
 
-      {/* Timeline header with years */}
-      <div className="mb-4 relative h-8 border-b border-gray-300">
-        <div className="absolute left-0 text-sm font-semibold text-streamlit-text">2023</div>
-        <div className="absolute left-1/4 text-sm font-semibold text-streamlit-text">2024</div>
-        <div className="absolute left-1/2 text-sm font-semibold text-streamlit-text">2025</div>
-        <div className="absolute left-3/4 text-sm font-semibold text-streamlit-text">2026</div>
-      </div>
-
-      {/* Gantt bars */}
-      <div className="space-y-1">
-        {projects.map((project, idx) => (
-          <div key={idx} className="flex items-center gap-4 h-8 group">
-            {/* Project name on the left */}
-            <div className="flex items-center gap-2 w-64 flex-shrink-0">
-              <div
-                className="w-3 h-3 rounded flex-shrink-0"
-                style={{ backgroundColor: categoryColors[project.category] }}
-              />
-              <span className="text-xs text-streamlit-text truncate">
-                {project.name} {project.inProgress && "🚧"}
-              </span>
-            </div>
-
-            {/* Timeline area */}
-            <div className="flex-1 relative h-8 overflow-x-auto">
-              {/* Project bar */}
-              <div
-                className="absolute h-6 rounded transition-all hover:h-7 hover:-translate-y-0.5 cursor-pointer"
-                style={{
-                  ...getBarStyle(project.start, project.end),
-                  backgroundColor: categoryColors[project.category],
-                  opacity: project.inProgress ? 0.85 : 0.7
-                }}
-                title={`${project.name} (${project.start} - ${project.end})`}
-              >
-                {/* Project name inside bar (visible on hover or if bar is wide enough) */}
-                <div className="px-2 text-xs text-white truncate leading-6 opacity-0 group-hover:opacity-100 transition-opacity">
-                  {project.name}
-                </div>
-              </div>
-
-              {/* In progress indicator */}
-              {project.inProgress && (
+      {/* Gantt chart container */}
+      <div className="flex gap-4">
+        {/* Project names column - fixed width */}
+        <div className="w-48 sm:w-64 lg:w-80 flex-shrink-0">
+          <div className="h-8 mb-4 border-b border-gray-300"></div>
+          <div className="space-y-1">
+            {projects.map((project, idx) => (
+              <div key={idx} className="flex items-center gap-2 h-8">
                 <div
-                  className="absolute h-6 flex items-center justify-end pr-1"
+                  className="w-3 h-3 rounded flex-shrink-0"
+                  style={{ backgroundColor: categoryColors[project.category] }}
+                />
+                <span className="text-xs text-streamlit-text truncate">
+                  {project.name} {project.inProgress && "🚧"}
+                </span>
+              </div>
+            ))}
+          </div>
+        </div>
+
+        {/* Timeline area - flexible width */}
+        <div className="flex-1 min-w-0">
+          {/* Timeline header with years */}
+          <div className="mb-4 relative h-8 border-b border-gray-300">
+            <div className="absolute left-0 text-sm font-semibold text-streamlit-text">2023</div>
+            <div className="absolute left-1/4 text-sm font-semibold text-streamlit-text">2024</div>
+            <div className="absolute left-1/2 text-sm font-semibold text-streamlit-text">2025</div>
+            <div className="absolute left-3/4 text-sm font-semibold text-streamlit-text">2026</div>
+          </div>
+
+          {/* Gantt bars */}
+          <div className="space-y-1">
+            {projects.map((project, idx) => (
+              <div key={idx} className="relative h-8 group">
+                {/* Project bar */}
+                <div
+                  className="absolute h-6 rounded transition-all hover:h-7 hover:-translate-y-0.5 cursor-pointer"
                   style={{
                     ...getBarStyle(project.start, project.end),
-                    left: `calc(${getBarStyle(project.start, project.end).left} + ${getBarStyle(project.start, project.end).width})`
+                    backgroundColor: categoryColors[project.category],
+                    opacity: project.inProgress ? 0.85 : 0.7
                   }}
+                  title={`${project.name} (${project.start} - ${project.end})`}
                 >
-                  <div className="w-0 h-0 border-t-4 border-t-transparent border-b-4 border-b-transparent border-l-4"
-                       style={{ borderLeftColor: categoryColors[project.category] }}
-                  />
+                  {/* Project name inside bar (visible on hover or if bar is wide enough) */}
+                  <div className="px-2 text-xs text-white truncate leading-6 opacity-0 group-hover:opacity-100 transition-opacity">
+                    {project.name}
+                  </div>
                 </div>
-              )}
-            </div>
+
+                {/* In progress indicator */}
+                {project.inProgress && (
+                  <div
+                    className="absolute h-6 flex items-center justify-end pr-1"
+                    style={{
+                      ...getBarStyle(project.start, project.end),
+                      left: `calc(${getBarStyle(project.start, project.end).left} + ${getBarStyle(project.start, project.end).width})`
+                    }}
+                  >
+                    <div className="w-0 h-0 border-t-4 border-t-transparent border-b-4 border-b-transparent border-l-4"
+                         style={{ borderLeftColor: categoryColors[project.category] }}
+                    />
+                  </div>
+                )}
+              </div>
+            ))}
           </div>
-        ))}
+        </div>
       </div>
     </div>
   )
