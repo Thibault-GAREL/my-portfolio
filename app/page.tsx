@@ -995,8 +995,8 @@ function ProjectsByDate() {
         </div>
       </div>
 
-      {/* Project Timeline - Gantt Chart */}
-      <div className="mt-16">
+      {/* Project Timeline - Gantt Chart (hidden on mobile and tablet, visible on desktop) */}
+      <div className="mt-16 hidden lg:block">
         <h3 className="text-3xl font-bold text-streamlit-text mb-8 pb-2 border-b-2 border-streamlit-border">
           📊 Project Timeline
         </h3>
