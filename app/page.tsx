@@ -557,7 +557,7 @@ function ProjectsByCategory() {
                 name: "Unity AI - Movement",
                 description: "Unity AI learning to move using PPO",
                 link: "https://github.com/Thibault-GAREL/Unity_move",
-                image: "https://cdn-icons-png.flaticon.com/512/3176/3176366.png",
+                image: "https://raw.githubusercontent.com/Thibault-GAREL/Unity_move/main/img/Gif-Unity_move.gif",
                 date: "2025",
                 year: "4th year"
               },
@@ -565,7 +565,7 @@ function ProjectsByCategory() {
                 name: "Unity AI - Greedy",
                 description: "Unity AI learning to catch money using PPO",
                 link: "https://github.com/Thibault-GAREL/Unity_greedy",
-                image: "https://cdn-icons-png.flaticon.com/512/3176/3176366.png",
+                image: "https://raw.githubusercontent.com/Thibault-GAREL/Unity_greedy/main/img_greedy/Greedy-gif-X9.gif",
                 date: "2025",
                 year: "4th year"
               },
@@ -573,7 +573,7 @@ function ProjectsByCategory() {
                 name: "Unity AI - Driving",
                 description: "Unity AI learning to drive using PPO",
                 link: "https://github.com/Thibault-GAREL/Unity_drive",
-                image: "https://cdn-icons-png.flaticon.com/512/3176/3176366.png",
+                image: "https://raw.githubusercontent.com/Thibault-GAREL/Unity_drive/main/img_drive/Driving-maze-gif.gif",
                 date: "2025",
                 year: "4th year"
               }
@@ -757,7 +757,7 @@ function ProjectsByDate() {
       name: "Unity AI - Movement",
       description: "Unity AI learning to move using PPO",
       link: "https://github.com/Thibault-GAREL/Unity_move",
-      image: "https://cdn-icons-png.flaticon.com/512/3176/3176366.png",
+      image: "https://raw.githubusercontent.com/Thibault-GAREL/Unity_move/main/img/Gif-Unity_move.gif",
       date: "2025",
       year: "4th year"
     },
@@ -765,7 +765,7 @@ function ProjectsByDate() {
       name: "Unity AI - Greedy",
       description: "Unity AI learning to catch money using PPO",
       link: "https://github.com/Thibault-GAREL/Unity_greedy",
-      image: "https://cdn-icons-png.flaticon.com/512/3176/3176366.png",
+      image: "https://raw.githubusercontent.com/Thibault-GAREL/Unity_greedy/main/img_greedy/Greedy-gif-X9.gif",
       date: "2025",
       year: "4th year"
     },
@@ -773,7 +773,7 @@ function ProjectsByDate() {
       name: "Unity AI - Driving",
       description: "Unity AI learning to drive using PPO",
       link: "https://github.com/Thibault-GAREL/Unity_drive",
-      image: "https://cdn-icons-png.flaticon.com/512/3176/3176366.png",
+      image: "https://raw.githubusercontent.com/Thibault-GAREL/Unity_drive/main/img_drive/Driving-maze-gif.gif",
       date: "2025",
       year: "4th year"
     },
