@@ -423,7 +423,7 @@ function ProjectsByCategory() {
             name: "CLIP Embedding Tools",
             description: "Opposite Embedding Finder and Embedding Arithmetic",
             link: "https://github.com/Thibault-GAREL/CLIP_Embedding_Tools",
-            image: "https://cdn-icons-png.flaticon.com/512/3176/3176366.png",
+            image: "https://raw.githubusercontent.com/Thibault-GAREL/CLIP_Embedding_Tools/main/img/Logo-Embedding_Tools.png",
             date: "Dec 2025",
             year: "4th year"
           }
@@ -885,7 +885,7 @@ function ProjectsByDate() {
       name: "CLIP Embedding Tools",
       description: "Opposite Embedding Finder and Embedding Arithmetic",
       link: "https://github.com/Thibault-GAREL/CLIP_Embedding_Tools",
-      image: "https://cdn-icons-png.flaticon.com/512/3176/3176366.png",
+      image: "https://raw.githubusercontent.com/Thibault-GAREL/CLIP_Embedding_Tools/main/img/Logo-Embedding_Tools.png",
       date: "Dec 2025",
       year: "4th year"
     }
