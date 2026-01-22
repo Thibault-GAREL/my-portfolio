@@ -62,7 +62,7 @@ export const metadata: Metadata = {
     canonical: 'https://thibault-garel.github.io/my-portfolio/',
   },
   verification: {
-    google: 'your-google-verification-code-here',
+    google: 'OJ2423jIOTyCyRD15jaDaJ-KCgertVt2xc9aIiM6KrA',
   },
 }
 
