@@ -3,4 +3,4 @@ User-agent: *
 Allow: /
 
 # Sitemap location
-Sitemap: https://thibault-garel.github.io/my-portfolio/sitemap.xml
+Sitemap: https://thibault-garel.vercel.app/sitemap.xml

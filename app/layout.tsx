@@ -39,7 +39,7 @@ export const metadata: Metadata = {
   openGraph: {
     type: 'website',
     locale: 'en_US',
-    url: 'https://thibault-garel.github.io/my-portfolio/',
+    url: 'https://thibault-garel.vercel.app/',
     siteName: 'Thibault GAREL Portfolio',
     title: 'Thibault GAREL - AI Engineer Portfolio',
     description: 'Portfolio showcasing AI and Data Science projects by Thibault GAREL, including computer vision, NLP, and machine learning applications.',
@@ -59,7 +59,7 @@ export const metadata: Metadata = {
     images: ['https://github.com/Thibault-GAREL.png'],
   },
   alternates: {
-    canonical: 'https://thibault-garel.github.io/my-portfolio/',
+    canonical: 'https://thibault-garel.vercel.app/',
   },
   verification: {
     google: 'OJ2423jIOTyCyRD15jaDaJ-KCgertVt2xc9aIiM6KrA',
@@ -77,7 +77,7 @@ export default function RootLayout({
     name: 'Thibault GAREL',
     jobTitle: 'AI Engineering Student',
     description: '4th year engineering student at ECE specializing in Data & AI',
-    url: 'https://thibault-garel.github.io/my-portfolio/',
+    url: 'https://thibault-garel.vercel.app/',
     image: 'https://github.com/Thibault-GAREL.png',
     sameAs: [
       'https://github.com/Thibault-GAREL',
