@@ -707,7 +707,7 @@ function ProjectsByCategory() {
                 name: "Snake AI - Decision Tree",
                 description: "Snake game AI using a Decision Tree",
                 link: "https://github.com/Thibault-GAREL/AI_snake_decision_tree_version",
-                image: "https://raw.githubusercontent.com/Thibault-GAREL/Thibault-GAREL/main/Logo_Featured_Projects/rl_snake_decision_tree.gif",
+                image: "https://raw.githubusercontent.com/Thibault-GAREL/AI_snake_decision_tree_version/main/Images/snake_decision_tree.gif",
                 date: "Sep - Oct 2024",
                 year: "3rd year"
               }
@@ -771,7 +771,7 @@ function ProjectsByCategory() {
                 description: "Snake game AI using Deep Q-Learning",
                 link: "https://github.com/Thibault-GAREL/AI_snake_DQN_version",
                 inProgress: true,
-                image: "https://raw.githubusercontent.com/Thibault-GAREL/Thibault-GAREL/main/Logo_Featured_Projects/rl_snake_dql.gif",
+                image: "https://raw.githubusercontent.com/Thibault-GAREL/AI_snake_DQN_version/main/Images/snake_DQN.gif",
                 date: "Jul 2024 - Present",
                 year: "3rd - 4th year"
               },
@@ -798,7 +798,7 @@ function ProjectsByCategory() {
                 name: "Snake AI - PPO",
                 description: "Snake game AI using Proximal Policy Optimization",
                 link: "https://github.com/Thibault-GAREL/AI_snake_PPO_version",
-                image: "https://raw.githubusercontent.com/Thibault-GAREL/Thibault-GAREL/main/Logo_Featured_Projects/rl_snake_ppo.gif",
+                image: "https://raw.githubusercontent.com/Thibault-GAREL/AI_snake_PPO_version/main/Images/snake_PPO.gif",
                 inProgress: true,
                 date: "Dec 2025 - Present",
                 year: "4th year"
@@ -807,7 +807,7 @@ function ProjectsByCategory() {
                 name: "StarCraft 2 AI (VLM + RL)",
                 description: "A StarCraft 2 AI combining Vision-Language Model and Reinforcement Learning",
                 link: "https://github.com/Thibault-GAREL/AI-StarCraft2-VLM-RL",
-                image: "https://raw.githubusercontent.com/Thibault-GAREL/Thibault-GAREL/main/Logo_Featured_Projects/rl_starcraft2.gif",
+                image: "https://raw.githubusercontent.com/Thibault-GAREL/AI-StarCraft2-VLM-RL/main/img/sc2.gif",
                 inProgress: true,
                 date: "Oct 2025 - Present",
                 year: "4th year"
@@ -955,7 +955,7 @@ function ProjectsByCategory() {
             name: "2D Muscular Simulation",
             description: "2D muscular physics simulation with Box2D",
             link: "https://github.com/Thibault-GAREL/2D-Muscular-Simulation",
-            image: "https://raw.githubusercontent.com/Thibault-GAREL/Thibault-GAREL/main/Logo_Featured_Projects/physics_muscular_simulation.png",
+            image: "https://raw.githubusercontent.com/Thibault-GAREL/2D-Muscular-Simulation/main/img/muscular_simulation.gif",
             date: "Apr - Jun 2025",
             year: "4th year"
           }
@@ -1123,7 +1123,7 @@ function ProjectsByDate() {
       name: "2D Muscular Simulation",
       description: "2D muscular physics simulation with Box2D",
       link: "https://github.com/Thibault-GAREL/2D-Muscular-Simulation",
-      image: "https://raw.githubusercontent.com/Thibault-GAREL/Thibault-GAREL/main/Logo_Featured_Projects/physics_muscular_simulation.png",
+      image: "https://raw.githubusercontent.com/Thibault-GAREL/2D-Muscular-Simulation/main/img/muscular_simulation.gif",
       date: "Apr - Jun 2025",
       year: "4th year"
     },
@@ -1215,7 +1215,7 @@ function ProjectsByDate() {
       name: "Snake AI - Decision Tree",
       description: "Snake game AI using a Decision Tree",
       link: "https://github.com/Thibault-GAREL/AI_snake_decision_tree_version",
-      image: "https://raw.githubusercontent.com/Thibault-GAREL/Thibault-GAREL/main/Logo_Featured_Projects/rl_snake_decision_tree.gif",
+      image: "https://raw.githubusercontent.com/Thibault-GAREL/AI_snake_decision_tree_version/main/Images/snake_decision_tree.gif",
       date: "Sep - Oct 2024",
       year: "3rd year"
     }
