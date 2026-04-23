@@ -707,7 +707,7 @@ function ProjectsByCategory() {
                 name: "Snake AI - Decision Tree",
                 description: "Snake game AI using a Decision Tree",
                 link: "https://github.com/Thibault-GAREL/AI_snake_decision_tree_version",
-                image: "https://raw.githubusercontent.com/Thibault-GAREL/AI_snake_decision_tree_version/main/Images/snake_decision_tree.gif",
+                image: "https://raw.githubusercontent.com/Thibault-GAREL/AI_snake_decision_tree_version/main/img/Snake_arbre_de_decision-Score_31.gif",
                 date: "Sep - Oct 2024",
                 year: "3rd year"
               }
@@ -771,7 +771,7 @@ function ProjectsByCategory() {
                 description: "Snake game AI using Deep Q-Learning",
                 link: "https://github.com/Thibault-GAREL/AI_snake_DQN_version",
                 inProgress: true,
-                image: "https://raw.githubusercontent.com/Thibault-GAREL/AI_snake_DQN_version/main/Images/snake_DQN.gif",
+                image: "https://raw.githubusercontent.com/Thibault-GAREL/AI_snake_DQN_version/main/Images/SnakeDQL-Score36.gif",
                 date: "Jul 2024 - Present",
                 year: "3rd - 4th year"
               },
@@ -798,7 +798,7 @@ function ProjectsByCategory() {
                 name: "Snake AI - PPO",
                 description: "Snake game AI using Proximal Policy Optimization",
                 link: "https://github.com/Thibault-GAREL/AI_snake_PPO_version",
-                image: "https://raw.githubusercontent.com/Thibault-GAREL/AI_snake_PPO_version/main/Images/snake_PPO.gif",
+                image: "https://raw.githubusercontent.com/Thibault-GAREL/AI_snake_PPO_version/main/img/SnakePPO-Score54.gif",
                 inProgress: true,
                 date: "Dec 2025 - Present",
                 year: "4th year"
@@ -807,7 +807,8 @@ function ProjectsByCategory() {
                 name: "StarCraft 2 AI (VLM + RL)",
                 description: "A StarCraft 2 AI combining Vision-Language Model and Reinforcement Learning",
                 link: "https://github.com/Thibault-GAREL/AI-StarCraft2-VLM-RL",
-                image: "https://raw.githubusercontent.com/Thibault-GAREL/AI-StarCraft2-VLM-RL/main/img/sc2.gif",
+                image: "https://raw.githubusercontent.com/Thibault-GAREL/Thibault-GAREL/main/Logo_Featured_Projects/rl_starcraft2.gif",
+                imageDark: "https://raw.githubusercontent.com/Thibault-GAREL/Thibault-GAREL/main/Logo_Featured_Projects/rl_starcraft2_dark.gif",
                 inProgress: true,
                 date: "Oct 2025 - Present",
                 year: "4th year"
@@ -916,7 +917,7 @@ function ProjectsByCategory() {
             name: "Star Wars - ECE World",
             description: "Star Wars minigames in an open world (C++)",
             link: "https://github.com/Thibault-GAREL/Game_ECE_World_Minigame",
-            image: "https://raw.githubusercontent.com/Thibault-GAREL/Thibault-GAREL/main/Logo_Featured_Projects/game_star_wars.png",
+            image: "https://raw.githubusercontent.com/Thibault-GAREL/Game_ECE_World_Minigame/main/img/Menu.png",
             date: "Jan - Jun 2024",
             year: "2nd year"
           },
@@ -924,7 +925,7 @@ function ProjectsByCategory() {
             name: "Maze - Asterix & Obélix",
             description: "Maze game with BFS pathfinding (C + Allegro 5)",
             link: "https://github.com/Thibault-GAREL/Game_maze_Asterix-Obelix",
-            image: "https://raw.githubusercontent.com/Thibault-GAREL/Thibault-GAREL/main/Logo_Featured_Projects/game_maze_asterix.png",
+            image: "https://raw.githubusercontent.com/Thibault-GAREL/Game_maze_Asterix-Obelix/main/img/menu_screen.png",
             date: "Jan - Jun 2024",
             year: "2nd year"
           }
@@ -955,7 +956,7 @@ function ProjectsByCategory() {
             name: "2D Muscular Simulation",
             description: "2D muscular physics simulation with Box2D",
             link: "https://github.com/Thibault-GAREL/2D-Muscular-Simulation",
-            image: "https://raw.githubusercontent.com/Thibault-GAREL/2D-Muscular-Simulation/main/img/muscular_simulation.gif",
+            image: "https://raw.githubusercontent.com/Thibault-GAREL/Thibault-GAREL/main/Logo_Featured_Projects/physics_muscular_simulation.png",
             date: "Apr - Jun 2025",
             year: "4th year"
           }
@@ -1011,7 +1012,7 @@ function ProjectsByDate() {
       name: "Snake AI - PPO",
       description: "Snake game AI using Proximal Policy Optimization",
       link: "https://github.com/Thibault-GAREL/AI_snake_PPO_version",
-      image: "https://cdn-icons-png.flaticon.com/512/3176/3176366.png",
+      image: "https://raw.githubusercontent.com/Thibault-GAREL/AI_snake_PPO_version/main/img/SnakePPO-Score54.gif",
       inProgress: true,
       date: "Dec 2025 - Present",
       year: "4th year"
@@ -1020,7 +1021,8 @@ function ProjectsByDate() {
       name: "StarCraft 2 AI (VLM + RL)",
       description: "A StarCraft 2 AI combining Vision-Language Model and Reinforcement Learning",
       link: "https://github.com/Thibault-GAREL/AI-StarCraft2-VLM-RL",
-      image: "https://cdn-icons-png.flaticon.com/512/3176/3176366.png",
+      image: "https://raw.githubusercontent.com/Thibault-GAREL/Thibault-GAREL/main/Logo_Featured_Projects/rl_starcraft2.gif",
+      imageDark: "https://raw.githubusercontent.com/Thibault-GAREL/Thibault-GAREL/main/Logo_Featured_Projects/rl_starcraft2_dark.gif",
       inProgress: true,
       date: "Oct 2025 - Present",
       year: "4th year"
@@ -1039,7 +1041,7 @@ function ProjectsByDate() {
       description: "Snake game AI using DQN (in progress)",
       link: "https://github.com/Thibault-GAREL/AI_snake_DQN_version",
       inProgress: true,
-      image: "https://cdn-icons-png.flaticon.com/512/3176/3176366.png",
+      image: "https://raw.githubusercontent.com/Thibault-GAREL/AI_snake_DQN_version/main/Images/SnakeDQL-Score36.gif",
       date: "Jul 2024 - Present",
       year: "3rd - 4th year"
     }
@@ -1123,7 +1125,7 @@ function ProjectsByDate() {
       name: "2D Muscular Simulation",
       description: "2D muscular physics simulation with Box2D",
       link: "https://github.com/Thibault-GAREL/2D-Muscular-Simulation",
-      image: "https://raw.githubusercontent.com/Thibault-GAREL/2D-Muscular-Simulation/main/img/muscular_simulation.gif",
+      image: "https://raw.githubusercontent.com/Thibault-GAREL/Thibault-GAREL/main/Logo_Featured_Projects/physics_muscular_simulation.png",
       date: "Apr - Jun 2025",
       year: "4th year"
     },
@@ -1215,7 +1217,7 @@ function ProjectsByDate() {
       name: "Snake AI - Decision Tree",
       description: "Snake game AI using a Decision Tree",
       link: "https://github.com/Thibault-GAREL/AI_snake_decision_tree_version",
-      image: "https://raw.githubusercontent.com/Thibault-GAREL/AI_snake_decision_tree_version/main/Images/snake_decision_tree.gif",
+      image: "https://raw.githubusercontent.com/Thibault-GAREL/AI_snake_decision_tree_version/main/img/Snake_arbre_de_decision-Score_31.gif",
       date: "Sep - Oct 2024",
       year: "3rd year"
     }
@@ -1243,7 +1245,7 @@ function ProjectsByDate() {
       name: "Star Wars - ECE World",
       description: "Star Wars minigames in an open world (C++)",
       link: "https://github.com/Thibault-GAREL/Game_ECE_World_Minigame",
-      image: "https://raw.githubusercontent.com/Thibault-GAREL/Thibault-GAREL/main/Logo_Featured_Projects/game_star_wars.png",
+      image: "https://raw.githubusercontent.com/Thibault-GAREL/Game_ECE_World_Minigame/main/img/Menu.png",
       date: "Jan - Jun 2024",
       year: "2nd year"
     },
@@ -1251,7 +1253,7 @@ function ProjectsByDate() {
       name: "Maze - Asterix & Obélix",
       description: "Maze game with BFS pathfinding (C + Allegro 5)",
       link: "https://github.com/Thibault-GAREL/Game_maze_Asterix-Obelix",
-      image: "https://raw.githubusercontent.com/Thibault-GAREL/Thibault-GAREL/main/Logo_Featured_Projects/game_maze_asterix.png",
+      image: "https://raw.githubusercontent.com/Thibault-GAREL/Game_maze_Asterix-Obelix/main/img/menu_screen.png",
       date: "Jan - Jun 2024",
       year: "2nd year"
     }
@@ -1344,6 +1346,7 @@ function ProjectCategory({
     link: string
     inProgress?: boolean
     image?: string
+    imageDark?: string
     date?: string
     year?: string
     category?: string
@@ -1442,6 +1445,7 @@ function ProjectCard({
     link: string
     inProgress?: boolean
     image?: string
+    imageDark?: string
     date?: string
     year?: string
     category?: string
@@ -1459,8 +1463,15 @@ function ProjectCard({
           <img
             src={project.image}
             alt={project.name}
-            className="w-full h-full object-cover"
+            className={`w-full h-full object-cover ${project.imageDark ? 'dark:hidden' : ''}`}
           />
+          {project.imageDark && (
+            <img
+              src={project.imageDark}
+              alt={project.name}
+              className="w-full h-full object-cover hidden dark:block"
+            />
+          )}
         </div>
       )}
       <div className="flex-1 min-w-0">
