@@ -5,11 +5,23 @@ import React, { useState, useEffect } from 'react'
 export default function Home() {
   const [sortBy, setSortBy] = useState<'category' | 'date'>('category')
   const [darkMode, setDarkMode] = useState(false)
+
+  // Load dark mode preference from localStorage on mount
+  useEffect(() => {
+    const savedDarkMode = localStorage.getItem('darkMode')
+    if (savedDarkMode !== null) {
+      setDarkMode(savedDarkMode === 'true')
+    }
+  }, [])
+
+  // Apply dark mode and save to localStorage
   useEffect(() => {
     if (darkMode) {
       document.documentElement.classList.add('dark')
+      localStorage.setItem('darkMode', 'true')
     } else {
       document.documentElement.classList.remove('dark')
+      localStorage.setItem('darkMode', 'false')
     }
   }, [darkMode])
 
@@ -273,7 +285,7 @@ export default function Home() {
             <div className="grid grid-cols-1 lg:grid-cols-[auto_1fr_auto] gap-6 mb-4">
               {/* Logo on the left (hidden on mobile, shown on desktop) */}
               <img
-                src="https://raw.githubusercontent.com/Thibault-GAREL/Thibault-GAREL/main/Logo_Group_Projects/group_ppe_smart_contract_sq.png"
+                src="https://raw.githubusercontent.com/Thibault-GAREL/Thibault-GAREL/main/Logo_Group_Projects/group_ppe_smart_contract.jpg"
                 alt="PPE Logo"
                 className="hidden lg:block w-24 h-24 object-contain shadow-lg dark:shadow-[0_8px_16px_rgba(0,0,0,0.4)]"
               />
@@ -355,7 +367,7 @@ export default function Home() {
             <div className="grid grid-cols-1 lg:grid-cols-[auto_1fr_auto] gap-6 mb-4">
               {/* Logo on the left (hidden on mobile, shown on desktop) */}
               <img
-                src="https://raw.githubusercontent.com/Thibault-GAREL/Thibault-GAREL/main/Logo_Group_Projects/group_resilient_sq.png"
+                src="https://raw.githubusercontent.com/Thibault-GAREL/Thibault-GAREL/main/REs.png"
                 alt="Resilient AI Logo"
                 className="hidden lg:block w-24 h-24 object-contain shadow-lg dark:shadow-[0_8px_16px_rgba(0,0,0,0.4)]"
               />
@@ -725,7 +737,7 @@ function ProjectsByCategory() {
                 year: "3rd year"
               }
             ].map((project) => (
-              <ProjectCard key={project.name} project={project} />
+              <ProjectCard key={project.name} project={{ ...project, category: '🌳 Decision Tree' }} />
             ))}
           </div>
         </div>
@@ -761,7 +773,7 @@ function ProjectsByCategory() {
                 year: "4th year"
               }
             ].map((project) => (
-              <ProjectCard key={project.name} project={project} />
+              <ProjectCard key={project.name} project={{ ...project, category: '🧬 Genetic Algorithm' }} />
             ))}
           </div>
         </div>
@@ -797,7 +809,7 @@ function ProjectsByCategory() {
                 year: "4th year"
               }
             ].map((project) => (
-              <ProjectCard key={project.name} project={project} />
+              <ProjectCard key={project.name} project={{ ...project, category: '📈 Q-Learning' }} />
             ))}
           </div>
         </div>
@@ -826,7 +838,7 @@ function ProjectsByCategory() {
                 year: "4th year"
               }
             ].map((project) => (
-              <ProjectCard key={project.name} project={project} />
+              <ProjectCard key={project.name} project={{ ...project, category: '🎯 PPO' }} />
             ))}
           </div>
         </div>
@@ -861,7 +873,7 @@ function ProjectsByCategory() {
                 year: "4th year"
               }
             ].map((project) => (
-              <ProjectCard key={project.name} project={project} />
+              <ProjectCard key={project.name} project={{ ...project, category: '🎮 Games' }} />
             ))}
           </div>
         </div>
@@ -1359,6 +1371,7 @@ function ProjectCategory({
     image?: string
     date?: string
     year?: string
+    category?: string
   }>
 }) {
   return (
@@ -1366,11 +1379,82 @@ function ProjectCategory({
       <h3 className="text-2xl font-bold text-streamlit-text dark:text-[#cdd9e5] mb-4">{title}</h3>
       <div className="grid gap-4 md:grid-cols-2">
         {projects.map((project) => (
-          <ProjectCard key={project.name} project={project} />
+          <ProjectCard key={project.name} project={{ ...project, category: title }} />
         ))}
       </div>
     </div>
   )
+}
+
+// Category shadow colors mapping
+const categoryShadowColors = {
+  '🤖 Generative AI': { r: 110, g: 64, b: 201 },
+  '🧠 Neural Networks': { r: 37, g: 99, b: 235 },
+  '🧬 Genetic Algorithm': { r: 22, g: 163, b: 74 },
+  '📈 Q-Learning': { r: 8, g: 132, b: 217 },
+  '🎯 PPO': { r: 124, g: 58, b: 237 },
+  '🎮 Games': { r: 8, g: 145, b: 178 },
+  '📊 Data Analysis': { r: 217, g: 119, b: 6 },
+  '🦾 Robotics': { r: 220, g: 38, b: 38 },
+  '🎙 Speech Recognition': { r: 234, g: 88, b: 12 },
+  '👥 Group Projects': { r: 0, g: 180, b: 194 },
+  '⚡ N8N Automation': { r: 219, g: 39, b: 119 },
+  '⚙ Physics Simulation': { r: 13, g: 148, b: 136 }
+}
+
+// Helper function to normalize category names to match the shadow color keys
+function normalizeCategoryName(category?: string): string | undefined {
+  if (!category) return undefined
+
+  // Mapping from various title formats to the standardized emoji format
+  const categoryMap: Record<string, string> = {
+    'Generative AI': '🤖 Generative AI',
+    '🤖 Generative AI': '🤖 Generative AI',
+    'Neural Networks': '🧠 Neural Networks',
+    '🧠 Neural Networks': '🧠 Neural Networks',
+    'Genetic Algorithm': '🧬 Genetic Algorithm',
+    '🧬 Genetic Algorithm': '🧬 Genetic Algorithm',
+    'Q-Learning': '📈 Q-Learning',
+    '📈 Q-Learning': '📈 Q-Learning',
+    'PPO': '🎯 PPO',
+    '🎯 PPO': '🎯 PPO',
+    'Games (for training AI)': '🎮 Games',
+    'Games': '🎮 Games',
+    '🎮 Games': '🎮 Games',
+    'Data Analysis': '📊 Data Analysis',
+    '📊 Data Analysis': '📊 Data Analysis',
+    'Robotics': '🦾 Robotics',
+    '🦾 Robotics': '🦾 Robotics',
+    'Speech Recognition': '🎙 Speech Recognition',
+    '🎙 Speech Recognition': '🎙 Speech Recognition',
+    'Group Projects': '👥 Group Projects',
+    '👥 Group Projects': '👥 Group Projects',
+    'n8n Automation': '⚡ N8N Automation',
+    'N8N Automation': '⚡ N8N Automation',
+    '⚡ N8N Automation': '⚡ N8N Automation',
+    'Physics Simulation': '⚙ Physics Simulation',
+    '⚙ Physics Simulation': '⚙ Physics Simulation'
+  }
+
+  return categoryMap[category] || category
+}
+
+// Helper function to get shadow classes based on category
+function getCategoryShadow(category?: string): string {
+  const normalizedCategory = normalizeCategoryName(category)
+
+  if (!normalizedCategory || !categoryShadowColors[normalizedCategory as keyof typeof categoryShadowColors]) {
+    // Default gray shadow if no category
+    return 'shadow-md hover:shadow-lg dark:shadow-[0_4px_12px_rgba(0,0,0,0.3)] dark:hover:shadow-[0_8px_16px_rgba(0,0,0,0.4)]'
+  }
+
+  const color = categoryShadowColors[normalizedCategory as keyof typeof categoryShadowColors]
+  const lightShadow = `shadow-[0_4px_12px_rgba(${color.r},${color.g},${color.b},0.3)]`
+  const lightHoverShadow = `hover:shadow-[0_8px_16px_rgba(${color.r},${color.g},${color.b},0.4)]`
+  const darkShadow = `dark:shadow-[0_4px_12px_rgba(${color.r},${color.g},${color.b},0.4)]`
+  const darkHoverShadow = `dark:hover:shadow-[0_8px_16px_rgba(${color.r},${color.g},${color.b},0.6)]`
+
+  return `${lightShadow} ${lightHoverShadow} ${darkShadow} ${darkHoverShadow}`
 }
 
 // Project card component
@@ -1385,6 +1469,7 @@ function ProjectCard({
     image?: string
     date?: string
     year?: string
+    category?: string
   }
 }) {
   return (
@@ -1392,7 +1477,7 @@ function ProjectCard({
       href={project.link}
       target="_blank"
       rel="noopener noreferrer"
-      className="bg-streamlit-secondary dark:bg-[#2d333b] rounded-xl p-4 border border-streamlit-border dark:border-[#444c56] shadow-md hover:shadow-lg dark:shadow-[0_4px_12px_rgba(0,0,0,0.3)] dark:hover:shadow-[0_8px_16px_rgba(0,0,0,0.4)] transition-shadow group flex gap-4"
+      className={`bg-streamlit-secondary dark:bg-[#2d333b] rounded-xl p-4 border border-streamlit-border dark:border-[#444c56] ${getCategoryShadow(project.category)} transition-shadow group flex gap-4`}
     >
       {project.image && (
         <div className="flex-shrink-0 w-32 h-32 rounded-lg overflow-hidden shadow-lg group-hover:shadow-xl dark:shadow-[0_8px_16px_rgba(0,0,0,0.4)] dark:group-hover:shadow-[0_12px_24px_rgba(0,0,0,0.6)] transition-shadow">
