@@ -247,7 +247,7 @@ export default function Home() {
                   rel="noopener noreferrer"
                   className="bg-white dark:bg-[#2d333b] px-4 py-3 rounded-lg border border-streamlit-border dark:border-[#444c56] text-blue-600 dark:text-[#539bf5] hover:bg-blue-50 dark:hover:bg-[#316dca20] transition-colors text-center whitespace-nowrap flex-1 lg:flex-none"
                 >
-                  🐱 Frontend Code
+                  🐱 Phase 1 - Frontend
                 </a>
                 <a
                   href="https://github.com/Rqbln/dirisi25-hackathon-backend"
@@ -255,7 +255,15 @@ export default function Home() {
                   rel="noopener noreferrer"
                   className="bg-white dark:bg-[#2d333b] px-4 py-3 rounded-lg border border-streamlit-border dark:border-[#444c56] text-blue-600 dark:text-[#539bf5] hover:bg-blue-50 dark:hover:bg-[#316dca20] transition-colors text-center whitespace-nowrap flex-1 lg:flex-none"
                 >
-                  🐱 Backend Code
+                  🐱 Phase 1 - Backend
+                </a>
+                <a
+                  href="https://github.com/Thibault-GAREL/ILab-Hackaton_CND-Phase2-Cyberattack_AI_detection"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="bg-white dark:bg-[#2d333b] px-4 py-3 rounded-lg border border-streamlit-border dark:border-[#444c56] text-blue-600 dark:text-[#539bf5] hover:bg-blue-50 dark:hover:bg-[#316dca20] transition-colors text-center whitespace-nowrap flex-1 lg:flex-none"
+                >
+                  🐱 Phase 2 - Cyberattack AI
                 </a>
               </div>
             </div>
@@ -294,6 +302,10 @@ export default function Home() {
                 <a href="https://github.com/Thibault-GAREL/PPE_LoRa_Smart_contract" target="_blank" rel="noopener noreferrer"
                   className="bg-white dark:bg-[#22272e] px-4 py-3 rounded-lg border border-streamlit-border dark:border-[#444c56] text-blue-600 dark:text-[#539bf5] hover:bg-blue-50 dark:hover:bg-[#316dca20] transition-colors text-center whitespace-nowrap">
                   🐱 LoRA Fine-tune
+                </a>
+                <a href="https://github.com/axelbrons/graphs-ppe" target="_blank" rel="noopener noreferrer"
+                  className="bg-white dark:bg-[#22272e] px-4 py-3 rounded-lg border border-streamlit-border dark:border-[#444c56] text-blue-600 dark:text-[#539bf5] hover:bg-blue-50 dark:hover:bg-[#316dca20] transition-colors text-center whitespace-nowrap">
+                  🐱 CodeBERT Graphs (Axel)
                 </a>
               </div>
             </div>
@@ -345,7 +357,8 @@ export default function Home() {
               { name: "C", icon: "https://cdn.simpleicons.org/c/00599C", url: "https://isocpp.org/" },
               { name: "C++", icon: "https://cdn.simpleicons.org/cplusplus/00599C", url: "https://isocpp.org/" },
               { name: "SQL", icon: "https://cdn.simpleicons.org/mysql/4479A1", url: "https://www.mysql.com/" },
-              { name: "Java", icon: "https://upload.wikimedia.org/wikipedia/en/3/30/Java_programming_language_logo.svg", url: "https://www.java.com/" }
+              { name: "Java", icon: "https://upload.wikimedia.org/wikipedia/en/3/30/Java_programming_language_logo.svg", url: "https://www.java.com/" },
+              { name: "Bash", icon: "https://cdn.simpleicons.org/gnubash/4EAA25", url: "https://www.gnu.org/software/bash/" }
             ]}
           />
 
@@ -355,18 +368,21 @@ export default function Home() {
               { name: "HTML5", icon: "https://cdn.simpleicons.org/html5/E34F26", url: "https://developer.mozilla.org/en-US/docs/Web/HTML" },
               { name: "CSS3", icon: "https://upload.wikimedia.org/wikipedia/commons/6/62/CSS3_logo.svg", url: "https://developer.mozilla.org/en-US/docs/Web/CSS" },
               { name: "PHP", icon: "https://cdn.simpleicons.org/php/777BB4", url: "https://www.php.net/" },
-              { name: "JavaScript", icon: "https://cdn.simpleicons.org/javascript/F7DF1E", url: "https://developer.mozilla.org/en-US/docs/Web/JavaScript" }
+              { name: "JavaScript", icon: "https://cdn.simpleicons.org/javascript/F7DF1E", url: "https://developer.mozilla.org/en-US/docs/Web/JavaScript" },
+              { name: "Next.js", icon: "https://cdn.simpleicons.org/nextdotjs/000000", url: "https://nextjs.org/" },
+              { name: "Vercel", icon: "https://cdn.simpleicons.org/vercel/000000", url: "https://vercel.com/" }
             ]}
           />
 
           <SkillCategory
-            title="Libraries"
+            title="AI / ML"
             skills={[
-              { name: "TensorFlow", icon: "https://cdn.simpleicons.org/tensorflow/FF6F00", url: "https://www.tensorflow.org/" },
               { name: "PyTorch", icon: "https://cdn.simpleicons.org/pytorch/EE4C2C", url: "https://pytorch.org/" },
+              { name: "TensorFlow", icon: "https://cdn.simpleicons.org/tensorflow/FF6F00", url: "https://www.tensorflow.org/" },
               { name: "scikit-learn", icon: "https://upload.wikimedia.org/wikipedia/commons/0/05/Scikit_learn_logo_small.svg", url: "https://scikit-learn.org/" },
               { name: "NumPy", icon: "https://cdn.simpleicons.org/numpy/013243", url: "https://numpy.org/" },
-              { name: "Pandas", icon: "https://cdn.simpleicons.org/pandas/150458", url: "https://pandas.pydata.org/" }
+              { name: "Pandas", icon: "https://cdn.simpleicons.org/pandas/150458", url: "https://pandas.pydata.org/" },
+              { name: "LangChain", icon: "https://cdn.simpleicons.org/langchain/1C3C3C", url: "https://www.langchain.com/" }
             ]}
           />
 
@@ -374,25 +390,34 @@ export default function Home() {
             title="Visualization"
             skills={[
               { name: "Matplotlib", icon: "https://upload.wikimedia.org/wikipedia/commons/8/84/Matplotlib_icon.svg", url: "https://matplotlib.org/" },
+              { name: "Excel", icon: "https://img.icons8.com/color/48/microsoft-excel-2019--v1.png", url: "https://www.microsoft.com/en-us/microsoft-365/excel" },
               { name: "Power BI", icon: "https://upload.wikimedia.org/wikipedia/commons/c/cf/New_Power_BI_Logo.svg", url: "https://powerbi.microsoft.com/" },
-              { name: "Pygame", icon: "https://www.pygame.org/docs/_static/pygame_logo.svg", url: "https://www.pygame.org/" },
-              { name: "Allegro", icon: "https://avatars.githubusercontent.com/u/5460870?s=200&v=4", url: "https://liballeg.org/" },
-              { name: "Streamlit", icon: "https://streamlit.io/images/brand/streamlit-mark-color.png", url: "https://streamlit.io/" }
+              { name: "Streamlit", icon: "https://streamlit.io/images/brand/streamlit-mark-color.png", url: "https://streamlit.io/" },
+              { name: "Pygame", icon: "https://www.pygame.org/docs/_static/pygame_logo.svg", url: "https://www.pygame.org/" }
             ]}
           />
 
           <SkillCategory
-            title="Other Tools"
+            title="Dev Tools"
             skills={[
+              { name: "VS Code", icon: "https://upload.wikimedia.org/wikipedia/commons/9/9a/Visual_Studio_Code_1.35_icon.svg", url: "https://code.visualstudio.com/" },
               { name: "GitHub", icon: "https://cdn.simpleicons.org/github/181717", url: "https://github.com/" },
               { name: "Git", icon: "https://cdn.simpleicons.org/git/F05032", url: "https://git-scm.com/" },
-              { name: "Excel", icon: "https://img.icons8.com/color/48/microsoft-excel-2019--v1.png", url: "https://www.microsoft.com/en-us/microsoft-365/excel" },
               { name: "Ollama", icon: "https://avatars.githubusercontent.com/u/151674099", url: "https://ollama.com/" },
               { name: "n8n", icon: "https://cdn.simpleicons.org/n8n/EA4C89", url: "https://n8n.io/" },
-              { name: "Raspberry Pi", icon: "https://cdn.simpleicons.org/raspberrypi/C51A4A", url: "https://www.raspberrypi.com/" },
+              { name: "Jupyter", icon: "https://cdn.simpleicons.org/jupyter/F37626", url: "https://jupyter.org/" }
+            ]}
+          />
+
+          <SkillCategory
+            title="Hardware"
+            skills={[
               { name: "CUDA", icon: "https://cdn.simpleicons.org/nvidia/76B900", url: "https://developer.nvidia.com/cuda-zone" },
+              { name: "Raspberry Pi", icon: "https://cdn.simpleicons.org/raspberrypi/C51A4A", url: "https://www.raspberrypi.com/" },
               { name: "Arduino", icon: "https://cdn.simpleicons.org/arduino/00979D", url: "https://www.arduino.cc/" },
-              { name: "ESP32", icon: "https://cdn.simpleicons.org/espressif/000000", url: "https://www.espressif.com/en/products/socs/esp32" }
+              { name: "ESP32", icon: "https://cdn.simpleicons.org/espressif/000000", url: "https://www.espressif.com/en/products/socs/esp32" },
+              { name: "Linux", icon: "https://cdn.simpleicons.org/linux/FCC624", url: "https://www.linux.org/" },
+              { name: "Docker", icon: "https://cdn.simpleicons.org/docker/2496ED", url: "https://www.docker.com/" }
             ]}
           />
         </section>
@@ -593,17 +618,25 @@ function ProjectsByCategory() {
           </div>
         </div>
 
-        {/* Deep Q-Learning */}
+        {/* Q-Learning */}
         <div className="mb-8">
-          <h4 className="text-xl font-semibold text-gray-700 dark:text-[#adbac7] mb-4 ml-4">🎯 Deep Q-Learning</h4>
+          <h4 className="text-xl font-semibold text-gray-700 dark:text-[#adbac7] mb-4 ml-4">📈 Q-Learning</h4>
           <div className="grid gap-4 md:grid-cols-2">
             {[
               {
+                name: "Q-Learning Pathfinding",
+                description: "Q-Learning algorithm to find optimal paths",
+                link: "https://github.com/Thibault-GAREL/Q-Learning",
+                image: "https://raw.githubusercontent.com/Thibault-GAREL/Q-Learning/main/img/Gif-DQN.gif",
+                date: "Sep 2023",
+                year: "2nd year"
+              },
+              {
                 name: "Snake AI - Deep Q-Learning",
-                description: "Snake game AI using DQN (in progress)",
+                description: "Snake game AI using Deep Q-Learning",
                 link: "https://github.com/Thibault-GAREL/AI_snake_DQN_version",
                 inProgress: true,
-                image: "https://cdn-icons-png.flaticon.com/512/3176/3176366.png",
+                image: "https://raw.githubusercontent.com/Thibault-GAREL/Thibault-GAREL/main/Logo_Featured_Projects/rl_snake_dql.gif",
                 date: "Jul 2024 - Present",
                 year: "3rd - 4th year"
               },
@@ -621,33 +654,16 @@ function ProjectsByCategory() {
           </div>
         </div>
 
-        {/* Q-Learning */}
-        <div className="mb-8">
-          <h4 className="text-xl font-semibold text-gray-700 dark:text-[#adbac7] mb-4 ml-4">🗺️ Q-Learning</h4>
-          <div className="grid gap-4 md:grid-cols-2">
-            <ProjectCard
-              project={{
-                name: "Q-Learning Pathfinding",
-                description: "Q-Learning algorithm to find optimal paths",
-                link: "https://github.com/Thibault-GAREL/Q-Learning",
-                image: "https://raw.githubusercontent.com/Thibault-GAREL/Q-Learning/main/img/Gif-DQN.gif",
-                date: "Sep 2023",
-                year: "2nd year"
-              }}
-            />
-          </div>
-        </div>
-
         {/* PPO */}
         <div className="mb-8">
-          <h4 className="text-xl font-semibold text-gray-700 dark:text-[#adbac7] mb-4 ml-4">🚀 PPO (Proximal Policy Optimization)</h4>
+          <h4 className="text-xl font-semibold text-gray-700 dark:text-[#adbac7] mb-4 ml-4">🎯 PPO</h4>
           <div className="grid gap-4 md:grid-cols-2">
             {[
               {
                 name: "Snake AI - PPO",
                 description: "Snake game AI using Proximal Policy Optimization",
                 link: "https://github.com/Thibault-GAREL/AI_snake_PPO_version",
-                image: "https://cdn-icons-png.flaticon.com/512/3176/3176366.png",
+                image: "https://raw.githubusercontent.com/Thibault-GAREL/Thibault-GAREL/main/Logo_Featured_Projects/rl_snake_ppo.gif",
                 inProgress: true,
                 date: "Dec 2025 - Present",
                 year: "4th year"
@@ -656,11 +672,22 @@ function ProjectsByCategory() {
                 name: "StarCraft 2 AI (VLM + RL)",
                 description: "A StarCraft 2 AI combining Vision-Language Model and Reinforcement Learning",
                 link: "https://github.com/Thibault-GAREL/AI-StarCraft2-VLM-RL",
-                image: "https://cdn-icons-png.flaticon.com/512/3176/3176366.png",
+                image: "https://raw.githubusercontent.com/Thibault-GAREL/Thibault-GAREL/main/Logo_Featured_Projects/rl_starcraft2.gif",
                 inProgress: true,
                 date: "Oct 2025 - Present",
                 year: "4th year"
-              },
+              }
+            ].map((project) => (
+              <ProjectCard key={project.name} project={project} />
+            ))}
+          </div>
+        </div>
+
+        {/* Unity ML-Agents */}
+        <div className="mb-8">
+          <h4 className="text-xl font-semibold text-gray-700 dark:text-[#adbac7] mb-4 ml-4">🎮 Unity ML-Agents</h4>
+          <div className="grid gap-4 md:grid-cols-2">
+            {[
               {
                 name: "Unity AI - Movement",
                 description: "Unity AI learning to move using PPO",
@@ -671,7 +698,7 @@ function ProjectsByCategory() {
               },
               {
                 name: "Unity AI - Greedy",
-                description: "Unity AI learning to catch money using PPO",
+                description: "Unity AI learning to catch coins using PPO",
                 link: "https://github.com/Thibault-GAREL/Unity_greedy",
                 image: "https://raw.githubusercontent.com/Thibault-GAREL/Unity_greedy/main/img_greedy/Greedy-gif-X9.gif",
                 date: "2025",
