@@ -509,31 +509,6 @@ export default function Home() {
           />
         </section>
 
-        {/* Next Steps */}
-        <section className="mb-16">
-          <h2 className="text-4xl font-bold text-streamlit-text dark:text-[#cdd9e5] mb-8 pb-2 border-b-2 border-streamlit-border dark:border-[#444c56]">
-            🚀 Next Steps
-          </h2>
-
-          <div className="space-y-4">
-            <div className="bg-streamlit-secondary dark:bg-[#2d333b] rounded-xl p-6 border border-streamlit-border dark:border-[#444c56] shadow-md dark:shadow-[0_4px_12px_rgba(0,0,0,0.3)]">
-              <p className="text-lg">
-                Finish the Snake game using Deep Q-learning (hyperparameters optimization)
-              </p>
-            </div>
-            <div className="bg-streamlit-secondary dark:bg-[#2d333b] rounded-xl p-6 border border-streamlit-border dark:border-[#444c56] shadow-md dark:shadow-[0_4px_12px_rgba(0,0,0,0.3)]">
-              <p className="text-lg">
-                Complete Walking AI with Genetic Algorithm and StarCraft2 VLM-RL project
-              </p>
-            </div>
-            <div className="bg-streamlit-secondary dark:bg-[#2d333b] rounded-xl p-6 border border-streamlit-border dark:border-[#444c56] shadow-md dark:shadow-[0_4px_12px_rgba(0,0,0,0.3)]">
-              <p className="text-lg">
-                Develop a voice cloner for end-to-end speech-to-speech synthesis (Speech→Text ✅, Text→Text ✅, Text→Speech 🚧)
-              </p>
-            </div>
-          </div>
-        </section>
-
         {/* GitHub Statistics */}
         <section className="mb-16">
           <h2 className="text-4xl font-bold text-streamlit-text dark:text-[#cdd9e5] mb-8 pb-2 border-b-2 border-streamlit-border dark:border-[#444c56]">
