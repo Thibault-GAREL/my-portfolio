@@ -369,7 +369,7 @@ export default function Home() {
               <img
                 src="https://raw.githubusercontent.com/Thibault-GAREL/Thibault-GAREL/main/Logo_Group_Projects/REs.png"
                 alt="Resilient AI Logo"
-                className="hidden lg:block w-24 h-24 object-contain shadow-lg dark:shadow-[0_8px_16px_rgba(0,0,0,0.4)]"
+                className="hidden lg:block w-24 h-24 object-cover rounded-lg shadow-lg dark:shadow-[0_8px_16px_rgba(0,0,0,0.4)]"
               />
 
               {/* Main content in the middle */}
