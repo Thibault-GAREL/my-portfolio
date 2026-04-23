@@ -260,6 +260,76 @@ export default function Home() {
               </div>
             </div>
           </div>
+
+          <div className="bg-streamlit-secondary dark:bg-[#2d333b] rounded-xl p-6 mb-6 border border-streamlit-border dark:border-[#444c56]">
+            <div className="flex-1">
+              <h3 className="text-2xl font-bold mb-2 text-streamlit-text dark:text-[#cdd9e5]">
+                PPE - Smart Contract AI Analysis
+              </h3>
+              <p className="text-lg mb-2">LLM benchmarking & LoRA fine-tuning for Solidity smart contract vulnerability analysis</p>
+              <p className="text-sm text-gray-600 dark:text-[#768390] mb-4">📅 2024 - 2025 • 3rd - 4th year</p>
+              <div className="mb-4">
+                <p className="font-semibold mb-2">Team:</p>
+                <div className="flex flex-wrap gap-2">
+                  {[
+                    { name: "Thibault GAREL", link: "https://github.com/Thibault-GAREL" },
+                    { name: "Axel Bröns", link: "https://github.com/axelbrons" },
+                    { name: "Valentin Kocijancic", link: "https://github.com/valentinkocijancic" },
+                    { name: "Hugo Rivière", link: "https://github.com/hugoriviere" },
+                    { name: "Antoine Goudedranche", link: "https://github.com/Antoine31G" },
+                    { name: "Omar El Alami", link: "https://github.com/omarelalamielfellousse" }
+                  ].map((member) => (
+                    <a key={member.name} href={member.link} target="_blank" rel="noopener noreferrer"
+                      className="bg-white dark:bg-[#22272e] px-3 py-1 rounded-md text-blue-600 dark:text-[#539bf5] hover:bg-blue-50 dark:hover:bg-[#316dca20] transition-colors">
+                      {member.name}
+                    </a>
+                  ))}
+                </div>
+              </div>
+              <div className="flex flex-row flex-wrap gap-3">
+                <a href="https://github.com/Thibault-GAREL/PPE_LLM_test_Smart_contract" target="_blank" rel="noopener noreferrer"
+                  className="bg-white dark:bg-[#22272e] px-4 py-3 rounded-lg border border-streamlit-border dark:border-[#444c56] text-blue-600 dark:text-[#539bf5] hover:bg-blue-50 dark:hover:bg-[#316dca20] transition-colors text-center whitespace-nowrap">
+                  🐱 LLM Benchmark
+                </a>
+                <a href="https://github.com/Thibault-GAREL/PPE_LoRa_Smart_contract" target="_blank" rel="noopener noreferrer"
+                  className="bg-white dark:bg-[#22272e] px-4 py-3 rounded-lg border border-streamlit-border dark:border-[#444c56] text-blue-600 dark:text-[#539bf5] hover:bg-blue-50 dark:hover:bg-[#316dca20] transition-colors text-center whitespace-nowrap">
+                  🐱 LoRA Fine-tune
+                </a>
+              </div>
+            </div>
+          </div>
+
+          <div className="bg-streamlit-secondary dark:bg-[#2d333b] rounded-xl p-6 mb-6 border border-streamlit-border dark:border-[#444c56]">
+            <div className="flex-1">
+              <h3 className="text-2xl font-bold mb-2 text-streamlit-text dark:text-[#cdd9e5]">
+                <a href="https://www.sustainableaicoalition.org/resilient-ai-challenge/" target="_blank" rel="noopener noreferrer"
+                  className="text-blue-600 dark:text-[#539bf5] hover:underline">
+                  Resilient AI Challenge
+                </a>
+              </h3>
+              <p className="text-lg mb-2">International AI competition on resilient and sustainable AI systems</p>
+              <p className="text-sm text-gray-600 dark:text-[#768390] mb-4">📅 2025 • 4th year</p>
+              <div>
+                <p className="font-semibold mb-2">Team:</p>
+                <div className="flex flex-wrap gap-2">
+                  {[
+                    { name: "Thibault GAREL", link: "https://github.com/Thibault-GAREL", type: "github" },
+                    { name: "Axel Bröns", link: "https://github.com/axelbrons", type: "github" },
+                    { name: "Mathis Lacombe", link: "https://www.linkedin.com/in/mathis-lacombe34/", type: "linkedin" },
+                    { name: "Jarfino Houngbadji", link: "https://www.linkedin.com/in/jarfino-houngbadji/", type: "linkedin" },
+                    { name: "Achta Sow Demba", link: "https://www.linkedin.com/in/demba-sow-achta/", type: "linkedin" },
+                    { name: "Djebril Laouedj", link: "https://www.linkedin.com/in/djebril-laouedj-9684b4219/", type: "linkedin" },
+                    { name: "Bikram Bhuyan", link: "https://www.linkedin.com/in/bikram-pratim-bhuyan-01887589/", type: "linkedin" }
+                  ].map((member) => (
+                    <a key={member.name} href={member.link} target="_blank" rel="noopener noreferrer"
+                      className="bg-white dark:bg-[#22272e] px-3 py-1 rounded-md text-blue-600 dark:text-[#539bf5] hover:bg-blue-50 dark:hover:bg-[#316dca20] transition-colors">
+                      {member.name}
+                    </a>
+                  ))}
+                </div>
+              </div>
+            </div>
+          </div>
         </section>
 
         {/* Skills Section */}
@@ -679,6 +749,22 @@ function ProjectsByCategory() {
             image: "https://raw.githubusercontent.com/Thibault-GAREL/human_sandbox/main/img/Gif-human-sandbox.gif",
             date: "Jun - Sep 2025",
             year: "4th year"
+          },
+          {
+            name: "Star Wars - ECE World",
+            description: "Star Wars minigames in an open world (C++)",
+            link: "https://github.com/Thibault-GAREL/Game_ECE_World_Minigame",
+            image: "https://raw.githubusercontent.com/Thibault-GAREL/Thibault-GAREL/main/Logo_Featured_Projects/game_star_wars.png",
+            date: "Jan - Jun 2024",
+            year: "2nd year"
+          },
+          {
+            name: "Maze - Asterix & Obélix",
+            description: "Maze game with BFS pathfinding (C + Allegro 5)",
+            link: "https://github.com/Thibault-GAREL/Game_maze_Asterix-Obelix",
+            image: "https://raw.githubusercontent.com/Thibault-GAREL/Thibault-GAREL/main/Logo_Featured_Projects/game_maze_asterix.png",
+            date: "Jan - Jun 2024",
+            year: "2nd year"
           }
         ]}
       />
@@ -701,6 +787,14 @@ function ProjectsByCategory() {
             link: "https://github.com/Thibault-GAREL/Attraction_repulsion",
             image: "https://raw.githubusercontent.com/Thibault-GAREL/Attraction_repulsion/main/img/Gif-orbit.gif",
             date: "Jan - Sep 2025",
+            year: "4th year"
+          },
+          {
+            name: "2D Muscular Simulation",
+            description: "2D muscular physics simulation with Box2D",
+            link: "https://github.com/Thibault-GAREL/2D-Muscular-Simulation",
+            image: "https://raw.githubusercontent.com/Thibault-GAREL/Thibault-GAREL/main/Logo_Featured_Projects/physics_muscular_simulation.png",
+            date: "Apr - Jun 2025",
             year: "4th year"
           }
         ]}
@@ -864,6 +958,14 @@ function ProjectsByDate() {
       year: "4th year"
     },
     {
+      name: "2D Muscular Simulation",
+      description: "2D muscular physics simulation with Box2D",
+      link: "https://github.com/Thibault-GAREL/2D-Muscular-Simulation",
+      image: "https://raw.githubusercontent.com/Thibault-GAREL/Thibault-GAREL/main/Logo_Featured_Projects/physics_muscular_simulation.png",
+      date: "Apr - Jun 2025",
+      year: "4th year"
+    },
+    {
       name: "Human Sandbox",
       description: "Natural Selection Simulation Engine",
       link: "https://github.com/Thibault-GAREL/human_sandbox",
@@ -946,6 +1048,14 @@ function ProjectsByDate() {
       image: "https://raw.githubusercontent.com/Thibault-GAREL/AI_snake_genetic_version/main/Images/score13.gif",
       date: "Aug - Oct 2024",
       year: "3rd year"
+    },
+    {
+      name: "Snake AI - Decision Tree",
+      description: "Snake game AI using a Decision Tree",
+      link: "https://github.com/Thibault-GAREL/AI_snake_decision_tree_version",
+      image: "https://raw.githubusercontent.com/Thibault-GAREL/Thibault-GAREL/main/Logo_Featured_Projects/rl_snake_decision_tree.gif",
+      date: "Sep - Oct 2024",
+      year: "3rd year"
     }
   ]
 
@@ -965,6 +1075,22 @@ function ProjectsByDate() {
       link: "https://github.com/Thibault-GAREL/Q-Learning",
       image: "https://raw.githubusercontent.com/Thibault-GAREL/Q-Learning/main/img/Gif-DQN.gif",
       date: "Sep 2023",
+      year: "2nd year"
+    },
+    {
+      name: "Star Wars - ECE World",
+      description: "Star Wars minigames in an open world (C++)",
+      link: "https://github.com/Thibault-GAREL/Game_ECE_World_Minigame",
+      image: "https://raw.githubusercontent.com/Thibault-GAREL/Thibault-GAREL/main/Logo_Featured_Projects/game_star_wars.png",
+      date: "Jan - Jun 2024",
+      year: "2nd year"
+    },
+    {
+      name: "Maze - Asterix & Obélix",
+      description: "Maze game with BFS pathfinding (C + Allegro 5)",
+      link: "https://github.com/Thibault-GAREL/Game_maze_Asterix-Obelix",
+      image: "https://raw.githubusercontent.com/Thibault-GAREL/Thibault-GAREL/main/Logo_Featured_Projects/game_maze_asterix.png",
+      date: "Jan - Jun 2024",
       year: "2nd year"
     }
   ]
@@ -1005,7 +1131,7 @@ function ProjectsByDate() {
 
       {/* 3rd Year Projects */}
       <div className="mb-10">
-        <h3 className="text-2xl font-bold text-streamlit-text mb-6">3rd Year</h3>
+        <h3 className="text-2xl font-bold text-streamlit-text dark:text-[#cdd9e5] mb-6">3rd Year</h3>
         <div className="grid gap-4 md:grid-cols-2">
           {thirdYearProjects.map((project) => (
             <ProjectCard key={project.name} project={project} />
@@ -1015,7 +1141,7 @@ function ProjectsByDate() {
 
       {/* 4th Year Projects */}
       <div className="mb-10">
-        <h3 className="text-2xl font-bold text-streamlit-text mb-6">4th Year</h3>
+        <h3 className="text-2xl font-bold text-streamlit-text dark:text-[#cdd9e5] mb-6">4th Year</h3>
         <div className="grid gap-4 md:grid-cols-2">
           {fourthYearProjects.map((project) => (
             <ProjectCard key={project.name} project={project} />
@@ -1025,7 +1151,7 @@ function ProjectsByDate() {
 
       {/* In Progress Projects */}
       <div className="mb-10">
-        <h3 className="text-2xl font-bold text-streamlit-text mb-6">🚧 In Progress</h3>
+        <h3 className="text-2xl font-bold text-streamlit-text dark:text-[#cdd9e5] mb-6">🚧 In Progress</h3>
         <div className="grid gap-4 md:grid-cols-2">
           {inProgressProjects.map((project) => (
             <ProjectCard key={project.name} project={project} />
@@ -1035,7 +1161,7 @@ function ProjectsByDate() {
 
       {/* Project Timeline - Gantt Chart (hidden on mobile and tablet, visible on desktop) */}
       <div className="mt-16 hidden lg:block">
-        <h3 className="text-3xl font-bold text-streamlit-text mb-8 pb-2 border-b-2 border-streamlit-border">
+        <h3 className="text-3xl font-bold text-streamlit-text dark:text-[#cdd9e5] mb-8 pb-2 border-b-2 border-streamlit-border dark:border-[#444c56]">
           📊 Project Timeline
         </h3>
         <GanttChart />
@@ -1062,7 +1188,7 @@ function ProjectCategory({
 }) {
   return (
     <div className="mb-10">
-      <h3 className="text-2xl font-bold text-streamlit-text mb-4">{title}</h3>
+      <h3 className="text-2xl font-bold text-streamlit-text dark:text-[#cdd9e5] mb-4">{title}</h3>
       <div className="grid gap-4 md:grid-cols-2">
         {projects.map((project) => (
           <ProjectCard key={project.name} project={project} />
@@ -1091,7 +1217,7 @@ function ProjectCard({
       href={project.link}
       target="_blank"
       rel="noopener noreferrer"
-      className="bg-streamlit-secondary rounded-xl p-4 border border-streamlit-border hover:shadow-lg transition-shadow group flex gap-4"
+      className="bg-streamlit-secondary dark:bg-[#2d333b] rounded-xl p-4 border border-streamlit-border dark:border-[#444c56] hover:shadow-lg transition-shadow group flex gap-4"
     >
       {project.image && (
         <div className="flex-shrink-0 w-32 h-32 rounded-lg overflow-hidden">
@@ -1103,15 +1229,15 @@ function ProjectCard({
         </div>
       )}
       <div className="flex-1 min-w-0">
-        <h4 className="text-lg font-semibold text-streamlit-text group-hover:text-blue-600 mb-2">
+        <h4 className="text-lg font-semibold text-streamlit-text dark:text-[#cdd9e5] group-hover:text-blue-600 dark:group-hover:text-[#539bf5] mb-2">
           {project.name}
           {project.inProgress && (
             <span className="ml-2 text-sm text-orange-600">🚧 In Progress</span>
           )}
         </h4>
-        <p className="text-gray-600 text-sm mb-2">{project.description}</p>
+        <p className="text-gray-600 dark:text-[#768390] text-sm mb-2">{project.description}</p>
         {(project.date || project.year) && (
-          <div className="flex gap-3 text-xs text-gray-500">
+          <div className="flex gap-3 text-xs text-gray-500 dark:text-[#768390]">
             {project.date && <span>📅 {project.date}</span>}
             {project.year && <span>🎓 {project.year}</span>}
           </div>
@@ -1131,12 +1257,12 @@ function SkillCategory({
 }) {
   return (
     <div className="mb-6">
-      <h3 className="text-xl font-bold text-streamlit-text mb-3">{title}</h3>
+      <h3 className="text-xl font-bold text-streamlit-text dark:text-[#cdd9e5] mb-3">{title}</h3>
       <div className="flex flex-wrap gap-3 items-center">
         {skills.map((skill) => (
           <div
             key={skill.name}
-            className="flex items-center gap-2 bg-streamlit-secondary px-4 py-2 rounded-lg border border-streamlit-border"
+            className="flex items-center gap-2 bg-streamlit-secondary dark:bg-[#2d333b] px-4 py-2 rounded-lg border border-streamlit-border dark:border-[#444c56]"
           >
             {skill.icon && skill.url ? (
               <a href={skill.url} target="_blank" rel="noopener noreferrer">
@@ -1153,7 +1279,7 @@ function SkillCategory({
                 className="w-6 h-6 object-contain"
               />
             ) : null}
-            <span className="text-streamlit-text">{skill.name}</span>
+            <span className="text-streamlit-text dark:text-[#cdd9e5]">{skill.name}</span>
           </div>
         ))}
       </div>
@@ -1183,10 +1309,15 @@ function GanttChart() {
     { name: "Neural Networks Library", start: "2023-07-01", end: "2024-05-31", category: "Neural Networks", year: "1st-2nd year" },
     { name: "Q-Learning Pathfinding", start: "2023-08-01", end: "2023-10-20", category: "Reinforcement Learning", year: "1st year" },
 
+    // 2nd year games
+    { name: "Star Wars - ECE", start: "2024-01-01", end: "2024-06-30", category: "Games", year: "2nd year" },
+    { name: "Asterix Maze", start: "2024-01-01", end: "2024-06-30", category: "Games", year: "2nd year" },
+
     // 3rd year
     { name: "Snake Game", start: "2024-07-13", end: "2025-09-20", category: "Games", year: "3rd year" },
     { name: "Snake AI - DQL", start: "2024-07-13", end: "2026-04-08", category: "Reinforcement Learning", inProgress: true, year: "3rd year" },
     { name: "Snake AI - GA", start: "2024-08-04", end: "2024-10-14", category: "Reinforcement Learning", year: "3rd year" },
+    { name: "Snake AI - DT", start: "2024-09-01", end: "2024-10-31", category: "Reinforcement Learning", year: "3rd year" },
 
     // 4th year
     { name: "Unity AI - Movement", start: "2025-01-01", end: "2025-01-31", category: "Reinforcement Learning", year: "4th year" },
@@ -1198,6 +1329,7 @@ function GanttChart() {
     { name: "Attraction/Repulsion", start: "2025-01-23", end: "2025-01-29", category: "Physics Simulation", year: "4th year" },
     { name: "Image Generator - GAN", start: "2025-02-22", end: "2025-09-24", category: "Generative AI", year: "4th year" },
     { name: "ASR", start: "2025-04-12", end: "2025-06-11", category: "Speech Recognition", year: "4th year" },
+    { name: "2D Muscular Sim.", start: "2025-04-01", end: "2025-06-30", category: "Physics Simulation", year: "4th year" },
     { name: "Human Sandbox", start: "2025-06-27", end: "2025-07-21", category: "Games", year: "4th year" },
     { name: "WhatsApp AI", start: "2025-07-11", end: "2025-07-24", category: "n8n Automation", year: "4th year" },
     { name: "Smart Mail Labeling", start: "2025-07-16", end: "2025-07-26", category: "n8n Automation", year: "4th year" },
@@ -1277,9 +1409,9 @@ function GanttChart() {
   const categories = Array.from(new Set(projects.map(p => p.category)))
 
   return (
-    <div className="bg-streamlit-secondary rounded-xl p-6 border border-streamlit-border">
+    <div className="bg-streamlit-secondary dark:bg-[#2d333b] rounded-xl p-6 border border-streamlit-border dark:border-[#444c56]">
       {/* Three-level timeline header - Sticky outside overflow container */}
-      <div className="sticky top-[60px] bg-white z-20 rounded-t-lg border border-b-0 border-streamlit-border shadow-md overflow-x-auto">
+      <div className="sticky top-[60px] bg-white dark:bg-[#2d333b] z-20 rounded-t-lg border border-b-0 border-streamlit-border dark:border-[#444c56] shadow-md overflow-x-auto">
         <div className="p-4 min-w-[800px]">
           {/* Level 1: Academic years (Engineer school years) */}
           <div className="mb-2 relative h-12 border-b border-gray-300">
@@ -1296,7 +1428,7 @@ function GanttChart() {
                     top: '0px'
                   }}
                 >
-                  <span className="text-sm font-bold text-streamlit-text">{period.label}</span>
+                  <span className="text-sm font-bold text-streamlit-text dark:text-[#cdd9e5]">{period.label}</span>
                 </div>
               )
             })}
@@ -1316,7 +1448,7 @@ function GanttChart() {
                     top: '0px'
                   }}
                 >
-                  <span className="text-base font-bold text-gray-700">{year.label}</span>
+                  <span className="text-base font-bold text-gray-700 dark:text-[#adbac7]">{year.label}</span>
                 </div>
               )
             })}
@@ -1337,7 +1469,7 @@ function GanttChart() {
             {monthMarkers.map((marker, idx) => (
               <div
                 key={`label-${idx}`}
-                className="absolute bottom-1 text-[10px] text-gray-600"
+                className="absolute bottom-1 text-[10px] text-gray-600 dark:text-[#768390]"
                 style={{
                   left: `${marker.position}%`,
                   transform: 'translateX(-50%)'
@@ -1351,7 +1483,7 @@ function GanttChart() {
       </div>
 
       {/* Timeline content with scrollable Gantt bars */}
-      <div className="bg-white rounded-b-lg border border-t-0 border-streamlit-border overflow-x-auto">
+      <div className="bg-white dark:bg-[#22272e] rounded-b-lg border border-t-0 border-streamlit-border dark:border-[#444c56] overflow-x-auto">
         <div className="p-4 min-w-[800px]">
           {/* Gantt bars with names */}
           <div className="space-y-2 relative min-h-[600px]">
@@ -1403,7 +1535,7 @@ function GanttChart() {
                 {/* Name next to bar for short projects */}
                 {!isLongProject && (
                   <div
-                    className="absolute text-xs text-streamlit-text font-medium whitespace-nowrap flex items-center gap-1"
+                    className="absolute text-xs text-streamlit-text dark:text-[#adbac7] font-medium whitespace-nowrap flex items-center gap-1"
                     style={{
                       left: `calc(${barStyle.left} + ${barStyle.width} + 8px)`
                     }}
@@ -1420,7 +1552,7 @@ function GanttChart() {
       </div>
 
       {/* Legend at the bottom */}
-      <div className="bg-white rounded-lg p-4 border border-streamlit-border mt-6">
+      <div className="bg-white dark:bg-[#22272e] rounded-lg p-4 border border-streamlit-border dark:border-[#444c56] mt-6">
         <div className="flex flex-wrap gap-3 justify-center">
           {categories.map(category => (
             <div key={category} className="flex items-center gap-2">
@@ -1428,7 +1560,7 @@ function GanttChart() {
                 className="w-4 h-4 rounded"
                 style={{ backgroundColor: categoryColors[category] }}
               />
-              <span className="text-sm text-streamlit-text">{category}</span>
+              <span className="text-sm text-streamlit-text dark:text-[#cdd9e5]">{category}</span>
             </div>
           ))}
         </div>
