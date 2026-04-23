@@ -287,7 +287,7 @@ export default function Home() {
               <img
                 src="https://raw.githubusercontent.com/Thibault-GAREL/Thibault-GAREL/main/Logo_Group_Projects/group_ppe_smart_contract.jpg"
                 alt="PPE Logo"
-                className="hidden lg:block w-24 h-24 object-contain shadow-lg dark:shadow-[0_8px_16px_rgba(0,0,0,0.4)]"
+                className="hidden lg:block w-24 h-24 object-cover rounded-lg shadow-lg dark:shadow-[0_8px_16px_rgba(0,0,0,0.4)]"
               />
 
               {/* Main content in the middle */}
@@ -367,7 +367,7 @@ export default function Home() {
             <div className="grid grid-cols-1 lg:grid-cols-[auto_1fr_auto] gap-6 mb-4">
               {/* Logo on the left (hidden on mobile, shown on desktop) */}
               <img
-                src="https://raw.githubusercontent.com/Thibault-GAREL/Thibault-GAREL/main/REs.png"
+                src="https://raw.githubusercontent.com/Thibault-GAREL/Thibault-GAREL/main/Logo_Group_Projects/REs.png"
                 alt="Resilient AI Logo"
                 className="hidden lg:block w-24 h-24 object-contain shadow-lg dark:shadow-[0_8px_16px_rgba(0,0,0,0.4)]"
               />
