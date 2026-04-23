@@ -1,39 +1,58 @@
 'use client'
 
-import React, { useState } from 'react'
+import React, { useState, useEffect } from 'react'
 
 export default function Home() {
   const [sortBy, setSortBy] = useState<'category' | 'date'>('category')
+  const [darkMode, setDarkMode] = useState(false)
+  useEffect(() => {
+    if (darkMode) {
+      document.documentElement.classList.add('dark')
+    } else {
+      document.documentElement.classList.remove('dark')
+    }
+  }, [darkMode])
 
   return (
-    <main className="min-h-screen bg-streamlit-bg">
+    <main className="min-h-screen bg-streamlit-bg dark:bg-[#22272e]">
       {/* Header */}
-      <header className="border-b border-streamlit-border bg-white sticky top-0 z-50">
+      <header className="border-b border-streamlit-border dark:border-[#444c56] bg-white dark:bg-[#2d333b] sticky top-0 z-50">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-4">
           <div className="flex justify-between items-center">
-            <h1 className="text-2xl font-bold text-streamlit-text">Thibault GAREL&apos;s Portfolio</h1>
+            <h1 className="text-2xl font-bold text-streamlit-text dark:text-[#cdd9e5]">Thibault GAREL&apos;s Portfolio</h1>
 
-            {/* Sort Toggle */}
-            <div className="flex gap-2 bg-streamlit-secondary rounded-lg p-1 border border-streamlit-border">
+            <div className="flex items-center gap-2">
+              {/* Sort Toggle */}
+              <div className="flex gap-2 bg-streamlit-secondary dark:bg-[#22272e] rounded-lg p-1 border border-streamlit-border dark:border-[#444c56]">
+                <button
+                  onClick={() => setSortBy('category')}
+                  className={`px-4 py-2 rounded-md transition-colors ${
+                    sortBy === 'category'
+                      ? 'bg-white dark:bg-[#2d333b] text-streamlit-text dark:text-[#cdd9e5] font-semibold shadow-sm'
+                      : 'text-gray-600 dark:text-[#768390] hover:text-streamlit-text dark:hover:text-[#adbac7]'
+                  }`}
+                >
+                  By Category
+                </button>
+                <button
+                  onClick={() => setSortBy('date')}
+                  className={`px-4 py-2 rounded-md transition-colors ${
+                    sortBy === 'date'
+                      ? 'bg-white dark:bg-[#2d333b] text-streamlit-text dark:text-[#cdd9e5] font-semibold shadow-sm'
+                      : 'text-gray-600 dark:text-[#768390] hover:text-streamlit-text dark:hover:text-[#adbac7]'
+                  }`}
+                >
+                  By Date
+                </button>
+              </div>
+
+              {/* Dark Mode Toggle */}
               <button
-                onClick={() => setSortBy('category')}
-                className={`px-4 py-2 rounded-md transition-colors ${
-                  sortBy === 'category'
-                    ? 'bg-white text-streamlit-text font-semibold shadow-sm'
-                    : 'text-gray-600 hover:text-streamlit-text'
-                }`}
+                onClick={() => setDarkMode(!darkMode)}
+                className="p-2 rounded-lg border border-streamlit-border dark:border-[#444c56] hover:bg-streamlit-secondary dark:hover:bg-[#2d333b] transition-colors text-xl"
+                aria-label="Toggle dark mode"
               >
-                By Category
-              </button>
-              <button
-                onClick={() => setSortBy('date')}
-                className={`px-4 py-2 rounded-md transition-colors ${
-                  sortBy === 'date'
-                    ? 'bg-white text-streamlit-text font-semibold shadow-sm'
-                    : 'text-gray-600 hover:text-streamlit-text'
-                }`}
-              >
-                By Date
+                {darkMode ? '☀️' : '🌙'}
               </button>
             </div>
           </div>
@@ -47,10 +66,10 @@ export default function Home() {
             <img
               src="https://github.com/Thibault-GAREL.png"
               alt="Thibault GAREL"
-              className="w-32 h-32 rounded-full border-4 border-streamlit-border shadow-lg"
+              className="w-32 h-32 rounded-full border-4 border-streamlit-border dark:border-[#444c56] shadow-lg"
             />
             <div className="text-center sm:text-left">
-              <h1 className="text-3xl sm:text-5xl font-bold text-streamlit-text mb-4">
+              <h1 className="text-3xl sm:text-5xl font-bold text-streamlit-text dark:text-[#cdd9e5] mb-4">
                 Hi! My name is Thibault GAREL
               </h1>
               {/* Contact Links */}
@@ -89,7 +108,7 @@ export default function Home() {
             </div>
           </div>
 
-          <div className="text-xl text-gray-700 mb-6 leading-relaxed">
+          <div className="text-xl text-gray-700 dark:text-[#adbac7] mb-6 leading-relaxed">
             <p className="mb-4">
               I am currently in my 4th year at <strong>ECE</strong>, an engineering school,
               where I am pursuing a Major in <strong>Data & AI</strong>.
@@ -101,7 +120,7 @@ export default function Home() {
 
             <div className="mb-6 flex flex-col sm:flex-row items-center gap-4">
               <span>I'm an AI maker in</span>
-              <div className="flex flex-col sm:flex-row items-center gap-3 bg-streamlit-secondary px-4 py-3 rounded-lg border border-streamlit-border">
+              <div className="flex flex-col sm:flex-row items-center gap-3 bg-streamlit-secondary dark:bg-[#2d333b] px-4 py-3 rounded-lg border border-streamlit-border dark:border-[#444c56]">
                 <div className="flex items-center gap-3">
                   <img
                     src="https://github.com/intelligenceLab-ECE.png"
@@ -139,7 +158,7 @@ export default function Home() {
                     href="http://intelligencelab.ai/"
                     target="_blank"
                     rel="noopener noreferrer"
-                    className="text-gray-600 hover:underline text-sm"
+                    className="text-gray-600 dark:text-[#768390] hover:underline text-sm"
                   >
                     🌐 Website
                   </a>
@@ -151,7 +170,7 @@ export default function Home() {
 
         {/* Featured Projects Section */}
         <section className="mb-16">
-          <h2 className="text-4xl font-bold text-streamlit-text mb-8 pb-2 border-b-2 border-streamlit-border">
+          <h2 className="text-4xl font-bold text-streamlit-text dark:text-[#cdd9e5] mb-8 pb-2 border-b-2 border-streamlit-border dark:border-[#444c56]">
             ✨ Featured Projects
           </h2>
 
@@ -164,11 +183,11 @@ export default function Home() {
 
         {/* Group Projects */}
         <section className="mb-16">
-          <h2 className="text-4xl font-bold text-streamlit-text mb-8 pb-2 border-b-2 border-streamlit-border">
+          <h2 className="text-4xl font-bold text-streamlit-text dark:text-[#cdd9e5] mb-8 pb-2 border-b-2 border-streamlit-border dark:border-[#444c56]">
             👥 Project in Group
           </h2>
 
-          <div className="bg-streamlit-secondary rounded-xl p-6 mb-6 border border-streamlit-border">
+          <div className="bg-streamlit-secondary dark:bg-[#2d333b] rounded-xl p-6 mb-6 border border-streamlit-border dark:border-[#444c56]">
             <div className="grid grid-cols-1 lg:grid-cols-[auto_1fr_auto] gap-6 mb-4">
               {/* Logo on the left (hidden on mobile, shown on desktop) */}
               <img
@@ -194,7 +213,7 @@ export default function Home() {
                 <p className="text-lg mb-2">
                   AI system to detect anomalies and breakdowns in French army logs
                 </p>
-                <p className="text-sm text-gray-600 mb-4">📅 November 18-20, 2025 • 4th year</p>
+                <p className="text-sm text-gray-600 dark:text-[#768390] mb-4">📅 November 18-20, 2025 • 4th year</p>
 
                 <div>
                   <p className="font-semibold mb-2">Team:</p>
@@ -211,7 +230,7 @@ export default function Home() {
                         href={member.link}
                         target="_blank"
                         rel="noopener noreferrer"
-                        className="bg-white px-3 py-1 rounded-md text-blue-600 hover:bg-blue-50 transition-colors"
+                        className="bg-white dark:bg-[#2d333b] dark:text-[#adbac7] px-3 py-1 rounded-md text-blue-600 dark:text-[#539bf5] hover:bg-blue-50 dark:hover:bg-[#316dca20] transition-colors"
                       >
                         {member.name}
                       </a>
@@ -226,7 +245,7 @@ export default function Home() {
                   href="https://github.com/Rqbln/dirisi25-hackathon-frontend"
                   target="_blank"
                   rel="noopener noreferrer"
-                  className="bg-white px-4 py-3 rounded-lg border border-streamlit-border text-blue-600 hover:bg-blue-50 transition-colors text-center whitespace-nowrap flex-1 lg:flex-none"
+                  className="bg-white dark:bg-[#2d333b] px-4 py-3 rounded-lg border border-streamlit-border dark:border-[#444c56] text-blue-600 dark:text-[#539bf5] hover:bg-blue-50 dark:hover:bg-[#316dca20] transition-colors text-center whitespace-nowrap flex-1 lg:flex-none"
                 >
                   🐱 Frontend Code
                 </a>
@@ -234,7 +253,7 @@ export default function Home() {
                   href="https://github.com/Rqbln/dirisi25-hackathon-backend"
                   target="_blank"
                   rel="noopener noreferrer"
-                  className="bg-white px-4 py-3 rounded-lg border border-streamlit-border text-blue-600 hover:bg-blue-50 transition-colors text-center whitespace-nowrap flex-1 lg:flex-none"
+                  className="bg-white dark:bg-[#2d333b] px-4 py-3 rounded-lg border border-streamlit-border dark:border-[#444c56] text-blue-600 dark:text-[#539bf5] hover:bg-blue-50 dark:hover:bg-[#316dca20] transition-colors text-center whitespace-nowrap flex-1 lg:flex-none"
                 >
                   🐱 Backend Code
                 </a>
@@ -245,7 +264,7 @@ export default function Home() {
 
         {/* Skills Section */}
         <section className="mb-16">
-          <h2 className="text-4xl font-bold text-streamlit-text mb-8 pb-2 border-b-2 border-streamlit-border">
+          <h2 className="text-4xl font-bold text-streamlit-text dark:text-[#cdd9e5] mb-8 pb-2 border-b-2 border-streamlit-border dark:border-[#444c56]">
             🛠️ Skills & Tools
           </h2>
 
@@ -310,22 +329,22 @@ export default function Home() {
 
         {/* Next Steps */}
         <section className="mb-16">
-          <h2 className="text-4xl font-bold text-streamlit-text mb-8 pb-2 border-b-2 border-streamlit-border">
+          <h2 className="text-4xl font-bold text-streamlit-text dark:text-[#cdd9e5] mb-8 pb-2 border-b-2 border-streamlit-border dark:border-[#444c56]">
             🚀 Next Steps
           </h2>
 
           <div className="space-y-4">
-            <div className="bg-streamlit-secondary rounded-xl p-6 border border-streamlit-border">
+            <div className="bg-streamlit-secondary dark:bg-[#2d333b] rounded-xl p-6 border border-streamlit-border dark:border-[#444c56]">
               <p className="text-lg">
                 Finish the Snake game using Deep Q-learning (hyperparameters optimization)
               </p>
             </div>
-            <div className="bg-streamlit-secondary rounded-xl p-6 border border-streamlit-border">
+            <div className="bg-streamlit-secondary dark:bg-[#2d333b] rounded-xl p-6 border border-streamlit-border dark:border-[#444c56]">
               <p className="text-lg">
                 Complete Walking AI with Genetic Algorithm and StarCraft2 VLM-RL project
               </p>
             </div>
-            <div className="bg-streamlit-secondary rounded-xl p-6 border border-streamlit-border">
+            <div className="bg-streamlit-secondary dark:bg-[#2d333b] rounded-xl p-6 border border-streamlit-border dark:border-[#444c56]">
               <p className="text-lg">
                 Develop a voice cloner for end-to-end speech-to-speech synthesis (Speech→Text ✅, Text→Text ✅, Text→Speech 🚧)
               </p>
@@ -334,15 +353,15 @@ export default function Home() {
         </section>
 
         {/* Footer */}
-        <footer className="border-t border-streamlit-border pt-8 mt-16">
+        <footer className="border-t border-streamlit-border dark:border-[#444c56] pt-8 mt-16">
           <div className="text-center">
-            <p className="text-gray-600 mb-4">
+            <p className="text-gray-600 dark:text-[#768390] mb-4">
               Code created by me, Thibault GAREL - {' '}
               <a
                 href="https://github.com/Thibault-GAREL"
                 target="_blank"
                 rel="noopener noreferrer"
-                className="text-blue-600 hover:underline"
+                className="text-blue-600 dark:text-[#539bf5] hover:underline"
               >
                 GitHub
               </a>
@@ -447,11 +466,30 @@ function ProjectsByCategory() {
 
       {/* Reinforcement Learning */}
       <div className="mb-10">
-        <h3 className="text-2xl font-bold text-streamlit-text mb-6">Reinforcement Learning</h3>
+        <h3 className="text-2xl font-bold text-streamlit-text dark:text-[#cdd9e5] mb-6">Reinforcement Learning</h3>
+
+        {/* Decision Tree */}
+        <div className="mb-8">
+          <h4 className="text-xl font-semibold text-gray-700 dark:text-[#adbac7] mb-4 ml-4">🌳 Decision Tree</h4>
+          <div className="grid gap-4 md:grid-cols-2">
+            {[
+              {
+                name: "Snake AI - Decision Tree",
+                description: "Snake game AI using a Decision Tree",
+                link: "https://github.com/Thibault-GAREL/AI_snake_decision_tree_version",
+                image: "https://raw.githubusercontent.com/Thibault-GAREL/Thibault-GAREL/main/Logo_Featured_Projects/rl_snake_decision_tree.gif",
+                date: "Sep - Oct 2024",
+                year: "3rd year"
+              }
+            ].map((project) => (
+              <ProjectCard key={project.name} project={project} />
+            ))}
+          </div>
+        </div>
 
         {/* Genetic Algorithm */}
         <div className="mb-8">
-          <h4 className="text-xl font-semibold text-gray-700 mb-4 ml-4">🧬 Genetic Algorithm</h4>
+          <h4 className="text-xl font-semibold text-gray-700 dark:text-[#adbac7] mb-4 ml-4">🧬 Genetic Algorithm</h4>
           <div className="grid gap-4 md:grid-cols-2">
             {[
               {
@@ -487,7 +525,7 @@ function ProjectsByCategory() {
 
         {/* Deep Q-Learning */}
         <div className="mb-8">
-          <h4 className="text-xl font-semibold text-gray-700 mb-4 ml-4">🎯 Deep Q-Learning</h4>
+          <h4 className="text-xl font-semibold text-gray-700 dark:text-[#adbac7] mb-4 ml-4">🎯 Deep Q-Learning</h4>
           <div className="grid gap-4 md:grid-cols-2">
             {[
               {
@@ -515,7 +553,7 @@ function ProjectsByCategory() {
 
         {/* Q-Learning */}
         <div className="mb-8">
-          <h4 className="text-xl font-semibold text-gray-700 mb-4 ml-4">🗺️ Q-Learning</h4>
+          <h4 className="text-xl font-semibold text-gray-700 dark:text-[#adbac7] mb-4 ml-4">🗺️ Q-Learning</h4>
           <div className="grid gap-4 md:grid-cols-2">
             <ProjectCard
               project={{
@@ -532,7 +570,7 @@ function ProjectsByCategory() {
 
         {/* PPO */}
         <div className="mb-8">
-          <h4 className="text-xl font-semibold text-gray-700 mb-4 ml-4">🚀 PPO (Proximal Policy Optimization)</h4>
+          <h4 className="text-xl font-semibold text-gray-700 dark:text-[#adbac7] mb-4 ml-4">🚀 PPO (Proximal Policy Optimization)</h4>
           <div className="grid gap-4 md:grid-cols-2">
             {[
               {
@@ -947,7 +985,7 @@ function ProjectsByDate() {
     <>
       {/* 1st Year Projects */}
       <div className="mb-10">
-        <h3 className="text-2xl font-bold text-streamlit-text mb-6">1st Year</h3>
+        <h3 className="text-2xl font-bold text-streamlit-text dark:text-[#cdd9e5] mb-6">1st Year</h3>
         <div className="grid gap-4 md:grid-cols-2">
           {firstYearProjects.map((project) => (
             <ProjectCard key={project.name} project={project} />
@@ -957,7 +995,7 @@ function ProjectsByDate() {
 
       {/* 2nd Year Projects */}
       <div className="mb-10">
-        <h3 className="text-2xl font-bold text-streamlit-text mb-6">2nd Year</h3>
+        <h3 className="text-2xl font-bold text-streamlit-text dark:text-[#cdd9e5] mb-6">2nd Year</h3>
         <div className="grid gap-4 md:grid-cols-2">
           {secondYearProjects.map((project) => (
             <ProjectCard key={project.name} project={project} />
