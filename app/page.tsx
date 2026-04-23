@@ -184,7 +184,7 @@ export default function Home() {
         {/* Group Projects */}
         <section className="mb-16">
           <h2 className="text-4xl font-bold text-streamlit-text dark:text-[#cdd9e5] mb-8 pb-2 border-b-2 border-streamlit-border dark:border-[#444c56]">
-            👥 Project in Group
+            👥 Group Projects
           </h2>
 
           <div className="bg-streamlit-secondary dark:bg-[#2d333b] rounded-xl p-6 mb-6 border border-streamlit-border dark:border-[#444c56]">
@@ -270,41 +270,81 @@ export default function Home() {
           </div>
 
           <div className="bg-streamlit-secondary dark:bg-[#2d333b] rounded-xl p-6 mb-6 border border-streamlit-border dark:border-[#444c56]">
-            <div className="flex-1">
-              <h3 className="text-2xl font-bold mb-2 text-streamlit-text dark:text-[#cdd9e5]">
-                PPE - Smart Contract AI Analysis
-              </h3>
-              <p className="text-lg mb-2">LLM benchmarking & LoRA fine-tuning for Solidity smart contract vulnerability analysis</p>
-              <p className="text-sm text-gray-600 dark:text-[#768390] mb-4">📅 2024 - 2025 • 3rd - 4th year</p>
-              <div className="mb-4">
-                <p className="font-semibold mb-2">Team:</p>
-                <div className="flex flex-wrap gap-2">
-                  {[
-                    { name: "Thibault GAREL", link: "https://github.com/Thibault-GAREL" },
-                    { name: "Axel Bröns", link: "https://github.com/axelbrons" },
-                    { name: "Valentin Kocijancic", link: "https://github.com/valentinkocijancic" },
-                    { name: "Hugo Rivière", link: "https://github.com/hugoriviere" },
-                    { name: "Antoine Goudedranche", link: "https://github.com/Antoine31G" },
-                    { name: "Omar El Alami", link: "https://github.com/omarelalamielfellousse" }
-                  ].map((member) => (
-                    <a key={member.name} href={member.link} target="_blank" rel="noopener noreferrer"
-                      className="bg-white dark:bg-[#22272e] px-3 py-1 rounded-md text-blue-600 dark:text-[#539bf5] hover:bg-blue-50 dark:hover:bg-[#316dca20] transition-colors">
-                      {member.name}
-                    </a>
-                  ))}
+            <div className="grid grid-cols-1 lg:grid-cols-[auto_1fr_auto] gap-6 mb-4">
+              {/* Logo on the left (hidden on mobile, shown on desktop) */}
+              <img
+                src="https://raw.githubusercontent.com/Thibault-GAREL/Thibault-GAREL/main/Logo_Group_Projects/group_ppe_smart_contract_sq.png"
+                alt="PPE Logo"
+                className="hidden lg:block w-24 h-24 object-contain"
+              />
+
+              {/* Main content in the middle */}
+              <div className="flex-1">
+                <h3 className="text-2xl font-bold mb-2">
+                  <a
+                    href="https://www.ece.fr/la-pedagogie-par-projets/"
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    className="text-blue-600 hover:underline"
+                  >
+                    PPE - Smart Contract AI Analysis
+                  </a>
+                </h3>
+
+                <p className="text-lg mb-2">
+                  LLM benchmarking & LoRA fine-tuning for Solidity smart contract vulnerability analysis
+                </p>
+                <p className="text-sm text-gray-600 dark:text-[#768390] mb-4">📅 2024 - 2025 • 3rd - 4th year</p>
+
+                <div>
+                  <p className="font-semibold mb-2">Team:</p>
+                  <div className="flex flex-wrap gap-2">
+                    {[
+                      { name: "Thibault GAREL", link: "https://github.com/Thibault-GAREL" },
+                      { name: "Axel Bröns", link: "https://github.com/axelbrons" },
+                      { name: "Valentin Kocijancic", link: "https://github.com/valentinkocijancic" },
+                      { name: "Hugo Rivière", link: "https://github.com/hugoriviere" },
+                      { name: "Antoine Goudedranche", link: "https://github.com/Antoine31G" },
+                      { name: "Omar El Alami", link: "https://github.com/omarelalamielfellousse" }
+                    ].map((member) => (
+                      <a
+                        key={member.name}
+                        href={member.link}
+                        target="_blank"
+                        rel="noopener noreferrer"
+                        className="bg-white dark:bg-[#2d333b] dark:text-[#adbac7] px-3 py-1 rounded-md text-blue-600 dark:text-[#539bf5] hover:bg-blue-50 dark:hover:bg-[#316dca20] transition-colors"
+                      >
+                        {member.name}
+                      </a>
+                    ))}
+                  </div>
                 </div>
               </div>
-              <div className="flex flex-row flex-wrap gap-3">
-                <a href="https://github.com/Thibault-GAREL/PPE_LLM_test_Smart_contract" target="_blank" rel="noopener noreferrer"
-                  className="bg-white dark:bg-[#22272e] px-4 py-3 rounded-lg border border-streamlit-border dark:border-[#444c56] text-blue-600 dark:text-[#539bf5] hover:bg-blue-50 dark:hover:bg-[#316dca20] transition-colors text-center whitespace-nowrap">
+
+              {/* Code links - column on desktop, row on mobile */}
+              <div className="flex flex-row lg:flex-col gap-3 justify-center">
+                <a
+                  href="https://github.com/Thibault-GAREL/PPE_LLM_test_Smart_contract"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="bg-white dark:bg-[#2d333b] px-4 py-3 rounded-lg border border-streamlit-border dark:border-[#444c56] text-blue-600 dark:text-[#539bf5] hover:bg-blue-50 dark:hover:bg-[#316dca20] transition-colors text-center whitespace-nowrap flex-1 lg:flex-none"
+                >
                   🐱 LLM Benchmark
                 </a>
-                <a href="https://github.com/Thibault-GAREL/PPE_LoRa_Smart_contract" target="_blank" rel="noopener noreferrer"
-                  className="bg-white dark:bg-[#22272e] px-4 py-3 rounded-lg border border-streamlit-border dark:border-[#444c56] text-blue-600 dark:text-[#539bf5] hover:bg-blue-50 dark:hover:bg-[#316dca20] transition-colors text-center whitespace-nowrap">
+                <a
+                  href="https://github.com/Thibault-GAREL/PPE_LoRa_Smart_contract"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="bg-white dark:bg-[#2d333b] px-4 py-3 rounded-lg border border-streamlit-border dark:border-[#444c56] text-blue-600 dark:text-[#539bf5] hover:bg-blue-50 dark:hover:bg-[#316dca20] transition-colors text-center whitespace-nowrap flex-1 lg:flex-none"
+                >
                   🐱 LoRA Fine-tune
                 </a>
-                <a href="https://github.com/axelbrons/graphs-ppe" target="_blank" rel="noopener noreferrer"
-                  className="bg-white dark:bg-[#22272e] px-4 py-3 rounded-lg border border-streamlit-border dark:border-[#444c56] text-blue-600 dark:text-[#539bf5] hover:bg-blue-50 dark:hover:bg-[#316dca20] transition-colors text-center whitespace-nowrap">
+                <a
+                  href="https://github.com/axelbrons/graphs-ppe"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="bg-white dark:bg-[#2d333b] px-4 py-3 rounded-lg border border-streamlit-border dark:border-[#444c56] text-blue-600 dark:text-[#539bf5] hover:bg-blue-50 dark:hover:bg-[#316dca20] transition-colors text-center whitespace-nowrap flex-1 lg:flex-none"
+                >
                   🐱 CodeBERT Graphs (Axel)
                 </a>
               </div>
@@ -312,33 +352,68 @@ export default function Home() {
           </div>
 
           <div className="bg-streamlit-secondary dark:bg-[#2d333b] rounded-xl p-6 mb-6 border border-streamlit-border dark:border-[#444c56]">
-            <div className="flex-1">
-              <h3 className="text-2xl font-bold mb-2 text-streamlit-text dark:text-[#cdd9e5]">
-                <a href="https://www.sustainableaicoalition.org/resilient-ai-challenge/" target="_blank" rel="noopener noreferrer"
-                  className="text-blue-600 dark:text-[#539bf5] hover:underline">
-                  Resilient AI Challenge
-                </a>
-              </h3>
-              <p className="text-lg mb-2">International AI competition on resilient and sustainable AI systems</p>
-              <p className="text-sm text-gray-600 dark:text-[#768390] mb-4">📅 2025 • 4th year</p>
-              <div>
-                <p className="font-semibold mb-2">Team:</p>
-                <div className="flex flex-wrap gap-2">
-                  {[
-                    { name: "Thibault GAREL", link: "https://github.com/Thibault-GAREL", type: "github" },
-                    { name: "Axel Bröns", link: "https://github.com/axelbrons", type: "github" },
-                    { name: "Mathis Lacombe", link: "https://www.linkedin.com/in/mathis-lacombe34/", type: "linkedin" },
-                    { name: "Jarfino Houngbadji", link: "https://www.linkedin.com/in/jarfino-houngbadji/", type: "linkedin" },
-                    { name: "Achta Sow Demba", link: "https://www.linkedin.com/in/demba-sow-achta/", type: "linkedin" },
-                    { name: "Djebril Laouedj", link: "https://www.linkedin.com/in/djebril-laouedj-9684b4219/", type: "linkedin" },
-                    { name: "Bikram Bhuyan", link: "https://www.linkedin.com/in/bikram-pratim-bhuyan-01887589/", type: "linkedin" }
-                  ].map((member) => (
-                    <a key={member.name} href={member.link} target="_blank" rel="noopener noreferrer"
-                      className="bg-white dark:bg-[#22272e] px-3 py-1 rounded-md text-blue-600 dark:text-[#539bf5] hover:bg-blue-50 dark:hover:bg-[#316dca20] transition-colors">
-                      {member.name}
-                    </a>
-                  ))}
+            <div className="grid grid-cols-1 lg:grid-cols-[auto_1fr_auto] gap-6 mb-4">
+              {/* Logo on the left (hidden on mobile, shown on desktop) */}
+              <img
+                src="https://raw.githubusercontent.com/Thibault-GAREL/Thibault-GAREL/main/Logo_Group_Projects/group_resilient_sq.png"
+                alt="Resilient AI Logo"
+                className="hidden lg:block w-24 h-24 object-contain"
+              />
+
+              {/* Main content in the middle */}
+              <div className="flex-1">
+                <h3 className="text-2xl font-bold mb-2">
+                  <a
+                    href="https://www.sustainableaicoalition.org/resilient-ai-challenge/"
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    className="text-blue-600 hover:underline"
+                  >
+                    Resilient AI Challenge
+                  </a>
+                </h3>
+
+                <p className="text-lg mb-2">
+                  International AI competition on resilient and sustainable AI systems
+                </p>
+                <p className="text-sm text-gray-600 dark:text-[#768390] mb-4">📅 2025 • 4th year</p>
+
+                <div>
+                  <p className="font-semibold mb-2">Team:</p>
+                  <div className="flex flex-wrap gap-2">
+                    {[
+                      { name: "Thibault GAREL", link: "https://github.com/Thibault-GAREL", type: "github" },
+                      { name: "Axel Bröns", link: "https://github.com/axelbrons", type: "github" },
+                      { name: "Mathis Lacombe", link: "https://www.linkedin.com/in/mathis-lacombe34/", type: "linkedin" },
+                      { name: "Jarfino Houngbadji", link: "https://www.linkedin.com/in/jarfino-houngbadji/", type: "linkedin" },
+                      { name: "Achta Sow Demba", link: "https://www.linkedin.com/in/demba-sow-achta/", type: "linkedin" },
+                      { name: "Djebril Laouedj", link: "https://www.linkedin.com/in/djebril-laouedj-9684b4219/", type: "linkedin" },
+                      { name: "Bikram Bhuyan", link: "https://www.linkedin.com/in/bikram-pratim-bhuyan-01887589/", type: "linkedin" }
+                    ].map((member) => (
+                      <a
+                        key={member.name}
+                        href={member.link}
+                        target="_blank"
+                        rel="noopener noreferrer"
+                        className="bg-white dark:bg-[#2d333b] dark:text-[#adbac7] px-3 py-1 rounded-md text-blue-600 dark:text-[#539bf5] hover:bg-blue-50 dark:hover:bg-[#316dca20] transition-colors"
+                      >
+                        {member.name}
+                      </a>
+                    ))}
+                  </div>
                 </div>
+              </div>
+
+              {/* Code links - column on desktop, row on mobile */}
+              <div className="flex flex-row lg:flex-col gap-3 justify-center">
+                <a
+                  href="https://github.com/Thibault-GAREL"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="bg-white dark:bg-[#2d333b] px-4 py-3 rounded-lg border border-streamlit-border dark:border-[#444c56] text-blue-600 dark:text-[#539bf5] hover:bg-blue-50 dark:hover:bg-[#316dca20] transition-colors text-center whitespace-nowrap flex-1 lg:flex-none"
+                >
+                  🐱 Code (Coming Soon)
+                </a>
               </div>
             </div>
           </div>
@@ -429,21 +504,94 @@ export default function Home() {
           </h2>
 
           <div className="space-y-4">
-            <div className="bg-streamlit-secondary dark:bg-[#2d333b] rounded-xl p-6 border border-streamlit-border dark:border-[#444c56]">
+            <div className="bg-streamlit-secondary dark:bg-[#2d333b] rounded-xl p-6 border border-streamlit-border dark:border-[#444c56] shadow-md dark:shadow-[0_4px_12px_rgba(0,0,0,0.3)]">
               <p className="text-lg">
                 Finish the Snake game using Deep Q-learning (hyperparameters optimization)
               </p>
             </div>
-            <div className="bg-streamlit-secondary dark:bg-[#2d333b] rounded-xl p-6 border border-streamlit-border dark:border-[#444c56]">
+            <div className="bg-streamlit-secondary dark:bg-[#2d333b] rounded-xl p-6 border border-streamlit-border dark:border-[#444c56] shadow-md dark:shadow-[0_4px_12px_rgba(0,0,0,0.3)]">
               <p className="text-lg">
                 Complete Walking AI with Genetic Algorithm and StarCraft2 VLM-RL project
               </p>
             </div>
-            <div className="bg-streamlit-secondary dark:bg-[#2d333b] rounded-xl p-6 border border-streamlit-border dark:border-[#444c56]">
+            <div className="bg-streamlit-secondary dark:bg-[#2d333b] rounded-xl p-6 border border-streamlit-border dark:border-[#444c56] shadow-md dark:shadow-[0_4px_12px_rgba(0,0,0,0.3)]">
               <p className="text-lg">
                 Develop a voice cloner for end-to-end speech-to-speech synthesis (Speech→Text ✅, Text→Text ✅, Text→Speech 🚧)
               </p>
             </div>
+          </div>
+        </section>
+
+        {/* GitHub Statistics */}
+        <section className="mb-16">
+          <h2 className="text-4xl font-bold text-streamlit-text dark:text-[#cdd9e5] mb-8 pb-2 border-b-2 border-streamlit-border dark:border-[#444c56]">
+            📊 My GitHub Statistics
+          </h2>
+
+          <div className="grid grid-cols-1 md:grid-cols-2 gap-6 mb-6">
+            <div className="flex justify-center">
+              <img
+                src="https://github-readme-stats.vercel.app/api?username=Thibault-GAREL&show_icons=true&theme=transparent&hide_border=true"
+                alt="GitHub Stats"
+                className="dark:hidden"
+                height="180"
+              />
+              <img
+                src="https://github-readme-stats.vercel.app/api?username=Thibault-GAREL&show_icons=true&theme=tokyonight&hide_border=true"
+                alt="GitHub Stats"
+                className="hidden dark:block"
+                height="180"
+              />
+            </div>
+            <div className="flex justify-center">
+              <img
+                src="https://github-profile-summary-cards.vercel.app/api/cards/most-commit-language?username=Thibault-GAREL&theme=transparent"
+                alt="Most Used Languages"
+                className="dark:hidden"
+                height="180"
+              />
+              <img
+                src="https://github-profile-summary-cards.vercel.app/api/cards/most-commit-language?username=Thibault-GAREL&theme=tokyonight"
+                alt="Most Used Languages"
+                className="hidden dark:block"
+                height="180"
+              />
+            </div>
+          </div>
+
+          <div className="flex justify-center mb-6">
+            <img
+              src="https://streak-stats.demolab.com?user=Thibault-GAREL&theme=transparent&hide_border=true"
+              alt="GitHub Streak"
+              className="dark:hidden"
+              height="180"
+            />
+            <img
+              src="https://streak-stats.demolab.com?user=Thibault-GAREL&theme=tokyonight&hide_border=true"
+              alt="GitHub Streak"
+              className="hidden dark:block"
+              height="180"
+            />
+          </div>
+
+          <div className="flex justify-center mb-6">
+            <img
+              src="https://github-profile-summary-cards.vercel.app/api/cards/profile-details?username=Thibault-GAREL&theme=transparent"
+              alt="Profile Details"
+              className="dark:hidden w-full max-w-4xl"
+            />
+            <img
+              src="https://github-profile-summary-cards.vercel.app/api/cards/profile-details?username=Thibault-GAREL&theme=tokyonight"
+              alt="Profile Details"
+              className="hidden dark:block w-full max-w-4xl"
+            />
+          </div>
+
+          <div className="flex justify-center">
+            <img
+              src="https://komarev.com/ghpvc/?username=Thibault-GAREL&label=Profile%20Views&color=0e75b6&style=flat"
+              alt="Profile Views"
+            />
           </div>
         </section>
 
@@ -1244,7 +1392,7 @@ function ProjectCard({
       href={project.link}
       target="_blank"
       rel="noopener noreferrer"
-      className="bg-streamlit-secondary dark:bg-[#2d333b] rounded-xl p-4 border border-streamlit-border dark:border-[#444c56] hover:shadow-lg transition-shadow group flex gap-4"
+      className="bg-streamlit-secondary dark:bg-[#2d333b] rounded-xl p-4 border border-streamlit-border dark:border-[#444c56] shadow-md hover:shadow-lg dark:shadow-[0_4px_12px_rgba(0,0,0,0.3)] dark:hover:shadow-[0_8px_16px_rgba(0,0,0,0.4)] transition-shadow group flex gap-4"
     >
       {project.image && (
         <div className="flex-shrink-0 w-32 h-32 rounded-lg overflow-hidden">
@@ -1289,7 +1437,7 @@ function SkillCategory({
         {skills.map((skill) => (
           <div
             key={skill.name}
-            className="flex items-center gap-2 bg-streamlit-secondary dark:bg-[#2d333b] px-4 py-2 rounded-lg border border-streamlit-border dark:border-[#444c56]"
+            className="flex items-center gap-2 bg-streamlit-secondary dark:bg-[#2d333b] px-4 py-2 rounded-lg border border-streamlit-border dark:border-[#444c56] shadow-sm dark:shadow-[0_2px_8px_rgba(0,0,0,0.2)]"
           >
             {skill.icon && skill.url ? (
               <a href={skill.url} target="_blank" rel="noopener noreferrer">
