@@ -743,7 +743,7 @@ function ProjectsByCategory() {
                 description: "AI learning to walk with complete physics engine (Box2D)",
                 link: "https://github.com/Thibault-GAREL/test_box2D_pygame",
                 image: "https://raw.githubusercontent.com/Thibault-GAREL/test_box2D_pygame/main/img/logo.png",
-                inProgress: true,
+                
                 date: "Oct 2025 - Present",
                 year: "4th year"
               }
@@ -770,7 +770,7 @@ function ProjectsByCategory() {
                 name: "Snake AI - Deep Q-Learning",
                 description: "Snake game AI using Deep Q-Learning",
                 link: "https://github.com/Thibault-GAREL/AI_snake_DQN_version",
-                inProgress: true,
+                
                 image: "https://raw.githubusercontent.com/Thibault-GAREL/AI_snake_DQN_version/main/Images/SnakeDQL-Score36.gif",
                 date: "Jul 2024 - Present",
                 year: "3rd - 4th year"
@@ -799,7 +799,7 @@ function ProjectsByCategory() {
                 description: "Snake game AI using Proximal Policy Optimization",
                 link: "https://github.com/Thibault-GAREL/AI_snake_PPO_version",
                 image: "https://raw.githubusercontent.com/Thibault-GAREL/AI_snake_PPO_version/main/img/SnakePPO-Score54.gif",
-                inProgress: true,
+                
                 date: "Dec 2025 - Present",
                 year: "4th year"
               },
@@ -809,7 +809,7 @@ function ProjectsByCategory() {
                 link: "https://github.com/Thibault-GAREL/AI-StarCraft2-VLM-RL",
                 image: "https://raw.githubusercontent.com/Thibault-GAREL/Thibault-GAREL/main/Logo_Featured_Projects/rl_starcraft2.gif",
                 imageDark: "https://raw.githubusercontent.com/Thibault-GAREL/Thibault-GAREL/main/Logo_Featured_Projects/rl_starcraft2_dark.gif",
-                inProgress: true,
+                
                 date: "Oct 2025 - Present",
                 year: "4th year"
               }
@@ -1013,7 +1013,7 @@ function ProjectsByDate() {
       description: "Snake game AI using Proximal Policy Optimization",
       link: "https://github.com/Thibault-GAREL/AI_snake_PPO_version",
       image: "https://raw.githubusercontent.com/Thibault-GAREL/AI_snake_PPO_version/main/img/SnakePPO-Score54.gif",
-      inProgress: true,
+      
       date: "Dec 2025 - Present",
       year: "4th year"
     },
@@ -1023,7 +1023,7 @@ function ProjectsByDate() {
       link: "https://github.com/Thibault-GAREL/AI-StarCraft2-VLM-RL",
       image: "https://raw.githubusercontent.com/Thibault-GAREL/Thibault-GAREL/main/Logo_Featured_Projects/rl_starcraft2.gif",
       imageDark: "https://raw.githubusercontent.com/Thibault-GAREL/Thibault-GAREL/main/Logo_Featured_Projects/rl_starcraft2_dark.gif",
-      inProgress: true,
+      
       date: "Oct 2025 - Present",
       year: "4th year"
     },
@@ -1032,7 +1032,7 @@ function ProjectsByDate() {
       description: "AI learning to walk with complete physics engine (Box2D)",
       link: "https://github.com/Thibault-GAREL/test_box2D_pygame",
       image: "https://raw.githubusercontent.com/Thibault-GAREL/test_box2D_pygame/main/img/logo.png",
-      inProgress: true,
+      
       date: "Oct 2025 - Present",
       year: "4th year"
     },
@@ -1040,7 +1040,7 @@ function ProjectsByDate() {
       name: "Snake AI - Deep Q-Learning",
       description: "Snake game AI using DQN (in progress)",
       link: "https://github.com/Thibault-GAREL/AI_snake_DQN_version",
-      inProgress: true,
+      
       image: "https://raw.githubusercontent.com/Thibault-GAREL/AI_snake_DQN_version/main/Images/SnakeDQL-Score36.gif",
       date: "Jul 2024 - Present",
       year: "3rd - 4th year"
@@ -1535,17 +1535,17 @@ function SkillCategory({
 
 // Gantt Chart Component
 function GanttChart() {
-  // Category colors
+  // Category colors - matching the category shadow colors
   const categoryColors: Record<string, string> = {
-    "Generative AI": "#8B5CF6",
-    "Neural Networks": "#3B82F6",
-    "Reinforcement Learning": "#EF4444",
-    "Speech Recognition": "#10B981",
-    "Robotics": "#06B6D4",
-    "Games": "#F59E0B",
-    "Physics Simulation": "#EC4899",
-    "n8n Automation": "#6366F1",
-    "Data Analysis": "#14B8A6"
+    "Generative AI": "#6e40c9",        // 🤖 Violet
+    "Neural Networks": "#2563eb",      // 🧠 Bleu
+    "Reinforcement Learning": "#0884d9", // 📈 Bleu ciel (Q-Learning color)
+    "Speech Recognition": "#ea580c",   // 🎙 Orange-Rouge
+    "Robotics": "#dc2626",             // 🦾 Rouge
+    "Games": "#0891b2",                // 🎮 Cyan
+    "Physics Simulation": "#0d9488",   // ⚙ Teal
+    "n8n Automation": "#db2777",       // ⚡ Rose/Magenta
+    "Data Analysis": "#d97706"         // 📊 Orange
   }
 
   // All projects with dates and categories - with updated dates
@@ -1561,7 +1561,7 @@ function GanttChart() {
 
     // 3rd year
     { name: "Snake Game", start: "2024-07-13", end: "2025-09-20", category: "Games", year: "3rd year" },
-    { name: "Snake AI - DQL", start: "2024-07-13", end: "2026-04-08", category: "Reinforcement Learning", inProgress: true, year: "3rd year" },
+    { name: "Snake AI - DQL", start: "2024-07-13", end: "2026-04-08", category: "Reinforcement Learning",  year: "3rd year" },
     { name: "Snake AI - GA", start: "2024-08-04", end: "2024-10-14", category: "Reinforcement Learning", year: "3rd year" },
     { name: "Snake AI - DT", start: "2024-09-01", end: "2024-10-31", category: "Reinforcement Learning", year: "3rd year" },
 
@@ -1582,11 +1582,11 @@ function GanttChart() {
     { name: "Bot controlled by ChatBot RAG", start: "2025-07-22", end: "2025-10-11", category: "Robotics", year: "4th year" },
     { name: "Language Models", start: "2025-09-27", end: "2025-12-24", category: "Generative AI", year: "4th year" },
     { name: "RAG - PDF ChatBot", start: "2025-10-11", end: "2025-10-12", category: "Generative AI", year: "4th year" },
-    { name: "Walking AI - GA", start: "2025-10-12", end: "2026-04-08", category: "Reinforcement Learning", inProgress: true, year: "4th year" },
-    { name: "StarCraft 2 AI", start: "2025-10-22", end: "2026-04-08", category: "Reinforcement Learning", inProgress: true, year: "4th year" },
+    { name: "Walking AI - GA", start: "2025-10-12", end: "2026-04-08", category: "Reinforcement Learning",  year: "4th year" },
+    { name: "StarCraft 2 AI", start: "2025-10-22", end: "2026-04-08", category: "Reinforcement Learning",  year: "4th year" },
     { name: "ISS Analysis", start: "2025-11-12", end: "2025-12-21", category: "Data Analysis", year: "4th year" },
     { name: "CLIP Embedding Tools", start: "2025-12-25", end: "2025-12-27", category: "Generative AI", year: "4th year" },
-    { name: "Snake AI - PPO", start: "2025-12-27", end: "2026-04-08", category: "Reinforcement Learning", inProgress: true, year: "4th year" }
+    { name: "Snake AI - PPO", start: "2025-12-27", end: "2026-04-08", category: "Reinforcement Learning",  year: "4th year" }
   ]
 
   // Sort projects by start date (oldest first for display from top to bottom)
