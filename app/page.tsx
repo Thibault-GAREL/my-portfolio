@@ -66,7 +66,7 @@ export default function Home() {
             <img
               src="https://github.com/Thibault-GAREL.png"
               alt="Thibault GAREL"
-              className="w-32 h-32 rounded-full border-4 border-streamlit-border dark:border-[#444c56] shadow-lg"
+              className="w-32 h-32 rounded-full border-4 border-streamlit-border dark:border-[#444c56] shadow-lg dark:shadow-[0_8px_16px_rgba(0,0,0,0.4)]"
             />
             <div className="text-center sm:text-left">
               <h1 className="text-3xl sm:text-5xl font-bold text-streamlit-text dark:text-[#cdd9e5] mb-4">
@@ -125,7 +125,7 @@ export default function Home() {
                   <img
                     src="https://github.com/intelligenceLab-ECE.png"
                     alt="Intelligence Lab"
-                    className="w-8 h-8 rounded-full"
+                    className="w-8 h-8 rounded-full shadow-md dark:shadow-[0_4px_8px_rgba(0,0,0,0.3)]"
                   />
                   <span className="font-bold">Intelligence Lab</span>
                 </div>
@@ -193,7 +193,7 @@ export default function Home() {
               <img
                 src="https://www.defense.gouv.fr/sites/default/files/styles/homepage_medallion/public/cnd/Logo_CND_PA.png?itok=MRux1fZ_"
                 alt="CND Logo"
-                className="hidden lg:block w-24 h-24 object-contain"
+                className="hidden lg:block w-24 h-24 object-contain shadow-lg dark:shadow-[0_8px_16px_rgba(0,0,0,0.4)]"
               />
 
               {/* Main content in the middle */}
@@ -210,13 +210,13 @@ export default function Home() {
                   <span className="text-lg text-green-600 ml-3">🏆 3rd / 15 schools</span>
                 </h3>
 
-                <p className="text-lg mb-2">
+                <p className="text-lg mb-2 dark:text-[#adbac7]">
                   AI system to detect anomalies and breakdowns in French army logs
                 </p>
                 <p className="text-sm text-gray-600 dark:text-[#768390] mb-4">📅 November 18-20, 2025 • 4th year</p>
 
                 <div>
-                  <p className="font-semibold mb-2">Team:</p>
+                  <p className="font-semibold mb-2 dark:text-[#cdd9e5]">Team:</p>
                   <div className="flex flex-wrap gap-2">
                     {[
                       { name: "Thibault GAREL", link: "https://github.com/Thibault-GAREL" },
@@ -275,7 +275,7 @@ export default function Home() {
               <img
                 src="https://raw.githubusercontent.com/Thibault-GAREL/Thibault-GAREL/main/Logo_Group_Projects/group_ppe_smart_contract_sq.png"
                 alt="PPE Logo"
-                className="hidden lg:block w-24 h-24 object-contain"
+                className="hidden lg:block w-24 h-24 object-contain shadow-lg dark:shadow-[0_8px_16px_rgba(0,0,0,0.4)]"
               />
 
               {/* Main content in the middle */}
@@ -291,13 +291,13 @@ export default function Home() {
                   </a>
                 </h3>
 
-                <p className="text-lg mb-2">
+                <p className="text-lg mb-2 dark:text-[#adbac7]">
                   LLM benchmarking & LoRA fine-tuning for Solidity smart contract vulnerability analysis
                 </p>
                 <p className="text-sm text-gray-600 dark:text-[#768390] mb-4">📅 2024 - 2025 • 3rd - 4th year</p>
 
                 <div>
-                  <p className="font-semibold mb-2">Team:</p>
+                  <p className="font-semibold mb-2 dark:text-[#cdd9e5]">Team:</p>
                   <div className="flex flex-wrap gap-2">
                     {[
                       { name: "Thibault GAREL", link: "https://github.com/Thibault-GAREL" },
@@ -357,7 +357,7 @@ export default function Home() {
               <img
                 src="https://raw.githubusercontent.com/Thibault-GAREL/Thibault-GAREL/main/Logo_Group_Projects/group_resilient_sq.png"
                 alt="Resilient AI Logo"
-                className="hidden lg:block w-24 h-24 object-contain"
+                className="hidden lg:block w-24 h-24 object-contain shadow-lg dark:shadow-[0_8px_16px_rgba(0,0,0,0.4)]"
               />
 
               {/* Main content in the middle */}
@@ -373,13 +373,13 @@ export default function Home() {
                   </a>
                 </h3>
 
-                <p className="text-lg mb-2">
+                <p className="text-lg mb-2 dark:text-[#adbac7]">
                   International AI competition on resilient and sustainable AI systems
                 </p>
                 <p className="text-sm text-gray-600 dark:text-[#768390] mb-4">📅 2025 • 4th year</p>
 
                 <div>
-                  <p className="font-semibold mb-2">Team:</p>
+                  <p className="font-semibold mb-2 dark:text-[#cdd9e5]">Team:</p>
                   <div className="flex flex-wrap gap-2">
                     {[
                       { name: "Thibault GAREL", link: "https://github.com/Thibault-GAREL", type: "github" },
@@ -609,7 +609,7 @@ export default function Home() {
                 GitHub
               </a>
             </p>
-            <p className="text-lg mb-4">Feel free to contact me! 😊</p>
+            <p className="text-lg mb-4 dark:text-[#adbac7]">Feel free to contact me! 😊</p>
             <div className="flex justify-center gap-4">
               <a
                 href="https://www.linkedin.com/in/thibaultgarel/"
@@ -1395,7 +1395,7 @@ function ProjectCard({
       className="bg-streamlit-secondary dark:bg-[#2d333b] rounded-xl p-4 border border-streamlit-border dark:border-[#444c56] shadow-md hover:shadow-lg dark:shadow-[0_4px_12px_rgba(0,0,0,0.3)] dark:hover:shadow-[0_8px_16px_rgba(0,0,0,0.4)] transition-shadow group flex gap-4"
     >
       {project.image && (
-        <div className="flex-shrink-0 w-32 h-32 rounded-lg overflow-hidden">
+        <div className="flex-shrink-0 w-32 h-32 rounded-lg overflow-hidden shadow-lg group-hover:shadow-xl dark:shadow-[0_8px_16px_rgba(0,0,0,0.4)] dark:group-hover:shadow-[0_12px_24px_rgba(0,0,0,0.6)] transition-shadow">
           <img
             src={project.image}
             alt={project.name}
