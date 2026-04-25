@@ -1325,10 +1325,21 @@ function ProjectsByDate() {
 
       {/* Project Timeline - Gantt Chart (hidden on mobile and tablet, visible on desktop) */}
       <div className="mt-16 hidden lg:block">
-        <h3 className="text-3xl font-bold text-streamlit-text dark:text-[#cdd9e5] mb-8 pb-2 border-b-2 border-streamlit-border dark:border-[#444c56]">
-          📊 Project Timeline
-        </h3>
-        <GanttChart />
+        <details className="group">
+          <summary className="cursor-pointer list-none mb-8 pb-2 border-b-2 border-streamlit-border dark:border-[#444c56] hover:opacity-80 transition-opacity">
+            <h3 className="text-3xl font-bold text-streamlit-text dark:text-[#cdd9e5] flex items-center gap-3">
+              <span className="inline-block transition-transform duration-200 group-open:rotate-90 text-2xl">▶</span>
+              📊 Project Timeline
+              <span className="text-base font-normal text-gray-500 dark:text-[#768390] ml-auto">
+                <span className="group-open:hidden">Click to expand</span>
+                <span className="hidden group-open:inline">Click to collapse</span>
+              </span>
+            </h3>
+          </summary>
+          <div className="mt-4">
+            <GanttChart />
+          </div>
+        </details>
       </div>
     </>
   )
