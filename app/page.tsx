@@ -1344,7 +1344,6 @@ function ProjectCategory({
     name: string
     description: string
     link: string
-    inProgress?: boolean
     image?: string
     imageDark?: string
     date?: string
@@ -1443,7 +1442,6 @@ function ProjectCard({
     name: string
     description: string
     link: string
-    inProgress?: boolean
     image?: string
     imageDark?: string
     date?: string
@@ -1477,9 +1475,6 @@ function ProjectCard({
       <div className="flex-1 min-w-0">
         <h4 className="text-lg font-semibold text-streamlit-text dark:text-[#cdd9e5] group-hover:text-blue-600 dark:group-hover:text-[#539bf5] mb-2">
           {project.name}
-          {project.inProgress && (
-            <span className="ml-2 text-sm text-orange-600">🚧 In Progress</span>
-          )}
         </h4>
         <p className="text-gray-600 dark:text-[#768390] text-sm mb-2">{project.description}</p>
         {(project.date || project.year) && (
@@ -1766,15 +1761,7 @@ function GanttChart() {
                   {isLongProject && (
                     <div className="absolute left-0 right-0 px-2 text-xs text-white font-semibold truncate flex items-center justify-between h-full">
                       <span className="truncate">{project.name}</span>
-                      {project.inProgress && (
-                        <span className="ml-1 flex-shrink-0">🚧</span>
-                      )}
                     </div>
-                  )}
-
-                  {/* In progress indicator inside bar for long projects */}
-                  {!isLongProject && project.inProgress && (
-                    <div className="absolute right-1 text-white text-xs">🚧</div>
                   )}
                 </div>
 
@@ -1787,7 +1774,6 @@ function GanttChart() {
                     }}
                   >
                     {project.name}
-                    {project.inProgress && <span>🚧</span>}
                   </div>
                 )}
               </div>
