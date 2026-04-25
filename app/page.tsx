@@ -1376,18 +1376,20 @@ function ProjectCategory({
 
 // Category shadow colors mapping
 const categoryShadowColors = {
-  '🤖 Generative AI': { r: 110, g: 64, b: 201 },
-  '🧠 Neural Networks': { r: 37, g: 99, b: 235 },
-  '🧬 Genetic Algorithm': { r: 22, g: 163, b: 74 },
-  '📈 Q-Learning': { r: 8, g: 132, b: 217 },
-  '🎯 PPO': { r: 124, g: 58, b: 237 },
-  '🎮 Games': { r: 8, g: 145, b: 178 },
-  '📊 Data Analysis': { r: 217, g: 119, b: 6 },
-  '🦾 Robotics': { r: 220, g: 38, b: 38 },
-  '🎙 Speech Recognition': { r: 234, g: 88, b: 12 },
-  '👥 Group Projects': { r: 0, g: 180, b: 194 },
-  '⚡ N8N Automation': { r: 219, g: 39, b: 119 },
-  '⚙ Physics Simulation': { r: 13, g: 148, b: 136 }
+  '🤖 Generative AI': { r: 110, g: 64, b: 201 },     // #6e40c9
+  '🧠 Neural Networks': { r: 37, g: 99, b: 235 },    // #2563eb
+  '🌳 Decision Tree': { r: 34, g: 197, b: 94 },      // #22c55e
+  '🧬 Genetic Algorithm': { r: 22, g: 163, b: 74 },  // #16a34a
+  '📈 Q-Learning': { r: 16, g: 185, b: 129 },        // #10b981
+  '🎯 PPO': { r: 5, g: 150, b: 105 },                // #059669
+  '🎮 Unity ML-Agents': { r: 15, g: 118, b: 110 },   // #0f766e
+  '🎮 Games': { r: 8, g: 145, b: 178 },              // #0891b2
+  '📊 Data Analysis': { r: 217, g: 119, b: 6 },      // #d97706
+  '🦾 Robotics': { r: 220, g: 38, b: 38 },           // #dc2626
+  '🎙 Speech Recognition': { r: 234, g: 88, b: 12 }, // #ea580c
+  '👥 Group Projects': { r: 0, g: 180, b: 194 },     // #00b4c2
+  '⚡ N8N Automation': { r: 219, g: 39, b: 119 },    // #db2777
+  '⚙ Physics Simulation': { r: 13, g: 148, b: 136 } // #0d9488
 }
 
 // Helper function to normalize category names to match the shadow color keys
@@ -1400,12 +1402,16 @@ function normalizeCategoryName(category?: string): string | undefined {
     '🤖 Generative AI': '🤖 Generative AI',
     'Neural Networks': '🧠 Neural Networks',
     '🧠 Neural Networks': '🧠 Neural Networks',
+    'Decision Tree': '🌳 Decision Tree',
+    '🌳 Decision Tree': '🌳 Decision Tree',
     'Genetic Algorithm': '🧬 Genetic Algorithm',
     '🧬 Genetic Algorithm': '🧬 Genetic Algorithm',
     'Q-Learning': '📈 Q-Learning',
     '📈 Q-Learning': '📈 Q-Learning',
     'PPO': '🎯 PPO',
     '🎯 PPO': '🎯 PPO',
+    'Unity ML-Agents': '🎮 Unity ML-Agents',
+    '🎮 Unity ML-Agents': '🎮 Unity ML-Agents',
     'Games (for training AI)': '🎮 Games',
     'Games': '🎮 Games',
     '🎮 Games': '🎮 Games',
@@ -1545,10 +1551,14 @@ function GanttChart() {
   const categoryColors: Record<string, string> = {
     "Generative AI": "#6e40c9",        // 🤖 Violet
     "Neural Networks": "#2563eb",      // 🧠 Bleu
-    "Reinforcement Learning": "#0884d9", // 📈 Bleu ciel (Q-Learning color)
+    "Decision Tree": "#22c55e",        // 🌳 Vert clair
+    "Genetic Algorithm": "#16a34a",    // 🧬 Vert
+    "Q-Learning": "#10b981",           // 📈 Vert émeraude
+    "PPO": "#059669",                  // 🎯 Vert foncé
+    "Unity ML-Agents": "#0f766e",      // 🎮 Vert teal
     "Speech Recognition": "#ea580c",   // 🎙 Orange-Rouge
     "Robotics": "#dc2626",             // 🦾 Rouge
-    "Games": "#0891b2",                // 🎮 Cyan
+    "Games": "#0891b2",                // 🕹 Cyan
     "Physics Simulation": "#0d9488",   // ⚙ Teal
     "n8n Automation": "#db2777",       // ⚡ Rose/Magenta
     "Data Analysis": "#d97706"         // 📊 Orange
@@ -1559,7 +1569,7 @@ function GanttChart() {
     // 1st - 2nd year
     { name: "Gravity Simulation 2D", start: "2023-06-06", end: "2023-08-30", category: "Physics Simulation", year: "1st year" },
     { name: "Neural Networks Library", start: "2023-08-01", end: "2024-05-31", category: "Neural Networks", year: "1st-2nd year" },
-    { name: "Q-Learning Pathfinding", start: "2023-08-01", end: "2023-10-20", category: "Reinforcement Learning", year: "1st year" },
+    { name: "Q-Learning Pathfinding", start: "2023-08-01", end: "2023-10-20", category: "Q-Learning", year: "1st year" },
 
     // 2nd year games
     { name: "Star Wars - ECE", start: "2024-01-01", end: "2024-06-30", category: "Games", year: "2nd year" },
@@ -1567,17 +1577,17 @@ function GanttChart() {
 
     // 3rd year
     { name: "Snake Game", start: "2024-07-13", end: "2025-09-20", category: "Games", year: "3rd year" },
-    { name: "Snake AI - DQL", start: "2024-07-13", end: "2026-04-08", category: "Reinforcement Learning",  year: "3rd year" },
-    { name: "Snake AI - GA", start: "2024-08-04", end: "2024-10-14", category: "Reinforcement Learning", year: "3rd year" },
-    { name: "Snake AI - DT", start: "2024-09-01", end: "2024-10-31", category: "Reinforcement Learning", year: "3rd year" },
+    { name: "Snake AI - DQL", start: "2024-07-13", end: "2026-04-08", category: "Q-Learning",  year: "3rd year" },
+    { name: "Snake AI - GA", start: "2024-08-04", end: "2024-10-14", category: "Genetic Algorithm", year: "3rd year" },
+    { name: "Snake AI - DT", start: "2024-09-01", end: "2024-10-31", category: "Decision Tree", year: "3rd year" },
 
     // 4th year
-    { name: "Unity AI - Movement", start: "2025-01-01", end: "2025-01-31", category: "Reinforcement Learning", year: "4th year" },
-    { name: "Unity AI - Greedy", start: "2025-01-01", end: "2025-01-31", category: "Reinforcement Learning", year: "4th year" },
-    { name: "Unity AI - Driving", start: "2025-01-01", end: "2025-01-31", category: "Reinforcement Learning", year: "4th year" },
+    { name: "Unity AI - Movement", start: "2025-01-01", end: "2025-01-31", category: "Unity ML-Agents", year: "4th year" },
+    { name: "Unity AI - Greedy", start: "2025-01-01", end: "2025-01-31", category: "Unity ML-Agents", year: "4th year" },
+    { name: "Unity AI - Driving", start: "2025-01-01", end: "2025-01-31", category: "Unity ML-Agents", year: "4th year" },
     { name: "Driving Game", start: "2025-01-04", end: "2025-09-20", category: "Games", year: "4th year" },
-    { name: "Driving AI - DQL", start: "2025-01-04", end: "2025-09-09", category: "Reinforcement Learning", year: "4th year" },
-    { name: "Driving AI - GA", start: "2025-01-09", end: "2025-09-28", category: "Reinforcement Learning", year: "4th year" },
+    { name: "Driving AI - DQL", start: "2025-01-04", end: "2025-09-09", category: "Q-Learning", year: "4th year" },
+    { name: "Driving AI - GA", start: "2025-01-09", end: "2025-09-28", category: "Genetic Algorithm", year: "4th year" },
     { name: "Attraction/Repulsion", start: "2025-01-23", end: "2025-01-29", category: "Physics Simulation", year: "4th year" },
     { name: "Image Generator - GAN", start: "2025-02-22", end: "2025-09-24", category: "Generative AI", year: "4th year" },
     { name: "ASR", start: "2025-04-12", end: "2025-06-11", category: "Speech Recognition", year: "4th year" },
@@ -1588,11 +1598,11 @@ function GanttChart() {
     { name: "Bot controlled by ChatBot RAG", start: "2025-07-22", end: "2025-10-11", category: "Robotics", year: "4th year" },
     { name: "Language Models", start: "2025-09-27", end: "2025-12-24", category: "Generative AI", year: "4th year" },
     { name: "RAG - PDF ChatBot", start: "2025-10-11", end: "2025-10-12", category: "Generative AI", year: "4th year" },
-    { name: "Walking AI - GA", start: "2025-10-12", end: "2026-04-08", category: "Reinforcement Learning",  year: "4th year" },
-    { name: "StarCraft 2 AI", start: "2025-10-22", end: "2026-04-08", category: "Reinforcement Learning",  year: "4th year" },
+    { name: "Walking AI - GA", start: "2025-10-12", end: "2026-04-08", category: "Genetic Algorithm",  year: "4th year" },
+    { name: "StarCraft 2 AI", start: "2025-10-22", end: "2026-04-08", category: "PPO",  year: "4th year" },
     { name: "ISS Analysis", start: "2025-11-12", end: "2025-12-21", category: "Data Analysis", year: "4th year" },
     { name: "CLIP Embedding Tools", start: "2025-12-25", end: "2025-12-27", category: "Generative AI", year: "4th year" },
-    { name: "Snake AI - PPO", start: "2025-12-27", end: "2026-04-08", category: "Reinforcement Learning",  year: "4th year" }
+    { name: "Snake AI - PPO", start: "2025-12-27", end: "2026-04-08", category: "PPO",  year: "4th year" }
   ]
 
   // Sort projects by start date (oldest first for display from top to bottom)
