@@ -1558,7 +1558,7 @@ function GanttChart() {
   const allProjects = [
     // 1st - 2nd year
     { name: "Gravity Simulation 2D", start: "2023-06-06", end: "2023-08-30", category: "Physics Simulation", year: "1st year" },
-    { name: "Neural Networks Library", start: "2023-07-01", end: "2024-05-31", category: "Neural Networks", year: "1st-2nd year" },
+    { name: "Neural Networks Library", start: "2023-08-01", end: "2024-05-31", category: "Neural Networks", year: "1st-2nd year" },
     { name: "Q-Learning Pathfinding", start: "2023-08-01", end: "2023-10-20", category: "Reinforcement Learning", year: "1st year" },
 
     // 2nd year games
