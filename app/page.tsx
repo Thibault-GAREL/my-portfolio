@@ -1667,8 +1667,25 @@ function GanttChart() {
     { label: "4th year", start: "2025-09-01", end: "2026-08-31", color: "#E8F5E9" }
   ]
 
-  // Group projects by category for legend
-  const categories = Array.from(new Set(projects.map(p => p.category)))
+  // Ordered categories for legend (grouped by domain)
+  const orderedCategories = [
+    // Featured Projects
+    "Generative AI",
+    "Neural Networks",
+    "Speech Recognition",
+    "Robotics",
+    // Reinforcement Learning (grouped)
+    "Decision Tree",
+    "Genetic Algorithm",
+    "Q-Learning",
+    "PPO",
+    "Unity ML-Agents",
+    // Projets Annexes
+    "Games",
+    "Physics Simulation",
+    "n8n Automation",
+    "Data Analysis"
+  ]
 
   return (
     <div className="bg-streamlit-secondary dark:bg-[#2d333b] rounded-xl p-6 border border-streamlit-border dark:border-[#444c56]">
@@ -1806,14 +1823,22 @@ function GanttChart() {
 
       {/* Legend at the bottom */}
       <div className="bg-white dark:bg-[#22272e] rounded-lg p-4 border border-streamlit-border dark:border-[#444c56] mt-6">
-        <div className="flex flex-wrap gap-3 justify-center">
-          {categories.map(category => (
+        <div className="flex flex-wrap gap-3 justify-center items-center">
+          {orderedCategories.map((category, idx) => (
             <div key={category} className="flex items-center gap-2">
+              {/* Add separator before Reinforcement Learning group */}
+              {category === "Decision Tree" && (
+                <span className="text-sm font-semibold text-gray-500 dark:text-[#768390] mr-1">| RL:</span>
+              )}
               <div
                 className="w-4 h-4 rounded"
                 style={{ backgroundColor: categoryColors[category] }}
               />
               <span className="text-sm text-streamlit-text dark:text-[#cdd9e5]">{category}</span>
+              {/* Add separator after Reinforcement Learning group */}
+              {category === "Unity ML-Agents" && (
+                <span className="text-sm font-semibold text-gray-500 dark:text-[#768390] ml-1">|</span>
+              )}
             </div>
           ))}
         </div>
