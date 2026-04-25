@@ -1013,9 +1013,10 @@ function ProjectsByDate() {
       description: "Snake game AI using Proximal Policy Optimization",
       link: "https://github.com/Thibault-GAREL/AI_snake_PPO_version",
       image: "https://raw.githubusercontent.com/Thibault-GAREL/AI_snake_PPO_version/main/img/SnakePPO-Score54.gif",
-      
+
       date: "Dec 2025 - Present",
-      year: "4th year"
+      year: "4th year",
+      category: "PPO"
     },
     {
       name: "StarCraft 2 AI (VLM + RL)",
@@ -1023,27 +1024,30 @@ function ProjectsByDate() {
       link: "https://github.com/Thibault-GAREL/AI-StarCraft2-VLM-RL",
       image: "https://raw.githubusercontent.com/Thibault-GAREL/Thibault-GAREL/main/Logo_Featured_Projects/rl_starcraft2.gif",
       imageDark: "https://raw.githubusercontent.com/Thibault-GAREL/Thibault-GAREL/main/Logo_Featured_Projects/rl_starcraft2_dark.gif",
-      
+
       date: "Oct 2025 - Present",
-      year: "4th year"
+      year: "4th year",
+      category: "PPO"
     },
     {
       name: "Walking AI - Genetic Algorithm",
       description: "AI learning to walk with complete physics engine (Box2D)",
       link: "https://github.com/Thibault-GAREL/test_box2D_pygame",
       image: "https://raw.githubusercontent.com/Thibault-GAREL/test_box2D_pygame/main/img/logo.png",
-      
+
       date: "Oct 2025 - Present",
-      year: "4th year"
+      year: "4th year",
+      category: "Genetic Algorithm"
     },
     {
       name: "Snake AI - Deep Q-Learning",
       description: "Snake game AI using DQN (in progress)",
       link: "https://github.com/Thibault-GAREL/AI_snake_DQN_version",
-      
+
       image: "https://raw.githubusercontent.com/Thibault-GAREL/AI_snake_DQN_version/main/Images/SnakeDQL-Score36.gif",
       date: "Jul 2024 - Present",
-      year: "3rd - 4th year"
+      year: "3rd - 4th year",
+      category: "Q-Learning"
     }
   ]
 
@@ -1055,7 +1059,8 @@ function ProjectsByDate() {
       link: "https://github.com/Thibault-GAREL/Unity_move",
       image: "https://raw.githubusercontent.com/Thibault-GAREL/Unity_move/main/img/Gif-Unity_move.gif",
       date: "2025",
-      year: "4th year"
+      year: "4th year",
+      category: "Unity ML-Agents"
     },
     {
       name: "Unity AI - Greedy",
@@ -1063,7 +1068,8 @@ function ProjectsByDate() {
       link: "https://github.com/Thibault-GAREL/Unity_greedy",
       image: "https://raw.githubusercontent.com/Thibault-GAREL/Unity_greedy/main/img_greedy/Greedy-gif-X9.gif",
       date: "2025",
-      year: "4th year"
+      year: "4th year",
+      category: "Unity ML-Agents"
     },
     {
       name: "Unity AI - Driving",
@@ -1071,7 +1077,8 @@ function ProjectsByDate() {
       link: "https://github.com/Thibault-GAREL/Unity_drive",
       image: "https://raw.githubusercontent.com/Thibault-GAREL/Unity_drive/main/img_drive/Driving-maze-gif.gif",
       date: "2025",
-      year: "4th year"
+      year: "4th year",
+      category: "Unity ML-Agents"
     },
     {
       name: "Driving AI - Deep Q-Learning",
@@ -1079,7 +1086,8 @@ function ProjectsByDate() {
       link: "https://github.com/Thibault-GAREL/AI_driving_DQN_version",
       image: "https://raw.githubusercontent.com/Thibault-GAREL/AI_driving_DQN_version/main/Images/gif-driving.gif",
       date: "Jan - Sep 2025",
-      year: "4th year"
+      year: "4th year",
+      category: "Q-Learning"
     },
     {
       name: "Driving AI - Genetic Algorithm",
@@ -1087,7 +1095,8 @@ function ProjectsByDate() {
       link: "https://github.com/Thibault-GAREL/AI_driving_genetic_version",
       image: "https://raw.githubusercontent.com/Thibault-GAREL/AI_driving_genetic_version/main/Img/Driving_NEAT_gif.gif",
       date: "Jan - Sep 2025",
-      year: "4th year"
+      year: "4th year",
+      category: "Genetic Algorithm"
     },
     {
       name: "Attraction/Repulsion Simulation",
@@ -1095,7 +1104,8 @@ function ProjectsByDate() {
       link: "https://github.com/Thibault-GAREL/Attraction_repulsion",
       image: "https://raw.githubusercontent.com/Thibault-GAREL/Attraction_repulsion/main/img/Gif-orbit.gif",
       date: "Jan - Sep 2025",
-      year: "4th year"
+      year: "4th year",
+      category: "Physics Simulation"
     },
     {
       name: "Driving Game",
@@ -1103,7 +1113,8 @@ function ProjectsByDate() {
       link: "https://github.com/Thibault-GAREL/driving_game",
       image: "https://raw.githubusercontent.com/Thibault-GAREL/driving_game/main/img/Gif_driving_game.gif",
       date: "Jan - Sep 2025",
-      year: "4th year"
+      year: "4th year",
+      category: "Games"
     },
     {
       name: "Image Generator - GAN",
@@ -1111,7 +1122,8 @@ function ProjectsByDate() {
       link: "https://github.com/Thibault-GAREL/Image_generator_GAN",
       image: "https://raw.githubusercontent.com/Thibault-GAREL/Image_generator_GAN/main/Img/Titre.png",
       date: "Feb - Sep 2025",
-      year: "4th year"
+      year: "4th year",
+      category: "Generative AI"
     },
     {
       name: "ASR - Automatic Speech Recognition",
@@ -1119,7 +1131,8 @@ function ProjectsByDate() {
       link: "https://github.com/Thibault-GAREL/Speech_recognition",
       image: "https://raw.githubusercontent.com/Thibault-GAREL/Speech_recognition/main/logo.png",
       date: "Apr - Jun 2025",
-      year: "4th year"
+      year: "4th year",
+      category: "Speech Recognition"
     },
     {
       name: "2D Muscular Simulation",
@@ -1127,7 +1140,8 @@ function ProjectsByDate() {
       link: "https://github.com/Thibault-GAREL/2D-Muscular-Simulation",
       image: "https://raw.githubusercontent.com/Thibault-GAREL/Thibault-GAREL/main/Logo_Featured_Projects/physics_muscular_simulation.png",
       date: "Apr - Jun 2025",
-      year: "4th year"
+      year: "4th year",
+      category: "Physics Simulation"
     },
     {
       name: "Human Sandbox",
@@ -1135,7 +1149,8 @@ function ProjectsByDate() {
       link: "https://github.com/Thibault-GAREL/human_sandbox",
       image: "https://raw.githubusercontent.com/Thibault-GAREL/human_sandbox/main/img/Gif-human-sandbox.gif",
       date: "Jun - Sep 2025",
-      year: "4th year"
+      year: "4th year",
+      category: "Games"
     },
     {
       name: "WhatsApp AI",
@@ -1143,7 +1158,8 @@ function ProjectsByDate() {
       link: "https://github.com/Thibault-GAREL/n8n_Whatsapp_LLM",
       image: "https://raw.githubusercontent.com/Thibault-GAREL/n8n_Whatsapp_LLM/main/img/img.png",
       date: "Jul 2025",
-      year: "4th year"
+      year: "4th year",
+      category: "n8n Automation"
     },
     {
       name: "Smart Mail Labeling",
@@ -1151,7 +1167,8 @@ function ProjectsByDate() {
       link: "https://github.com/Thibault-GAREL/n8n_smart_mail_labeling",
       image: "https://raw.githubusercontent.com/Thibault-GAREL/n8n_smart_mail_labeling/main/img/logo.png",
       date: "Jul 2025",
-      year: "4th year"
+      year: "4th year",
+      category: "n8n Automation"
     },
     {
       name: "Bot controlled by ChatBot RAG",
@@ -1159,7 +1176,8 @@ function ProjectsByDate() {
       link: "https://github.com/Thibault-GAREL/Bot_controlled_by_a_Chatbot_RAG",
       image: "https://raw.githubusercontent.com/Thibault-GAREL/Bot_controlled_by_a_Chatbot_RAG/main/img/Gif-bot.gif",
       date: "Jul - Oct 2025",
-      year: "4th year"
+      year: "4th year",
+      category: "Robotics"
     },
     {
       name: "Language Models",
@@ -1167,7 +1185,8 @@ function ProjectsByDate() {
       link: "https://github.com/Thibault-GAREL/Language_Models",
       image: "https://raw.githubusercontent.com/Thibault-GAREL/Language_Models/main/img/Titre-GPT_from_scratch.png",
       date: "Sep - Dec 2025",
-      year: "4th year"
+      year: "4th year",
+      category: "Generative AI"
     },
     {
       name: "RAG - PDF ChatBot",
@@ -1175,7 +1194,8 @@ function ProjectsByDate() {
       link: "https://github.com/Thibault-GAREL/RAG_pdf",
       image: "https://raw.githubusercontent.com/Thibault-GAREL/RAG_pdf/main/Video/Gif-video.gif",
       date: "Oct 2025",
-      year: "4th year"
+      year: "4th year",
+      category: "Generative AI"
     },
     {
       name: "ISS Analysis with Spark",
@@ -1183,7 +1203,8 @@ function ProjectsByDate() {
       link: "https://github.com/Thibault-GAREL/ISS_Analysis_Spark",
       image: "https://raw.githubusercontent.com/Thibault-GAREL/ISS_Analysis_Spark/master/Img/ISS-img.jpg",
       date: "Nov - Dec 2025",
-      year: "4th year"
+      year: "4th year",
+      category: "Data Analysis"
     },
     {
       name: "CLIP Embedding Tools",
@@ -1191,7 +1212,8 @@ function ProjectsByDate() {
       link: "https://github.com/Thibault-GAREL/CLIP_Embedding_Tools",
       image: "https://raw.githubusercontent.com/Thibault-GAREL/CLIP_Embedding_Tools/main/img/Logo-Embedding_Tools.png",
       date: "Dec 2025",
-      year: "4th year"
+      year: "4th year",
+      category: "Generative AI"
     }
   ]
 
@@ -1203,7 +1225,8 @@ function ProjectsByDate() {
       link: "https://github.com/Thibault-GAREL/snake_game",
       image: "https://raw.githubusercontent.com/Thibault-GAREL/snake_game/main/img/Snake-game.gif",
       date: "Jul 2024 - Sep 2025",
-      year: "3rd - 4th year"
+      year: "3rd - 4th year",
+      category: "Games"
     },
     {
       name: "Snake AI - Genetic Algorithm",
@@ -1211,7 +1234,8 @@ function ProjectsByDate() {
       link: "https://github.com/Thibault-GAREL/AI_snake_genetic_version",
       image: "https://raw.githubusercontent.com/Thibault-GAREL/AI_snake_genetic_version/main/Images/score13.gif",
       date: "Aug - Oct 2024",
-      year: "3rd year"
+      year: "3rd year",
+      category: "Genetic Algorithm"
     },
     {
       name: "Snake AI - Decision Tree",
@@ -1219,7 +1243,8 @@ function ProjectsByDate() {
       link: "https://github.com/Thibault-GAREL/AI_snake_decision_tree_version",
       image: "https://raw.githubusercontent.com/Thibault-GAREL/AI_snake_decision_tree_version/main/img/Snake_arbre_de_decision-Score_31.gif",
       date: "Sep - Oct 2024",
-      year: "3rd year"
+      year: "3rd year",
+      category: "Decision Tree"
     }
   ]
 
@@ -1231,7 +1256,8 @@ function ProjectsByDate() {
       link: "https://github.com/Thibault-GAREL/gravity_simulation",
       image: "https://raw.githubusercontent.com/Thibault-GAREL/gravity_simulation/main/img/Gif-gravity.gif",
       date: "Jun - Aug 2023",
-      year: "2nd year"
+      year: "2nd year",
+      category: "Physics Simulation"
     },
     {
       name: "Q-Learning Pathfinding",
@@ -1239,7 +1265,8 @@ function ProjectsByDate() {
       link: "https://github.com/Thibault-GAREL/Q-Learning",
       image: "https://raw.githubusercontent.com/Thibault-GAREL/Q-Learning/main/img/Gif-DQN.gif",
       date: "Sep 2023",
-      year: "2nd year"
+      year: "2nd year",
+      category: "Q-Learning"
     },
     {
       name: "Star Wars - ECE World",
@@ -1247,7 +1274,8 @@ function ProjectsByDate() {
       link: "https://github.com/Thibault-GAREL/Game_ECE_World_Minigame",
       image: "https://raw.githubusercontent.com/Thibault-GAREL/Game_ECE_World_Minigame/main/img/Menu.png",
       date: "Jan - Jun 2024",
-      year: "2nd year"
+      year: "2nd year",
+      category: "Games"
     },
     {
       name: "Maze - Asterix & Obélix",
@@ -1255,7 +1283,8 @@ function ProjectsByDate() {
       link: "https://github.com/Thibault-GAREL/Game_maze_Asterix-Obelix",
       image: "https://raw.githubusercontent.com/Thibault-GAREL/Game_maze_Asterix-Obelix/main/img/menu_screen.png",
       date: "Jan - Jun 2024",
-      year: "2nd year"
+      year: "2nd year",
+      category: "Games"
     }
   ]
 
@@ -1267,7 +1296,8 @@ function ProjectsByDate() {
       link: "https://github.com/Thibault-GAREL/Neural_Network_from_Scratch",
       image: "https://raw.githubusercontent.com/Thibault-GAREL/Neural_Network_from_Scratch/main/Images/Gif-neural-network.gif",
       date: "Jul 2023 - May 2024",
-      year: "1st - 2nd year"
+      year: "1st - 2nd year",
+      category: "Neural Networks"
     }
   ]
 
