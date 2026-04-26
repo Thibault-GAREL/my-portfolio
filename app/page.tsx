@@ -195,7 +195,8 @@ export default function Home() {
 
         {/* Group Projects */}
         <section className="mb-16">
-          <h2 className="text-4xl font-bold text-streamlit-text dark:text-[#cdd9e5] mb-8 pb-2 border-b-2 border-streamlit-border dark:border-[#444c56]">
+          <h2 className="text-4xl font-bold mb-8 pb-2 border-b-2 border-streamlit-border dark:border-[#444c56] flex items-center gap-3" style={{ color: '#00b4c2' }}>
+            <div className="w-3 h-3 rounded-full flex-shrink-0" style={{ backgroundColor: '#00b4c2' }}></div>
             👥 Group Projects
           </h2>
 
@@ -703,7 +704,10 @@ function ProjectsByCategory() {
 
         {/* Decision Tree */}
         <div className="mb-8">
-          <h4 className="text-xl font-semibold text-gray-700 dark:text-[#adbac7] mb-4 ml-4">🌳 Decision Tree</h4>
+          <h4 className="text-xl font-semibold mb-4 ml-4 flex items-center gap-2" style={{ color: '#22c55e' }}>
+            <div className="w-2 h-2 rounded-full flex-shrink-0" style={{ backgroundColor: '#22c55e' }}></div>
+            🌳 Decision Tree
+          </h4>
           <div className="grid gap-4 md:grid-cols-2">
             {[
               {
@@ -722,7 +726,10 @@ function ProjectsByCategory() {
 
         {/* Genetic Algorithm */}
         <div className="mb-8">
-          <h4 className="text-xl font-semibold text-gray-700 dark:text-[#adbac7] mb-4 ml-4">🧬 Genetic Algorithm</h4>
+          <h4 className="text-xl font-semibold mb-4 ml-4 flex items-center gap-2" style={{ color: '#16a34a' }}>
+            <div className="w-2 h-2 rounded-full flex-shrink-0" style={{ backgroundColor: '#16a34a' }}></div>
+            🧬 Genetic Algorithm
+          </h4>
           <div className="grid gap-4 md:grid-cols-2">
             {[
               {
@@ -758,7 +765,10 @@ function ProjectsByCategory() {
 
         {/* Q-Learning */}
         <div className="mb-8">
-          <h4 className="text-xl font-semibold text-gray-700 dark:text-[#adbac7] mb-4 ml-4">📈 Q-Learning</h4>
+          <h4 className="text-xl font-semibold mb-4 ml-4 flex items-center gap-2" style={{ color: '#10b981' }}>
+            <div className="w-2 h-2 rounded-full flex-shrink-0" style={{ backgroundColor: '#10b981' }}></div>
+            📈 Q-Learning
+          </h4>
           <div className="grid gap-4 md:grid-cols-2">
             {[
               {
@@ -794,7 +804,10 @@ function ProjectsByCategory() {
 
         {/* PPO */}
         <div className="mb-8">
-          <h4 className="text-xl font-semibold text-gray-700 dark:text-[#adbac7] mb-4 ml-4">🎯 PPO</h4>
+          <h4 className="text-xl font-semibold mb-4 ml-4 flex items-center gap-2" style={{ color: '#059669' }}>
+            <div className="w-2 h-2 rounded-full flex-shrink-0" style={{ backgroundColor: '#059669' }}></div>
+            🎯 PPO
+          </h4>
           <div className="grid gap-4 md:grid-cols-2">
             {[
               {
@@ -824,7 +837,10 @@ function ProjectsByCategory() {
 
         {/* Unity ML-Agents */}
         <div className="mb-8">
-          <h4 className="text-xl font-semibold text-gray-700 dark:text-[#adbac7] mb-4 ml-4">🎮 Unity ML-Agents</h4>
+          <h4 className="text-xl font-semibold mb-4 ml-4 flex items-center gap-2" style={{ color: '#0f766e' }}>
+            <div className="w-2 h-2 rounded-full flex-shrink-0" style={{ backgroundColor: '#0f766e' }}></div>
+            🎮 Unity ML-Agents
+          </h4>
           <div className="grid gap-4 md:grid-cols-2">
             {[
               {
