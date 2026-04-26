@@ -180,100 +180,6 @@ export default function Home() {
           </div>
         </section>
 
-        {/* Color Legend Section */}
-        <section className="mb-12">
-          <div className="bg-streamlit-secondary dark:bg-[#2d333b] rounded-xl p-6 border border-streamlit-border dark:border-[#444c56]">
-            <h3 className="text-2xl font-bold text-streamlit-text dark:text-[#cdd9e5] mb-4">
-              🎨 Domain Colors
-            </h3>
-            <p className="text-gray-600 dark:text-[#768390] text-sm mb-4">
-              Each project is color-coded by domain to help you identify different types of work at a glance.
-            </p>
-            <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-3">
-              {/* Generative AI */}
-              <div className="flex items-center gap-3 p-3 rounded-lg" style={{
-                background: `linear-gradient(135deg, rgba(110,64,201,0.15) 0%, rgba(110,64,201,0.05) 100%)`,
-                border: '1px solid rgba(110,64,201,0.3)'
-              }}>
-                <div className="w-4 h-4 rounded-full" style={{ backgroundColor: '#6e40c9' }}></div>
-                <span className="text-sm font-semibold" style={{ color: '#6e40c9' }}>🤖 Generative AI</span>
-              </div>
-
-              {/* Neural Networks */}
-              <div className="flex items-center gap-3 p-3 rounded-lg" style={{
-                background: `linear-gradient(135deg, rgba(37,99,235,0.15) 0%, rgba(37,99,235,0.05) 100%)`,
-                border: '1px solid rgba(37,99,235,0.3)'
-              }}>
-                <div className="w-4 h-4 rounded-full" style={{ backgroundColor: '#2563eb' }}></div>
-                <span className="text-sm font-semibold" style={{ color: '#2563eb' }}>🧠 Neural Networks</span>
-              </div>
-
-              {/* Reinforcement Learning */}
-              <div className="flex items-center gap-3 p-3 rounded-lg" style={{
-                background: `linear-gradient(135deg, rgba(22,163,74,0.15) 0%, rgba(22,163,74,0.05) 100%)`,
-                border: '1px solid rgba(22,163,74,0.3)'
-              }}>
-                <div className="w-4 h-4 rounded-full" style={{ backgroundColor: '#16a34a' }}></div>
-                <span className="text-sm font-semibold" style={{ color: '#16a34a' }}>🎮 Reinforcement Learning</span>
-              </div>
-
-              {/* Speech Recognition */}
-              <div className="flex items-center gap-3 p-3 rounded-lg" style={{
-                background: `linear-gradient(135deg, rgba(234,88,12,0.15) 0%, rgba(234,88,12,0.05) 100%)`,
-                border: '1px solid rgba(234,88,12,0.3)'
-              }}>
-                <div className="w-4 h-4 rounded-full" style={{ backgroundColor: '#ea580c' }}></div>
-                <span className="text-sm font-semibold" style={{ color: '#ea580c' }}>🎙 Speech Recognition</span>
-              </div>
-
-              {/* Robotics */}
-              <div className="flex items-center gap-3 p-3 rounded-lg" style={{
-                background: `linear-gradient(135deg, rgba(220,38,38,0.15) 0%, rgba(220,38,38,0.05) 100%)`,
-                border: '1px solid rgba(220,38,38,0.3)'
-              }}>
-                <div className="w-4 h-4 rounded-full" style={{ backgroundColor: '#dc2626' }}></div>
-                <span className="text-sm font-semibold" style={{ color: '#dc2626' }}>🦾 Robotics</span>
-              </div>
-
-              {/* Games */}
-              <div className="flex items-center gap-3 p-3 rounded-lg" style={{
-                background: `linear-gradient(135deg, rgba(8,145,178,0.15) 0%, rgba(8,145,178,0.05) 100%)`,
-                border: '1px solid rgba(8,145,178,0.3)'
-              }}>
-                <div className="w-4 h-4 rounded-full" style={{ backgroundColor: '#0891b2' }}></div>
-                <span className="text-sm font-semibold" style={{ color: '#0891b2' }}>🕹 Games</span>
-              </div>
-
-              {/* Physics Simulation */}
-              <div className="flex items-center gap-3 p-3 rounded-lg" style={{
-                background: `linear-gradient(135deg, rgba(13,148,136,0.15) 0%, rgba(13,148,136,0.05) 100%)`,
-                border: '1px solid rgba(13,148,136,0.3)'
-              }}>
-                <div className="w-4 h-4 rounded-full" style={{ backgroundColor: '#0d9488' }}></div>
-                <span className="text-sm font-semibold" style={{ color: '#0d9488' }}>⚙ Physics Simulation</span>
-              </div>
-
-              {/* n8n Automation */}
-              <div className="flex items-center gap-3 p-3 rounded-lg" style={{
-                background: `linear-gradient(135deg, rgba(219,39,119,0.15) 0%, rgba(219,39,119,0.05) 100%)`,
-                border: '1px solid rgba(219,39,119,0.3)'
-              }}>
-                <div className="w-4 h-4 rounded-full" style={{ backgroundColor: '#db2777' }}></div>
-                <span className="text-sm font-semibold" style={{ color: '#db2777' }}>⚡ n8n Automation</span>
-              </div>
-
-              {/* Data Analysis */}
-              <div className="flex items-center gap-3 p-3 rounded-lg" style={{
-                background: `linear-gradient(135deg, rgba(217,119,6,0.15) 0%, rgba(217,119,6,0.05) 100%)`,
-                border: '1px solid rgba(217,119,6,0.3)'
-              }}>
-                <div className="w-4 h-4 rounded-full" style={{ backgroundColor: '#d97706' }}></div>
-                <span className="text-sm font-semibold" style={{ color: '#d97706' }}>📊 Data Analysis</span>
-              </div>
-            </div>
-          </div>
-        </section>
-
         {/* Featured Projects Section */}
         <section className="mb-16">
           <h2 className="text-4xl font-bold text-streamlit-text dark:text-[#cdd9e5] mb-8 pb-2 border-b-2 border-streamlit-border dark:border-[#444c56]">
@@ -1468,9 +1374,25 @@ function ProjectCategory({
     category?: string
   }>
 }) {
+  const color = getCategoryColor(title)
+  const titleStyle: React.CSSProperties = color
+    ? { color: `rgb(${color.r},${color.g},${color.b})` }
+    : {}
+
   return (
     <div className="mb-10">
-      <h3 className="text-2xl font-bold text-streamlit-text dark:text-[#cdd9e5] mb-4">{title}</h3>
+      <h3
+        className="text-2xl font-bold mb-4 flex items-center gap-3"
+        style={titleStyle}
+      >
+        {color && (
+          <div
+            className="w-3 h-3 rounded-full flex-shrink-0"
+            style={{ backgroundColor: `rgb(${color.r},${color.g},${color.b})` }}
+          />
+        )}
+        {title}
+      </h3>
       <div className="grid gap-4 md:grid-cols-2">
         {projects.map((project) => (
           <ProjectCard key={project.name} project={{ ...project, category: title }} />
