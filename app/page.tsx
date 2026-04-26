@@ -1006,51 +1006,6 @@ function ProjectsByCategory() {
 
 // Projects sorted by date
 function ProjectsByDate() {
-  // In Progress projects
-  const inProgressProjects = [
-    {
-      name: "Snake AI - PPO",
-      description: "Snake game AI using Proximal Policy Optimization",
-      link: "https://github.com/Thibault-GAREL/AI_snake_PPO_version",
-      image: "https://raw.githubusercontent.com/Thibault-GAREL/AI_snake_PPO_version/main/img/SnakePPO-Score54.gif",
-
-      date: "Dec 2025 - Present",
-      year: "4th year",
-      category: "PPO"
-    },
-    {
-      name: "StarCraft 2 AI (VLM + RL)",
-      description: "A StarCraft 2 AI combining Vision-Language Model and Reinforcement Learning",
-      link: "https://github.com/Thibault-GAREL/AI-StarCraft2-VLM-RL",
-      image: "https://raw.githubusercontent.com/Thibault-GAREL/Thibault-GAREL/main/Logo_Featured_Projects/rl_starcraft2.gif",
-      imageDark: "https://raw.githubusercontent.com/Thibault-GAREL/Thibault-GAREL/main/Logo_Featured_Projects/rl_starcraft2_dark.gif",
-
-      date: "Oct 2025 - Present",
-      year: "4th year",
-      category: "PPO"
-    },
-    {
-      name: "Walking AI - Genetic Algorithm",
-      description: "AI learning to walk with complete physics engine (Box2D)",
-      link: "https://github.com/Thibault-GAREL/test_box2D_pygame",
-      image: "https://raw.githubusercontent.com/Thibault-GAREL/test_box2D_pygame/main/img/logo.png",
-
-      date: "Oct 2025 - Present",
-      year: "4th year",
-      category: "Genetic Algorithm"
-    },
-    {
-      name: "Snake AI - Deep Q-Learning",
-      description: "Snake game AI using DQN (in progress)",
-      link: "https://github.com/Thibault-GAREL/AI_snake_DQN_version",
-
-      image: "https://raw.githubusercontent.com/Thibault-GAREL/AI_snake_DQN_version/main/Images/SnakeDQL-Score36.gif",
-      date: "Jul 2024 - Present",
-      year: "3rd - 4th year",
-      category: "Q-Learning"
-    }
-  ]
-
   // 4th year projects (sorted by start date)
   const fourthYearProjects = [
     {
@@ -1214,6 +1169,43 @@ function ProjectsByDate() {
       date: "Dec 2025",
       year: "4th year",
       category: "Generative AI"
+    },
+    {
+      name: "Walking AI - Genetic Algorithm",
+      description: "AI learning to walk with complete physics engine (Box2D)",
+      link: "https://github.com/Thibault-GAREL/test_box2D_pygame",
+      image: "https://raw.githubusercontent.com/Thibault-GAREL/test_box2D_pygame/main/img/logo.png",
+      date: "Oct - Dec 2025",
+      year: "4th year",
+      category: "Genetic Algorithm"
+    },
+    {
+      name: "StarCraft 2 AI (VLM + RL)",
+      description: "A StarCraft 2 AI combining Vision-Language Model and Reinforcement Learning",
+      link: "https://github.com/Thibault-GAREL/AI-StarCraft2-VLM-RL",
+      image: "https://raw.githubusercontent.com/Thibault-GAREL/Thibault-GAREL/main/Logo_Featured_Projects/rl_starcraft2.gif",
+      imageDark: "https://raw.githubusercontent.com/Thibault-GAREL/Thibault-GAREL/main/Logo_Featured_Projects/rl_starcraft2_dark.gif",
+      date: "Nov 2025 - Jan 2026",
+      year: "4th year",
+      category: "PPO"
+    },
+    {
+      name: "Snake AI - Deep Q-Learning",
+      description: "Snake game AI using Deep Q-Learning",
+      link: "https://github.com/Thibault-GAREL/AI_snake_DQN_version",
+      image: "https://raw.githubusercontent.com/Thibault-GAREL/AI_snake_DQN_version/main/Images/SnakeDQL-Score36.gif",
+      date: "Mar - Apr 2026",
+      year: "3rd - 4th year",
+      category: "Q-Learning"
+    },
+    {
+      name: "Snake AI - PPO",
+      description: "Snake game AI using Proximal Policy Optimization",
+      link: "https://github.com/Thibault-GAREL/AI_snake_PPO_version",
+      image: "https://raw.githubusercontent.com/Thibault-GAREL/AI_snake_PPO_version/main/img/SnakePPO-Score54.gif",
+      date: "Mar - Apr 2026",
+      year: "4th year",
+      category: "PPO"
     }
   ]
 
@@ -1338,16 +1330,6 @@ function ProjectsByDate() {
         <h3 className="text-2xl font-bold text-streamlit-text dark:text-[#cdd9e5] mb-6">4th Year</h3>
         <div className="grid gap-4 md:grid-cols-2">
           {fourthYearProjects.map((project) => (
-            <ProjectCard key={project.name} project={project} />
-          ))}
-        </div>
-      </div>
-
-      {/* In Progress Projects */}
-      <div className="mb-10">
-        <h3 className="text-2xl font-bold text-streamlit-text dark:text-[#cdd9e5] mb-6">🚧 In Progress</h3>
-        <div className="grid gap-4 md:grid-cols-2">
-          {inProgressProjects.map((project) => (
             <ProjectCard key={project.name} project={project} />
           ))}
         </div>
