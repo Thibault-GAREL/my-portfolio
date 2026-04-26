@@ -1601,11 +1601,6 @@ function ProjectCard({
         </div>
       )}
       <div className="flex-1 min-w-0">
-        <h4 className="text-lg font-semibold text-streamlit-text dark:text-[#cdd9e5] group-hover:text-blue-600 dark:group-hover:text-[#539bf5] mb-2">
-          {project.name}
-        </h4>
-        <p className="text-gray-600 dark:text-[#768390] text-sm mb-3">{project.description}</p>
-
         {/* Category Badge with Gradient */}
         {project.category && (
           <div className="mb-2">
@@ -1617,6 +1612,11 @@ function ProjectCard({
             </span>
           </div>
         )}
+
+        <h4 className="text-lg font-semibold text-streamlit-text dark:text-[#cdd9e5] group-hover:text-blue-600 dark:group-hover:text-[#539bf5] mb-2">
+          {project.name}
+        </h4>
+        <p className="text-gray-600 dark:text-[#768390] text-sm mb-3">{project.description}</p>
 
         {(project.date || project.year) && (
           <div className="flex gap-3 text-xs text-gray-500 dark:text-[#768390]">
