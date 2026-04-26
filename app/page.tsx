@@ -1445,6 +1445,46 @@ function normalizeCategoryName(category?: string): string | undefined {
   return categoryMap[category] || category
 }
 
+// Helper function to get category color
+function getCategoryColor(category?: string): { r: number; g: number; b: number } | null {
+  const normalizedCategory = normalizeCategoryName(category)
+  if (!normalizedCategory || !categoryShadowColors[normalizedCategory as keyof typeof categoryShadowColors]) {
+    return null
+  }
+  return categoryShadowColors[normalizedCategory as keyof typeof categoryShadowColors]
+}
+
+// Helper function to get category gradient style
+function getCategoryGradientStyle(category?: string, isDark: boolean = false): React.CSSProperties {
+  const color = getCategoryColor(category)
+
+  if (!color) {
+    // Default gradient without category color
+    return {
+      background: isDark
+        ? 'linear-gradient(135deg, rgba(45,51,59,1) 0%, rgba(34,39,46,1) 100%)'
+        : 'linear-gradient(135deg, rgba(255,255,255,1) 0%, rgba(243,244,246,1) 100%)',
+      border: '1px solid',
+      borderColor: isDark ? '#444c56' : '#d1d5db'
+    }
+  }
+
+  // Gradient from background color to domain color
+  if (isDark) {
+    return {
+      background: `linear-gradient(135deg, rgba(${color.r},${color.g},${color.b},0.2) 0%, rgba(${color.r},${color.g},${color.b},0.05) 100%)`,
+      border: '1px solid',
+      borderColor: `rgba(${color.r},${color.g},${color.b},0.3)`
+    }
+  } else {
+    return {
+      background: `linear-gradient(135deg, rgba(${color.r},${color.g},${color.b},0.15) 0%, rgba(${color.r},${color.g},${color.b},0.05) 100%)`,
+      border: '1px solid',
+      borderColor: `rgba(${color.r},${color.g},${color.b},0.25)`
+    }
+  }
+}
+
 // Helper function to get shadow style based on category
 function getCategoryShadowStyle(category?: string, isHovered: boolean = false, isDark: boolean = false): React.CSSProperties {
   const normalizedCategory = normalizeCategoryName(category)
@@ -1543,7 +1583,20 @@ function ProjectCard({
         <h4 className="text-lg font-semibold text-streamlit-text dark:text-[#cdd9e5] group-hover:text-blue-600 dark:group-hover:text-[#539bf5] mb-2">
           {project.name}
         </h4>
-        <p className="text-gray-600 dark:text-[#768390] text-sm mb-2">{project.description}</p>
+        <p className="text-gray-600 dark:text-[#768390] text-sm mb-3">{project.description}</p>
+
+        {/* Category Badge with Gradient */}
+        {project.category && (
+          <div className="mb-2">
+            <span
+              className="inline-block px-3 py-1 rounded-full text-xs font-semibold text-streamlit-text dark:text-[#cdd9e5]"
+              style={getCategoryGradientStyle(project.category, isDark)}
+            >
+              {normalizeCategoryName(project.category) || project.category}
+            </span>
+          </div>
+        )}
+
         {(project.date || project.year) && (
           <div className="flex gap-3 text-xs text-gray-500 dark:text-[#768390]">
             {project.date && <span>📅 {project.date}</span>}
