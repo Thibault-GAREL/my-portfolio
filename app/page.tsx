@@ -254,13 +254,13 @@ export default function Home() {
                 </div>
               </div>
 
-              {/* Code links - column on desktop, row on mobile */}
-              <div className="flex flex-row lg:flex-col gap-3 justify-center">
+              {/* Code links - column on mobile and desktop */}
+              <div className="flex flex-col gap-3 justify-center">
                 <a
                   href="https://github.com/Rqbln/dirisi25-hackathon-frontend"
                   target="_blank"
                   rel="noopener noreferrer"
-                  className="bg-white dark:bg-[#2d333b] px-4 py-3 rounded-lg border border-streamlit-border dark:border-[#444c56] text-blue-600 dark:text-[#539bf5] hover:bg-blue-50 dark:hover:bg-[#316dca20] transition-colors text-center whitespace-nowrap flex-1 lg:flex-none"
+                  className="bg-white dark:bg-[#2d333b] px-3 lg:px-4 py-2 lg:py-3 rounded-lg border border-streamlit-border dark:border-[#444c56] text-blue-600 dark:text-[#539bf5] hover:bg-blue-50 dark:hover:bg-[#316dca20] transition-colors text-center text-sm lg:text-base"
                 >
                   🐱 Phase 1 - Frontend
                 </a>
@@ -268,7 +268,7 @@ export default function Home() {
                   href="https://github.com/Rqbln/dirisi25-hackathon-backend"
                   target="_blank"
                   rel="noopener noreferrer"
-                  className="bg-white dark:bg-[#2d333b] px-4 py-3 rounded-lg border border-streamlit-border dark:border-[#444c56] text-blue-600 dark:text-[#539bf5] hover:bg-blue-50 dark:hover:bg-[#316dca20] transition-colors text-center whitespace-nowrap flex-1 lg:flex-none"
+                  className="bg-white dark:bg-[#2d333b] px-3 lg:px-4 py-2 lg:py-3 rounded-lg border border-streamlit-border dark:border-[#444c56] text-blue-600 dark:text-[#539bf5] hover:bg-blue-50 dark:hover:bg-[#316dca20] transition-colors text-center text-sm lg:text-base"
                 >
                   🐱 Phase 1 - Backend
                 </a>
@@ -276,7 +276,7 @@ export default function Home() {
                   href="https://github.com/Thibault-GAREL/ILab-Hackaton_CND-Phase2-Cyberattack_AI_detection"
                   target="_blank"
                   rel="noopener noreferrer"
-                  className="bg-white dark:bg-[#2d333b] px-4 py-3 rounded-lg border border-streamlit-border dark:border-[#444c56] text-blue-600 dark:text-[#539bf5] hover:bg-blue-50 dark:hover:bg-[#316dca20] transition-colors text-center whitespace-nowrap flex-1 lg:flex-none"
+                  className="bg-white dark:bg-[#2d333b] px-3 lg:px-4 py-2 lg:py-3 rounded-lg border border-streamlit-border dark:border-[#444c56] text-blue-600 dark:text-[#539bf5] hover:bg-blue-50 dark:hover:bg-[#316dca20] transition-colors text-center text-sm lg:text-base"
                 >
                   🐱 Phase 2 - Cyberattack AI
                 </a>
@@ -338,13 +338,13 @@ export default function Home() {
                 </div>
               </div>
 
-              {/* Code links - column on desktop, row on mobile */}
-              <div className="flex flex-row lg:flex-col gap-3 justify-center">
+              {/* Code links - column on mobile and desktop */}
+              <div className="flex flex-col gap-3 justify-center">
                 <a
                   href="https://github.com/Thibault-GAREL/PPE_LLM_test_Smart_contract"
                   target="_blank"
                   rel="noopener noreferrer"
-                  className="bg-white dark:bg-[#2d333b] px-4 py-3 rounded-lg border border-streamlit-border dark:border-[#444c56] text-blue-600 dark:text-[#539bf5] hover:bg-blue-50 dark:hover:bg-[#316dca20] transition-colors text-center whitespace-nowrap flex-1 lg:flex-none"
+                  className="bg-white dark:bg-[#2d333b] px-3 lg:px-4 py-2 lg:py-3 rounded-lg border border-streamlit-border dark:border-[#444c56] text-blue-600 dark:text-[#539bf5] hover:bg-blue-50 dark:hover:bg-[#316dca20] transition-colors text-center text-sm lg:text-base"
                 >
                   🐱 LLM Benchmark
                 </a>
@@ -352,7 +352,7 @@ export default function Home() {
                   href="https://github.com/Thibault-GAREL/PPE_LoRa_Smart_contract"
                   target="_blank"
                   rel="noopener noreferrer"
-                  className="bg-white dark:bg-[#2d333b] px-4 py-3 rounded-lg border border-streamlit-border dark:border-[#444c56] text-blue-600 dark:text-[#539bf5] hover:bg-blue-50 dark:hover:bg-[#316dca20] transition-colors text-center whitespace-nowrap flex-1 lg:flex-none"
+                  className="bg-white dark:bg-[#2d333b] px-3 lg:px-4 py-2 lg:py-3 rounded-lg border border-streamlit-border dark:border-[#444c56] text-blue-600 dark:text-[#539bf5] hover:bg-blue-50 dark:hover:bg-[#316dca20] transition-colors text-center text-sm lg:text-base"
                 >
                   🐱 LoRA Fine-tune
                 </a>
@@ -360,7 +360,7 @@ export default function Home() {
                   href="https://github.com/axelbrons/graphs-ppe"
                   target="_blank"
                   rel="noopener noreferrer"
-                  className="bg-white dark:bg-[#2d333b] px-4 py-3 rounded-lg border border-streamlit-border dark:border-[#444c56] text-blue-600 dark:text-[#539bf5] hover:bg-blue-50 dark:hover:bg-[#316dca20] transition-colors text-center whitespace-nowrap flex-1 lg:flex-none"
+                  className="bg-white dark:bg-[#2d333b] px-3 lg:px-4 py-2 lg:py-3 rounded-lg border border-streamlit-border dark:border-[#444c56] text-blue-600 dark:text-[#539bf5] hover:bg-blue-50 dark:hover:bg-[#316dca20] transition-colors text-center text-sm lg:text-base"
                 >
                   🐱 CodeBERT Graphs (Axel)
                 </a>
@@ -423,13 +423,13 @@ export default function Home() {
                 </div>
               </div>
 
-              {/* Code links - column on desktop, row on mobile */}
-              <div className="flex flex-row lg:flex-col gap-3 justify-center">
+              {/* Code links - column on mobile and desktop */}
+              <div className="flex flex-col gap-3 justify-center">
                 <a
                   href="https://github.com/Thibault-GAREL"
                   target="_blank"
                   rel="noopener noreferrer"
-                  className="bg-white dark:bg-[#2d333b] px-4 py-3 rounded-lg border border-streamlit-border dark:border-[#444c56] text-blue-600 dark:text-[#539bf5] hover:bg-blue-50 dark:hover:bg-[#316dca20] transition-colors text-center whitespace-nowrap flex-1 lg:flex-none"
+                  className="bg-white dark:bg-[#2d333b] px-3 lg:px-4 py-2 lg:py-3 rounded-lg border border-streamlit-border dark:border-[#444c56] text-blue-600 dark:text-[#539bf5] hover:bg-blue-50 dark:hover:bg-[#316dca20] transition-colors text-center text-sm lg:text-base"
                 >
                   🐱 Code (Coming Soon)
                 </a>
