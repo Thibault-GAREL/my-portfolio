@@ -200,7 +200,9 @@ export default function Home() {
             👥 Group Projects
           </h2>
 
-          <div className="bg-streamlit-secondary dark:bg-[#2d333b] rounded-xl p-6 mb-6 border border-streamlit-border dark:border-[#444c56]">
+          <div className="bg-streamlit-secondary dark:bg-[#2d333b] rounded-xl p-6 mb-6 border border-streamlit-border dark:border-[#444c56]" style={{
+            boxShadow: '0 6px 20px rgba(0,180,194,0.5), 0 12px 40px rgba(0,180,194,0.3), 0 0 0 1px rgba(0,180,194,0.08)'
+          }}>
             <div className="grid grid-cols-1 lg:grid-cols-[auto_1fr_auto] gap-6 mb-4">
               {/* Logo on the left (hidden on mobile, shown on desktop) */}
               <img
@@ -282,7 +284,9 @@ export default function Home() {
             </div>
           </div>
 
-          <div className="bg-streamlit-secondary dark:bg-[#2d333b] rounded-xl p-6 mb-6 border border-streamlit-border dark:border-[#444c56]">
+          <div className="bg-streamlit-secondary dark:bg-[#2d333b] rounded-xl p-6 mb-6 border border-streamlit-border dark:border-[#444c56]" style={{
+            boxShadow: '0 6px 20px rgba(0,180,194,0.5), 0 12px 40px rgba(0,180,194,0.3), 0 0 0 1px rgba(0,180,194,0.08)'
+          }}>
             <div className="grid grid-cols-1 lg:grid-cols-[auto_1fr_auto] gap-6 mb-4">
               {/* Logo on the left (hidden on mobile, shown on desktop) */}
               <img
@@ -364,7 +368,9 @@ export default function Home() {
             </div>
           </div>
 
-          <div className="bg-streamlit-secondary dark:bg-[#2d333b] rounded-xl p-6 mb-6 border border-streamlit-border dark:border-[#444c56]">
+          <div className="bg-streamlit-secondary dark:bg-[#2d333b] rounded-xl p-6 mb-6 border border-streamlit-border dark:border-[#444c56]" style={{
+            boxShadow: '0 6px 20px rgba(0,180,194,0.5), 0 12px 40px rgba(0,180,194,0.3), 0 0 0 1px rgba(0,180,194,0.08)'
+          }}>
             <div className="grid grid-cols-1 lg:grid-cols-[auto_1fr_auto] gap-6 mb-4">
               {/* Logo on the left (hidden on mobile, shown on desktop) */}
               <img
