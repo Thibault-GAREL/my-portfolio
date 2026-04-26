@@ -1469,19 +1469,32 @@ function getCategoryShadowStyle(category?: string, isHovered: boolean = false, i
 
   if (!normalizedCategory || !categoryShadowColors[normalizedCategory as keyof typeof categoryShadowColors]) {
     // Default gray shadow if no category
-    const opacity = isHovered ? (isDark ? 0.4 : 0.2) : (isDark ? 0.3 : 0.15)
-    const blur = isHovered ? '16px' : '12px'
+    const shadow1 = isHovered ? '0 8px 24px rgba(0,0,0,0.3)' : '0 4px 16px rgba(0,0,0,0.2)'
+    const shadow2 = isHovered ? '0 16px 48px rgba(0,0,0,0.2)' : '0 8px 32px rgba(0,0,0,0.15)'
     return {
-      boxShadow: `0 4px ${blur} rgba(0,0,0,${opacity})`
+      boxShadow: `${shadow1}, ${shadow2}`
     }
   }
 
   const color = categoryShadowColors[normalizedCategory as keyof typeof categoryShadowColors]
-  const opacity = isHovered ? (isDark ? 0.6 : 0.4) : (isDark ? 0.4 : 0.3)
-  const blur = isHovered ? '16px' : '12px'
 
-  return {
-    boxShadow: `0 4px ${blur} rgba(${color.r},${color.g},${color.b},${opacity})`
+  // Multiple layered shadows for depth and visibility
+  if (isHovered) {
+    // Hover: Very pronounced shadows
+    const shadow1 = `0 8px 32px rgba(${color.r},${color.g},${color.b},0.6)`
+    const shadow2 = `0 16px 64px rgba(${color.r},${color.g},${color.b},0.4)`
+    const shadow3 = `0 0 0 1px rgba(${color.r},${color.g},${color.b},0.1)`
+    return {
+      boxShadow: `${shadow1}, ${shadow2}, ${shadow3}`
+    }
+  } else {
+    // Default: Strong, always visible colored shadows
+    const shadow1 = `0 6px 20px rgba(${color.r},${color.g},${color.b},0.5)`
+    const shadow2 = `0 12px 40px rgba(${color.r},${color.g},${color.b},0.3)`
+    const shadow3 = `0 0 0 1px rgba(${color.r},${color.g},${color.b},0.08)`
+    return {
+      boxShadow: `${shadow1}, ${shadow2}, ${shadow3}`
+    }
   }
 }
 
