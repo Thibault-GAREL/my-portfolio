@@ -1607,7 +1607,7 @@ function ProjectCard({
       onMouseLeave={() => setIsHovered(false)}
     >
       {project.image && (
-        <div className="flex-shrink-0 w-32 h-32 rounded-lg overflow-hidden shadow-lg group-hover:shadow-xl dark:shadow-[0_8px_16px_rgba(0,0,0,0.4)] dark:group-hover:shadow-[0_12px_24px_rgba(0,0,0,0.6)] transition-shadow">
+        <div className="flex-shrink-0 w-32 h-32 md:w-36 md:h-36 lg:w-40 lg:h-40 xl:w-48 xl:h-48 rounded-lg overflow-hidden shadow-lg group-hover:shadow-xl dark:shadow-[0_8px_16px_rgba(0,0,0,0.4)] dark:group-hover:shadow-[0_12px_24px_rgba(0,0,0,0.6)] transition-shadow">
           <img
             src={project.image}
             alt={project.name}
