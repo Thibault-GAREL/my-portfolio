@@ -696,7 +696,10 @@ function ProjectsByCategory() {
 
       {/* Reinforcement Learning */}
       <div className="mb-10">
-        <h3 className="text-2xl font-bold text-streamlit-text dark:text-[#cdd9e5] mb-6">Reinforcement Learning</h3>
+        <h3 className="text-2xl font-bold mb-6 flex items-center gap-3" style={{ color: '#16a34a' }}>
+          <div className="w-3 h-3 rounded-full flex-shrink-0" style={{ backgroundColor: '#16a34a' }}></div>
+          Reinforcement Learning
+        </h3>
 
         {/* Decision Tree */}
         <div className="mb-8">
