@@ -1469,18 +1469,20 @@ function getCategoryGradientStyle(category?: string, isDark: boolean = false): R
     }
   }
 
-  // Gradient from background color to domain color
+  // Strong diagonal gradient: top-right (base color) to bottom-left (domain color)
   if (isDark) {
+    // Dark mode: from dark background to domain color
     return {
-      background: `linear-gradient(135deg, rgba(${color.r},${color.g},${color.b},0.2) 0%, rgba(${color.r},${color.g},${color.b},0.05) 100%)`,
+      background: `linear-gradient(135deg, rgba(45,51,59,1) 0%, rgba(${color.r},${color.g},${color.b},0.8) 100%)`,
       border: '1px solid',
-      borderColor: `rgba(${color.r},${color.g},${color.b},0.3)`
+      borderColor: `rgba(${color.r},${color.g},${color.b},0.5)`
     }
   } else {
+    // Light mode: from white to domain color
     return {
-      background: `linear-gradient(135deg, rgba(${color.r},${color.g},${color.b},0.15) 0%, rgba(${color.r},${color.g},${color.b},0.05) 100%)`,
+      background: `linear-gradient(135deg, rgba(255,255,255,1) 0%, rgba(${color.r},${color.g},${color.b},0.6) 100%)`,
       border: '1px solid',
-      borderColor: `rgba(${color.r},${color.g},${color.b},0.25)`
+      borderColor: `rgba(${color.r},${color.g},${color.b},0.4)`
     }
   }
 }
