@@ -1463,22 +1463,26 @@ function normalizeCategoryName(category?: string): string | undefined {
   return categoryMap[category] || category
 }
 
-// Helper function to get shadow classes based on category
-function getCategoryShadow(category?: string): string {
+// Helper function to get shadow style based on category
+function getCategoryShadowStyle(category?: string, isHovered: boolean = false, isDark: boolean = false): React.CSSProperties {
   const normalizedCategory = normalizeCategoryName(category)
 
   if (!normalizedCategory || !categoryShadowColors[normalizedCategory as keyof typeof categoryShadowColors]) {
     // Default gray shadow if no category
-    return 'shadow-md hover:shadow-lg dark:shadow-[0_4px_12px_rgba(0,0,0,0.3)] dark:hover:shadow-[0_8px_16px_rgba(0,0,0,0.4)]'
+    const opacity = isHovered ? (isDark ? 0.4 : 0.2) : (isDark ? 0.3 : 0.15)
+    const blur = isHovered ? '16px' : '12px'
+    return {
+      boxShadow: `0 4px ${blur} rgba(0,0,0,${opacity})`
+    }
   }
 
   const color = categoryShadowColors[normalizedCategory as keyof typeof categoryShadowColors]
-  const lightShadow = `shadow-[0_4px_12px_rgba(${color.r},${color.g},${color.b},0.3)]`
-  const lightHoverShadow = `hover:shadow-[0_8px_16px_rgba(${color.r},${color.g},${color.b},0.4)]`
-  const darkShadow = `dark:shadow-[0_4px_12px_rgba(${color.r},${color.g},${color.b},0.4)]`
-  const darkHoverShadow = `dark:hover:shadow-[0_8px_16px_rgba(${color.r},${color.g},${color.b},0.6)]`
+  const opacity = isHovered ? (isDark ? 0.6 : 0.4) : (isDark ? 0.4 : 0.3)
+  const blur = isHovered ? '16px' : '12px'
 
-  return `${lightShadow} ${lightHoverShadow} ${darkShadow} ${darkHoverShadow}`
+  return {
+    boxShadow: `0 4px ${blur} rgba(${color.r},${color.g},${color.b},${opacity})`
+  }
 }
 
 // Project card component
@@ -1496,12 +1500,33 @@ function ProjectCard({
     category?: string
   }
 }) {
+  const [isHovered, setIsHovered] = React.useState(false)
+  const [isDark, setIsDark] = React.useState(false)
+
+  React.useEffect(() => {
+    // Check if dark mode is active
+    const checkDarkMode = () => {
+      setIsDark(document.documentElement.classList.contains('dark'))
+    }
+
+    checkDarkMode()
+
+    // Listen for dark mode changes
+    const observer = new MutationObserver(checkDarkMode)
+    observer.observe(document.documentElement, { attributes: true, attributeFilter: ['class'] })
+
+    return () => observer.disconnect()
+  }, [])
+
   return (
     <a
       href={project.link}
       target="_blank"
       rel="noopener noreferrer"
-      className={`bg-streamlit-secondary dark:bg-[#2d333b] rounded-xl p-4 border border-streamlit-border dark:border-[#444c56] ${getCategoryShadow(project.category)} transition-shadow group flex gap-4`}
+      className="bg-streamlit-secondary dark:bg-[#2d333b] rounded-xl p-4 border border-streamlit-border dark:border-[#444c56] transition-all group flex gap-4"
+      style={getCategoryShadowStyle(project.category, isHovered, isDark)}
+      onMouseEnter={() => setIsHovered(true)}
+      onMouseLeave={() => setIsHovered(false)}
     >
       {project.image && (
         <div className="flex-shrink-0 w-32 h-32 rounded-lg overflow-hidden shadow-lg group-hover:shadow-xl dark:shadow-[0_8px_16px_rgba(0,0,0,0.4)] dark:group-hover:shadow-[0_12px_24px_rgba(0,0,0,0.6)] transition-shadow">
