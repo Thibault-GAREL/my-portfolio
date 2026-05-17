@@ -525,13 +525,13 @@ export default function Home() {
           <div className="grid grid-cols-1 md:grid-cols-2 gap-6 mb-6">
             <div className="flex justify-center">
               <img
-                src="https://github-readme-stats.vercel.app/api?username=Thibault-GAREL&show_icons=true&theme=transparent&hide_border=true"
+                src="https://github-readme-stats-fawn-mu-32.vercel.app/api?username=Thibault-GAREL&show_icons=true&theme=transparent&hide_border=true"
                 alt="GitHub Stats"
                 className="dark:hidden"
                 height="180"
               />
               <img
-                src="https://github-readme-stats.vercel.app/api?username=Thibault-GAREL&show_icons=true&theme=tokyonight&hide_border=true"
+                src="https://github-readme-stats-fawn-mu-32.vercel.app/api?username=Thibault-GAREL&show_icons=true&theme=tokyonight&hide_border=true"
                 alt="GitHub Stats"
                 className="hidden dark:block"
                 height="180"
@@ -539,13 +539,13 @@ export default function Home() {
             </div>
             <div className="flex justify-center">
               <img
-                src="https://github-profile-summary-cards.vercel.app/api/cards/most-commit-language?username=Thibault-GAREL&theme=transparent"
+                src="https://github-profile-summary-cards-kappa.vercel.app/api/cards/most-commit-language?username=Thibault-GAREL&theme=transparent"
                 alt="Most Used Languages"
                 className="dark:hidden"
                 height="180"
               />
               <img
-                src="https://github-profile-summary-cards.vercel.app/api/cards/most-commit-language?username=Thibault-GAREL&theme=tokyonight"
+                src="https://github-profile-summary-cards-kappa.vercel.app/api/cards/most-commit-language?username=Thibault-GAREL&theme=tokyonight"
                 alt="Most Used Languages"
                 className="hidden dark:block"
                 height="180"
@@ -570,12 +570,12 @@ export default function Home() {
 
           <div className="flex justify-center mb-6">
             <img
-              src="https://github-profile-summary-cards.vercel.app/api/cards/profile-details?username=Thibault-GAREL&theme=transparent"
+              src="https://github-profile-summary-cards-kappa.vercel.app/api/cards/profile-details?username=Thibault-GAREL&theme=transparent"
               alt="Profile Details"
               className="dark:hidden w-full max-w-4xl"
             />
             <img
-              src="https://github-profile-summary-cards.vercel.app/api/cards/profile-details?username=Thibault-GAREL&theme=tokyonight"
+              src="https://github-profile-summary-cards-kappa.vercel.app/api/cards/profile-details?username=Thibault-GAREL&theme=tokyonight"
               alt="Profile Details"
               className="hidden dark:block w-full max-w-4xl"
             />
@@ -765,9 +765,9 @@ function ProjectsByCategory() {
               {
                 name: "Walking AI - Genetic Algorithm",
                 description: "AI learning to walk with complete physics engine (Box2D)",
-                link: "https://github.com/Thibault-GAREL/test_box2D_pygame",
-                image: "https://raw.githubusercontent.com/Thibault-GAREL/test_box2D_pygame/main/img/logo.png",
-                
+                link: "https://github.com/Thibault-GAREL/Quadruped-AI",
+                image: "https://raw.githubusercontent.com/Thibault-GAREL/Quadruped-AI/main/assets/logo.png",
+
                 date: "Oct 2025 - Present",
                 year: "4th year"
               }
@@ -1215,8 +1215,8 @@ function ProjectsByDate() {
     {
       name: "Walking AI - Genetic Algorithm",
       description: "AI learning to walk with complete physics engine (Box2D)",
-      link: "https://github.com/Thibault-GAREL/test_box2D_pygame",
-      image: "https://raw.githubusercontent.com/Thibault-GAREL/test_box2D_pygame/main/img/logo.png",
+      link: "https://github.com/Thibault-GAREL/Quadruped-AI",
+      image: "https://raw.githubusercontent.com/Thibault-GAREL/Quadruped-AI/main/assets/logo.png",
       date: "Oct - Dec 2025",
       year: "4th year",
       category: "Genetic Algorithm"
