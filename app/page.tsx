@@ -676,6 +676,14 @@ function ProjectsByCategory() {
             year: "4th year"
           },
           {
+            name: "Fine-tuning LoRA Stable Diffusion",
+            description: "Fine-tuning Stable Diffusion 1.5 with LoRA on 15 hand-drawn chibi self-portraits. Trained on RunPod for under 1 €.",
+            link: "https://github.com/Thibault-GAREL/ILab_Formation_Fine-tuning",
+            image: "https://raw.githubusercontent.com/Thibault-GAREL/ILab_Formation_Fine-tuning/main/data/1-raw/my_drawings/Capture%20Bienvenu.PNG",
+            date: "May 2026",
+            year: "4th year"
+          },
+          {
             name: "CLIP Embedding Tools",
             description: "Opposite Embedding Finder and Embedding Arithmetic",
             link: "https://github.com/Thibault-GAREL/CLIP_Embedding_Tools",
@@ -1192,6 +1200,15 @@ function ProjectsByDate() {
       link: "https://github.com/Thibault-GAREL/CLIP_Embedding_Tools",
       image: "https://raw.githubusercontent.com/Thibault-GAREL/CLIP_Embedding_Tools/main/img/Logo-Embedding_Tools.png",
       date: "Dec 2025",
+      year: "4th year",
+      category: "Generative AI"
+    },
+    {
+      name: "Fine-tuning LoRA Stable Diffusion",
+      description: "Fine-tuning Stable Diffusion 1.5 with LoRA on 15 hand-drawn chibi self-portraits. Trained on RunPod for under 1 €.",
+      link: "https://github.com/Thibault-GAREL/ILab_Formation_Fine-tuning",
+      image: "https://raw.githubusercontent.com/Thibault-GAREL/ILab_Formation_Fine-tuning/main/data/1-raw/my_drawings/Capture%20Bienvenu.PNG",
+      date: "May 2026",
       year: "4th year",
       category: "Generative AI"
     },
@@ -1744,7 +1761,8 @@ function GanttChart() {
     { name: "StarCraft 2 AI", start: "2025-10-22", end: "2026-04-08", category: "Reinforcement Learning",  year: "4th year" },
     { name: "ISS Analysis", start: "2025-11-12", end: "2025-12-21", category: "Data Analysis", year: "4th year" },
     { name: "CLIP Embedding Tools", start: "2025-12-25", end: "2025-12-27", category: "Generative AI", year: "4th year" },
-    { name: "Snake AI - PPO", start: "2025-12-27", end: "2026-04-08", category: "Reinforcement Learning",  year: "4th year" }
+    { name: "Snake AI - PPO", start: "2025-12-27", end: "2026-04-08", category: "Reinforcement Learning",  year: "4th year" },
+    { name: "Fine-tuning LoRA Stable Diffusion", start: "2026-05-12", end: "2026-05-15", category: "Generative AI", year: "4th year" }
   ]
 
   // Sort projects by start date (oldest first for display from top to bottom)
