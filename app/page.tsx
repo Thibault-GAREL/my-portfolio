@@ -131,7 +131,7 @@ export default function Home() {
             </p>
 
             <div className="mb-6 flex flex-col sm:flex-row items-center gap-4">
-              <span>I'm an AI maker in</span>
+              <span>I'm an AI maker at</span>
               <div className="flex flex-col sm:flex-row items-center gap-3 bg-streamlit-secondary dark:bg-[#2d333b] px-4 py-3 rounded-lg border border-streamlit-border dark:border-[#444c56]">
                 <div className="flex items-center gap-3">
                   <img
