@@ -201,7 +201,7 @@ export default function Home() {
           </h2>
 
           <div className="bg-streamlit-secondary dark:bg-[#2d333b] rounded-xl p-6 mb-6 border border-streamlit-border dark:border-[#444c56]" style={{
-            boxShadow: '0 6px 20px rgba(0,180,194,0.5), 0 12px 40px rgba(0,180,194,0.3), 0 0 0 1px rgba(0,180,194,0.08)'
+            boxShadow: '0 2px 8px rgba(0,0,0,0.1), 0 1px 2px rgba(0,0,0,0.06)'
           }}>
             <div className="grid grid-cols-1 lg:grid-cols-[auto_1fr_auto] gap-6 mb-4">
               {/* Logo on the left (hidden on mobile, shown on desktop) */}
@@ -285,7 +285,7 @@ export default function Home() {
           </div>
 
           <div className="bg-streamlit-secondary dark:bg-[#2d333b] rounded-xl p-6 mb-6 border border-streamlit-border dark:border-[#444c56]" style={{
-            boxShadow: '0 6px 20px rgba(0,180,194,0.5), 0 12px 40px rgba(0,180,194,0.3), 0 0 0 1px rgba(0,180,194,0.08)'
+            boxShadow: '0 2px 8px rgba(0,0,0,0.1), 0 1px 2px rgba(0,0,0,0.06)'
           }}>
             <div className="grid grid-cols-1 lg:grid-cols-[auto_1fr_auto] gap-6 mb-4">
               {/* Logo on the left (hidden on mobile, shown on desktop) */}
@@ -369,7 +369,7 @@ export default function Home() {
           </div>
 
           <div className="bg-streamlit-secondary dark:bg-[#2d333b] rounded-xl p-6 mb-6 border border-streamlit-border dark:border-[#444c56]" style={{
-            boxShadow: '0 6px 20px rgba(0,180,194,0.5), 0 12px 40px rgba(0,180,194,0.3), 0 0 0 1px rgba(0,180,194,0.08)'
+            boxShadow: '0 2px 8px rgba(0,0,0,0.1), 0 1px 2px rgba(0,0,0,0.06)'
           }}>
             <div className="grid grid-cols-1 lg:grid-cols-[auto_1fr_auto] gap-6 mb-4">
               {/* Logo on the left (hidden on mobile, shown on desktop) */}
@@ -1547,35 +1547,20 @@ function getCategoryGradientStyle(category?: string, isDark: boolean = false): R
 
 // Helper function to get shadow style based on category
 function getCategoryShadowStyle(category?: string, isHovered: boolean = false, isDark: boolean = false): React.CSSProperties {
-  const normalizedCategory = normalizeCategoryName(category)
-
-  if (!normalizedCategory || !categoryShadowColors[normalizedCategory as keyof typeof categoryShadowColors]) {
-    // Default gray shadow if no category
-    const shadow1 = isHovered ? '0 8px 24px rgba(0,0,0,0.3)' : '0 4px 16px rgba(0,0,0,0.2)'
-    const shadow2 = isHovered ? '0 16px 48px rgba(0,0,0,0.2)' : '0 8px 32px rgba(0,0,0,0.15)'
+  // Simple, subtle, uniform shadows for a sober look
+  if (isDark) {
+    // Dark mode: subtle dark shadow
     return {
-      boxShadow: `${shadow1}, ${shadow2}`
-    }
-  }
-
-  const color = categoryShadowColors[normalizedCategory as keyof typeof categoryShadowColors]
-
-  // Multiple layered shadows for depth and visibility
-  if (isHovered) {
-    // Hover: Very pronounced shadows
-    const shadow1 = `0 8px 32px rgba(${color.r},${color.g},${color.b},0.6)`
-    const shadow2 = `0 16px 64px rgba(${color.r},${color.g},${color.b},0.4)`
-    const shadow3 = `0 0 0 1px rgba(${color.r},${color.g},${color.b},0.1)`
-    return {
-      boxShadow: `${shadow1}, ${shadow2}, ${shadow3}`
+      boxShadow: isHovered
+        ? '0 4px 12px rgba(0,0,0,0.4), 0 2px 4px rgba(0,0,0,0.2)'
+        : '0 2px 8px rgba(0,0,0,0.3), 0 1px 2px rgba(0,0,0,0.2)'
     }
   } else {
-    // Default: Strong, always visible colored shadows
-    const shadow1 = `0 6px 20px rgba(${color.r},${color.g},${color.b},0.5)`
-    const shadow2 = `0 12px 40px rgba(${color.r},${color.g},${color.b},0.3)`
-    const shadow3 = `0 0 0 1px rgba(${color.r},${color.g},${color.b},0.08)`
+    // Light mode: subtle gray shadow
     return {
-      boxShadow: `${shadow1}, ${shadow2}, ${shadow3}`
+      boxShadow: isHovered
+        ? '0 4px 12px rgba(0,0,0,0.15), 0 2px 4px rgba(0,0,0,0.08)'
+        : '0 2px 8px rgba(0,0,0,0.1), 0 1px 2px rgba(0,0,0,0.06)'
     }
   }
 }
