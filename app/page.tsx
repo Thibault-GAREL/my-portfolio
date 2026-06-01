@@ -1512,7 +1512,7 @@ function getCategoryColor(category?: string): { r: number; g: number; b: number 
   return categoryShadowColors[normalizedCategory as keyof typeof categoryShadowColors]
 }
 
-// Helper function to get category badge style with solid color
+// Helper function to get category badge style with solid vivid color
 function getCategoryGradientStyle(category?: string, isDark: boolean = false): React.CSSProperties {
   const color = getCategoryColor(category)
 
@@ -1521,25 +1521,18 @@ function getCategoryGradientStyle(category?: string, isDark: boolean = false): R
     return {
       background: isDark ? 'rgba(45,51,59,1)' : 'rgba(243,244,246,1)',
       border: '1px solid',
-      borderColor: isDark ? '#444c56' : '#d1d5db'
+      borderColor: isDark ? '#444c56' : '#d1d5db',
+      color: isDark ? '#cdd9e5' : '#1f2937'
     }
   }
 
-  // Solid color with subtle opacity
-  if (isDark) {
-    // Dark mode: subtle colored background
-    return {
-      background: `rgba(${color.r},${color.g},${color.b},0.2)`,
-      border: '1px solid',
-      borderColor: `rgba(${color.r},${color.g},${color.b},0.4)`
-    }
-  } else {
-    // Light mode: subtle colored background
-    return {
-      background: `rgba(${color.r},${color.g},${color.b},0.15)`,
-      border: '1px solid',
-      borderColor: `rgba(${color.r},${color.g},${color.b},0.3)`
-    }
+  // Vivid solid color - full opacity for impact
+  return {
+    background: `rgb(${color.r},${color.g},${color.b})`,
+    border: '1px solid',
+    borderColor: `rgb(${color.r},${color.g},${color.b})`,
+    color: '#ffffff', // White text for contrast on vivid backgrounds
+    fontWeight: '600'
   }
 }
 
