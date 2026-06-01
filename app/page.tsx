@@ -1512,35 +1512,33 @@ function getCategoryColor(category?: string): { r: number; g: number; b: number 
   return categoryShadowColors[normalizedCategory as keyof typeof categoryShadowColors]
 }
 
-// Helper function to get category gradient style
+// Helper function to get category badge style with solid color
 function getCategoryGradientStyle(category?: string, isDark: boolean = false): React.CSSProperties {
   const color = getCategoryColor(category)
 
   if (!color) {
-    // Default gradient without category color
+    // Default solid background without category color
     return {
-      background: isDark
-        ? 'linear-gradient(135deg, rgba(45,51,59,1) 0%, rgba(34,39,46,1) 100%)'
-        : 'linear-gradient(135deg, rgba(255,255,255,1) 0%, rgba(243,244,246,1) 100%)',
+      background: isDark ? 'rgba(45,51,59,1)' : 'rgba(243,244,246,1)',
       border: '1px solid',
       borderColor: isDark ? '#444c56' : '#d1d5db'
     }
   }
 
-  // Strong diagonal gradient: top-right (base color) to bottom-left (domain color)
+  // Solid color with subtle opacity
   if (isDark) {
-    // Dark mode: from dark background to domain color
+    // Dark mode: subtle colored background
     return {
-      background: `linear-gradient(135deg, rgba(45,51,59,1) 0%, rgba(${color.r},${color.g},${color.b},0.8) 100%)`,
-      border: '1px solid',
-      borderColor: `rgba(${color.r},${color.g},${color.b},0.5)`
-    }
-  } else {
-    // Light mode: from white to domain color
-    return {
-      background: `linear-gradient(135deg, rgba(255,255,255,1) 0%, rgba(${color.r},${color.g},${color.b},0.6) 100%)`,
+      background: `rgba(${color.r},${color.g},${color.b},0.2)`,
       border: '1px solid',
       borderColor: `rgba(${color.r},${color.g},${color.b},0.4)`
+    }
+  } else {
+    // Light mode: subtle colored background
+    return {
+      background: `rgba(${color.r},${color.g},${color.b},0.15)`,
+      border: '1px solid',
+      borderColor: `rgba(${color.r},${color.g},${color.b},0.3)`
     }
   }
 }
