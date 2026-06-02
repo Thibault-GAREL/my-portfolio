@@ -1512,26 +1512,26 @@ function getCategoryColor(category?: string): { r: number; g: number; b: number 
   return categoryShadowColors[normalizedCategory as keyof typeof categoryShadowColors]
 }
 
-// Helper function to get category badge style with solid vivid color
+// Helper function to get category badge style - colored text like section titles
 function getCategoryGradientStyle(category?: string, isDark: boolean = false): React.CSSProperties {
   const color = getCategoryColor(category)
 
   if (!color) {
-    // Default solid background without category color
+    // Default style without category color
     return {
-      background: isDark ? 'rgba(45,51,59,1)' : 'rgba(243,244,246,1)',
+      background: isDark ? 'rgba(45,51,59,0.5)' : 'rgba(243,244,246,0.8)',
       border: '1px solid',
       borderColor: isDark ? '#444c56' : '#d1d5db',
       color: isDark ? '#cdd9e5' : '#1f2937'
     }
   }
 
-  // Vivid solid color - full opacity for impact
+  // Colored text (like section titles) with subtle background
   return {
-    background: `rgb(${color.r},${color.g},${color.b})`,
+    background: isDark ? 'rgba(45,51,59,0.5)' : 'rgba(255,255,255,0.8)',
     border: '1px solid',
-    borderColor: `rgb(${color.r},${color.g},${color.b})`,
-    color: '#ffffff', // White text for contrast on vivid backgrounds
+    borderColor: `rgba(${color.r},${color.g},${color.b},0.3)`,
+    color: `rgb(${color.r},${color.g},${color.b})`, // Vivid colored text like titles
     fontWeight: '600'
   }
 }
