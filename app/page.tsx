@@ -729,8 +729,8 @@ function ProjectsByCategory() {
                 description: "Snake game AI using a Decision Tree",
                 link: "https://github.com/Thibault-GAREL/AI_snake_decision_tree_version",
                 image: "https://raw.githubusercontent.com/Thibault-GAREL/AI_snake_decision_tree_version/main/img/Snake_arbre_de_decision-Score_31.gif",
-                date: "Sep - Oct 2024",
-                year: "3rd year"
+                date: "Mar - Apr 2026",
+                year: "4th year"
               }
             ].map((project) => (
               <ProjectCard key={project.name} project={{ ...project, category: '🌳 Decision Tree' }} />
@@ -767,8 +767,7 @@ function ProjectsByCategory() {
                 description: "AI learning to walk with complete physics engine (Box2D)",
                 link: "https://github.com/Thibault-GAREL/Quadruped-AI",
                 image: "https://raw.githubusercontent.com/Thibault-GAREL/Quadruped-AI/main/assets/logo.png",
-
-                date: "Oct 2025 - Present",
+                date: "Oct - Dec 2025",
                 year: "4th year"
               }
             ].map((project) => (
@@ -797,10 +796,9 @@ function ProjectsByCategory() {
                 name: "Snake AI - Deep Q-Learning",
                 description: "Snake game AI using Deep Q-Learning",
                 link: "https://github.com/Thibault-GAREL/AI_snake_DQN_version",
-                
                 image: "https://raw.githubusercontent.com/Thibault-GAREL/AI_snake_DQN_version/main/Images/SnakeDQL-Score36.gif",
-                date: "Jul 2024 - Present",
-                year: "3rd - 4th year"
+                date: "Mar - Apr 2026",
+                year: "4th year"
               },
               {
                 name: "Driving AI - Deep Q-Learning",
@@ -829,8 +827,7 @@ function ProjectsByCategory() {
                 description: "Snake game AI using Proximal Policy Optimization",
                 link: "https://github.com/Thibault-GAREL/AI_snake_PPO_version",
                 image: "https://raw.githubusercontent.com/Thibault-GAREL/AI_snake_PPO_version/main/img/SnakePPO-Score54.gif",
-                
-                date: "Dec 2025 - Present",
+                date: "Mar - Apr 2026",
                 year: "4th year"
               },
               {
@@ -839,8 +836,7 @@ function ProjectsByCategory() {
                 link: "https://github.com/Thibault-GAREL/AI-StarCraft2-VLM-RL",
                 image: "https://raw.githubusercontent.com/Thibault-GAREL/Thibault-GAREL/main/Logo_Featured_Projects/rl_starcraft2.gif",
                 imageDark: "https://raw.githubusercontent.com/Thibault-GAREL/Thibault-GAREL/main/Logo_Featured_Projects/rl_starcraft2_dark.gif",
-                
-                date: "Oct 2025 - Present",
+                date: "Nov 2025 - Jan 2026",
                 year: "4th year"
               }
             ].map((project) => (
@@ -951,7 +947,7 @@ function ProjectsByCategory() {
             description: "Star Wars minigames in an open world (C++)",
             link: "https://github.com/Thibault-GAREL/Game_ECE_World_Minigame",
             image: "https://raw.githubusercontent.com/Thibault-GAREL/Game_ECE_World_Minigame/main/img/Menu.png",
-            date: "Jan - Jun 2024",
+            date: "Apr - May 2023",
             year: "2nd year"
           },
           {
@@ -959,7 +955,7 @@ function ProjectsByCategory() {
             description: "Maze game with BFS pathfinding (C + Allegro 5)",
             link: "https://github.com/Thibault-GAREL/Game_maze_Asterix-Obelix",
             image: "https://raw.githubusercontent.com/Thibault-GAREL/Game_maze_Asterix-Obelix/main/img/menu_screen.png",
-            date: "Jan - Jun 2024",
+            date: "Dec 2022 - Jan 2023",
             year: "2nd year"
           }
         ]}
@@ -990,7 +986,7 @@ function ProjectsByCategory() {
             description: "2D muscular physics simulation with Box2D",
             link: "https://github.com/Thibault-GAREL/2D-Muscular-Simulation",
             image: "https://raw.githubusercontent.com/Thibault-GAREL/Thibault-GAREL/main/Logo_Featured_Projects/physics_muscular_simulation.png",
-            date: "Apr - Jun 2025",
+            date: "Oct - Dec 2025",
             year: "4th year"
           }
         ]}
@@ -1127,7 +1123,7 @@ function ProjectsByDate() {
       description: "2D muscular physics simulation with Box2D",
       link: "https://github.com/Thibault-GAREL/2D-Muscular-Simulation",
       image: "https://raw.githubusercontent.com/Thibault-GAREL/Thibault-GAREL/main/Logo_Featured_Projects/physics_muscular_simulation.png",
-      date: "Apr - Jun 2025",
+      date: "Oct - Dec 2025",
       year: "4th year",
       category: "Physics Simulation"
     },
@@ -1237,7 +1233,7 @@ function ProjectsByDate() {
       link: "https://github.com/Thibault-GAREL/AI_snake_DQN_version",
       image: "https://raw.githubusercontent.com/Thibault-GAREL/AI_snake_DQN_version/main/Images/SnakeDQL-Score36.gif",
       date: "Mar - Apr 2026",
-      year: "3rd - 4th year",
+      year: "4th year",
       category: "Q-Learning"
     },
     {
@@ -1276,8 +1272,8 @@ function ProjectsByDate() {
       description: "Snake game AI using a Decision Tree",
       link: "https://github.com/Thibault-GAREL/AI_snake_decision_tree_version",
       image: "https://raw.githubusercontent.com/Thibault-GAREL/AI_snake_decision_tree_version/main/img/Snake_arbre_de_decision-Score_31.gif",
-      date: "Sep - Oct 2024",
-      year: "3rd year",
+      date: "Mar - Apr 2026",
+      year: "4th year",
       category: "Decision Tree"
     }
   ]
@@ -1526,9 +1522,9 @@ function getCategoryGradientStyle(category?: string, isDark: boolean = false): R
     }
   }
 
-  // Vivid colored background with white text
+  // Sober colored background with white text
   return {
-    background: `rgb(${color.r},${color.g},${color.b})`,
+    background: `rgba(${color.r},${color.g},${color.b},0.85)`, // Slightly transparent for softer look
     border: 'none',
     color: '#ffffff', // White text for contrast
     fontWeight: '600'
@@ -1705,15 +1701,15 @@ function GanttChart() {
     { name: "Neural Networks Library", start: "2023-08-01", end: "2024-05-31", category: "Neural Networks", year: "1st-2nd year" },
     { name: "Q-Learning Pathfinding", start: "2023-08-01", end: "2023-10-20", category: "Reinforcement Learning", year: "1st year" },
 
-    // 2nd year games
-    { name: "Star Wars - ECE", start: "2024-01-01", end: "2024-06-30", category: "Games", year: "2nd year" },
-    { name: "Asterix Maze", start: "2024-01-01", end: "2024-06-30", category: "Games", year: "2nd year" },
+    // 2nd year games (Note: Asterix is actually 2022-2023)
+    { name: "Star Wars - ECE", start: "2023-04-06", end: "2023-05-08", category: "Games", year: "2nd year" },
+    { name: "Asterix Maze", start: "2022-12-01", end: "2023-01-17", category: "Games", year: "2nd year" },
 
     // 3rd year
     { name: "Snake Game", start: "2024-07-13", end: "2025-09-20", category: "Games", year: "3rd year" },
-    { name: "Snake AI - DQL", start: "2024-07-13", end: "2026-04-08", category: "Reinforcement Learning",  year: "3rd year" },
+    { name: "Snake AI - DQL", start: "2026-03-19", end: "2026-04-17", category: "Reinforcement Learning", year: "4th year" },
     { name: "Snake AI - GA", start: "2024-08-04", end: "2024-10-14", category: "Reinforcement Learning", year: "3rd year" },
-    { name: "Snake AI - DT", start: "2024-09-01", end: "2024-10-31", category: "Reinforcement Learning", year: "3rd year" },
+    { name: "Snake AI - DT", start: "2026-03-23", end: "2026-04-01", category: "Reinforcement Learning", year: "4th year" },
 
     // 4th year
     { name: "Unity AI - Movement", start: "2025-01-01", end: "2025-01-31", category: "Reinforcement Learning", year: "4th year" },
@@ -1725,18 +1721,18 @@ function GanttChart() {
     { name: "Attraction/Repulsion", start: "2025-01-23", end: "2025-01-29", category: "Physics Simulation", year: "4th year" },
     { name: "Image Generator - GAN", start: "2025-02-22", end: "2025-09-24", category: "Generative AI", year: "4th year" },
     { name: "ASR", start: "2025-04-12", end: "2025-06-11", category: "Speech Recognition", year: "4th year" },
-    { name: "2D Muscular Sim.", start: "2025-04-01", end: "2025-06-30", category: "Physics Simulation", year: "4th year" },
+    { name: "2D Muscular Sim.", start: "2025-10-24", end: "2025-12-24", category: "Physics Simulation", year: "4th year" },
     { name: "Human Sandbox", start: "2025-06-27", end: "2025-07-21", category: "Games", year: "4th year" },
     { name: "WhatsApp AI", start: "2025-07-11", end: "2025-07-24", category: "n8n Automation", year: "4th year" },
     { name: "Smart Mail Labeling", start: "2025-07-16", end: "2025-07-26", category: "n8n Automation", year: "4th year" },
     { name: "Bot controlled by ChatBot RAG", start: "2025-07-22", end: "2025-10-11", category: "Robotics", year: "4th year" },
     { name: "Language Models", start: "2025-09-27", end: "2025-12-24", category: "Generative AI", year: "4th year" },
     { name: "RAG - PDF ChatBot", start: "2025-10-11", end: "2025-10-12", category: "Generative AI", year: "4th year" },
-    { name: "Walking AI - GA", start: "2025-10-12", end: "2026-04-08", category: "Reinforcement Learning",  year: "4th year" },
-    { name: "StarCraft 2 AI", start: "2025-10-22", end: "2026-04-08", category: "Reinforcement Learning",  year: "4th year" },
+    { name: "Walking AI - GA", start: "2025-10-24", end: "2025-12-24", category: "Reinforcement Learning", year: "4th year" },
+    { name: "StarCraft 2 AI", start: "2025-11-24", end: "2026-01-24", category: "Reinforcement Learning", year: "4th year" },
     { name: "ISS Analysis", start: "2025-11-12", end: "2025-12-21", category: "Data Analysis", year: "4th year" },
     { name: "CLIP Embedding Tools", start: "2025-12-25", end: "2025-12-27", category: "Generative AI", year: "4th year" },
-    { name: "Snake AI - PPO", start: "2025-12-27", end: "2026-04-08", category: "Reinforcement Learning",  year: "4th year" },
+    { name: "Snake AI - PPO", start: "2026-03-23", end: "2026-04-07", category: "Reinforcement Learning", year: "4th year" },
     { name: "Fine-tuning LoRA Stable Diffusion", start: "2026-05-12", end: "2026-05-15", category: "Generative AI", year: "4th year" }
   ]
 
