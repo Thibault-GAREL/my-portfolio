@@ -1456,10 +1456,10 @@ const categoryShadowColors = {
   '🎮 Games': { r: 8, g: 145, b: 178 },              // #0891b2
   '📊 Data Analysis': { r: 217, g: 119, b: 6 },      // #d97706
   '🦾 Robotics': { r: 220, g: 38, b: 38 },           // #dc2626
-  '🎙 Speech Recognition': { r: 234, g: 88, b: 12 }, // #ea580c
+  '🎤 Speech Recognition': { r: 234, g: 88, b: 12 }, // #ea580c
   '👥 Group Projects': { r: 0, g: 180, b: 194 },     // #00b4c2
   '⚡ N8N Automation': { r: 219, g: 39, b: 119 },    // #db2777
-  '⚙ Physics Simulation': { r: 13, g: 148, b: 136 } // #0d9488
+  '🪐 Physics Simulation': { r: 13, g: 148, b: 136 } // #0d9488
 }
 
 // Helper function to normalize category names to match the shadow color keys
@@ -1489,15 +1489,15 @@ function normalizeCategoryName(category?: string): string | undefined {
     '📊 Data Analysis': '📊 Data Analysis',
     'Robotics': '🦾 Robotics',
     '🦾 Robotics': '🦾 Robotics',
-    'Speech Recognition': '🎙 Speech Recognition',
-    '🎙 Speech Recognition': '🎙 Speech Recognition',
+    'Speech Recognition': '🎤 Speech Recognition',
+    '🎤 Speech Recognition': '🎤 Speech Recognition',
     'Group Projects': '👥 Group Projects',
     '👥 Group Projects': '👥 Group Projects',
     'n8n Automation': '⚡ N8N Automation',
     'N8N Automation': '⚡ N8N Automation',
     '⚡ N8N Automation': '⚡ N8N Automation',
-    'Physics Simulation': '⚙ Physics Simulation',
-    '⚙ Physics Simulation': '⚙ Physics Simulation'
+    'Physics Simulation': '🪐 Physics Simulation',
+    '🪐 Physics Simulation': '🪐 Physics Simulation'
   }
 
   return categoryMap[category] || category
@@ -1691,10 +1691,10 @@ function GanttChart() {
     "Generative AI": "#6e40c9",        // 🤖 Violet
     "Neural Networks": "#2563eb",      // 🧠 Bleu
     "Reinforcement Learning": "#16a34a", // 🎮 Vert (RL global)
-    "Speech Recognition": "#ea580c",   // 🎙 Orange-Rouge
+    "Speech Recognition": "#ea580c",   // 🎤 Orange-Rouge
     "Robotics": "#dc2626",             // 🦾 Rouge
     "Games": "#0891b2",                // 🕹 Cyan
-    "Physics Simulation": "#0d9488",   // ⚙ Teal
+    "Physics Simulation": "#0d9488",   // 🪐 Teal
     "n8n Automation": "#db2777",       // ⚡ Rose/Magenta
     "Data Analysis": "#d97706"         // 📊 Orange
   }
