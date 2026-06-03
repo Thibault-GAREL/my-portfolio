@@ -686,6 +686,14 @@ function ProjectsByCategory() {
             image: "https://raw.githubusercontent.com/Thibault-GAREL/Neural_Network_from_Scratch/main/Images/Gif-neural-network.gif",
             date: "Jul 2023 - May 2024",
             year: "1st - 2nd year"
+          },
+          {
+            name: "ASR - Automatic Speech Recognition",
+            description: "School project on speech recognition",
+            link: "https://github.com/Thibault-GAREL/Speech_recognition",
+            image: "https://raw.githubusercontent.com/Thibault-GAREL/Speech_recognition/main/logo.png",
+            date: "Apr - Jun 2025",
+            year: "4th year"
           }
         ]}
       />
@@ -870,21 +878,6 @@ function ProjectsByCategory() {
           </div>
         </div>
       </div>
-
-      {/* Speech Recognition */}
-      <ProjectCategory
-        title="Speech Recognition"
-        projects={[
-          {
-            name: "ASR - Automatic Speech Recognition",
-            description: "School project on speech recognition",
-            link: "https://github.com/Thibault-GAREL/Speech_recognition",
-            image: "https://raw.githubusercontent.com/Thibault-GAREL/Speech_recognition/main/logo.png",
-            date: "Apr - Jun 2025",
-            year: "4th year"
-          }
-        ]}
-      />
 
       {/* Robotics */}
       <ProjectCategory
@@ -1103,7 +1096,7 @@ function ProjectsByDate() {
       image: "https://raw.githubusercontent.com/Thibault-GAREL/Speech_recognition/main/logo.png",
       date: "Apr - Jun 2025",
       year: "4th year",
-      category: "Speech Recognition"
+      category: "Neural Networks"
     },
     {
       name: "2D Muscular Simulation",
@@ -1445,7 +1438,6 @@ const categoryShadowColors = {
   '🎮 Games': { r: 8, g: 145, b: 178 },              // #0891b2
   '📊 Data Analysis': { r: 217, g: 119, b: 6 },      // #d97706
   '🦾 Robotics': { r: 220, g: 38, b: 38 },           // #dc2626
-  '🎤 Speech Recognition': { r: 234, g: 88, b: 12 }, // #ea580c
   '👥 Group Projects': { r: 0, g: 180, b: 194 },     // #00b4c2
   '⚡ N8N Automation': { r: 219, g: 39, b: 119 },    // #db2777
   '🪐 Physics Simulation': { r: 13, g: 148, b: 136 } // #0d9488
@@ -1478,8 +1470,6 @@ function normalizeCategoryName(category?: string): string | undefined {
     '📊 Data Analysis': '📊 Data Analysis',
     'Robotics': '🦾 Robotics',
     '🦾 Robotics': '🦾 Robotics',
-    'Speech Recognition': '🎤 Speech Recognition',
-    '🎤 Speech Recognition': '🎤 Speech Recognition',
     'Group Projects': '👥 Group Projects',
     '👥 Group Projects': '👥 Group Projects',
     'n8n Automation': '⚡ N8N Automation',
@@ -1679,7 +1669,6 @@ function GanttChart() {
     "Generative AI": "#6e40c9",        // 🤖 Violet
     "Neural Networks": "#2563eb",      // 🧠 Bleu
     "Reinforcement Learning": "#16a34a", // 🎮 Vert (RL global)
-    "Speech Recognition": "#ea580c",   // 🎤 Orange-Rouge
     "Robotics": "#dc2626",             // 🦾 Rouge
     "Games": "#0891b2",                // 🕹 Cyan
     "Physics Simulation": "#0d9488",   // 🪐 Teal
@@ -1713,7 +1702,7 @@ function GanttChart() {
     { name: "Driving AI - GA", start: "2025-01-09", end: "2025-09-28", category: "Reinforcement Learning", year: "4th year" },
     { name: "Attraction/Repulsion", start: "2025-01-23", end: "2025-01-29", category: "Physics Simulation", year: "4th year" },
     { name: "Image Generator - GAN", start: "2025-02-22", end: "2025-09-24", category: "Generative AI", year: "4th year" },
-    { name: "ASR", start: "2025-04-12", end: "2025-06-11", category: "Speech Recognition", year: "4th year" },
+    { name: "ASR", start: "2025-04-12", end: "2025-06-11", category: "Neural Networks", year: "4th year" },
     { name: "2D Muscular Sim.", start: "2025-10-24", end: "2025-12-24", category: "Physics Simulation", year: "4th year" },
     { name: "Human Sandbox", start: "2025-06-27", end: "2025-07-21", category: "Games", year: "4th year" },
     { name: "WhatsApp AI", start: "2025-07-11", end: "2025-07-24", category: "n8n Automation", year: "4th year" },
@@ -1797,7 +1786,6 @@ function GanttChart() {
     "Generative AI",
     "Neural Networks",
     "Reinforcement Learning",
-    "Speech Recognition",
     "Robotics",
     // Projets Annexes
     "Games",
