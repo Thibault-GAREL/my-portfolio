@@ -78,7 +78,7 @@ export default function Home() {
             <img
               src="https://github.com/Thibault-GAREL.png"
               alt="Thibault GAREL"
-              className="w-32 h-32 rounded-full border-4 border-streamlit-border dark:border-[#444c56] shadow-lg dark:shadow-[0_8px_16px_rgba(0,0,0,0.4)]"
+              className="w-40 h-40 rounded-full border-4 border-streamlit-border dark:border-[#444c56] shadow-lg dark:shadow-[0_8px_16px_rgba(0,0,0,0.4)]"
             />
             <div className="text-center">
               <h1 className="text-3xl sm:text-5xl font-bold text-streamlit-text dark:text-[#cdd9e5] mb-4">
