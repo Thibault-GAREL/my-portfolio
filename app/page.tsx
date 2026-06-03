@@ -426,12 +426,20 @@ export default function Home() {
               {/* Code links - column on mobile and desktop */}
               <div className="flex flex-col gap-3 justify-center">
                 <a
-                  href="https://github.com/Thibault-GAREL"
+                  href="https://github.com/Thibault-GAREL/ILab_Hackathon-Resiliant_AI-test"
                   target="_blank"
                   rel="noopener noreferrer"
                   className="bg-white dark:bg-[#2d333b] px-3 lg:px-4 py-2 lg:py-3 rounded-lg border border-streamlit-border dark:border-[#444c56] text-blue-600 dark:text-[#539bf5] hover:bg-blue-50 dark:hover:bg-[#316dca20] transition-colors text-center text-sm lg:text-base"
                 >
-                  🐱 Code (Coming Soon)
+                  🐱 Test Repo
+                </a>
+                <a
+                  href="https://github.com/Thibault-GAREL/ILab_Hackathon-Resiliant_AI-Dataset_unifi-Benchmark"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="bg-white dark:bg-[#2d333b] px-3 lg:px-4 py-2 lg:py-3 rounded-lg border border-streamlit-border dark:border-[#444c56] text-blue-600 dark:text-[#539bf5] hover:bg-blue-50 dark:hover:bg-[#316dca20] transition-colors text-center text-sm lg:text-base"
+                >
+                  🐱 Dataset & Benchmark
                 </a>
               </div>
             </div>
