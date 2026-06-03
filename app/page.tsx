@@ -1639,19 +1639,19 @@ function ProjectCard({
         </div>
       )}
       <div className="flex-1 min-w-0">
-        <div className="flex items-start justify-between gap-2 mb-2">
-          <h4 className="text-lg font-semibold text-streamlit-text dark:text-[#cdd9e5] group-hover:text-blue-600 dark:group-hover:text-[#539bf5] flex-1">
-            {project.name}
-          </h4>
-          {/* Category Badge with Gradient */}
+        <div className="flex flex-col items-center md:flex-row md:items-start md:justify-between gap-2 mb-2">
+          {/* Category Badge with Gradient - shown first on mobile, last on desktop */}
           {project.category && (
             <span
-              className="inline-block px-3 py-1 rounded-full text-xs font-semibold text-streamlit-text dark:text-[#cdd9e5] flex-shrink-0"
+              className="inline-block px-3 py-1 rounded-full text-xs font-semibold text-streamlit-text dark:text-[#cdd9e5] md:flex-shrink-0 md:order-2"
               style={getCategoryGradientStyle(project.category, isDark)}
             >
               {normalizeCategoryName(project.category) || project.category}
             </span>
           )}
+          <h4 className="text-lg font-semibold text-streamlit-text dark:text-[#cdd9e5] group-hover:text-blue-600 dark:group-hover:text-[#539bf5] text-center md:text-left md:flex-1 md:order-1">
+            {project.name}
+          </h4>
         </div>
 
         <p className="text-gray-600 dark:text-[#768390] text-sm mb-3">{project.description}</p>
