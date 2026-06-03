@@ -973,7 +973,7 @@ function ProjectsByCategory() {
             name: "Gravity & Relativity",
             description: "Newton vs General Relativity (Schwarzschild): Mercury precession, light deflection",
             link: "https://github.com/Thibault-GAREL/simulation_gravity-general_relativity",
-            image: "https://raw.githubusercontent.com/Thibault-GAREL/simulation_gravity-general_relativity/main/assets/hero.gif",
+            image: "https://media.githubusercontent.com/media/Thibault-GAREL/simulation_gravity-general_relativity/main/assets/hero.gif",
             date: "May 2026",
             year: "4th year"
           }
@@ -1200,7 +1200,7 @@ function ProjectsByDate() {
       name: "Gravity & Relativity",
       description: "Newton vs General Relativity (Schwarzschild): Mercury precession, light deflection",
       link: "https://github.com/Thibault-GAREL/simulation_gravity-general_relativity",
-      image: "https://raw.githubusercontent.com/Thibault-GAREL/simulation_gravity-general_relativity/main/assets/hero.gif",
+      image: "https://media.githubusercontent.com/media/Thibault-GAREL/simulation_gravity-general_relativity/main/assets/hero.gif",
       date: "May 2026",
       year: "4th year",
       category: "Physics Simulation"
