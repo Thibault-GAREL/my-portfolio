@@ -554,6 +554,17 @@ export default function Home() {
           </div>
 
           <div className="flex justify-center mb-6">
+            <picture>
+              <source media="(prefers-color-scheme: dark)" srcSet="https://streak-stats.demolab.com?user=Thibault-GAREL&theme=tokyonight&hide_border=true" />
+              <img
+                src="https://streak-stats.demolab.com?user=Thibault-GAREL&theme=transparent&hide_border=true"
+                alt="GitHub Streak"
+                height="180"
+              />
+            </picture>
+          </div>
+
+          <div className="flex justify-center mb-6">
             <img
               src="https://github-profile-summary-cards-kappa.vercel.app/api/cards/profile-details?username=Thibault-GAREL&theme=transparent"
               alt="Profile Details"
