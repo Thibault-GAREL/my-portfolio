@@ -1107,15 +1107,6 @@ function ProjectsByDate() {
       category: "Neural Networks"
     },
     {
-      name: "2D Muscular Simulation",
-      description: "2D muscular physics simulation with Box2D",
-      link: "https://github.com/Thibault-GAREL/2D-Muscular-Simulation",
-      image: "https://raw.githubusercontent.com/Thibault-GAREL/Thibault-GAREL/main/Logo_Featured_Projects/physics_muscular_simulation.png",
-      date: "Oct - Dec 2025",
-      year: "4th year",
-      category: "Physics Simulation"
-    },
-    {
       name: "Human Sandbox",
       description: "Natural Selection Simulation Engine",
       link: "https://github.com/Thibault-GAREL/human_sandbox",
@@ -1170,42 +1161,6 @@ function ProjectsByDate() {
       category: "Generative AI"
     },
     {
-      name: "ISS Analysis with Spark",
-      description: "Real-time ISS data analysis using Apache Spark",
-      link: "https://github.com/Thibault-GAREL/ISS_Analysis_Spark",
-      image: "https://raw.githubusercontent.com/Thibault-GAREL/ISS_Analysis_Spark/master/Img/ISS-img.jpg",
-      date: "Nov - Dec 2025",
-      year: "4th year",
-      category: "Data Analysis"
-    },
-    {
-      name: "CLIP Embedding Tools",
-      description: "Opposite Embedding Finder and Embedding Arithmetic",
-      link: "https://github.com/Thibault-GAREL/CLIP_Embedding_Tools",
-      image: "https://raw.githubusercontent.com/Thibault-GAREL/CLIP_Embedding_Tools/main/img/Logo-Embedding_Tools.png",
-      date: "Dec 2025",
-      year: "4th year",
-      category: "Generative AI"
-    },
-    {
-      name: "Fine-tuning LoRA Stable Diffusion",
-      description: "Fine-tuning Stable Diffusion 1.5 with LoRA on 15 hand-drawn chibi self-portraits. Trained on RunPod for under 1 €.",
-      link: "https://github.com/Thibault-GAREL/ILab_Formation_Fine-tuning",
-      image: "https://raw.githubusercontent.com/Thibault-GAREL/ILab_Formation_Fine-tuning/main/data/1-raw/my_drawings/Capture%20Bienvenu.PNG",
-      date: "May 2026",
-      year: "4th year",
-      category: "Generative AI"
-    },
-    {
-      name: "Gravity & Relativity",
-      description: "Newton vs General Relativity (Schwarzschild): Mercury precession, light deflection",
-      link: "https://github.com/Thibault-GAREL/simulation_gravity-general_relativity",
-      image: "https://media.githubusercontent.com/media/Thibault-GAREL/simulation_gravity-general_relativity/main/assets/hero.gif",
-      date: "May 2026",
-      year: "4th year",
-      category: "Physics Simulation"
-    },
-    {
       name: "Walking AI - Genetic Algorithm",
       description: "AI learning to walk with complete physics engine (Box2D)",
       link: "https://github.com/Thibault-GAREL/Quadruped-AI",
@@ -1213,6 +1168,24 @@ function ProjectsByDate() {
       date: "Oct - Dec 2025",
       year: "4th year",
       category: "Genetic Algorithm"
+    },
+    {
+      name: "2D Muscular Simulation",
+      description: "2D muscular physics simulation with Box2D",
+      link: "https://github.com/Thibault-GAREL/2D-Muscular-Simulation",
+      image: "https://raw.githubusercontent.com/Thibault-GAREL/Thibault-GAREL/main/Logo_Featured_Projects/physics_muscular_simulation.png",
+      date: "Oct - Dec 2025",
+      year: "4th year",
+      category: "Physics Simulation"
+    },
+    {
+      name: "ISS Analysis with Spark",
+      description: "Real-time ISS data analysis using Apache Spark",
+      link: "https://github.com/Thibault-GAREL/ISS_Analysis_Spark",
+      image: "https://raw.githubusercontent.com/Thibault-GAREL/ISS_Analysis_Spark/master/Img/ISS-img.jpg",
+      date: "Nov - Dec 2025",
+      year: "4th year",
+      category: "Data Analysis"
     },
     {
       name: "StarCraft 2 AI (VLM + RL)",
@@ -1223,6 +1196,15 @@ function ProjectsByDate() {
       date: "Nov 2025 - Jan 2026",
       year: "4th year",
       category: "PPO"
+    },
+    {
+      name: "CLIP Embedding Tools",
+      description: "Opposite Embedding Finder and Embedding Arithmetic",
+      link: "https://github.com/Thibault-GAREL/CLIP_Embedding_Tools",
+      image: "https://raw.githubusercontent.com/Thibault-GAREL/CLIP_Embedding_Tools/main/img/Logo-Embedding_Tools.png",
+      date: "Dec 2025",
+      year: "4th year",
+      category: "Generative AI"
     },
     {
       name: "Snake AI - Deep Q-Learning",
@@ -1241,6 +1223,24 @@ function ProjectsByDate() {
       date: "Mar - Apr 2026",
       year: "4th year",
       category: "PPO"
+    },
+    {
+      name: "Fine-tuning LoRA Stable Diffusion",
+      description: "Fine-tuning Stable Diffusion 1.5 with LoRA on 15 hand-drawn chibi self-portraits. Trained on RunPod for under 1 €.",
+      link: "https://github.com/Thibault-GAREL/ILab_Formation_Fine-tuning",
+      image: "https://raw.githubusercontent.com/Thibault-GAREL/ILab_Formation_Fine-tuning/main/data/1-raw/my_drawings/Capture%20Bienvenu.PNG",
+      date: "May 2026",
+      year: "4th year",
+      category: "Generative AI"
+    },
+    {
+      name: "Gravity & Relativity",
+      description: "Newton vs General Relativity (Schwarzschild): Mercury precession, light deflection",
+      link: "https://github.com/Thibault-GAREL/simulation_gravity-general_relativity",
+      image: "https://media.githubusercontent.com/media/Thibault-GAREL/simulation_gravity-general_relativity/main/assets/hero.gif",
+      date: "May 2026",
+      year: "4th year",
+      category: "Physics Simulation"
     }
   ]
 
