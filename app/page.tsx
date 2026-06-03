@@ -74,18 +74,18 @@ export default function Home() {
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-12">
         {/* Hero Section */}
         <section className="mb-16">
-          <div className="flex flex-col sm:flex-row items-center gap-6 mb-6">
+          <div className="flex flex-col items-center gap-6 mb-6">
             <img
               src="https://github.com/Thibault-GAREL.png"
               alt="Thibault GAREL"
               className="w-32 h-32 rounded-full border-4 border-streamlit-border dark:border-[#444c56] shadow-lg dark:shadow-[0_8px_16px_rgba(0,0,0,0.4)]"
             />
-            <div className="text-center sm:text-left">
+            <div className="text-center">
               <h1 className="text-3xl sm:text-5xl font-bold text-streamlit-text dark:text-[#cdd9e5] mb-4">
                 Hi! My name is Thibault GAREL
               </h1>
               {/* Contact Links */}
-              <div className="flex flex-wrap justify-center sm:justify-start gap-3 sm:gap-4">
+              <div className="flex flex-wrap justify-center gap-3 sm:gap-4">
                 <a
                   href="https://www.linkedin.com/in/thibaultgarel/"
                   target="_blank"
@@ -120,7 +120,7 @@ export default function Home() {
             </div>
           </div>
 
-          <div className="text-xl text-gray-700 dark:text-[#adbac7] mb-6 leading-relaxed">
+          <div className="text-xl text-gray-700 dark:text-[#adbac7] mb-6 leading-relaxed text-center">
             <p className="mb-4">
               I am currently in my 4th year at <strong>ECE</strong>, an engineering school,
               where I am pursuing a Major in <strong>Data & AI</strong>.
@@ -130,7 +130,7 @@ export default function Home() {
               Since 2023, I've been building personal projects mostly on <strong>AI</strong> 🤖.
             </p>
 
-            <div className="mb-6 flex flex-col sm:flex-row items-center gap-4">
+            <div className="mb-6 flex flex-col items-center gap-4">
               <span>I'm an AI maker at</span>
               <div className="flex flex-col sm:flex-row items-center gap-3 bg-streamlit-secondary dark:bg-[#2d333b] px-4 py-3 rounded-lg border border-streamlit-border dark:border-[#444c56]">
                 <div className="flex items-center gap-3">
