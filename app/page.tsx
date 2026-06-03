@@ -562,13 +562,6 @@ export default function Home() {
               />
             </picture>
           </div>
-
-          <div className="flex justify-center">
-            <img
-              src="https://komarev.com/ghpvc/?username=Thibault-GAREL&label=Profile%20Views&color=0e75b6&style=flat"
-              alt="Profile Views"
-            />
-          </div>
         </section>
 
         {/* Footer */}
@@ -617,6 +610,12 @@ export default function Home() {
               >
                 📬 Contact
               </a>
+            </div>
+            <div className="flex justify-center mt-6">
+              <img
+                src="https://komarev.com/ghpvc/?username=Thibault-GAREL&label=Profile%20Views&color=0e75b6&style=flat"
+                alt="Profile Views"
+              />
             </div>
           </div>
         </footer>
