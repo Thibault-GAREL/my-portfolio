@@ -699,7 +699,7 @@ function ProjectsByCategory() {
 
         {/* Decision Tree */}
         <div className="mb-8">
-          <h4 className="text-xl font-semibold mb-4 ml-4 flex items-center gap-2" style={{ color: '#22c55e' }}>
+          <h4 className="text-xl font-semibold mb-4 flex items-center justify-center gap-2" style={{ color: '#22c55e' }}>
             <div className="w-2 h-2 rounded-full flex-shrink-0" style={{ backgroundColor: '#22c55e' }}></div>
             🌳 Decision Tree
           </h4>
@@ -721,7 +721,7 @@ function ProjectsByCategory() {
 
         {/* Genetic Algorithm */}
         <div className="mb-8">
-          <h4 className="text-xl font-semibold mb-4 ml-4 flex items-center gap-2" style={{ color: '#16a34a' }}>
+          <h4 className="text-xl font-semibold mb-4 flex items-center justify-center gap-2" style={{ color: '#16a34a' }}>
             <div className="w-2 h-2 rounded-full flex-shrink-0" style={{ backgroundColor: '#16a34a' }}></div>
             🧬 Genetic Algorithm
           </h4>
@@ -759,7 +759,7 @@ function ProjectsByCategory() {
 
         {/* Q-Learning */}
         <div className="mb-8">
-          <h4 className="text-xl font-semibold mb-4 ml-4 flex items-center gap-2" style={{ color: '#10b981' }}>
+          <h4 className="text-xl font-semibold mb-4 flex items-center justify-center gap-2" style={{ color: '#10b981' }}>
             <div className="w-2 h-2 rounded-full flex-shrink-0" style={{ backgroundColor: '#10b981' }}></div>
             📈 Q-Learning
           </h4>
@@ -797,7 +797,7 @@ function ProjectsByCategory() {
 
         {/* PPO */}
         <div className="mb-8">
-          <h4 className="text-xl font-semibold mb-4 ml-4 flex items-center gap-2" style={{ color: '#059669' }}>
+          <h4 className="text-xl font-semibold mb-4 flex items-center justify-center gap-2" style={{ color: '#059669' }}>
             <div className="w-2 h-2 rounded-full flex-shrink-0" style={{ backgroundColor: '#059669' }}></div>
             🎯 PPO
           </h4>
@@ -828,7 +828,7 @@ function ProjectsByCategory() {
 
         {/* Unity ML-Agents */}
         <div className="mb-8">
-          <h4 className="text-xl font-semibold mb-4 ml-4 flex items-center gap-2" style={{ color: '#0f766e' }}>
+          <h4 className="text-xl font-semibold mb-4 flex items-center justify-center gap-2" style={{ color: '#0f766e' }}>
             <div className="w-2 h-2 rounded-full flex-shrink-0" style={{ backgroundColor: '#0f766e' }}></div>
             🎮 Unity ML-Agents
           </h4>
@@ -1401,7 +1401,7 @@ function ProjectCategory({
   return (
     <div className="mb-10">
       <h3
-        className="text-2xl font-bold mb-4 flex items-center gap-3"
+        className="text-2xl font-bold mb-4 flex items-center justify-center gap-3"
         style={titleStyle}
       >
         {color && (
@@ -1594,7 +1594,7 @@ function ProjectCard({
       <div className="flex-1 min-w-0">
         {/* Category Badge with Gradient */}
         {project.category && (
-          <div className="mb-2">
+          <div className="mb-2 text-center">
             <span
               className="inline-block px-3 py-1 rounded-full text-xs font-semibold text-streamlit-text dark:text-[#cdd9e5]"
               style={getCategoryGradientStyle(project.category, isDark)}
