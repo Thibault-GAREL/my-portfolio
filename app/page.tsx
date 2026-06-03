@@ -968,6 +968,14 @@ function ProjectsByCategory() {
             image: "https://raw.githubusercontent.com/Thibault-GAREL/Thibault-GAREL/main/Logo_Featured_Projects/physics_muscular_simulation.png",
             date: "Oct - Dec 2025",
             year: "4th year"
+          },
+          {
+            name: "Gravity & Relativity",
+            description: "Newton vs General Relativity (Schwarzschild): Mercury precession, light deflection",
+            link: "https://github.com/Thibault-GAREL/simulation_gravity-general_relativity",
+            image: "https://raw.githubusercontent.com/Thibault-GAREL/simulation_gravity-general_relativity/main/assets/hero.gif",
+            date: "May 2026",
+            year: "4th year"
           }
         ]}
       />
@@ -1187,6 +1195,15 @@ function ProjectsByDate() {
       date: "May 2026",
       year: "4th year",
       category: "Generative AI"
+    },
+    {
+      name: "Gravity & Relativity",
+      description: "Newton vs General Relativity (Schwarzschild): Mercury precession, light deflection",
+      link: "https://github.com/Thibault-GAREL/simulation_gravity-general_relativity",
+      image: "https://raw.githubusercontent.com/Thibault-GAREL/simulation_gravity-general_relativity/main/assets/hero.gif",
+      date: "May 2026",
+      year: "4th year",
+      category: "Physics Simulation"
     },
     {
       name: "Walking AI - Genetic Algorithm",
@@ -1715,7 +1732,8 @@ function GanttChart() {
     { name: "ISS Analysis", start: "2025-11-12", end: "2025-12-21", category: "Data Analysis", year: "4th year" },
     { name: "CLIP Embedding Tools", start: "2025-12-25", end: "2025-12-27", category: "Generative AI", year: "4th year" },
     { name: "Snake AI - PPO", start: "2026-03-23", end: "2026-04-07", category: "Reinforcement Learning", year: "4th year" },
-    { name: "Fine-tuning LoRA Stable Diffusion", start: "2026-05-12", end: "2026-05-15", category: "Generative AI", year: "4th year" }
+    { name: "Fine-tuning LoRA Stable Diffusion", start: "2026-05-12", end: "2026-05-15", category: "Generative AI", year: "4th year" },
+    { name: "Gravity & Relativity", start: "2026-05-16", end: "2026-05-31", category: "Physics Simulation", year: "4th year" }
   ]
 
   // Sort projects by start date (oldest first for display from top to bottom)
