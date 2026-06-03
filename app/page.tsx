@@ -1814,7 +1814,7 @@ function GanttChart() {
                     top: '0px'
                   }}
                 >
-                  <span className="text-sm font-bold text-streamlit-text dark:text-[#cdd9e5]">{period.label}</span>
+                  <span className="text-sm font-bold text-gray-800">{period.label}</span>
                 </div>
               )
             })}
