@@ -1216,6 +1216,15 @@ function ProjectsByDate() {
       category: "Q-Learning"
     },
     {
+      name: "Snake AI - Decision Tree",
+      description: "Snake game AI using a Decision Tree",
+      link: "https://github.com/Thibault-GAREL/AI_snake_decision_tree_version",
+      image: "https://raw.githubusercontent.com/Thibault-GAREL/AI_snake_decision_tree_version/main/img/Snake_arbre_de_decision-Score_31.gif",
+      date: "Mar - Apr 2026",
+      year: "4th year",
+      category: "Decision Tree"
+    },
+    {
       name: "Snake AI - PPO",
       description: "Snake game AI using Proximal Policy Optimization",
       link: "https://github.com/Thibault-GAREL/AI_snake_PPO_version",
@@ -1263,20 +1272,29 @@ function ProjectsByDate() {
       date: "Aug - Oct 2024",
       year: "3rd year",
       category: "Genetic Algorithm"
-    },
-    {
-      name: "Snake AI - Decision Tree",
-      description: "Snake game AI using a Decision Tree",
-      link: "https://github.com/Thibault-GAREL/AI_snake_decision_tree_version",
-      image: "https://raw.githubusercontent.com/Thibault-GAREL/AI_snake_decision_tree_version/main/img/Snake_arbre_de_decision-Score_31.gif",
-      date: "Mar - Apr 2026",
-      year: "4th year",
-      category: "Decision Tree"
     }
   ]
 
   // 2nd year projects
   const secondYearProjects = [
+    {
+      name: "Maze - Asterix & Obélix",
+      description: "Maze game with BFS pathfinding (C + Allegro 5)",
+      link: "https://github.com/Thibault-GAREL/Game_maze_Asterix-Obelix",
+      image: "https://raw.githubusercontent.com/Thibault-GAREL/Game_maze_Asterix-Obelix/main/img/menu_screen.png",
+      date: "Dec 2022 - Jan 2023",
+      year: "2nd year",
+      category: "Games"
+    },
+    {
+      name: "Star Wars - ECE World",
+      description: "Star Wars minigames in an open world (C++)",
+      link: "https://github.com/Thibault-GAREL/Game_ECE_World_Minigame",
+      image: "https://raw.githubusercontent.com/Thibault-GAREL/Game_ECE_World_Minigame/main/img/Menu.png",
+      date: "Apr - May 2023",
+      year: "2nd year",
+      category: "Games"
+    },
     {
       name: "Gravity Simulation 2D",
       description: "2D gravity and orbital mechanics simulation",
@@ -1291,27 +1309,9 @@ function ProjectsByDate() {
       description: "Q-Learning algorithm to find optimal paths",
       link: "https://github.com/Thibault-GAREL/Q-Learning",
       image: "https://raw.githubusercontent.com/Thibault-GAREL/Q-Learning/main/img/Gif-DQN.gif",
-      date: "Sep 2023",
+      date: "Aug - Oct 2023",
       year: "2nd year",
       category: "Q-Learning"
-    },
-    {
-      name: "Star Wars - ECE World",
-      description: "Star Wars minigames in an open world (C++)",
-      link: "https://github.com/Thibault-GAREL/Game_ECE_World_Minigame",
-      image: "https://raw.githubusercontent.com/Thibault-GAREL/Game_ECE_World_Minigame/main/img/Menu.png",
-      date: "Jan - Jun 2024",
-      year: "2nd year",
-      category: "Games"
-    },
-    {
-      name: "Maze - Asterix & Obélix",
-      description: "Maze game with BFS pathfinding (C + Allegro 5)",
-      link: "https://github.com/Thibault-GAREL/Game_maze_Asterix-Obelix",
-      image: "https://raw.githubusercontent.com/Thibault-GAREL/Game_maze_Asterix-Obelix/main/img/menu_screen.png",
-      date: "Jan - Jun 2024",
-      year: "2nd year",
-      category: "Games"
     }
   ]
 
