@@ -531,32 +531,64 @@ export default function Home() {
           </h2>
 
           <div className="flex flex-col md:flex-row gap-1 justify-center mb-6">
-            <img
-              src="https://github-readme-stats-fawn-mu-32.vercel.app/api?username=Thibault-GAREL&show_icons=true&theme=transparent&hide_border=true"
-              alt="GitHub Stats"
-              height="180"
-            />
-            <img
-              src="https://github-profile-summary-cards-kappa.vercel.app/api/cards/most-commit-language?username=Thibault-GAREL&theme=transparent"
-              alt="Most Used Languages"
-              height="180"
-            />
+            <div>
+              <img
+                src="https://github-readme-stats-fawn-mu-32.vercel.app/api?username=Thibault-GAREL&show_icons=true&theme=dark&hide_border=true&bg_color=00000000&text_color=cdd9e5&icon_color=539bf5&title_color=539bf5"
+                alt="GitHub Stats"
+                height="180"
+                className="hidden dark:block"
+              />
+              <img
+                src="https://github-readme-stats-fawn-mu-32.vercel.app/api?username=Thibault-GAREL&show_icons=true&theme=transparent&hide_border=true"
+                alt="GitHub Stats"
+                height="180"
+                className="block dark:hidden"
+              />
+            </div>
+            <div>
+              <img
+                src="https://github-profile-summary-cards-kappa.vercel.app/api/cards/most-commit-language?username=Thibault-GAREL&theme=github_dark"
+                alt="Most Used Languages"
+                height="180"
+                className="hidden dark:block"
+              />
+              <img
+                src="https://github-profile-summary-cards-kappa.vercel.app/api/cards/most-commit-language?username=Thibault-GAREL&theme=transparent"
+                alt="Most Used Languages"
+                height="180"
+                className="block dark:hidden"
+              />
+            </div>
           </div>
 
           <div className="flex justify-center mb-6">
-            <img
-              src="https://streak-stats.demolab.com?user=Thibault-GAREL&theme=transparent&hide_border=true"
-              alt="GitHub Streak"
-              className="w-full max-w-3xl"
-            />
+            <div className="w-full max-w-3xl">
+              <img
+                src="https://streak-stats.demolab.com?user=Thibault-GAREL&theme=dark&hide_border=true&background=00000000&ring=539bf5&fire=539bf5&currStreakLabel=cdd9e5&sideNums=cdd9e5&currStreakNum=cdd9e5&dates=768390&sideLabels=768390"
+                alt="GitHub Streak"
+                className="w-full hidden dark:block"
+              />
+              <img
+                src="https://streak-stats.demolab.com?user=Thibault-GAREL&theme=transparent&hide_border=true"
+                alt="GitHub Streak"
+                className="w-full block dark:hidden"
+              />
+            </div>
           </div>
 
           <div className="flex justify-center mb-6">
-            <img
-              src="https://github-profile-summary-cards-kappa.vercel.app/api/cards/profile-details?username=Thibault-GAREL&theme=transparent"
-              alt="Profile Details"
-              className="w-full max-w-3xl"
-            />
+            <div className="w-full max-w-3xl">
+              <img
+                src="https://github-profile-summary-cards-kappa.vercel.app/api/cards/profile-details?username=Thibault-GAREL&theme=github_dark"
+                alt="Profile Details"
+                className="w-full hidden dark:block"
+              />
+              <img
+                src="https://github-profile-summary-cards-kappa.vercel.app/api/cards/profile-details?username=Thibault-GAREL&theme=transparent"
+                alt="Profile Details"
+                className="w-full block dark:hidden"
+              />
+            </div>
           </div>
         </section>
 
