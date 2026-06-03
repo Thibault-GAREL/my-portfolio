@@ -555,21 +555,6 @@ export default function Home() {
 
           <div className="flex justify-center mb-6">
             <img
-              src="https://streak-stats.demolab.com?user=Thibault-GAREL&theme=transparent&hide_border=true"
-              alt="GitHub Streak"
-              className="dark:hidden"
-              height="180"
-            />
-            <img
-              src="https://streak-stats.demolab.com?user=Thibault-GAREL&theme=tokyonight&hide_border=true"
-              alt="GitHub Streak"
-              className="hidden dark:block"
-              height="180"
-            />
-          </div>
-
-          <div className="flex justify-center mb-6">
-            <img
               src="https://github-profile-summary-cards-kappa.vercel.app/api/cards/profile-details?username=Thibault-GAREL&theme=transparent"
               alt="Profile Details"
               className="dark:hidden w-full max-w-4xl"
