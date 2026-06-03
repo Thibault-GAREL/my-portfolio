@@ -522,7 +522,7 @@ export default function Home() {
             📊 My GitHub Statistics
           </h2>
 
-          <div className="grid grid-cols-1 md:grid-cols-2 gap-6 mb-6">
+          <div className="grid grid-cols-1 md:grid-cols-2 gap-2 mb-6">
             <div className="flex justify-center">
               <picture>
                 <source media="(prefers-color-scheme: dark)" srcSet="https://github-readme-stats-fawn-mu-32.vercel.app/api?username=Thibault-GAREL&show_icons=true&theme=tokyonight&hide_border=true" />
@@ -546,23 +546,23 @@ export default function Home() {
           </div>
 
           <div className="flex justify-center mb-6">
-            <picture>
+            <picture className="w-full max-w-4xl">
               <source media="(prefers-color-scheme: dark)" srcSet="https://streak-stats.demolab.com?user=Thibault-GAREL&theme=tokyonight&hide_border=true" />
               <img
                 src="https://streak-stats.demolab.com?user=Thibault-GAREL&theme=transparent&hide_border=true"
                 alt="GitHub Streak"
-                height="180"
+                className="w-full"
               />
             </picture>
           </div>
 
           <div className="flex justify-center mb-6">
-            <picture>
+            <picture className="w-full max-w-4xl">
               <source media="(prefers-color-scheme: dark)" srcSet="https://github-profile-summary-cards-kappa.vercel.app/api/cards/profile-details?username=Thibault-GAREL&theme=tokyonight" />
               <img
                 src="https://github-profile-summary-cards-kappa.vercel.app/api/cards/profile-details?username=Thibault-GAREL&theme=transparent"
                 alt="Profile Details"
-                className="w-full max-w-4xl"
+                className="w-full"
               />
             </picture>
           </div>
