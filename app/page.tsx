@@ -1733,7 +1733,7 @@ function GanttChart() {
     { name: "CLIP Embedding Tools", start: "2025-12-25", end: "2025-12-27", category: "Generative AI", year: "4th year" },
     { name: "Snake AI - PPO", start: "2026-03-23", end: "2026-04-07", category: "Reinforcement Learning", year: "4th year" },
     { name: "Fine-tuning LoRA Stable Diffusion", start: "2026-05-12", end: "2026-05-15", category: "Generative AI", year: "4th year" },
-    { name: "Gravity & Relativity", start: "2026-05-16", end: "2026-05-31", category: "Physics Simulation", year: "4th year" }
+    { name: "Gravity & Relativity", start: "2026-05-17", end: "2026-05-21", category: "Physics Simulation", year: "4th year" }
   ]
 
   // Sort projects by start date (oldest first for display from top to bottom)
