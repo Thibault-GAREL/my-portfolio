@@ -1650,7 +1650,7 @@ function SkillCategory({
   return (
     <div className="mb-6">
       <h3 className="text-xl font-bold text-streamlit-text dark:text-[#cdd9e5] mb-3">{title}</h3>
-      <div className="flex flex-wrap gap-3 items-center">
+      <div className="flex flex-wrap gap-3 items-center justify-center">
         {skills.map((skill) => (
           <div
             key={skill.name}
