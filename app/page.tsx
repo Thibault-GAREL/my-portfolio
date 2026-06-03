@@ -692,16 +692,18 @@ function ProjectsByCategory() {
 
       {/* Reinforcement Learning */}
       <div className="mb-10">
-        <h3 className="text-2xl font-bold mb-6 flex items-center gap-3" style={{ color: '#16a34a' }}>
-          <div className="w-3 h-3 rounded-full flex-shrink-0" style={{ backgroundColor: '#16a34a' }}></div>
-          Reinforcement Learning
+        <h3 className="text-2xl font-bold mb-6 flex items-center justify-center gap-3" style={{ color: '#16a34a' }}>
+          <div className="flex-1 h-0.5" style={{ backgroundColor: '#16a34a' }}></div>
+          <span className="px-4">Reinforcement Learning</span>
+          <div className="flex-1 h-0.5" style={{ backgroundColor: '#16a34a' }}></div>
         </h3>
 
         {/* Decision Tree */}
         <div className="mb-8">
           <h4 className="text-xl font-semibold mb-4 flex items-center justify-center gap-2" style={{ color: '#22c55e' }}>
-            <div className="w-2 h-2 rounded-full flex-shrink-0" style={{ backgroundColor: '#22c55e' }}></div>
-            🌳 Decision Tree
+            <div className="flex-1 h-0.5" style={{ backgroundColor: '#22c55e' }}></div>
+            <span className="px-4">🌳 Decision Tree</span>
+            <div className="flex-1 h-0.5" style={{ backgroundColor: '#22c55e' }}></div>
           </h4>
           <div className="grid gap-4 md:grid-cols-2">
             {[
@@ -722,8 +724,9 @@ function ProjectsByCategory() {
         {/* Genetic Algorithm */}
         <div className="mb-8">
           <h4 className="text-xl font-semibold mb-4 flex items-center justify-center gap-2" style={{ color: '#16a34a' }}>
-            <div className="w-2 h-2 rounded-full flex-shrink-0" style={{ backgroundColor: '#16a34a' }}></div>
-            🧬 Genetic Algorithm
+            <div className="flex-1 h-0.5" style={{ backgroundColor: '#16a34a' }}></div>
+            <span className="px-4">🧬 Genetic Algorithm</span>
+            <div className="flex-1 h-0.5" style={{ backgroundColor: '#16a34a' }}></div>
           </h4>
           <div className="grid gap-4 md:grid-cols-2">
             {[
@@ -760,8 +763,9 @@ function ProjectsByCategory() {
         {/* Q-Learning */}
         <div className="mb-8">
           <h4 className="text-xl font-semibold mb-4 flex items-center justify-center gap-2" style={{ color: '#10b981' }}>
-            <div className="w-2 h-2 rounded-full flex-shrink-0" style={{ backgroundColor: '#10b981' }}></div>
-            📈 Q-Learning
+            <div className="flex-1 h-0.5" style={{ backgroundColor: '#10b981' }}></div>
+            <span className="px-4">📈 Q-Learning</span>
+            <div className="flex-1 h-0.5" style={{ backgroundColor: '#10b981' }}></div>
           </h4>
           <div className="grid gap-4 md:grid-cols-2">
             {[
@@ -798,8 +802,9 @@ function ProjectsByCategory() {
         {/* PPO */}
         <div className="mb-8">
           <h4 className="text-xl font-semibold mb-4 flex items-center justify-center gap-2" style={{ color: '#059669' }}>
-            <div className="w-2 h-2 rounded-full flex-shrink-0" style={{ backgroundColor: '#059669' }}></div>
-            🎯 PPO
+            <div className="flex-1 h-0.5" style={{ backgroundColor: '#059669' }}></div>
+            <span className="px-4">🎯 PPO</span>
+            <div className="flex-1 h-0.5" style={{ backgroundColor: '#059669' }}></div>
           </h4>
           <div className="grid gap-4 md:grid-cols-2">
             {[
@@ -829,8 +834,9 @@ function ProjectsByCategory() {
         {/* Unity ML-Agents */}
         <div className="mb-8">
           <h4 className="text-xl font-semibold mb-4 flex items-center justify-center gap-2" style={{ color: '#0f766e' }}>
-            <div className="w-2 h-2 rounded-full flex-shrink-0" style={{ backgroundColor: '#0f766e' }}></div>
-            🎮 Unity ML-Agents
+            <div className="flex-1 h-0.5" style={{ backgroundColor: '#0f766e' }}></div>
+            <span className="px-4">🎮 Unity ML-Agents</span>
+            <div className="flex-1 h-0.5" style={{ backgroundColor: '#0f766e' }}></div>
           </h4>
           <div className="grid gap-4 md:grid-cols-2">
             {[
@@ -1406,11 +1412,17 @@ function ProjectCategory({
       >
         {color && (
           <div
-            className="w-3 h-3 rounded-full flex-shrink-0"
+            className="flex-1 h-0.5"
             style={{ backgroundColor: `rgb(${color.r},${color.g},${color.b})` }}
           />
         )}
-        {title}
+        <span className="px-4">{title}</span>
+        {color && (
+          <div
+            className="flex-1 h-0.5"
+            style={{ backgroundColor: `rgb(${color.r},${color.g},${color.b})` }}
+          />
+        )}
       </h3>
       <div className="grid gap-4 md:grid-cols-2">
         {projects.map((project) => (
