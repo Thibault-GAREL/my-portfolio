@@ -705,7 +705,7 @@ function ProjectsByCategory() {
             <span className="px-4">🌳 Decision Tree</span>
             <div className="flex-1 h-0.5" style={{ backgroundColor: '#22c55e' }}></div>
           </h4>
-          <div className="grid gap-4 md:grid-cols-2">
+          <div className="grid gap-4 md:grid-cols-2 justify-items-center">
             {[
               {
                 name: "Snake AI - Decision Tree",
@@ -728,7 +728,7 @@ function ProjectsByCategory() {
             <span className="px-4">🧬 Genetic Algorithm</span>
             <div className="flex-1 h-0.5" style={{ backgroundColor: '#16a34a' }}></div>
           </h4>
-          <div className="grid gap-4 md:grid-cols-2">
+          <div className="grid gap-4 md:grid-cols-2 justify-items-center">
             {[
               {
                 name: "Snake AI - Genetic Algorithm",
@@ -767,7 +767,7 @@ function ProjectsByCategory() {
             <span className="px-4">📈 Q-Learning</span>
             <div className="flex-1 h-0.5" style={{ backgroundColor: '#10b981' }}></div>
           </h4>
-          <div className="grid gap-4 md:grid-cols-2">
+          <div className="grid gap-4 md:grid-cols-2 justify-items-center">
             {[
               {
                 name: "Q-Learning Pathfinding",
@@ -806,7 +806,7 @@ function ProjectsByCategory() {
             <span className="px-4">🎯 PPO</span>
             <div className="flex-1 h-0.5" style={{ backgroundColor: '#059669' }}></div>
           </h4>
-          <div className="grid gap-4 md:grid-cols-2">
+          <div className="grid gap-4 md:grid-cols-2 justify-items-center">
             {[
               {
                 name: "Snake AI - PPO",
@@ -838,7 +838,7 @@ function ProjectsByCategory() {
             <span className="px-4">🎮 Unity ML-Agents</span>
             <div className="flex-1 h-0.5" style={{ backgroundColor: '#0f766e' }}></div>
           </h4>
-          <div className="grid gap-4 md:grid-cols-2">
+          <div className="grid gap-4 md:grid-cols-2 justify-items-center">
             {[
               {
                 name: "Unity AI - Movement",
@@ -1323,7 +1323,7 @@ function ProjectsByDate() {
       {/* 1st Year Projects */}
       <div className="mb-10">
         <h3 className="text-2xl font-bold text-streamlit-text dark:text-[#cdd9e5] mb-6">1st Year</h3>
-        <div className="grid gap-4 md:grid-cols-2">
+        <div className="grid gap-4 md:grid-cols-2 justify-items-center">
           {firstYearProjects.map((project) => (
             <ProjectCard key={project.name} project={project} />
           ))}
@@ -1333,7 +1333,7 @@ function ProjectsByDate() {
       {/* 2nd Year Projects */}
       <div className="mb-10">
         <h3 className="text-2xl font-bold text-streamlit-text dark:text-[#cdd9e5] mb-6">2nd Year</h3>
-        <div className="grid gap-4 md:grid-cols-2">
+        <div className="grid gap-4 md:grid-cols-2 justify-items-center">
           {secondYearProjects.map((project) => (
             <ProjectCard key={project.name} project={project} />
           ))}
@@ -1343,7 +1343,7 @@ function ProjectsByDate() {
       {/* 3rd Year Projects */}
       <div className="mb-10">
         <h3 className="text-2xl font-bold text-streamlit-text dark:text-[#cdd9e5] mb-6">3rd Year</h3>
-        <div className="grid gap-4 md:grid-cols-2">
+        <div className="grid gap-4 md:grid-cols-2 justify-items-center">
           {thirdYearProjects.map((project) => (
             <ProjectCard key={project.name} project={project} />
           ))}
@@ -1353,7 +1353,7 @@ function ProjectsByDate() {
       {/* 4th Year Projects */}
       <div className="mb-10">
         <h3 className="text-2xl font-bold text-streamlit-text dark:text-[#cdd9e5] mb-6">4th Year</h3>
-        <div className="grid gap-4 md:grid-cols-2">
+        <div className="grid gap-4 md:grid-cols-2 justify-items-center">
           {fourthYearProjects.map((project) => (
             <ProjectCard key={project.name} project={project} />
           ))}
@@ -1424,7 +1424,7 @@ function ProjectCategory({
           />
         )}
       </h3>
-      <div className="grid gap-4 md:grid-cols-2">
+      <div className="grid gap-4 md:grid-cols-2 justify-items-center">
         {projects.map((project) => (
           <ProjectCard key={project.name} project={{ ...project, category: title }} />
         ))}
