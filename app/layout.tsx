@@ -4,6 +4,11 @@ import './globals.css'
 export const metadata: Metadata = {
   title: 'Thibault GAREL - AI Engineer Portfolio | Data & AI Projects',
   description: 'Portfolio of Thibault GAREL, 4th year engineering student at ECE specializing in Data & AI. Explore my AI projects, machine learning applications, computer vision work, and Unity game development.',
+  icons: {
+    icon: 'https://github.com/intelligenceLab-ECE.png',
+    shortcut: 'https://github.com/intelligenceLab-ECE.png',
+    apple: 'https://github.com/intelligenceLab-ECE.png',
+  },
   keywords: [
     'Thibault GAREL',
     'AI Engineer',
