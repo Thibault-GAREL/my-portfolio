@@ -976,9 +976,9 @@ function ProjectsByCategory() {
         ]}
       />
 
-      {/* n8n Projects */}
+      {/* Applied AI Workflows */}
       <ProjectCategory
-        title="n8n Automation"
+        title="Applied AI Workflows"
         projects={[
           {
             name: "WhatsApp AI",
@@ -1118,7 +1118,7 @@ function ProjectsByDate() {
       image: "https://raw.githubusercontent.com/Thibault-GAREL/n8n_Whatsapp_LLM/main/img/img.png",
       date: "Jul 2025",
       year: "4th year",
-      category: "n8n Automation"
+      category: "Applied AI Workflows"
     },
     {
       name: "Smart Mail Labeling",
@@ -1127,7 +1127,7 @@ function ProjectsByDate() {
       image: "https://raw.githubusercontent.com/Thibault-GAREL/n8n_smart_mail_labeling/main/img/logo.png",
       date: "Jul 2025",
       year: "4th year",
-      category: "n8n Automation"
+      category: "Applied AI Workflows"
     },
     {
       name: "Bot controlled by ChatBot RAG",
@@ -1452,7 +1452,7 @@ const categoryShadowColors = {
   '📊 Data Analysis': { r: 217, g: 119, b: 6 },      // #d97706
   '🦾 Robotics': { r: 220, g: 38, b: 38 },           // #dc2626
   '👥 Group Projects': { r: 0, g: 180, b: 194 },     // #00b4c2
-  '⚡ N8N Automation': { r: 219, g: 39, b: 119 },    // #db2777
+  '🤖 Applied AI Workflows': { r: 219, g: 39, b: 119 },    // #db2777
   '🪐 Physics Simulation': { r: 13, g: 148, b: 136 } // #0d9488
 }
 
@@ -1485,9 +1485,8 @@ function normalizeCategoryName(category?: string): string | undefined {
     '🦾 Robotics': '🦾 Robotics',
     'Group Projects': '👥 Group Projects',
     '👥 Group Projects': '👥 Group Projects',
-    'n8n Automation': '⚡ N8N Automation',
-    'N8N Automation': '⚡ N8N Automation',
-    '⚡ N8N Automation': '⚡ N8N Automation',
+    'Applied AI Workflows': '🤖 Applied AI Workflows',
+    '🤖 Applied AI Workflows': '🤖 Applied AI Workflows',
     'Physics Simulation': '🪐 Physics Simulation',
     '🪐 Physics Simulation': '🪐 Physics Simulation'
   }
@@ -1685,7 +1684,7 @@ function GanttChart() {
     "Robotics": "#dc2626",             // 🦾 Rouge
     "Games": "#0891b2",                // 🕹 Cyan
     "Physics Simulation": "#0d9488",   // 🪐 Teal
-    "n8n Automation": "#db2777",       // ⚡ Rose/Magenta
+    "Applied AI Workflows": "#db2777",       // 🤖 Rose/Magenta
     "Data Analysis": "#d97706"         // 📊 Orange
   }
 
@@ -1718,8 +1717,8 @@ function GanttChart() {
     { name: "ASR", start: "2025-04-12", end: "2025-06-11", category: "Neural Networks", year: "4th year" },
     { name: "2D Muscular Sim.", start: "2025-10-24", end: "2025-12-24", category: "Physics Simulation", year: "4th year" },
     { name: "Human Sandbox", start: "2025-06-27", end: "2025-07-21", category: "Games", year: "4th year" },
-    { name: "WhatsApp AI", start: "2025-07-11", end: "2025-07-24", category: "n8n Automation", year: "4th year" },
-    { name: "Smart Mail Labeling", start: "2025-07-16", end: "2025-07-26", category: "n8n Automation", year: "4th year" },
+    { name: "WhatsApp AI", start: "2025-07-11", end: "2025-07-24", category: "Applied AI Workflows", year: "4th year" },
+    { name: "Smart Mail Labeling", start: "2025-07-16", end: "2025-07-26", category: "Applied AI Workflows", year: "4th year" },
     { name: "Bot controlled by ChatBot RAG", start: "2025-07-22", end: "2025-10-11", category: "Robotics", year: "4th year" },
     { name: "Language Models", start: "2025-09-27", end: "2025-12-24", category: "Generative AI", year: "4th year" },
     { name: "RAG - PDF ChatBot", start: "2025-10-11", end: "2025-10-12", category: "Generative AI", year: "4th year" },
@@ -1804,7 +1803,7 @@ function GanttChart() {
     // Projets Annexes
     "Games",
     "Physics Simulation",
-    "n8n Automation",
+    "Applied AI Workflows",
     "Data Analysis"
   ]
 
