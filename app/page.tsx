@@ -33,40 +33,14 @@ export default function Home() {
           <div className="flex justify-between items-center">
             <h1 className="text-2xl font-bold text-streamlit-text dark:text-[#cdd9e5]">Thibault GAREL&apos;s Portfolio</h1>
 
-            <div className="flex items-center gap-2">
-              {/* Sort Toggle */}
-              <div className="flex gap-2 bg-streamlit-secondary dark:bg-[#22272e] rounded-lg p-1 border border-streamlit-border dark:border-[#444c56]">
-                <button
-                  onClick={() => setSortBy('category')}
-                  className={`px-4 py-2 rounded-md transition-colors ${
-                    sortBy === 'category'
-                      ? 'bg-white dark:bg-[#2d333b] text-streamlit-text dark:text-[#cdd9e5] font-semibold shadow-sm'
-                      : 'text-gray-600 dark:text-[#768390] hover:text-streamlit-text dark:hover:text-[#adbac7]'
-                  }`}
-                >
-                  By Category
-                </button>
-                <button
-                  onClick={() => setSortBy('date')}
-                  className={`px-4 py-2 rounded-md transition-colors ${
-                    sortBy === 'date'
-                      ? 'bg-white dark:bg-[#2d333b] text-streamlit-text dark:text-[#cdd9e5] font-semibold shadow-sm'
-                      : 'text-gray-600 dark:text-[#768390] hover:text-streamlit-text dark:hover:text-[#adbac7]'
-                  }`}
-                >
-                  By Date
-                </button>
-              </div>
-
-              {/* Dark Mode Toggle */}
-              <button
-                onClick={() => setDarkMode(!darkMode)}
-                className="p-2 rounded-lg border border-streamlit-border dark:border-[#444c56] hover:bg-streamlit-secondary dark:hover:bg-[#2d333b] transition-colors text-xl"
-                aria-label="Toggle dark mode"
-              >
-                {darkMode ? '☀️' : '🌙'}
-              </button>
-            </div>
+            {/* Dark Mode Toggle */}
+            <button
+              onClick={() => setDarkMode(!darkMode)}
+              className="p-2 rounded-lg border border-streamlit-border dark:border-[#444c56] hover:bg-streamlit-secondary dark:hover:bg-[#2d333b] transition-colors text-xl"
+              aria-label="Toggle dark mode"
+            >
+              {darkMode ? '☀️' : '🌙'}
+            </button>
           </div>
         </div>
       </header>
@@ -182,9 +156,35 @@ export default function Home() {
 
         {/* Featured Projects Section */}
         <section className="mb-16">
-          <h2 className="text-4xl font-bold text-streamlit-text dark:text-[#cdd9e5] mb-8 pb-2 border-b-2 border-streamlit-border dark:border-[#444c56]">
-            ✨ Featured Projects
-          </h2>
+          <div className="flex items-center justify-between mb-8 pb-2 border-b-2 border-streamlit-border dark:border-[#444c56]">
+            <h2 className="text-4xl font-bold text-streamlit-text dark:text-[#cdd9e5]">
+              ✨ Featured Projects
+            </h2>
+
+            {/* Sort Toggle */}
+            <div className="flex gap-2 bg-streamlit-secondary dark:bg-[#22272e] rounded-lg p-1 border border-streamlit-border dark:border-[#444c56]">
+              <button
+                onClick={() => setSortBy('category')}
+                className={`px-4 py-2 rounded-md transition-colors ${
+                  sortBy === 'category'
+                    ? 'bg-white dark:bg-[#2d333b] text-streamlit-text dark:text-[#cdd9e5] font-semibold shadow-sm'
+                    : 'text-gray-600 dark:text-[#768390] hover:text-streamlit-text dark:hover:text-[#adbac7]'
+                }`}
+              >
+                By Category
+              </button>
+              <button
+                onClick={() => setSortBy('date')}
+                className={`px-4 py-2 rounded-md transition-colors ${
+                  sortBy === 'date'
+                    ? 'bg-white dark:bg-[#2d333b] text-streamlit-text dark:text-[#cdd9e5] font-semibold shadow-sm'
+                    : 'text-gray-600 dark:text-[#768390] hover:text-streamlit-text dark:hover:text-[#adbac7]'
+                }`}
+              >
+                By Date
+              </button>
+            </div>
+          </div>
 
           {sortBy === 'category' ? (
             <ProjectsByCategory />
