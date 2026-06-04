@@ -527,10 +527,17 @@ export default function Home() {
             <h4 className="text-xl font-bold text-streamlit-text dark:text-[#cdd9e5] mb-4">
               🌍 Languages
             </h4>
-            <p className="text-gray-600 dark:text-[#768390] text-lg">
+            <p className="text-gray-600 dark:text-[#768390] text-lg mb-6">
               • 🇫🇷 French (Native)
               <br />
               • 🇬🇧 English (Advanced) - TOEIC 815 pts
+            </p>
+
+            <h4 className="text-xl font-bold text-streamlit-text dark:text-[#cdd9e5] mb-4">
+              🚗 Driving License
+            </h4>
+            <p className="text-gray-600 dark:text-[#768390] text-lg">
+              • Category B
             </p>
           </div>
         </section>
