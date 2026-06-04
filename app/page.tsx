@@ -55,7 +55,7 @@ export default function Home() {
             {/* CV Button & Dark Mode Toggle */}
             <div className="flex items-center gap-2">
               <a
-                href="YOUR_LINKEDIN_CV_URL_HERE"
+                href="https://www.linkedin.com/in/thibaultgarel/details/featured/"
                 target="_blank"
                 rel="noopener noreferrer"
                 className="px-4 py-2 bg-blue-600 dark:bg-[#2563eb] text-white rounded-lg hover:bg-blue-700 dark:hover:bg-[#1d4ed8] transition-colors text-sm font-semibold"
