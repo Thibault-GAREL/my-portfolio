@@ -568,8 +568,8 @@ export default function Home() {
 
           <div className="space-y-6">
             {/* Chess */}
-            <div>
-              <h3 className="text-2xl font-semibold text-streamlit-text dark:text-[#cdd9e5] mb-4">
+            <div className="text-center">
+              <h3 className="text-xl font-semibold text-streamlit-text dark:text-[#cdd9e5] mb-4">
                 ♟️ Chess -{" "}
                 <a
                   href="https://www.chess.com/member/T2G2"
@@ -580,16 +580,18 @@ export default function Home() {
                   My Chess.com Profile
                 </a>
               </h3>
-              <img
-                src="https://chess-stats-mu.vercel.app/api?username=T2G2"
-                alt="Chess.com Stats"
-                className="max-w-full"
-              />
+              <div className="flex justify-center">
+                <img
+                  src="https://chess-stats-mu.vercel.app/api?username=T2G2"
+                  alt="Chess.com Stats"
+                  className="max-w-full"
+                />
+              </div>
             </div>
 
             {/* Sport */}
-            <div>
-              <h3 className="text-2xl font-semibold text-streamlit-text dark:text-[#cdd9e5] mb-2">
+            <div className="text-center">
+              <h3 className="text-xl font-semibold text-streamlit-text dark:text-[#cdd9e5] mb-2">
                 🤺 Sport
               </h3>
               <p className="text-gray-600 dark:text-[#768390]">
@@ -598,8 +600,8 @@ export default function Home() {
             </div>
 
             {/* Drawing */}
-            <div>
-              <h3 className="text-2xl font-semibold text-streamlit-text dark:text-[#cdd9e5] mb-2">
+            <div className="text-center">
+              <h3 className="text-xl font-semibold text-streamlit-text dark:text-[#cdd9e5] mb-2">
                 🎨 Drawing
               </h3>
               <p className="text-gray-600 dark:text-[#768390]">
@@ -619,7 +621,7 @@ export default function Home() {
               </p>
 
               {/* Collapsible gallery */}
-              <details className="mt-3">
+              <details className="mt-3 inline-block text-left">
                 <summary className="cursor-pointer text-streamlit-text dark:text-[#cdd9e5] font-semibold hover:text-blue-600 dark:hover:text-[#539bf5]">
                   Click here to see my best artworks
                 </summary>
