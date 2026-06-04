@@ -154,6 +154,14 @@ export default function Home() {
           </div>
         </section>
 
+        {/* Academic Background Section */}
+        <section className="mb-16">
+          <h2 className="text-4xl font-bold text-streamlit-text dark:text-[#cdd9e5] mb-8 pb-2 border-b-2 border-streamlit-border dark:border-[#444c56]">
+            🎓 Academic Background
+          </h2>
+          <AcademicTimeline />
+        </section>
+
         {/* Featured Projects Section */}
         <section className="mb-16">
           <div className="flex items-center justify-between mb-8 pb-2 border-b-2 border-streamlit-border dark:border-[#444c56]">
@@ -444,14 +452,6 @@ export default function Home() {
               </div>
             </div>
           </div>
-        </section>
-
-        {/* Academic Background Section */}
-        <section className="mb-16">
-          <h2 className="text-4xl font-bold text-streamlit-text dark:text-[#cdd9e5] mb-8 pb-2 border-b-2 border-streamlit-border dark:border-[#444c56]">
-            🎓 Academic Background
-          </h2>
-          <AcademicTimeline />
         </section>
 
         {/* Skills Section */}
