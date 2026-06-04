@@ -560,6 +560,86 @@ export default function Home() {
           </div>
         </section>
 
+        {/* Hobbies Section */}
+        <section className="mb-16">
+          <h2 className="text-4xl font-bold text-streamlit-text dark:text-[#cdd9e5] mb-8 pb-2 border-b-2 border-streamlit-border dark:border-[#444c56]">
+            ❤️ Hobbies
+          </h2>
+
+          <div className="space-y-6">
+            {/* Chess */}
+            <div>
+              <h3 className="text-2xl font-semibold text-streamlit-text dark:text-[#cdd9e5] mb-4">
+                ♟️ Chess -{" "}
+                <a
+                  href="https://www.chess.com/member/T2G2"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="text-blue-600 dark:text-[#539bf5] hover:underline"
+                >
+                  My Chess.com Profile
+                </a>
+              </h3>
+              <img
+                src="https://chess-stats-mu.vercel.app/api?username=T2G2"
+                alt="Chess.com Stats"
+                className="max-w-full"
+              />
+            </div>
+
+            {/* Sport */}
+            <div>
+              <h3 className="text-2xl font-semibold text-streamlit-text dark:text-[#cdd9e5] mb-2">
+                🤺 Sport
+              </h3>
+              <p className="text-gray-600 dark:text-[#768390]">
+                2-3 times per week: Fencing, Swimming, Tennis & Weight training
+              </p>
+            </div>
+
+            {/* Drawing */}
+            <div>
+              <h3 className="text-2xl font-semibold text-streamlit-text dark:text-[#cdd9e5] mb-2">
+                🎨 Drawing
+              </h3>
+              <p className="text-gray-600 dark:text-[#768390]">
+                Watercolor, Inking & Digital painting{" "}
+                <em>
+                  (one-year evening course at{" "}
+                  <a
+                    href="https://www.cohl.fr/"
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    className="text-blue-600 dark:text-[#539bf5] hover:underline"
+                  >
+                    École Émile Cohl
+                  </a>
+                  )
+                </em>
+              </p>
+
+              {/* Collapsible gallery */}
+              <details className="mt-3">
+                <summary className="cursor-pointer text-streamlit-text dark:text-[#cdd9e5] font-semibold hover:text-blue-600 dark:hover:text-[#539bf5]">
+                  Click here to see my best artworks
+                </summary>
+                <div className="mt-2 ml-4">
+                  <em className="text-gray-600 dark:text-[#768390]">
+                    <a
+                      href="https://github.com/Thibault-GAREL/my_art_gallery"
+                      target="_blank"
+                      rel="noopener noreferrer"
+                      className="text-blue-600 dark:text-[#539bf5] hover:underline"
+                    >
+                      Gallery coming soon...
+                    </a>
+                  </em>
+                </div>
+              </details>
+            </div>
+          </div>
+        </section>
+
         {/* Footer */}
         <footer className="border-t border-streamlit-border dark:border-[#444c56] pt-8 mt-16">
           <div className="text-center">
