@@ -26,7 +26,7 @@ export default function Home() {
   }, [darkMode])
 
   return (
-    <main className="min-h-screen bg-streamlit-bg dark:bg-[#22272e]">
+    <main id="top" className="min-h-screen bg-streamlit-bg dark:bg-[#22272e]">
       {/* Header */}
       <header className="border-b border-streamlit-border dark:border-[#444c56] bg-white dark:bg-[#2d333b] sticky top-0 z-50">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-4">
@@ -35,6 +35,9 @@ export default function Home() {
 
             {/* Navigation Links (hidden on mobile) */}
             <nav className="hidden lg:flex items-center gap-6 text-sm">
+              <a href="#top" className="text-gray-600 dark:text-[#768390] hover:text-streamlit-text dark:hover:text-[#cdd9e5] transition-colors">
+                🏠 Home
+              </a>
               <a href="#academic-background" className="text-gray-600 dark:text-[#768390] hover:text-streamlit-text dark:hover:text-[#cdd9e5] transition-colors">
                 🎓 Academic
               </a>
