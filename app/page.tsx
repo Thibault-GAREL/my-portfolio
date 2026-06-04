@@ -594,7 +594,7 @@ export default function Home() {
               <h3 className="text-xl font-semibold text-streamlit-text dark:text-[#cdd9e5] mb-2">
                 🤺 Sport
               </h3>
-              <p className="text-gray-600 dark:text-[#768390]">
+              <p className="text-lg text-gray-600 dark:text-[#768390]">
                 2-3 times per week: Fencing, Swimming, Tennis & Weight training
               </p>
             </div>
@@ -604,7 +604,7 @@ export default function Home() {
               <h3 className="text-xl font-semibold text-streamlit-text dark:text-[#cdd9e5] mb-2">
                 🎨 Drawing
               </h3>
-              <p className="text-gray-600 dark:text-[#768390]">
+              <p className="text-lg text-gray-600 dark:text-[#768390]">
                 Watercolor, Inking & Digital painting{" "}
                 <em>
                   (one-year evening course at{" "}
