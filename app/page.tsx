@@ -30,17 +30,46 @@ export default function Home() {
       {/* Header */}
       <header className="border-b border-streamlit-border dark:border-[#444c56] bg-white dark:bg-[#2d333b] sticky top-0 z-50">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-4">
-          <div className="flex justify-between items-center">
+          <div className="flex justify-between items-center gap-4">
             <h1 className="text-2xl font-bold text-streamlit-text dark:text-[#cdd9e5]">Thibault GAREL&apos;s Portfolio</h1>
 
-            {/* Dark Mode Toggle */}
-            <button
-              onClick={() => setDarkMode(!darkMode)}
-              className="p-2 rounded-lg border border-streamlit-border dark:border-[#444c56] hover:bg-streamlit-secondary dark:hover:bg-[#2d333b] transition-colors text-xl"
-              aria-label="Toggle dark mode"
-            >
-              {darkMode ? '☀️' : '🌙'}
-            </button>
+            {/* Navigation Links (hidden on mobile) */}
+            <nav className="hidden lg:flex items-center gap-6 text-sm">
+              <a href="#academic-background" className="text-gray-600 dark:text-[#768390] hover:text-streamlit-text dark:hover:text-[#cdd9e5] transition-colors">
+                🎓 Academic
+              </a>
+              <a href="#projects" className="text-gray-600 dark:text-[#768390] hover:text-streamlit-text dark:hover:text-[#cdd9e5] transition-colors">
+                ✨ Projects
+              </a>
+              <a href="#skills" className="text-gray-600 dark:text-[#768390] hover:text-streamlit-text dark:hover:text-[#cdd9e5] transition-colors">
+                🛠️ Skills
+              </a>
+              <a href="#hobbies" className="text-gray-600 dark:text-[#768390] hover:text-streamlit-text dark:hover:text-[#cdd9e5] transition-colors">
+                ❤️ Hobbies
+              </a>
+              <a href="#github-stats" className="text-gray-600 dark:text-[#768390] hover:text-streamlit-text dark:hover:text-[#cdd9e5] transition-colors">
+                📊 GitHub
+              </a>
+            </nav>
+
+            {/* CV Button & Dark Mode Toggle */}
+            <div className="flex items-center gap-2">
+              <a
+                href="YOUR_LINKEDIN_CV_URL_HERE"
+                target="_blank"
+                rel="noopener noreferrer"
+                className="px-4 py-2 bg-blue-600 dark:bg-[#2563eb] text-white rounded-lg hover:bg-blue-700 dark:hover:bg-[#1d4ed8] transition-colors text-sm font-semibold"
+              >
+                📄 CV
+              </a>
+              <button
+                onClick={() => setDarkMode(!darkMode)}
+                className="p-2 rounded-lg border border-streamlit-border dark:border-[#444c56] hover:bg-streamlit-secondary dark:hover:bg-[#2d333b] transition-colors text-xl"
+                aria-label="Toggle dark mode"
+              >
+                {darkMode ? '☀️' : '🌙'}
+              </button>
+            </div>
           </div>
         </div>
       </header>
@@ -155,7 +184,7 @@ export default function Home() {
         </section>
 
         {/* Academic Background Section */}
-        <section className="mb-16">
+        <section id="academic-background" className="mb-16 scroll-mt-20">
           <h2 className="text-4xl font-bold text-streamlit-text dark:text-[#cdd9e5] mb-8 pb-2 border-b-2 border-streamlit-border dark:border-[#444c56]">
             🎓 Academic Background
           </h2>
@@ -163,7 +192,7 @@ export default function Home() {
         </section>
 
         {/* Featured Projects Section */}
-        <section className="mb-16">
+        <section id="projects" className="mb-16 scroll-mt-20">
           <div className="flex items-center justify-between mb-8 pb-2 border-b-2 border-streamlit-border dark:border-[#444c56]">
             <h2 className="text-4xl font-bold text-streamlit-text dark:text-[#cdd9e5]">
               ✨ Featured Projects
@@ -455,7 +484,7 @@ export default function Home() {
         </section>
 
         {/* Skills Section */}
-        <section className="mb-16">
+        <section id="skills" className="mb-16 scroll-mt-20">
           <h2 className="text-4xl font-bold text-streamlit-text dark:text-[#cdd9e5] mb-8 pb-2 border-b-2 border-streamlit-border dark:border-[#444c56]">
             🛠️ Skills & Tools
           </h2>
@@ -551,7 +580,7 @@ export default function Home() {
         </section>
 
         {/* GitHub Statistics */}
-        <section className="mb-16">
+        <section id="github-stats" className="mb-16 scroll-mt-20">
           <h2 className="text-4xl font-bold text-streamlit-text dark:text-[#cdd9e5] mb-8 pb-2 border-b-2 border-streamlit-border dark:border-[#444c56]">
             📊 My GitHub Statistics
           </h2>
@@ -587,7 +616,7 @@ export default function Home() {
         </section>
 
         {/* Hobbies Section */}
-        <section className="mb-16">
+        <section id="hobbies" className="mb-16 scroll-mt-20">
           <h2 className="text-4xl font-bold text-streamlit-text dark:text-[#cdd9e5] mb-8 pb-2 border-b-2 border-streamlit-border dark:border-[#444c56]">
             ❤️ Hobbies
           </h2>
