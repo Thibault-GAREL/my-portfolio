@@ -117,6 +117,14 @@ export default function Home() {
                   🤗 Hugging Face
                 </a>
                 <a
+                  href="https://scholar.google.com.au/citations?hl=fr&user=VEBOeF4AAAAJ"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="text-blue-600 hover:underline"
+                >
+                  🎓 Google Scholar
+                </a>
+                <a
                   href="mailto:thibault.garel@edu.ece.fr"
                   className="text-green-600 hover:underline"
                 >
@@ -747,6 +755,14 @@ export default function Home() {
                 className="text-yellow-600 hover:underline"
               >
                 🤗 Hugging Face
+              </a>
+              <a
+                href="https://scholar.google.com.au/citations?hl=fr&user=VEBOeF4AAAAJ"
+                target="_blank"
+                rel="noopener noreferrer"
+                className="text-blue-600 hover:underline"
+              >
+                🎓 Google Scholar
               </a>
               <a
                 href="mailto:thibault.garel@edu.ece.fr"
