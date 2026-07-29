@@ -96,6 +96,7 @@ Le portfolio est **fonctionnel et déployé**. Toutes les demandes de la session
 - Ajout d'un bouton Home (ancre `#top`)
 - Ajout de la frise Professional Experience repliable
 - Ajout du lien Google Scholar (entre Hugging Face et Contact, dans Hero et Footer)
+- Ajout de la catégorie **Research paper** (📄, `#FFD21E`) et du projet **OPENER** (3 cartes : Paper vers Google Scholar, Models vers la collection Hugging Face, Code vers GitHub), placée en premier dans Featured Projects, avant Generative AI. Une seule entrée OPENER dans la vue By Date et dans le Gantt, la vue By Category porte les 3 destinations.
 
 **En cours / non tranché :** voir sections 5 et 6.
 
@@ -293,6 +294,7 @@ React.useEffect(() => {
 
 (constante `categoryShadowColors` dans `page.tsx`, en RGB)
 
+- 📄 Research paper : `#FFD21E` (jaune Hugging Face, reprend la bande des vignettes du README)
 - 🤖 Generative AI : `#6e40c9`
 - 🧠 Neural Networks : `#2563eb`
 - 🌳 Decision Tree : `#22c55e`

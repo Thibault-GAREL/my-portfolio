@@ -788,6 +788,37 @@ export default function Home() {
 function ProjectsByCategory() {
   return (
     <>
+      {/* Research paper */}
+      <ProjectCategory
+        title="Research paper"
+        projects={[
+          {
+            name: "OPENER Paper",
+            description: "Open NER from pre-trained bricks. 40.1 AMI e2e, 39.5 zero-shot.",
+            link: "https://scholar.google.com.au/citations?hl=fr&user=VEBOeF4AAAAJ",
+            image: "https://raw.githubusercontent.com/Thibault-GAREL/Thibault-GAREL/main/Logo_Featured_Projects_compressed/research_opener_paper_sq.png",
+            date: "May - Jul 2026",
+            year: "4th year"
+          },
+          {
+            name: "OPENER Models",
+            description: "opener-zs and opener-sup, ready to use from the HF Hub.",
+            link: "https://huggingface.co/collections/Thibault-GAREL/opener-open-partitioning-embedding-for-named-entity-recogn",
+            image: "https://raw.githubusercontent.com/Thibault-GAREL/Thibault-GAREL/main/Logo_Featured_Projects_compressed/research_opener_model_sq.png",
+            date: "May - Jul 2026",
+            year: "4th year"
+          },
+          {
+            name: "OPENER Code",
+            description: "Full pipeline and the 13-dataset benchmark on quality, latency, energy.",
+            link: "https://github.com/Thibault-GAREL/LyRIDS_OPENER",
+            image: "https://raw.githubusercontent.com/Thibault-GAREL/Thibault-GAREL/main/Logo_Featured_Projects_compressed/research_opener_code_sq.png",
+            date: "May - Jul 2026",
+            year: "4th year"
+          }
+        ]}
+      />
+
       {/* Generative AI */}
       <ProjectCategory
         title="Generative AI"
@@ -1410,6 +1441,15 @@ function ProjectsByDate() {
       date: "May 2026",
       year: "4th year",
       category: "Physics Simulation"
+    },
+    {
+      name: "OPENER",
+      description: "Open NER from pre-trained bricks. 40.1 AMI e2e, 39.5 zero-shot.",
+      link: "https://github.com/Thibault-GAREL/LyRIDS_OPENER",
+      image: "https://raw.githubusercontent.com/Thibault-GAREL/Thibault-GAREL/main/Logo_Featured_Projects_compressed/research_opener_code_sq.png",
+      date: "May - Jul 2026",
+      year: "4th year",
+      category: "Research paper"
     }
   ]
 
@@ -1605,6 +1645,7 @@ function ProjectCategory({
 
 // Category shadow colors mapping
 const categoryShadowColors = {
+  '📄 Research paper': { r: 255, g: 210, b: 30 },    // #FFD21E
   '🤖 Generative AI': { r: 110, g: 64, b: 201 },     // #6e40c9
   '🧠 Neural Networks': { r: 37, g: 99, b: 235 },    // #2563eb
   '🌳 Decision Tree': { r: 34, g: 197, b: 94 },      // #22c55e
@@ -1626,6 +1667,8 @@ function normalizeCategoryName(category?: string): string | undefined {
 
   // Mapping from various title formats to the standardized emoji format
   const categoryMap: Record<string, string> = {
+    'Research paper': '📄 Research paper',
+    '📄 Research paper': '📄 Research paper',
     'Generative AI': '🤖 Generative AI',
     '🤖 Generative AI': '🤖 Generative AI',
     'Neural Networks': '🧠 Neural Networks',
@@ -1681,11 +1724,15 @@ function getCategoryGradientStyle(category?: string, isDark: boolean = false): R
     }
   }
 
-  // Sober colored background with white text
+  // Sober colored background, text color picked for contrast: light accents such
+  // as the Research paper yellow are unreadable with white text. Every other
+  // category is dark enough to stay below the threshold and keep white text.
+  const luminance = (0.299 * color.r + 0.587 * color.g + 0.114 * color.b) / 255
+
   return {
     background: `rgba(${color.r},${color.g},${color.b},0.85)`, // Slightly transparent for softer look
     border: 'none',
-    color: '#ffffff', // White text for contrast
+    color: luminance > 0.6 ? '#1f2328' : '#ffffff',
     fontWeight: '600'
   }
 }
@@ -2175,6 +2222,7 @@ function SkillCategory({
 function GanttChart() {
   // Category colors - matching the category shadow colors
   const categoryColors: Record<string, string> = {
+    "Research paper": "#FFD21E",       // 📄 Jaune
     "Generative AI": "#6e40c9",        // 🤖 Violet
     "Neural Networks": "#2563eb",      // 🧠 Bleu
     "Reinforcement Learning": "#16a34a", // 🎮 Vert (RL global)
@@ -2225,7 +2273,8 @@ function GanttChart() {
     { name: "CLIP Embedding Tools", start: "2025-12-25", end: "2025-12-27", category: "Generative AI", year: "4th year" },
     { name: "Snake AI - PPO", start: "2026-03-23", end: "2026-04-07", category: "Reinforcement Learning", year: "4th year" },
     { name: "Fine-tuning LoRA Stable Diffusion", start: "2026-05-12", end: "2026-05-15", category: "Generative AI", year: "4th year" },
-    { name: "Gravity & Relativity", start: "2026-05-17", end: "2026-05-21", category: "Physics Simulation", year: "4th year" }
+    { name: "Gravity & Relativity", start: "2026-05-17", end: "2026-05-21", category: "Physics Simulation", year: "4th year" },
+    { name: "OPENER", start: "2026-05-20", end: "2026-07-22", category: "Research paper", year: "4th year" }
   ]
 
   // Sort projects by start date (oldest first for display from top to bottom)
@@ -2293,6 +2342,7 @@ function GanttChart() {
   // Ordered categories for legend
   const orderedCategories = [
     // Featured Projects
+    "Research paper",
     "Generative AI",
     "Neural Networks",
     "Reinforcement Learning",
