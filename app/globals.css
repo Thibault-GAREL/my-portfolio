@@ -38,3 +38,47 @@ body {
 ::-webkit-scrollbar-thumb:hover {
   background: #888;
 }
+
+/*
+ * Card shadows. Kept in CSS rather than computed in JS so the cards need no
+ * dark-mode listener and no hover state of their own.
+ */
+.project-card,
+.group-project-card {
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1), 0 1px 2px rgba(0, 0, 0, 0.06);
+  transition: box-shadow 150ms ease;
+}
+
+.project-card:hover {
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15), 0 2px 4px rgba(0, 0, 0, 0.08);
+}
+
+.dark .project-card,
+.dark .group-project-card {
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.3), 0 1px 2px rgba(0, 0, 0, 0.2);
+}
+
+.dark .project-card:hover {
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.4), 0 2px 4px rgba(0, 0, 0, 0.2);
+}
+
+/*
+ * Timeline entries carry one colour per theme. The component hands both to CSS
+ * as custom properties and the stylesheet picks the right one, which keeps the
+ * timelines free of any JS theme detection.
+ */
+.themed-card {
+  background-color: var(--bg-light);
+}
+
+.dark .themed-card {
+  background-color: var(--bg-dark);
+}
+
+.themed-tag {
+  color: var(--tag-light);
+}
+
+.dark .themed-tag {
+  color: var(--tag-dark);
+}

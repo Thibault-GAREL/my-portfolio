@@ -101,9 +101,14 @@ export default function RootLayout({
     email: 'thibault.garel@edu.ece.fr'
   }
 
+  // Runs before the first paint, so a visitor on the dark theme never sees a
+  // flash of the light one. Falls back to the OS preference on a first visit.
+  const themeScript = `(function(){try{var s=localStorage.getItem('darkMode');var d=s===null?window.matchMedia('(prefers-color-scheme: dark)').matches:s==='true';if(d){document.documentElement.classList.add('dark')}}catch(e){}})()`
+
   return (
-    <html lang="en">
+    <html lang="en" suppressHydrationWarning>
       <head>
+        <script dangerouslySetInnerHTML={{ __html: themeScript }} />
         <script
           type="application/ld+json"
           dangerouslySetInnerHTML={{ __html: JSON.stringify(structuredData) }}
