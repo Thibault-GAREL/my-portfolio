@@ -9,10 +9,10 @@ import ProjectCard from './ProjectCard'
 export default function ProjectsByDate() {
   return (
     <>
-      {projectsByAcademicYear().map(({ year, projects }) => (
-        <div key={year} className="mb-10">
+      {projectsByAcademicYear().map(({ title, projects }) => (
+        <div key={title} className="mb-10">
           <h3 className="text-2xl font-bold text-streamlit-text dark:text-[#cdd9e5] mb-6">
-            {year}
+            {title}
           </h3>
           <div className="flex flex-wrap gap-4 justify-center">
             {projects.map((project) => (

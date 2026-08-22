@@ -1,3 +1,4 @@
+import { ACADEMIC_YEARS, yearLabel } from '@/data/academic-years'
 import {
   GANTT_CATEGORY_ORDER,
   ganttCategoryHex,
@@ -57,14 +58,6 @@ const CIVIL_YEARS = [
   { label: '2026', start: '2026-01-01', end: '2026-09-30' }
 ]
 
-/** Engineering school years, for the top header row. */
-const ACADEMIC_YEARS = [
-  { label: '1st year', start: '2022-09-01', end: '2023-08-31', color: '#E3F2FD' },
-  { label: '2nd year', start: '2023-09-01', end: '2024-08-31', color: '#F3E5F5' },
-  { label: '3rd year', start: '2024-09-01', end: '2025-08-31', color: '#FFF3E0' },
-  { label: '4th year', start: '2025-09-01', end: '2026-08-31', color: '#E8F5E9' }
-]
-
 function buildMonthMarkers() {
   const markers: { position: number; label: string; month: number }[] = []
   const cursor = new Date('2022-09-01')
@@ -99,7 +92,7 @@ export default function GanttChart() {
               const periodStyle = getBarStyle(period.start, period.end)
               return (
                 <div
-                  key={period.label}
+                  key={period.ordinal}
                   className="absolute h-10 rounded-lg border-2 border-gray-400 flex items-center justify-center shadow-sm"
                   style={{
                     left: periodStyle.left,
@@ -108,7 +101,9 @@ export default function GanttChart() {
                     top: '0px'
                   }}
                 >
-                  <span className="text-sm font-bold text-gray-800">{period.label}</span>
+                  <span className="text-sm font-bold text-gray-800">
+                    {yearLabel(period)}
+                  </span>
                 </div>
               )
             })}

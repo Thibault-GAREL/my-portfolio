@@ -1,3 +1,4 @@
+import { academicYearFor, yearLabel } from '@/data/academic-years'
 import { categoryBadge, categoryBadgeStyle } from '@/data/categories'
 import type { Project, ProjectVariant } from '@/data/projects'
 import { formatDateRange } from '@/lib/format'
@@ -20,6 +21,7 @@ export default function ProjectCard({
   const image = variant?.image ?? project.image
   const imageDark = variant ? undefined : project.imageDark
   const date = formatDateRange(project.start, project.end)
+  const year = yearLabel(academicYearFor(project.start, project.end))
 
   return (
     <a
@@ -62,7 +64,7 @@ export default function ProjectCard({
 
         <div className="flex gap-3 text-xs text-gray-500 dark:text-[#768390]">
           <span>📅 {date}</span>
-          <span>🎓 {project.year}</span>
+          <span>🎓 {year}</span>
         </div>
       </div>
     </a>

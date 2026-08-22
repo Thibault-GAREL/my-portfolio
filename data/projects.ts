@@ -2,15 +2,17 @@
 //
 // The three views read from this list and never carry their own copy:
 //   - "By Category" groups on `category` (and renders `variants` when present)
-//   - "By Date" groups on `year` and sorts on `start`
+//   - "By Date" groups on the derived academic year and sorts on `start`
 //   - the Gantt chart positions the bars from `start` and `end`
 //
-// The date label printed on the cards is computed from `start` and `end` by
-// formatDateRange, so it can never disagree with the Gantt bar again.
+// Dates are the only thing typed by hand. Both the date label and the academic
+// year printed on a card are computed from `start` and `end`, so neither can
+// disagree with the Gantt bar again.
 // Dates come from PROJECT_DATES_REFERENCE.md.
 
+import { ACADEMIC_YEARS, academicYearFor, yearBlockTitle } from './academic-years'
 import type { CategoryId } from './categories'
-import { academicYearRank, compareByStartDate } from '@/lib/format'
+import { compareByStartDate } from '@/lib/format'
 
 /**
  * An extra card shown in the "By Category" view only. OPENER is one project on
@@ -35,8 +37,6 @@ export type Project = {
   start: string
   /** ISO end date. */
   end: string
-  /** Academic year shown on the card, e.g. "4th year", "3rd - 4th year". */
-  year: string
   category: CategoryId
   /** Shorter label for the Gantt bars, where the full name would overflow. */
   ganttLabel?: string
@@ -56,7 +56,6 @@ export const PROJECTS: Project[] = [
     image: `${RAW}/Game_maze_Asterix-Obelix/main/img/menu_screen.png`,
     start: '2022-12-01',
     end: '2023-01-17',
-    year: '2nd year',
     category: 'Games',
     ganttLabel: 'Asterix Maze'
   },
@@ -68,7 +67,6 @@ export const PROJECTS: Project[] = [
     image: `${RAW}/Game_ECE_World_Minigame/main/img/Menu.png`,
     start: '2023-04-06',
     end: '2023-05-08',
-    year: '2nd year',
     category: 'Games',
     ganttLabel: 'Star Wars - ECE'
   },
@@ -80,7 +78,6 @@ export const PROJECTS: Project[] = [
     image: `${RAW}/gravity_simulation/main/img/Gif-gravity.gif`,
     start: '2023-06-06',
     end: '2023-08-30',
-    year: '2nd year',
     category: 'Physics Simulation'
   },
   {
@@ -91,7 +88,6 @@ export const PROJECTS: Project[] = [
     image: `${RAW}/Neural_Network_from_Scratch/main/Images/Gif-neural-network.gif`,
     start: '2023-08-01',
     end: '2024-05-31',
-    year: '1st - 2nd year',
     category: 'Neural Networks'
   },
   {
@@ -102,7 +98,6 @@ export const PROJECTS: Project[] = [
     image: `${RAW}/Q-Learning/main/img/Gif-DQN.gif`,
     start: '2023-08-01',
     end: '2023-10-20',
-    year: '2nd year',
     category: 'Q-Learning'
   },
   {
@@ -113,7 +108,6 @@ export const PROJECTS: Project[] = [
     image: `${RAW}/snake_game/main/img/Snake-game.gif`,
     start: '2024-07-13',
     end: '2025-09-20',
-    year: '3rd - 4th year',
     category: 'Games'
   },
   {
@@ -124,7 +118,6 @@ export const PROJECTS: Project[] = [
     image: `${RAW}/AI_snake_genetic_version/main/Images/score13.gif`,
     start: '2024-08-04',
     end: '2024-10-14',
-    year: '3rd year',
     category: 'Genetic Algorithm',
     ganttLabel: 'Snake AI - GA'
   },
@@ -136,7 +129,6 @@ export const PROJECTS: Project[] = [
     image: `${RAW}/Unity_move/main/img/Gif-Unity_move.gif`,
     start: '2025-01-01',
     end: '2025-01-31',
-    year: '4th year',
     category: 'Unity ML-Agents'
   },
   {
@@ -147,7 +139,6 @@ export const PROJECTS: Project[] = [
     image: `${RAW}/Unity_greedy/main/img_greedy/Greedy-gif-X9.gif`,
     start: '2025-01-01',
     end: '2025-01-31',
-    year: '4th year',
     category: 'Unity ML-Agents'
   },
   {
@@ -158,7 +149,6 @@ export const PROJECTS: Project[] = [
     image: `${RAW}/Unity_drive/main/img_drive/Driving-maze-gif.gif`,
     start: '2025-01-01',
     end: '2025-01-31',
-    year: '4th year',
     category: 'Unity ML-Agents'
   },
   {
@@ -169,7 +159,6 @@ export const PROJECTS: Project[] = [
     image: `${RAW}/AI_driving_DQN_version/main/Images/gif-driving.gif`,
     start: '2025-01-04',
     end: '2025-09-09',
-    year: '4th year',
     category: 'Q-Learning',
     ganttLabel: 'Driving AI - DQL'
   },
@@ -181,7 +170,6 @@ export const PROJECTS: Project[] = [
     image: `${RAW}/driving_game/main/img/Gif_driving_game.gif`,
     start: '2025-01-04',
     end: '2025-09-20',
-    year: '4th year',
     category: 'Games'
   },
   {
@@ -192,7 +180,6 @@ export const PROJECTS: Project[] = [
     image: `${RAW}/AI_driving_genetic_version/main/Img/Driving_NEAT_gif.gif`,
     start: '2025-01-09',
     end: '2025-09-28',
-    year: '4th year',
     category: 'Genetic Algorithm',
     ganttLabel: 'Driving AI - GA'
   },
@@ -204,7 +191,6 @@ export const PROJECTS: Project[] = [
     image: `${RAW}/Attraction_repulsion/main/img/Gif-orbit.gif`,
     start: '2025-01-23',
     end: '2025-01-29',
-    year: '4th year',
     category: 'Physics Simulation',
     ganttLabel: 'Attraction/Repulsion'
   },
@@ -217,7 +203,6 @@ export const PROJECTS: Project[] = [
     image: `${RAW}/Image_generator_GAN/main/Img/Titre.png`,
     start: '2025-02-22',
     end: '2025-09-24',
-    year: '4th year',
     category: 'Generative AI'
   },
   {
@@ -228,7 +213,6 @@ export const PROJECTS: Project[] = [
     image: `${RAW}/Speech_recognition/main/logo.png`,
     start: '2025-04-12',
     end: '2025-06-11',
-    year: '4th year',
     category: 'Neural Networks',
     ganttLabel: 'ASR'
   },
@@ -240,7 +224,6 @@ export const PROJECTS: Project[] = [
     image: `${RAW}/human_sandbox/main/img/Gif-human-sandbox.gif`,
     start: '2025-06-27',
     end: '2025-07-21',
-    year: '4th year',
     category: 'Games'
   },
   {
@@ -251,7 +234,6 @@ export const PROJECTS: Project[] = [
     image: `${RAW}/n8n_Whatsapp_LLM/main/img/img.png`,
     start: '2025-07-11',
     end: '2025-07-24',
-    year: '4th year',
     category: 'Applied AI Workflows'
   },
   {
@@ -262,7 +244,6 @@ export const PROJECTS: Project[] = [
     image: `${RAW}/n8n_smart_mail_labeling/main/img/logo.png`,
     start: '2025-07-16',
     end: '2025-07-26',
-    year: '4th year',
     category: 'Applied AI Workflows'
   },
   {
@@ -273,7 +254,6 @@ export const PROJECTS: Project[] = [
     image: `${RAW}/Bot_controlled_by_a_Chatbot_RAG/main/img/Gif-bot.gif`,
     start: '2025-07-22',
     end: '2025-10-11',
-    year: '4th year',
     category: 'Robotics'
   },
   {
@@ -284,7 +264,6 @@ export const PROJECTS: Project[] = [
     image: `${RAW}/Language_Models/main/img/Titre-GPT_from_scratch.png`,
     start: '2025-09-27',
     end: '2025-12-24',
-    year: '4th year',
     category: 'Generative AI'
   },
   {
@@ -295,7 +274,6 @@ export const PROJECTS: Project[] = [
     image: `${RAW}/RAG_pdf/main/Video/Gif-video.gif`,
     start: '2025-10-11',
     end: '2025-10-12',
-    year: '4th year',
     category: 'Generative AI'
   },
   {
@@ -306,7 +284,6 @@ export const PROJECTS: Project[] = [
     image: `${RAW}/Quadruped-AI/main/assets/logo.png`,
     start: '2025-10-24',
     end: '2025-12-24',
-    year: '4th year',
     category: 'Genetic Algorithm',
     ganttLabel: 'Walking AI - GA'
   },
@@ -318,7 +295,6 @@ export const PROJECTS: Project[] = [
     image: `${PROFILE_ASSETS}/Logo_Featured_Projects/physics_muscular_simulation.png`,
     start: '2025-10-24',
     end: '2025-12-24',
-    year: '4th year',
     category: 'Physics Simulation',
     ganttLabel: '2D Muscular Sim.'
   },
@@ -330,7 +306,6 @@ export const PROJECTS: Project[] = [
     image: `${RAW}/ISS_Analysis_Spark/master/Img/ISS-img.jpg`,
     start: '2025-11-12',
     end: '2025-12-21',
-    year: '4th year',
     category: 'Data Analysis',
     ganttLabel: 'ISS Analysis'
   },
@@ -344,7 +319,6 @@ export const PROJECTS: Project[] = [
     imageDark: `${PROFILE_ASSETS}/Logo_Featured_Projects/rl_starcraft2_dark.gif`,
     start: '2025-11-24',
     end: '2026-01-24',
-    year: '4th year',
     category: 'PPO',
     ganttLabel: 'StarCraft 2 AI'
   },
@@ -356,7 +330,6 @@ export const PROJECTS: Project[] = [
     image: `${RAW}/CLIP_Embedding_Tools/main/img/Logo-Embedding_Tools.png`,
     start: '2025-12-25',
     end: '2025-12-27',
-    year: '4th year',
     category: 'Generative AI'
   },
   {
@@ -367,7 +340,6 @@ export const PROJECTS: Project[] = [
     image: `${RAW}/AI_snake_DQN_version/main/Images/SnakeDQL-Score36.gif`,
     start: '2026-03-19',
     end: '2026-04-17',
-    year: '4th year',
     category: 'Q-Learning',
     ganttLabel: 'Snake AI - DQL'
   },
@@ -379,7 +351,6 @@ export const PROJECTS: Project[] = [
     image: `${RAW}/AI_snake_decision_tree_version/main/img/Snake_arbre_de_decision-Score_31.gif`,
     start: '2026-03-23',
     end: '2026-04-01',
-    year: '4th year',
     category: 'Decision Tree',
     ganttLabel: 'Snake AI - DT'
   },
@@ -391,7 +362,6 @@ export const PROJECTS: Project[] = [
     image: `${RAW}/AI_snake_PPO_version/main/img/SnakePPO-Score54.gif`,
     start: '2026-03-23',
     end: '2026-04-07',
-    year: '4th year',
     category: 'PPO'
   },
   {
@@ -403,7 +373,6 @@ export const PROJECTS: Project[] = [
     image: `${RAW}/ILab_Formation_Fine-tuning/main/data/1-raw/my_drawings/Capture%20Bienvenu.PNG`,
     start: '2026-05-12',
     end: '2026-05-15',
-    year: '4th year',
     category: 'Generative AI'
   },
   {
@@ -416,7 +385,6 @@ export const PROJECTS: Project[] = [
       'https://media.githubusercontent.com/media/Thibault-GAREL/simulation_gravity-general_relativity/main/assets/hero.gif',
     start: '2026-05-17',
     end: '2026-05-21',
-    year: '4th year',
     category: 'Physics Simulation'
   },
   {
@@ -427,7 +395,6 @@ export const PROJECTS: Project[] = [
     image: `${PROFILE_ASSETS}/Logo_Featured_Projects_compressed/research_opener_code_sq.png`,
     start: '2026-05-20',
     end: '2026-07-22',
-    year: '4th year',
     category: 'Research paper',
     variants: [
       {
@@ -459,16 +426,17 @@ export function projectsInCategory(category: CategoryId): Project[] {
   )
 }
 
-/** Academic year blocks of the "By Date" view, earliest year first. */
-export function projectsByAcademicYear(): { year: string; projects: Project[] }[] {
-  const ranks = Array.from(
-    new Set(PROJECTS.map((project) => academicYearRank(project.year)))
-  ).sort((a, b) => a - b)
-
-  return ranks.map((rank) => ({
-    year: `${rank}${['th', 'st', 'nd', 'rd'][rank] ?? 'th'} Year`,
+/**
+ * Academic year blocks of the "By Date" view, earliest year first. A project
+ * lands in the year its period is centred on, and a year with no project at all
+ * is left out.
+ */
+export function projectsByAcademicYear(): { title: string; projects: Project[] }[] {
+  return ACADEMIC_YEARS.map((year) => ({
+    title: yearBlockTitle(year),
     projects: PROJECTS.filter(
-      (project) => academicYearRank(project.year) === rank
+      (project) =>
+        academicYearFor(project.start, project.end).ordinal === year.ordinal
     ).sort(compareByStartDate)
-  }))
+  })).filter((block) => block.projects.length > 0)
 }

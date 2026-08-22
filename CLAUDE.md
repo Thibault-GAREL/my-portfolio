@@ -2,7 +2,7 @@
 
 Ce fichier assure la continuité du travail entre les sessions Claude Code (cloud) et le développement local sur VS Code. Il capture le contexte complet du projet, les décisions prises, les conventions et les prochaines étapes.
 
-Dernière mise à jour : 2026-07-26
+Dernière mise à jour : 2026-08-22
 
 ---
 
@@ -31,12 +31,30 @@ Le portfolio est aligné avec le README GitHub de Thibault : plusieurs sections 
 ```
 my-portfolio/
 ├── app/
-│   ├── page.tsx          # Composant principal (~2000+ lignes) : TOUT le contenu du portfolio
-│   ├── layout.tsx        # Métadonnées, SEO, Open Graph, structured data (JSON-LD)
-│   ├── globals.css       # Styles globaux Tailwind
+│   ├── page.tsx          # Assemblage des sections (~380 lignes, composant serveur)
+│   ├── layout.tsx        # Métadonnées, SEO, JSON-LD + script anti-flash du dark mode
+│   ├── globals.css       # Tailwind + ombres des cartes + couleurs des frises
 │   └── icon.png          # Favicon (logo Intelligence Lab, 460x460, ~34 Ko) - détecté automatiquement par Next.js
+├── components/           # Un fichier par composant
+│   ├── ProjectsSection.tsx      # 'use client' : toggle By Category / By Date
+│   ├── ProjectsByCategory.tsx   # Vue par catégorie (rend les variants OPENER)
+│   ├── ProjectsByDate.tsx       # Vue par année + Gantt repliable
+│   ├── ProjectCard.tsx          # Carte projet (sans state, ombres en CSS)
+│   ├── GanttChart.tsx           # Diagramme de Gantt
+│   ├── AcademicTimeline.tsx     # Frise du parcours académique
+│   ├── ProfessionalExperience.tsx  # Frise des expériences, repliable
+│   ├── GroupProjects.tsx        # Les 3 projets de groupe
+│   ├── SkillCategory.tsx        # Une catégorie de compétences
+│   └── ThemeToggle.tsx          # 'use client' : bascule du dark mode
+├── data/                 # SOURCE UNIQUE de tout le contenu
+│   ├── projects.ts       # Les 33 projets, saisis une seule fois
+│   ├── categories.ts     # Couleurs, emoji, titres, groupes du Gantt
+│   ├── academic-years.ts # Bornes des années scolaires + calcul de l'année d'un projet
+│   └── skills.ts         # Compétences et outils
+├── lib/
+│   └── format.ts         # formatDateRange, compareByStartDate
 ├── public/
-│   ├── favicon.ico
+│   ├── favicon.ico       # ⚠ fichier placeholder invalide (11 octets), à remplacer
 │   ├── robots.txt
 │   └── sitemap.xml
 ├── PROJECT_DATES_REFERENCE.md  # Document de référence des dates corrigées des projets
@@ -48,9 +66,9 @@ my-portfolio/
 └── LICENSE
 ```
 
-### Structure du contenu de `app/page.tsx`
+### Ordre des sections de la page
 
-Ordre des sections affichées sur la page (composant `Home`) :
+Assemblé par le composant `Home` dans `app/page.tsx` :
 
 1. **Header** (sticky) : titre + menu de navigation (desktop uniquement) + bouton CV + toggle dark mode
 2. **Hero** : photo de profil (160px), nom, liens de contact (LinkedIn, GitHub, Hugging Face, Google Scholar, Contact)
@@ -63,18 +81,15 @@ Ordre des sections affichées sur la page (composant `Home`) :
 9. **Hobbies** (`id="hobbies"`) : Chess, Sport, Drawing
 10. **Footer** : liens de contact + badge profile views
 
-### Composants et structures clés dans `page.tsx`
+### Où vit quoi
 
-- `Home()` : composant racine, gère `sortBy` ('category' | 'date') et `darkMode`
-- `ProjectsByCategory()` : projets groupés par catégorie
-- `ProjectsByDate()` : projets groupés par année, avec les tableaux `fourthYearProjects`, `thirdYearProjects`, `secondYearProjects`, `firstYearProjects` (triés chronologiquement)
-- `GanttChart()` : diagramme de Gantt (visible desktop uniquement, dans un `<details>`)
-- `ProjectCard({ project })` : carte de projet individuelle
-- `SkillCategory({ title, skills })` : catégorie de compétences
-- `AcademicTimeline()` : frise du parcours académique (composant natif)
-- `ProfessionalExperience()` : frise des expériences pro, repliable (`<details>`)
-- Fonctions utilitaires : `normalizeCategoryName()` (via `categoryMap`), `getCategoryShadowStyle()`, `getCategoryGradientStyle()`
-- Constante `categoryShadowColors` : mapping catégorie -> couleur RGB
+- `app/page.tsx` : assemble les sections, sans aucun state. C'est un **composant serveur**. Il passe les deux vues de projets en props à `ProjectsSection`, qui est le seul à porter le toggle côté client.
+- `data/projects.ts` : les 33 projets. **Un projet est saisi une seule fois.** Seules les dates ISO (`start`, `end`) sont écrites à la main, tout le reste en est dérivé.
+- `data/categories.ts` : `CATEGORIES` (emoji + hex), `CATEGORY_SECTIONS` (ordre d'affichage), `REINFORCEMENT_LEARNING` (le groupe qui coiffe 5 catégories), et les helpers `categoryBadge()`, `categoryBadgeStyle()`, `toGanttCategory()`. Les RGB sont calculés depuis les hex, plus jamais saisis en double.
+- `data/academic-years.ts` : bornes des années scolaires (septembre -> août) et `academicYearFor()`. Le Gantt y prend ses bandes d'en-tête, les cartes y prennent leur année. Une seule définition pour les deux.
+- `lib/format.ts` : `formatDateRange()` (le libellé "Mar - Apr 2026" affiché sur les cartes) et `compareByStartDate()`.
+- Un projet avec plusieurs destinations (OPENER : Paper, Models, Code) porte un champ `variants` : la vue Catégorie rend une carte par variant, la vue Date et le Gantt n'en rendent qu'une.
+- Un nom trop long pour une barre de Gantt porte un champ `ganttLabel`.
 
 ### État d'avancement actuel
 
@@ -104,6 +119,20 @@ Le portfolio est **fonctionnel et déployé**. Toutes les demandes de la session
 
 ## 2. DÉCISIONS TECHNIQUES PRISES
 
+### Source unique des projets, et tout ce qui peut être dérivé l'est
+
+- **Le problème d'origine** : chaque projet était saisi trois fois (vue Catégorie, vue Date, Gantt). Les copies avaient divergé, six informations se contredisaient d'une vue à l'autre (Attraction/Repulsion affichait "Jan - Sep 2025" sur sa carte et une barre d'une semaine dans le Gantt, les projets Unity portaient deux badges différents selon la vue, etc.).
+- **Décision** : `data/projects.ts` est la seule saisie. Les trois vues en dérivent.
+- **Seules les dates ISO sont écrites à la main.** Le libellé affiché ("Mar - Apr 2026") vient de `formatDateRange()`, l'année scolaire de `academicYearFor()`. Aucun des deux ne peut plus contredire la barre du Gantt.
+
+### L'année scolaire d'un projet : le milieu de sa période décide
+
+- **La date prime toujours sur l'information d'année.** Un projet ne porte plus de champ `year`.
+- Un projet à cheval sur deux années (juillet à octobre) est classé dans l'année où se situe le **milieu** de sa période, pas son début ni sa fin. C'est `academicYearFor()` dans `data/academic-years.ts`.
+- Les bornes sont celles de la frise Academic Background : l'année scolaire va de septembre à août, et 2022-2023 est la 1ère année.
+- Conséquence assumée : 18 projets sur 33 ont changé d'année lors du passage au calcul, et la vue By Date les replace automatiquement dans le bon bloc.
+- **Cas limite à connaître** : "Bot controlled by ChatBot RAG" (22 juil. au 11 oct. 2025) a son milieu au 31 août, soit un jour avant la bascule, donc il est classé en 3rd year. Pour le faire basculer, il faut corriger ses dates réelles, pas ajouter une exception.
+
 ### Frises chronologiques : React natif plutôt que SVG embarqué
 
 - Thibault a d'abord conçu ses frises (Academic Background, Professional Experience) en **SVG** pour son README GitHub, avec deux variantes (light et dark, via `prefers-color-scheme`).
@@ -116,20 +145,11 @@ Le portfolio est **fonctionnel et déployé**. Toutes les demandes de la session
 
 ### Dark mode par classe (et non `prefers-color-scheme`)
 
-- Le projet utilise `darkMode: 'class'` (Tailwind). Le dark mode est piloté par un state `darkMode` + une classe `dark` sur `<html>`.
+- Le projet utilise `darkMode: 'class'` (Tailwind). **La classe `dark` sur `<html>` est la seule source de vérité**, il n'y a aucun state React du thème.
+- Un script inline dans le `<head>` (`app/layout.tsx`) pose la classe **avant le premier paint**, en lisant `localStorage` puis en retombant sur `prefers-color-scheme` à la première visite. C'est ce qui supprime le flash blanc. `<html>` porte donc `suppressHydrationWarning`.
+- `ThemeToggle` bascule la classe et écrit dans `localStorage` (dans un `try/catch`, la navigation privée peut refuser). Son icône est en CSS pur (`dark:hidden` / `hidden dark:inline`), donc elle ne peut pas afficher un état différent du thème réel.
 - **Piège identifié** : les badges/stats GitHub utilisaient au départ des `<picture>` avec `media="(prefers-color-scheme: dark)"`, qui suit la préférence **système** et non la classe du site. Cela cassait l'affichage. Corrigé (voir section 5).
-- Pour les composants avec couleurs dynamiques (frises, cartes), on détecte le dark mode via un **state `isDark` + `MutationObserver`** sur les attributs de `document.documentElement` :
-
-```tsx
-const [isDark, setIsDark] = React.useState(false)
-React.useEffect(() => {
-  const checkDarkMode = () => setIsDark(document.documentElement.classList.contains('dark'))
-  checkDarkMode()
-  const observer = new MutationObserver(checkDarkMode)
-  observer.observe(document.documentElement, { attributes: true, attributeFilter: ['class'] })
-  return () => observer.disconnect()
-}, [])
-```
+- **Ancien pattern supprimé** : les composants détectaient le thème avec un state `isDark` + un `MutationObserver` sur `document.documentElement` (quatre copies, dont une par carte projet). Remplacé par des variables CSS. Ne pas le réintroduire.
 
 ### Couleurs dynamiques via `style` inline
 
@@ -187,7 +207,10 @@ React.useEffect(() => {
 - Styles via classes Tailwind ; couleurs dynamiques via `style` inline.
 - Classes de couleur dark mode : préfixe `dark:` (ex. `dark:text-[#cdd9e5]`, `dark:bg-[#2d333b]`).
 - Couleurs "streamlit" définies dans `tailwind.config.js` : `streamlit-bg`, `streamlit-secondary`, `streamlit-text`, `streamlit-accent`, `streamlit-border`.
-- Tout le contenu du portfolio vit dans `app/page.tsx` (fichier volumineux, monolithique) - convention actuelle du projet.
+- **Le contenu va dans `data/`, jamais en dur dans un composant.** Ajouter un projet = ajouter une entrée dans `data/projects.ts`, et les trois vues (Catégorie, Date, Gantt) se mettent à jour toutes seules.
+- **Ne jamais saisir à la main une information dérivable d'une date** : ni le libellé "Mar - Apr 2026", ni l'année scolaire. C'est ce qui avait produit des divergences entre les vues.
+- `'use client'` uniquement sur les composants qui portent vraiment un state (`ProjectsSection`, `ThemeToggle`). Tout le reste est serveur.
+- Les couleurs qui dépendent du thème passent par des variables CSS (`--bg-light` / `--bg-dark`, classes `.themed-card` et `.themed-tag` dans `globals.css`), pas par du JS.
 
 ### Workflow Git (règle explicite de la session)
 
@@ -258,7 +281,8 @@ React.useEffect(() => {
 - Ne pas utiliser `raw.githubusercontent.com` pour des fichiers Git LFS.
 - Ne pas utiliser une URL externe pour le favicon ; passer par `app/icon.png`.
 - Ne pas passer de couleur dynamique par classe Tailwind ; utiliser `style` inline.
-- Attention à garder les tableaux de projets triés chronologiquement (la vue "By Date" ne trie pas automatiquement).
+- Ne plus saisir un libellé de date ou une année scolaire à la main : les deux sont calculés depuis `start` et `end`. Le tri chronologique est fait par le code, il n'y a plus de tableau à maintenir dans l'ordre.
+- Ne pas ajouter de dépendance JS pour le thème : le script inline du `<head>` et les variables CSS suffisent.
 
 ---
 

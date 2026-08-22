@@ -43,15 +43,6 @@ export function formatDateRange(start: string, end: string): string {
   return `${MONTHS[from.month]} - ${MONTHS[to.month]} ${from.year}`
 }
 
-/**
- * Rank used to group the "By Date" view: "3rd - 4th year" lands in the 3rd year
- * block, the way the hand-maintained arrays used to.
- */
-export function academicYearRank(year: string): number {
-  const match = year.match(/\d+/)
-  return match ? Number(match[0]) : 0
-}
-
 export function compareByStartDate(
   a: { start: string },
   b: { start: string }
