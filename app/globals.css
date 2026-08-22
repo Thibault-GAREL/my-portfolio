@@ -8,6 +8,9 @@
   --streamlit-text: #262730;
   --streamlit-accent: #FF4B4B;
   --streamlit-border: #E6E9EF;
+
+  /* Strong ease-out for UI motion. The only easing token of the project. */
+  --ease-out: cubic-bezier(0.23, 1, 0.32, 1);
 }
 
 body {
@@ -81,4 +84,45 @@ body {
 
 .dark .themed-tag {
   color: var(--tag-dark);
+}
+
+/*
+ * Theme switch, revealed by a circle growing from the toggle button.
+ *
+ * The whole page changing colour at once is a jarring cut, so the new theme is
+ * wiped over the old one instead of replacing it. The default cross-fade of the
+ * View Transitions API is turned off, the old snapshot stays underneath, and
+ * only the new one is clipped. Origin and radius are measured on the button by
+ * ThemeToggle. Browsers without the API simply switch, which is the same
+ * behaviour as before.
+ */
+::view-transition-old(root),
+::view-transition-new(root) {
+  animation: none;
+  mix-blend-mode: normal;
+}
+
+::view-transition-old(root) {
+  z-index: 1;
+}
+
+::view-transition-new(root) {
+  z-index: 2;
+  animation: theme-reveal 400ms var(--ease-out);
+}
+
+@keyframes theme-reveal {
+  from {
+    clip-path: circle(0 at var(--reveal-x, 50%) var(--reveal-y, 50%));
+  }
+  to {
+    clip-path: circle(var(--reveal-radius, 150vmax) at var(--reveal-x, 50%) var(--reveal-y, 50%));
+  }
+}
+
+/* Reduced motion: the theme still switches, it just does not travel. */
+@media (prefers-reduced-motion: reduce) {
+  ::view-transition-new(root) {
+    animation: none;
+  }
 }
