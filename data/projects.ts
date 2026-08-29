@@ -416,6 +416,17 @@ export const PROJECTS: Project[] = [
         image: `${PROFILE_ASSETS}/Logo_Featured_Projects_compressed/research_opener_code_sq.png`
       }
     ]
+  },
+  {
+    id: 'snake-world-model',
+    name: 'Snake World Model',
+    description:
+      'JEPA world model built from scratch. Plans in latent space by MPC, with no learned policy.',
+    link: 'https://github.com/Thibault-GAREL/World_model_from_scratch-Snake',
+    image: `${RAW}/World_model_from_scratch-Snake/main/assets/snake_gameplay.gif`,
+    start: '2026-06-23',
+    end: '2026-08-11',
+    category: 'World Model'
   }
 ]
 

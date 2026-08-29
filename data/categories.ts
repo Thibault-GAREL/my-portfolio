@@ -11,6 +11,7 @@ export type CategoryId =
   | 'Genetic Algorithm'
   | 'Q-Learning'
   | 'PPO'
+  | 'World Model'
   | 'Unity ML-Agents'
   | 'Games'
   | 'Robotics'
@@ -35,6 +36,7 @@ export const CATEGORIES: Record<CategoryId, CategoryInfo> = {
   'Genetic Algorithm': { emoji: '🧬', hex: '#16a34a' },
   'Q-Learning': { emoji: '📈', hex: '#10b981' },
   PPO: { emoji: '🎯', hex: '#059669' },
+  'World Model': { emoji: '🌍', hex: '#047857' },
   'Unity ML-Agents': { emoji: '🎮', hex: '#0f766e' },
   Games: { emoji: '🎮', hex: '#0891b2', sectionTitle: 'Games (for training AI)' },
   Robotics: { emoji: '🦾', hex: '#dc2626' },
@@ -46,7 +48,7 @@ export const CATEGORIES: Record<CategoryId, CategoryInfo> = {
 /** Colour of the Group Projects heading, which is not a project category. */
 export const GROUP_PROJECTS_COLOR = '#00b4c2'
 
-/** Reinforcement Learning wraps five categories under one heading. */
+/** Reinforcement Learning wraps six categories under one heading. */
 export const REINFORCEMENT_LEARNING = {
   title: 'Reinforcement Learning',
   hex: '#16a34a',
@@ -55,6 +57,7 @@ export const REINFORCEMENT_LEARNING = {
     'Genetic Algorithm',
     'Q-Learning',
     'PPO',
+    'World Model',
     'Unity ML-Agents'
   ] as CategoryId[]
 }
@@ -124,7 +127,15 @@ export function categoryBadgeStyle(category: CategoryId): CSSProperties {
 
 /** The Gantt groups the five RL categories into a single legend entry. */
 export type GanttCategory =
-  | Exclude<CategoryId, 'Decision Tree' | 'Genetic Algorithm' | 'Q-Learning' | 'PPO' | 'Unity ML-Agents'>
+  | Exclude<
+      CategoryId,
+      | 'Decision Tree'
+      | 'Genetic Algorithm'
+      | 'Q-Learning'
+      | 'PPO'
+      | 'World Model'
+      | 'Unity ML-Agents'
+    >
   | 'Reinforcement Learning'
 
 export function toGanttCategory(category: CategoryId): GanttCategory {
