@@ -439,6 +439,17 @@ export const PROJECTS: Project[] = [
     start: '2026-08-04',
     end: '2026-08-15',
     category: 'Generative AI'
+  },
+  {
+    id: 'world-models',
+    name: 'World Models',
+    description:
+      'Guide to world models and JEPA, explained with Meta FAIR figures. Model training for the IntPhys 2 leaderboard coming soon.',
+    link: 'https://github.com/Thibault-GAREL/World_model_from_scratch',
+    image: `${RAW}/World_model_from_scratch/main/assets/Titre-World_Models_from_scratch.png`,
+    start: '2026-08-28',
+    end: '2026-09-17',
+    category: 'Generative AI'
   }
 ]
 
