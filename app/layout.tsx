@@ -3,7 +3,7 @@ import './globals.css'
 
 export const metadata: Metadata = {
   title: 'Thibault GAREL - AI Engineer Portfolio | Data & AI Projects',
-  description: 'Portfolio of Thibault GAREL, 4th year engineering student at ECE specializing in Data & AI. Explore my AI projects, machine learning applications, computer vision work, and Unity game development.',
+  description: 'Portfolio of Thibault GAREL, 5th year engineering student at École Polytechnique (Master 2 in Data Science, double degree with ECE Paris). Explore my AI projects, machine learning applications, computer vision work, and Unity game development.',
   keywords: [
     'Thibault GAREL',
     'AI Engineer',
@@ -12,6 +12,7 @@ export const metadata: Metadata = {
     'Computer Vision',
     'Deep Learning',
     'AI Portfolio',
+    'École Polytechnique',
     'ECE Engineering',
     'Python Developer',
     'Streamlit',
@@ -76,7 +77,7 @@ export default function RootLayout({
     '@type': 'Person',
     name: 'Thibault GAREL',
     jobTitle: 'AI Engineering Student',
-    description: '4th year engineering student at ECE specializing in Data & AI',
+    description: '5th year engineering student at École Polytechnique (Master 2 in Data Science, double degree with ECE Paris)',
     url: 'https://thibault-garel.vercel.app/',
     image: 'https://github.com/Thibault-GAREL.png',
     sameAs: [
@@ -84,10 +85,16 @@ export default function RootLayout({
       'https://www.linkedin.com/in/thibaultgarel/',
       'https://huggingface.co/Thibault-GAREL'
     ],
-    alumniOf: {
-      '@type': 'EducationalOrganization',
-      name: 'ECE Engineering School'
-    },
+    alumniOf: [
+      {
+        '@type': 'EducationalOrganization',
+        name: 'École Polytechnique'
+      },
+      {
+        '@type': 'EducationalOrganization',
+        name: 'ECE Engineering School'
+      }
+    ],
     knowsAbout: [
       'Artificial Intelligence',
       'Machine Learning',

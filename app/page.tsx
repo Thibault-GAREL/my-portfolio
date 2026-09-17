@@ -115,8 +115,10 @@ export default function Home() {
 
           <div className="text-xl text-gray-700 dark:text-[#adbac7] mb-6 leading-relaxed text-center">
             <p className="mb-4">
-              I am currently in my 4th year at <strong>ECE</strong>, an engineering
-              school, where I am pursuing a Major in <strong>Data & AI</strong>.
+              I am currently in my 5th year of engineering at{' '}
+              <strong>École Polytechnique</strong>, where I am pursuing a Master 2 in{' '}
+              <strong>Data Science</strong>, as part of a double degree with{' '}
+              <strong>ECE Paris</strong>.
             </p>
 
             <p className="mb-4">
