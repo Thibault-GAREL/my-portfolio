@@ -428,6 +428,17 @@ export const PROJECTS: Project[] = [
     end: '2026-08-11',
     category: 'World Model',
     ganttLabel: 'Snake AI - WM'
+  },
+  {
+    id: 'modern-transformer',
+    name: 'Modern Transformer',
+    description:
+      'GPT-style LLM trained with every modern upgrade since Attention Is All You Need, each one ablated.',
+    link: 'https://github.com/Thibault-GAREL/LLMs_modern_from_scratch',
+    image: `${RAW}/Language_Models/main/img/Titre-GPT_from_scratch.png`,
+    start: '2026-08-04',
+    end: '2026-08-15',
+    category: 'Generative AI'
   }
 ]
 
