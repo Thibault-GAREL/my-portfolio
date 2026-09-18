@@ -203,7 +203,7 @@ export const PROJECTS: Project[] = [
     image: `${RAW}/Image_generator_GAN/main/Img/Titre.png`,
     start: '2025-02-22',
     end: '2025-09-24',
-    category: 'Generative AI'
+    category: 'Vision Models'
   },
   {
     id: 'asr-speech-recognition',
@@ -264,7 +264,7 @@ export const PROJECTS: Project[] = [
     image: `${RAW}/Language_Models/main/img/Titre-GPT_from_scratch.png`,
     start: '2025-09-27',
     end: '2025-12-24',
-    category: 'Generative AI'
+    category: 'Language Models'
   },
   {
     id: 'rag-pdf-chatbot',
@@ -274,7 +274,7 @@ export const PROJECTS: Project[] = [
     image: `${RAW}/RAG_pdf/main/Video/Gif-video.gif`,
     start: '2025-10-11',
     end: '2025-10-12',
-    category: 'Generative AI'
+    category: 'Language Models'
   },
   {
     id: 'walking-ai-genetic',
@@ -330,7 +330,7 @@ export const PROJECTS: Project[] = [
     image: `${RAW}/CLIP_Embedding_Tools/main/img/Logo-Embedding_Tools.png`,
     start: '2025-12-25',
     end: '2025-12-27',
-    category: 'Generative AI'
+    category: 'Vision Models'
   },
   {
     id: 'snake-ai-dqn',
@@ -373,7 +373,7 @@ export const PROJECTS: Project[] = [
     image: `${RAW}/ILab_Formation_Fine-tuning/main/data/1-raw/my_drawings/Capture%20Bienvenu.PNG`,
     start: '2026-05-12',
     end: '2026-05-15',
-    category: 'Generative AI'
+    category: 'Vision Models'
   },
   {
     id: 'gravity-general-relativity',
@@ -438,7 +438,7 @@ export const PROJECTS: Project[] = [
     image: `${RAW}/Language_Models/main/img/Titre-GPT_from_scratch.png`,
     start: '2026-08-04',
     end: '2026-08-15',
-    category: 'Generative AI'
+    category: 'Language Models'
   },
   {
     id: 'world-models',
@@ -449,7 +449,7 @@ export const PROJECTS: Project[] = [
     image: `${RAW}/World_model_from_scratch/main/assets/Titre-World_Models_from_scratch.png`,
     start: '2026-08-28',
     end: '2026-09-17',
-    category: 'Generative AI'
+    category: 'Vision Models'
   }
 ]
 

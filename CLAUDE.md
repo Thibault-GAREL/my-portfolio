@@ -10,7 +10,7 @@ Dernière mise à jour : 2026-08-22
 
 ### Objectif général
 
-Portfolio web personnel de **Thibault GAREL**, étudiant ingénieur en 4ème année à l'ECE, spécialisé en Data & AI. Le site présente son parcours académique, ses expériences professionnelles, ses projets (personnels et de groupe), ses compétences, ses statistiques GitHub et ses hobbies.
+Portfolio web personnel de **Thibault GAREL**, étudiant ingénieur en 5ème année à l'École Polytechnique (Master 2 Data Science, en double diplôme avec l'ECE). Le site présente son parcours académique, ses expériences professionnelles, ses projets (personnels et de groupe), ses compétences, ses statistiques GitHub et ses hobbies.
 
 Le portfolio est aligné avec le README GitHub de Thibault : plusieurs sections du site sont des reprises "natives" (React/Tailwind) de contenus initialement conçus en Markdown/SVG pour le README.
 
@@ -112,6 +112,7 @@ Le portfolio est **fonctionnel et déployé**. Toutes les demandes de la session
 - Ajout de la frise Professional Experience repliable
 - Ajout du lien Google Scholar (entre Hugging Face et Contact, dans Hero et Footer)
 - Ajout de la catégorie **Research paper** (📄, `#FFD21E`) et du projet **OPENER** (3 cartes : Paper vers Google Scholar, Models vers la collection Hugging Face, Code vers GitHub), placée en premier dans Featured Projects, avant Generative AI. Une seule entrée OPENER dans la vue By Date et dans le Gantt, la vue By Category porte les 3 destinations.
+- Scission de **Generative AI** en deux catégories (2026-09-18), dans cet ordre après Research paper : **📝 Language Models** (`#6e40c9`, l'ancien violet : Language Models, RAG PDF ChatBot, Modern Transformer) puis **🖼️ Vision Models** (`#c026d3`, fuchsia : GAN, LoRA Stable Diffusion, CLIP Embedding Tools, World Models). Même découpage dans le README GitHub.
 
 **En cours / non tranché :** voir sections 5 et 6.
 
@@ -320,7 +321,8 @@ Le portfolio est **fonctionnel et déployé**. Toutes les demandes de la session
 (constante `categoryShadowColors` dans `page.tsx`, en RGB)
 
 - 📄 Research paper : `#FFD21E` (jaune Hugging Face, reprend la bande des vignettes du README)
-- 🤖 Generative AI : `#6e40c9`
+- 📝 Language Models : `#6e40c9` (ex "Generative AI", scindée en deux le 2026-09-18)
+- 🖼️ Vision Models : `#c026d3` (fuchsia, GAN, SD LoRA, CLIP, World Models)
 - 🧠 Neural Networks : `#2563eb`
 - 🌳 Decision Tree : `#22c55e`
 - 🧬 Genetic Algorithm : `#16a34a`

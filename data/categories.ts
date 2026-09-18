@@ -5,7 +5,8 @@ import type { CSSProperties } from 'react'
 
 export type CategoryId =
   | 'Research paper'
-  | 'Generative AI'
+  | 'Language Models'
+  | 'Vision Models'
   | 'Neural Networks'
   | 'Decision Tree'
   | 'Genetic Algorithm'
@@ -30,7 +31,8 @@ type CategoryInfo = {
 
 export const CATEGORIES: Record<CategoryId, CategoryInfo> = {
   'Research paper': { emoji: '📄', hex: '#FFD21E' },
-  'Generative AI': { emoji: '🤖', hex: '#6e40c9' },
+  'Language Models': { emoji: '📝', hex: '#6e40c9' },
+  'Vision Models': { emoji: '🖼️', hex: '#c026d3' },
   'Neural Networks': { emoji: '🧠', hex: '#2563eb' },
   'Decision Tree': { emoji: '🌳', hex: '#22c55e' },
   'Genetic Algorithm': { emoji: '🧬', hex: '#16a34a' },
@@ -69,7 +71,8 @@ export type CategorySection =
 
 export const CATEGORY_SECTIONS: CategorySection[] = [
   { kind: 'category', category: 'Research paper' },
-  { kind: 'category', category: 'Generative AI' },
+  { kind: 'category', category: 'Language Models' },
+  { kind: 'category', category: 'Vision Models' },
   { kind: 'category', category: 'Neural Networks' },
   { kind: 'group', group: REINFORCEMENT_LEARNING },
   { kind: 'category', category: 'Robotics' },
@@ -153,7 +156,8 @@ export function ganttCategoryHex(category: GanttCategory): string {
 /** Legend order: featured categories first, side projects after. */
 export const GANTT_CATEGORY_ORDER: GanttCategory[] = [
   'Research paper',
-  'Generative AI',
+  'Language Models',
+  'Vision Models',
   'Neural Networks',
   'Reinforcement Learning',
   'Robotics',
