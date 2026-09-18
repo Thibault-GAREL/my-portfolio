@@ -322,6 +322,9 @@ export default function Home() {
                 </em>
               </p>
 
+              {/* Hidden until the drawings are in my_art_gallery, same as the
+                  commented-out block in the README. Uncomment to bring it back.
+
               <details className="mt-3 inline-block text-left">
                 <summary className="cursor-pointer text-streamlit-text dark:text-[#cdd9e5] font-semibold hover:text-blue-600 dark:hover:text-[#539bf5]">
                   Click here to see my best artworks
@@ -339,6 +342,7 @@ export default function Home() {
                   </em>
                 </div>
               </details>
+              */}
             </div>
           </div>
         </section>
