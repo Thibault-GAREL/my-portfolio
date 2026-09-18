@@ -330,7 +330,7 @@ export const PROJECTS: Project[] = [
     image: `${RAW}/CLIP_Embedding_Tools/main/img/Logo-Embedding_Tools.png`,
     start: '2025-12-25',
     end: '2025-12-27',
-    category: 'Vision Models'
+    category: 'Language Models'
   },
   {
     id: 'snake-ai-dqn',

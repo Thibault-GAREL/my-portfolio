@@ -112,7 +112,7 @@ Le portfolio est **fonctionnel et déployé**. Toutes les demandes de la session
 - Ajout de la frise Professional Experience repliable
 - Ajout du lien Google Scholar (entre Hugging Face et Contact, dans Hero et Footer)
 - Ajout de la catégorie **Research paper** (📄, `#FFD21E`) et du projet **OPENER** (3 cartes : Paper vers Google Scholar, Models vers la collection Hugging Face, Code vers GitHub), placée en premier dans Featured Projects, avant Generative AI. Une seule entrée OPENER dans la vue By Date et dans le Gantt, la vue By Category porte les 3 destinations.
-- Scission de **Generative AI** en deux catégories (2026-09-18), dans cet ordre après Research paper : **📝 Language Models** (`#6e40c9`, l'ancien violet : Language Models, RAG PDF ChatBot, Modern Transformer) puis **🖼️ Vision Models** (`#c026d3`, fuchsia : GAN, LoRA Stable Diffusion, CLIP Embedding Tools, World Models). Même découpage dans le README GitHub.
+- Scission de **Generative AI** en deux catégories (2026-09-18), dans cet ordre après Research paper : **📝 Language Models** (`#6e40c9`, l'ancien violet : Language Models, RAG PDF ChatBot, CLIP Embedding Tools, Modern Transformer) puis **🖼️ Vision Models** (`#c026d3`, fuchsia : GAN, LoRA Stable Diffusion, World Models). Même découpage dans le README GitHub. CLIP a d'abord été rangé dans Vision Models, puis déplacé dans Language Models à la demande de Thibault.
 - Unification des couleurs Reinforcement Learning (2026-09-18) : les six sous-catégories et le titre du groupe prennent le vert Decision Tree `#22c55e` (constante `RL_GREEN`). Les badges gardent leur libellé propre. Même changement dans le README GitHub (cartes et ombres des logos).
 
 **En cours / non tranché :** voir sections 5 et 6.
@@ -323,7 +323,7 @@ Le portfolio est **fonctionnel et déployé**. Toutes les demandes de la session
 
 - 📄 Research paper : `#FFD21E` (jaune Hugging Face, reprend la bande des vignettes du README)
 - 📝 Language Models : `#6e40c9` (ex "Generative AI", scindée en deux le 2026-09-18)
-- 🖼️ Vision Models : `#c026d3` (fuchsia, GAN, SD LoRA, CLIP, World Models)
+- 🖼️ Vision Models : `#c026d3` (fuchsia, GAN, SD LoRA, World Models)
 - 🧠 Neural Networks : `#2563eb`
 - 🎮 Reinforcement Learning, toutes sous-catégories (🌳 Decision Tree, 🧬 Genetic Algorithm, 📈 Q-Learning, 🎯 PPO, 🌍 World Model, 🎮 Unity ML-Agents) et titre du groupe : `#22c55e`, le vert Decision Tree (constante `RL_GREEN` de `data/categories.ts`, unifié le 2026-09-18, avant chaque sous-catégorie avait sa nuance de vert)
 - 🎮 Games : `#0891b2`
