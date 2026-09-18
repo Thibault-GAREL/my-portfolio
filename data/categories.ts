@@ -29,17 +29,23 @@ type CategoryInfo = {
   sectionTitle?: string
 }
 
+/**
+ * Every Reinforcement Learning sub-category shares the Decision Tree green,
+ * so the whole RL block reads as one family. Only the badge label tells them apart.
+ */
+const RL_GREEN = '#22c55e'
+
 export const CATEGORIES: Record<CategoryId, CategoryInfo> = {
   'Research paper': { emoji: '📄', hex: '#FFD21E' },
   'Language Models': { emoji: '📝', hex: '#6e40c9' },
   'Vision Models': { emoji: '🖼️', hex: '#c026d3' },
   'Neural Networks': { emoji: '🧠', hex: '#2563eb' },
-  'Decision Tree': { emoji: '🌳', hex: '#22c55e' },
-  'Genetic Algorithm': { emoji: '🧬', hex: '#16a34a' },
-  'Q-Learning': { emoji: '📈', hex: '#10b981' },
-  PPO: { emoji: '🎯', hex: '#059669' },
-  'World Model': { emoji: '🌍', hex: '#047857' },
-  'Unity ML-Agents': { emoji: '🎮', hex: '#0f766e' },
+  'Decision Tree': { emoji: '🌳', hex: RL_GREEN },
+  'Genetic Algorithm': { emoji: '🧬', hex: RL_GREEN },
+  'Q-Learning': { emoji: '📈', hex: RL_GREEN },
+  PPO: { emoji: '🎯', hex: RL_GREEN },
+  'World Model': { emoji: '🌍', hex: RL_GREEN },
+  'Unity ML-Agents': { emoji: '🎮', hex: RL_GREEN },
   Games: { emoji: '🎮', hex: '#0891b2', sectionTitle: 'Games (for training AI)' },
   Robotics: { emoji: '🦾', hex: '#dc2626' },
   'Physics Simulation': { emoji: '🪐', hex: '#0d9488' },
@@ -53,7 +59,7 @@ export const GROUP_PROJECTS_COLOR = '#00b4c2'
 /** Reinforcement Learning wraps six categories under one heading. */
 export const REINFORCEMENT_LEARNING = {
   title: 'Reinforcement Learning',
-  hex: '#16a34a',
+  hex: RL_GREEN,
   categories: [
     'Decision Tree',
     'Genetic Algorithm',
