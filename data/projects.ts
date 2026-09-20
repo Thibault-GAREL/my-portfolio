@@ -257,8 +257,8 @@ export const PROJECTS: Project[] = [
     category: 'Robotics'
   },
   {
-    id: 'language-models',
-    name: 'Language Models',
+    id: 'original-llm',
+    name: 'Original LLM',
     description: 'Bigram & Transformer Models coded from scratch',
     link: 'https://github.com/Thibault-GAREL/Language_Models',
     image: `${RAW}/Language_Models/main/img/Titre-GPT_from_scratch.png`,
@@ -430,8 +430,8 @@ export const PROJECTS: Project[] = [
     ganttLabel: 'Snake AI - WM'
   },
   {
-    id: 'modern-transformer',
-    name: 'Modern Transformer',
+    id: 'modern-llm',
+    name: 'Modern LLM',
     description:
       'GPT-style LLM trained with every modern upgrade since Attention Is All You Need, each one ablated.',
     link: 'https://github.com/Thibault-GAREL/LLMs_modern_from_scratch',
@@ -462,8 +462,8 @@ export const PROJECTS: Project[] = [
  */
 const CATEGORY_CARD_ORDER: Partial<Record<CategoryId, string[]>> = {
   'Language Models': [
-    'language-models',
-    'modern-transformer',
+    'original-llm',
+    'modern-llm',
     'rag-pdf-chatbot',
     'clip-embedding-tools'
   ],
