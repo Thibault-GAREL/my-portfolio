@@ -72,11 +72,11 @@ const TIMELINE: TimelineEntry[] = [
  */
 export default function AcademicTimeline() {
   return (
-    <div className="relative max-w-4xl mx-auto">
+    <div className="relative">
       {/* Vertical line */}
       <div className="absolute left-[11px] sm:left-[15px] top-4 bottom-4 w-0.5 bg-streamlit-border dark:bg-[#30363d]" />
 
-      <div className="space-y-4">
+      <div className="space-y-3">
         {TIMELINE.map((item) => (
           <div key={item.title} className="relative pl-9 sm:pl-12">
             {/* Node on the line */}
@@ -87,7 +87,7 @@ export default function AcademicTimeline() {
                   style={{ backgroundColor: item.color, opacity: 0.18 }}
                 />
                 <span
-                  className="absolute left-[1px] sm:left-[5px] top-[25px] flex items-center justify-center w-[26px] h-[26px] rounded-full border-[3px] border-white dark:border-[#0d1117] text-white text-xs"
+                  className="absolute left-[1px] sm:left-[5px] top-[21px] flex items-center justify-center w-[26px] h-[26px] rounded-full border-[3px] border-white dark:border-[#0d1117] text-white text-xs"
                   style={{ backgroundColor: item.color }}
                 >
                   ★
@@ -95,14 +95,14 @@ export default function AcademicTimeline() {
               </>
             ) : (
               <span
-                className="absolute left-[5px] sm:left-[9px] top-[26px] w-[18px] h-[18px] rounded-full border-[3px] border-white dark:border-[#0d1117]"
+                className="absolute left-[5px] sm:left-[9px] top-[22px] w-[18px] h-[18px] rounded-full border-[3px] border-white dark:border-[#0d1117]"
                 style={{ backgroundColor: item.color }}
               />
             )}
 
             {/* Card */}
             <div
-              className="themed-card rounded-xl p-4 border-l-4"
+              className="themed-card rounded-xl p-3 border-l-4"
               style={
                 {
                   '--bg-light': item.bgLight,
@@ -111,7 +111,7 @@ export default function AcademicTimeline() {
                 } as CSSProperties
               }
             >
-              <div className="flex flex-wrap items-center justify-between gap-2 mb-2">
+              <div className="flex flex-wrap items-center justify-between gap-2 mb-1">
                 <span
                   className="inline-block px-3 py-1 rounded-full text-xs font-bold text-white"
                   style={{ backgroundColor: item.color }}
@@ -119,7 +119,7 @@ export default function AcademicTimeline() {
                   {item.date}
                 </span>
                 <span
-                  className="themed-tag text-sm font-semibold"
+                  className="themed-tag text-xs font-semibold"
                   style={
                     {
                       '--tag-light': item.tagLight,
@@ -130,7 +130,7 @@ export default function AcademicTimeline() {
                   {item.tag}
                 </span>
               </div>
-              <h4 className="text-base sm:text-lg font-bold text-streamlit-text dark:text-[#f0f6fc] mb-1">
+              <h4 className="text-base font-bold text-streamlit-text dark:text-[#f0f6fc] mb-1">
                 {item.title}
               </h4>
               {item.lines.map((line, i) => (

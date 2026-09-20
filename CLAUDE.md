@@ -122,6 +122,8 @@ Le portfolio est **fonctionnel et déployé**. Toutes les demandes de la session
 
 - Deuxième passe sur les titres (2026-09-20), jugés encore trop gros : échelle unifiée 30 / 24 / 20 / 16 / 15 (voir "Données de référence : échelle typographique"), titre du bandeau à 20 aussi sur téléphone, intro limitée à `max-w-3xl`. Les boutons By Category / By Date ont été laissés en 16 sur demande de Thibault.
 
+- Frises Academic et Experience sur deux colonnes (2026-09-20) : elles sont dans une grille `lg:grid-cols-2` dans `page.tsx`, côte à côte sur PC et l'une sous l'autre en dessous de `lg`. Cartes compactées (`p-3`, titre `text-base`, tag `text-xs`, `space-y-3`, pastilles remontées à `top-[22px]` pour rester alignées) et `max-w-4xl` retiré, chaque frise remplissant sa colonne. `ProfessionalExperience` rend la frise deux fois via un composant interne `Timeline` : visible directement en `hidden lg:block` sur PC (sinon la colonne de droite serait vide) et derrière le `details` repliable en `lg:hidden` sur téléphone et tablette, pour ne pas rallonger la page. Photo de la présentation remise à 160 px (`w-40`) à la demande de Thibault.
+
 **En cours / non tranché :** voir sections 5 et 6.
 
 ---

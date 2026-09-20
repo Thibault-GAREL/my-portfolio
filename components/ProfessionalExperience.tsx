@@ -86,39 +86,26 @@ const EXPERIENCES: Experience[] = [
   }
 ]
 
-/**
- * Collapsible professional experience timeline. The open/closed wording is
- * driven by CSS (group-open) rather than by React state, so the component stays
- * static and the native details element keeps its own behaviour.
- */
-export default function ProfessionalExperience() {
+/** The timeline itself, rendered twice: open on desktop, inside the toggle below. */
+function Timeline() {
   return (
-    <details className="group max-w-4xl mx-auto">
-      <summary className="cursor-pointer list-none mb-6 text-center">
-        <span className="inline-block px-6 py-3 bg-streamlit-secondary dark:bg-[#2d333b] rounded-lg border border-streamlit-border dark:border-[#444c56] text-streamlit-text dark:text-[#cdd9e5] font-semibold hover:bg-blue-50 dark:hover:bg-[#316dca20] transition-colors">
-          📂 Click to <span className="group-open:hidden">expand</span>
-          <span className="hidden group-open:inline">collapse</span> my experience
-          timeline
-        </span>
-      </summary>
-
-      <div className="mt-6">
+    <>
         <div className="relative">
           {/* Vertical line */}
           <div className="absolute left-[11px] sm:left-[15px] top-4 bottom-4 w-0.5 bg-streamlit-border dark:bg-[#30363d]" />
 
-          <div className="space-y-4">
+          <div className="space-y-3">
             {EXPERIENCES.map((item) => (
               <div key={item.title} className="relative pl-9 sm:pl-12">
                 {/* Node on the line */}
                 <span
-                  className="absolute left-[5px] sm:left-[9px] top-[26px] w-[18px] h-[18px] rounded-full border-[3px] border-white dark:border-[#0d1117]"
+                  className="absolute left-[5px] sm:left-[9px] top-[22px] w-[18px] h-[18px] rounded-full border-[3px] border-white dark:border-[#0d1117]"
                   style={{ backgroundColor: item.color }}
                 />
 
                 {/* Card */}
                 <div
-                  className="themed-card rounded-xl p-4 border-l-4"
+                  className="themed-card rounded-xl p-3 border-l-4"
                   style={
                     {
                       '--bg-light': item.bgLight,
@@ -127,7 +114,7 @@ export default function ProfessionalExperience() {
                     } as CSSProperties
                   }
                 >
-                  <div className="flex flex-wrap items-center justify-between gap-2 mb-2">
+                  <div className="flex flex-wrap items-center justify-between gap-2 mb-1">
                     <span
                       className="inline-block px-3 py-1 rounded-full text-xs font-bold text-white"
                       style={{ backgroundColor: item.color }}
@@ -135,7 +122,7 @@ export default function ProfessionalExperience() {
                       {item.date}
                     </span>
                     <span
-                      className="themed-tag text-sm font-semibold"
+                      className="themed-tag text-xs font-semibold"
                       style={
                         {
                           '--tag-light': item.tagLight,
@@ -146,7 +133,7 @@ export default function ProfessionalExperience() {
                       {item.company}
                     </span>
                   </div>
-                  <h4 className="text-base sm:text-lg font-bold text-streamlit-text dark:text-[#f0f6fc] mb-1">
+                  <h4 className="text-base font-bold text-streamlit-text dark:text-[#f0f6fc] mb-1">
                     {item.title}
                   </h4>
                   {item.lines.map((line, i) => (
@@ -176,7 +163,38 @@ export default function ProfessionalExperience() {
             </a>
           </p>
         </div>
+    </>
+  )
+}
+
+/**
+ * Professional experience timeline. On desktop it sits in its own column next
+ * to the academic timeline, so it is shown straight away: a toggle would leave
+ * that column empty. On phones and tablets the two timelines are stacked, so it
+ * stays behind a toggle to keep the page short. Which one shows is decided by
+ * CSS, and the open/closed wording by `group-open`, so the component stays
+ * static and the native details element keeps its own behaviour.
+ */
+export default function ProfessionalExperience() {
+  return (
+    <>
+      <div className="hidden lg:block">
+        <Timeline />
       </div>
-    </details>
+
+      <details className="group lg:hidden">
+        <summary className="cursor-pointer list-none mb-6 text-center">
+          <span className="inline-block px-6 py-3 bg-streamlit-secondary dark:bg-[#2d333b] rounded-lg border border-streamlit-border dark:border-[#444c56] text-streamlit-text dark:text-[#cdd9e5] font-semibold hover:bg-blue-50 dark:hover:bg-[#316dca20] transition-colors">
+            📂 Click to <span className="group-open:hidden">expand</span>
+            <span className="hidden group-open:inline">collapse</span> my
+            experience timeline
+          </span>
+        </summary>
+
+        <div className="mt-6">
+          <Timeline />
+        </div>
+      </details>
+    </>
   )
 }

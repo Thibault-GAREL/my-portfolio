@@ -93,7 +93,7 @@ export default function Home() {
             <img
               src="https://github.com/Thibault-GAREL.png"
               alt="Thibault GAREL"
-              className="w-28 h-28 flex-shrink-0 rounded-full border-4 border-streamlit-border dark:border-[#444c56] shadow-lg dark:shadow-[0_8px_16px_rgba(0,0,0,0.4)]"
+              className="w-40 h-40 flex-shrink-0 rounded-full border-4 border-streamlit-border dark:border-[#444c56] shadow-lg dark:shadow-[0_8px_16px_rgba(0,0,0,0.4)]"
             />
             <div className="text-center md:text-left">
               <h1 className="text-3xl font-bold text-streamlit-text dark:text-[#cdd9e5] mb-3">
@@ -178,21 +178,23 @@ export default function Home() {
           </div>
         </section>
 
-        {/* Academic Background */}
-        <section id="academic-background" className="mb-12 scroll-mt-20">
-          <h2 className="text-2xl font-bold text-streamlit-text dark:text-[#cdd9e5] mb-6 pb-2 border-b-2 border-streamlit-border dark:border-[#444c56]">
-            🎓 Academic Background
-          </h2>
-          <AcademicTimeline />
-        </section>
+        {/* Academic Background and Professional Experience: two columns on
+            desktop, one under the other on phones and tablets */}
+        <div className="grid lg:grid-cols-2 lg:gap-x-8 items-start mb-12">
+          <section id="academic-background" className="mb-12 lg:mb-0 scroll-mt-20">
+            <h2 className="text-2xl font-bold text-streamlit-text dark:text-[#cdd9e5] mb-6 pb-2 border-b-2 border-streamlit-border dark:border-[#444c56]">
+              🎓 Academic Background
+            </h2>
+            <AcademicTimeline />
+          </section>
 
-        {/* Professional Experience */}
-        <section id="experience" className="mb-12 scroll-mt-20">
-          <h2 className="text-2xl font-bold text-streamlit-text dark:text-[#cdd9e5] mb-6 pb-2 border-b-2 border-streamlit-border dark:border-[#444c56]">
-            💼 Professional Experience
-          </h2>
-          <ProfessionalExperience />
-        </section>
+          <section id="experience" className="mb-12 lg:mb-0 scroll-mt-20">
+            <h2 className="text-2xl font-bold text-streamlit-text dark:text-[#cdd9e5] mb-6 pb-2 border-b-2 border-streamlit-border dark:border-[#444c56]">
+              💼 Professional Experience
+            </h2>
+            <ProfessionalExperience />
+          </section>
+        </div>
 
         {/* Featured Projects: both views are built here, the client toggle picks one */}
         <ProjectsSection
