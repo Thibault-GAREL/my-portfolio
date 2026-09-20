@@ -135,7 +135,7 @@ function GroupProjectCard({ project }: { project: GroupProject }) {
         <img
           src={project.logo}
           alt={project.logoAlt}
-          className="hidden lg:block w-24 h-24 object-contain"
+          className="hidden lg:block h-full w-auto max-h-[200px] object-contain self-stretch"
         />
 
         <div className="flex-1">

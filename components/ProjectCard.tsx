@@ -34,7 +34,7 @@ export default function ProjectCard({
           their coloured shadow already baked in. The box keeps that ratio, the
           image is contained rather than cropped, and carries no shadow of its own. */}
       {image && (
-        <div className="flex-shrink-0 w-[140px] h-24">
+        <div className="flex-shrink-0 w-[200px] self-stretch min-h-[138px]">
           <img
             src={image}
             alt={name}

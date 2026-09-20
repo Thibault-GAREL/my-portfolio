@@ -382,8 +382,7 @@ export const PROJECTS: Project[] = [
     description:
       'Newton vs General Relativity (Schwarzschild): Mercury precession, light deflection',
     link: 'https://github.com/Thibault-GAREL/simulation_gravity-general_relativity',
-    image:
-      'https://media.githubusercontent.com/media/Thibault-GAREL/simulation_gravity-general_relativity/main/assets/hero.gif',
+    image: `${PROFILE_ASSETS}/Logo_Featured_Projects_compressed/physics_general_relativity.webp`,
     start: '2026-05-17',
     end: '2026-05-21',
     category: 'Physics Simulation'
