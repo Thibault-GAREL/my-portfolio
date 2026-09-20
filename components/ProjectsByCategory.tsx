@@ -42,7 +42,7 @@ function RuledHeading({
   if (level === 'sub') {
     return (
       <h4
-        className="text-xl font-semibold mb-4 flex items-center justify-center gap-2"
+        className="text-base font-semibold mb-4 flex items-center justify-center gap-2"
         style={{ color: hex }}
       >
         {rule}
@@ -54,7 +54,7 @@ function RuledHeading({
 
   return (
     <h3
-      className="text-2xl font-bold mb-4 flex items-center justify-center gap-3"
+      className="text-xl font-bold mb-4 flex items-center justify-center gap-3"
       style={{ color: hex }}
     >
       {rule}
@@ -86,7 +86,7 @@ export default function ProjectsByCategory() {
         return (
           <div key={REINFORCEMENT_LEARNING.title} className="mb-8">
             <h3
-              className="text-2xl font-bold mb-4 flex items-center justify-center gap-3"
+              className="text-xl font-bold mb-4 flex items-center justify-center gap-3"
               style={{ color: REINFORCEMENT_LEARNING.hex }}
             >
               <div

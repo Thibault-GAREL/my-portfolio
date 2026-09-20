@@ -141,7 +141,7 @@ function GroupProjectCard({ project }: { project: GroupProject }) {
         />
 
         <div className="flex-1">
-          <h3 className="text-2xl font-bold mb-2">
+          <h3 className="text-xl font-bold mb-2">
             <a
               href={project.titleLink}
               target="_blank"
@@ -151,11 +151,11 @@ function GroupProjectCard({ project }: { project: GroupProject }) {
               {project.title}
             </a>
             {project.award && (
-              <span className="text-lg text-green-600 ml-3">{project.award}</span>
+              <span className="text-base text-green-600 ml-3">{project.award}</span>
             )}
           </h3>
 
-          <p className="text-lg mb-2 dark:text-[#adbac7]">{project.description}</p>
+          <p className="text-base mb-2 dark:text-[#adbac7]">{project.description}</p>
           <p className="text-sm text-gray-600 dark:text-[#768390] mb-4">
             {project.period}
           </p>
@@ -201,7 +201,7 @@ export default function GroupProjects() {
   return (
     <section className="mb-12">
       <h2
-        className="text-3xl font-bold mb-6 pb-2 border-b-2 border-streamlit-border dark:border-[#444c56] flex items-center gap-3"
+        className="text-2xl font-bold mb-6 pb-2 border-b-2 border-streamlit-border dark:border-[#444c56] flex items-center gap-3"
         style={{ color: GROUP_PROJECTS_COLOR }}
       >
         <div

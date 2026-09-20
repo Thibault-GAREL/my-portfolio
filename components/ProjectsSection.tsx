@@ -26,7 +26,7 @@ export default function ProjectsSection({
   return (
     <section id="projects" className="mb-12 scroll-mt-20">
       <div className="flex items-center justify-between mb-6 pb-2 border-b-2 border-streamlit-border dark:border-[#444c56]">
-        <h2 className="text-3xl font-bold text-streamlit-text dark:text-[#cdd9e5]">
+        <h2 className="text-2xl font-bold text-streamlit-text dark:text-[#cdd9e5]">
           ✨ Featured Projects
         </h2>
 

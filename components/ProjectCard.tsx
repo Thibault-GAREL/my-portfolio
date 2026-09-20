@@ -55,7 +55,7 @@ export default function ProjectCard({
           >
             {categoryBadge(project.category)}
           </span>
-          <h4 className="text-base font-semibold text-streamlit-text dark:text-[#cdd9e5] group-hover:text-blue-600 dark:group-hover:text-[#539bf5] text-center md:text-left md:flex-1 md:order-1">
+          <h4 className="text-[15px] font-semibold text-streamlit-text dark:text-[#cdd9e5] group-hover:text-blue-600 dark:group-hover:text-[#539bf5] text-center md:text-left md:flex-1 md:order-1">
             {name}
           </h4>
         </div>

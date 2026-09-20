@@ -11,7 +11,7 @@ export default function ProjectsByDate() {
     <>
       {projectsByAcademicYear().map(({ title, projects }) => (
         <div key={title} className="mb-8">
-          <h3 className="text-2xl font-bold text-streamlit-text dark:text-[#cdd9e5] mb-6">
+          <h3 className="text-xl font-bold text-streamlit-text dark:text-[#cdd9e5] mb-6">
             {title}
           </h3>
           <div className="flex flex-wrap gap-4 justify-center">
@@ -26,8 +26,8 @@ export default function ProjectsByDate() {
       <div className="mt-16 hidden lg:block">
         <details className="group">
           <summary className="cursor-pointer list-none mb-8 pb-2 border-b-2 border-streamlit-border dark:border-[#444c56] hover:opacity-80 transition-opacity">
-            <h3 className="text-3xl font-bold text-streamlit-text dark:text-[#cdd9e5] flex items-center gap-3">
-              <span className="inline-block transition-transform duration-200 group-open:rotate-90 text-2xl">
+            <h3 className="text-xl font-bold text-streamlit-text dark:text-[#cdd9e5] flex items-center gap-3">
+              <span className="inline-block transition-transform duration-200 group-open:rotate-90 text-lg">
                 ▶
               </span>
               📊 Project Timeline

@@ -120,6 +120,8 @@ Le portfolio est **fonctionnel et déployé**. Toutes les demandes de la session
 - Ordre des cartes de la vue By Category aligné sur le README (2026-09-20) : constante `CATEGORY_CARD_ORDER` dans `data/projects.ts`, qui liste les ids dans l'ordre du README pour les seules catégories où il diffère du tri par date (Language Models, Q-Learning, PPO, Games). Les autres catégories gardent le tri par date, qui correspond déjà au README. La vue By Date et le Gantt trient toujours par date. Quand l'ordre du README change, mettre à jour cette constante.
 - **Écart connu, laissé tel quel** : "Walking AI - Genetic Algorithm" pointe vers `Quadruped-AI` ici et vers `test_box2D_pygame` dans le README. Thibault a indiqué qu'il s'agit de deux projets différents, donc le projet manquant reste à ajouter des deux côtés.
 
+- Deuxième passe sur les titres (2026-09-20), jugés encore trop gros : échelle unifiée 30 / 24 / 20 / 16 / 15 (voir "Données de référence : échelle typographique"), titre du bandeau à 20 aussi sur téléphone, intro limitée à `max-w-3xl`. Les boutons By Category / By Date ont été laissés en 16 sur demande de Thibault.
+
 **En cours / non tranché :** voir sections 5 et 6.
 
 ---
@@ -321,6 +323,22 @@ Le portfolio est **fonctionnel et déployé**. Toutes les demandes de la session
 - Email : `thibault.garel@edu.ece.fr`
 - Expériences LinkedIn : `https://www.linkedin.com/in/thibaultgarel/details/experience/`
 - `PROJECT_DATES_REFERENCE.md` : référence des dates corrigées des projets (à consulter en cas de doute sur une date).
+
+### Données de référence : échelle typographique (2026-09-20)
+
+Un seul barème pour toute la page, identique sur PC et téléphone sauf mention contraire. Toute nouvelle section reprend ces niveaux plutôt que d'inventer une taille.
+
+| Niveau | Taille | Classe Tailwind | Exemples |
+|--------|--------|-----------------|----------|
+| Titre du bandeau | 20 | `text-xl` | "Thibault GAREL's Portfolio" |
+| Titre de la présentation | 30 | `text-3xl` | "Hi! My name is Thibault GAREL" |
+| Titre de section | 24 | `text-2xl` | Academic Background, Featured Projects, Skills, Group Projects |
+| Titre de catégorie | 20 | `text-xl` | Research paper, Language Models, blocs par année, Project Timeline, carte de projet de groupe |
+| Sous-catégorie | 16 | `text-base` | les 6 sous-catégories de Reinforcement Learning |
+| Titre de carte projet | 15 | `text-[15px]` | ProjectCard |
+| Texte courant | 14 à 18 | `text-sm` à `text-lg` | descriptions 14, intro 18 |
+
+Le texte d'intro est limité à `max-w-3xl` (768 px) pour éviter des lignes trop longues sur grand écran.
 
 ### Données de référence : palette de couleurs des catégories de projets
 
