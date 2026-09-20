@@ -15,7 +15,6 @@ export type CategoryId =
   | 'World Model'
   | 'Unity ML-Agents'
   | 'Games'
-  | 'Robotics'
   | 'Physics Simulation'
   | 'Applied AI Workflows'
   | 'Data Analysis'
@@ -37,8 +36,8 @@ const RL_GREEN = '#22c55e'
 
 export const CATEGORIES: Record<CategoryId, CategoryInfo> = {
   'Research paper': { emoji: '📄', hex: '#FFD21E' },
-  'Language Models': { emoji: '📝', hex: '#6e40c9' },
-  'Vision Models': { emoji: '🖼️', hex: '#c026d3' },
+  'Language Models': { emoji: '📝', hex: '#c026d3' },
+  'Vision Models': { emoji: '🖼️', hex: '#ef4444' },
   'Neural Networks': { emoji: '🧠', hex: '#2563eb' },
   'Decision Tree': { emoji: '🌳', hex: RL_GREEN },
   'Genetic Algorithm': { emoji: '🧬', hex: RL_GREEN },
@@ -47,7 +46,6 @@ export const CATEGORIES: Record<CategoryId, CategoryInfo> = {
   'World Model': { emoji: '🌍', hex: RL_GREEN },
   'Unity ML-Agents': { emoji: '🎮', hex: RL_GREEN },
   Games: { emoji: '🎮', hex: '#0891b2', sectionTitle: 'Games (for training AI)' },
-  Robotics: { emoji: '🦾', hex: '#dc2626' },
   'Physics Simulation': { emoji: '🪐', hex: '#0d9488' },
   'Applied AI Workflows': { emoji: '🤖', hex: '#db2777' },
   'Data Analysis': { emoji: '📊', hex: '#d97706' }
@@ -81,7 +79,6 @@ export const CATEGORY_SECTIONS: CategorySection[] = [
   { kind: 'category', category: 'Vision Models' },
   { kind: 'category', category: 'Neural Networks' },
   { kind: 'group', group: REINFORCEMENT_LEARNING },
-  { kind: 'category', category: 'Robotics' },
   { kind: 'category', category: 'Games' },
   { kind: 'category', category: 'Physics Simulation' },
   { kind: 'category', category: 'Applied AI Workflows' },
@@ -166,7 +163,6 @@ export const GANTT_CATEGORY_ORDER: GanttCategory[] = [
   'Vision Models',
   'Neural Networks',
   'Reinforcement Learning',
-  'Robotics',
   'Games',
   'Physics Simulation',
   'Applied AI Workflows',

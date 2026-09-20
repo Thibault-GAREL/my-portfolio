@@ -247,14 +247,16 @@ export const PROJECTS: Project[] = [
     category: 'Applied AI Workflows'
   },
   {
-    id: 'bot-chatbot-rag',
-    name: 'Bot controlled by ChatBot RAG',
-    description: 'Two-wheeled robot controlled by a RAG chatbot',
-    link: 'https://github.com/Thibault-GAREL/Bot_controlled_by_a_Chatbot_RAG',
-    image: `${RAW}/Bot_controlled_by_a_Chatbot_RAG/main/img/Gif-bot.gif`,
+    id: 'robot-local-llm',
+    name: 'Robot Controlled by Local LLM',
+    description:
+      'Two-wheel robot driven by a local Mistral, which turns plain sentences into motor commands sent to a Raspberry Pi and an Arduino',
+    link: 'https://github.com/Thibault-GAREL/Robot_Controlled_by_Local_LLM',
+    image: `${RAW}/Robot_Controlled_by_Local_LLM/main/img/Gif-bot.gif`,
     start: '2025-07-22',
     end: '2025-10-11',
-    category: 'Robotics'
+    category: 'Language Models',
+    ganttLabel: 'Robot - Local LLM'
   },
   {
     id: 'original-llm',
@@ -465,7 +467,8 @@ const CATEGORY_CARD_ORDER: Partial<Record<CategoryId, string[]>> = {
     'original-llm',
     'modern-llm',
     'rag-pdf-chatbot',
-    'clip-embedding-tools'
+    'clip-embedding-tools',
+    'robot-local-llm'
   ],
   'Q-Learning': ['q-learning-pathfinding', 'snake-ai-dqn', 'driving-ai-dqn'],
   PPO: ['snake-ai-ppo', 'starcraft2-vlm-rl'],
