@@ -220,7 +220,8 @@ export default function Home() {
             </h4>
             <p className="text-gray-600 dark:text-[#768390] text-lg mb-6">
               • 🇫🇷 French (Native)
-              <br />• 🇬🇧 English (Advanced) - TOEIC 815 pts
+              <br />• 🇬🇧 English (B2) - TOEIC 815 pts, Cambridge B2 First, DET 110 pts
+              <br />• 🇩🇪 German (B1)
             </p>
 
             <h4 className="text-xl font-bold text-streamlit-text dark:text-[#cdd9e5] mb-4">

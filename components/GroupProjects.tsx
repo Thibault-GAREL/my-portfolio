@@ -22,8 +22,9 @@ const GROUP_PROJECTS: GroupProject[] = [
     title: 'Hackathon with the CND',
     titleLink:
       'https://www.linkedin.com/feed/update/urn:li:activity:7397600929350336512/',
-    award: '🏆 3rd / 15 schools',
-    description: 'AI system to detect anomalies and breakdowns in French army logs',
+    award: '🏆 1st place, hackathon winner',
+    description:
+      'AI detecting cyberattacks against the French army. Ranked 3rd out of 11 engineering schools in phase 1, then 1st at the final',
     period: '📅 November 18-20, 2025 • 4th year',
     logo: 'https://raw.githubusercontent.com/Thibault-GAREL/Thibault-GAREL/main/Logo_Group_Projects_compressed/group_hackathon_cnd_sq.png',
     logoAlt: 'CND Logo',
@@ -88,7 +89,8 @@ const GROUP_PROJECTS: GroupProject[] = [
   {
     title: 'Resilient AI Challenge',
     titleLink: 'https://www.sustainableaicoalition.org/resilient-ai-challenge/',
-    description: 'International AI competition on resilient and sustainable AI systems',
+    description:
+      'Compressing Google Gemma 4 to make it lighter and more resilient, for France, India and UNESCO',
     period: '📅 2025 • 4th year',
     logo: 'https://raw.githubusercontent.com/Thibault-GAREL/Thibault-GAREL/main/Logo_Group_Projects_compressed/group_resilient_sq.png',
     logoAlt: 'Resilient AI Logo',
@@ -135,7 +137,9 @@ function GroupProjectCard({ project }: { project: GroupProject }) {
         <img
           src={project.logo}
           alt={project.logoAlt}
-          className="hidden lg:block h-full w-auto max-h-[200px] object-contain self-stretch"
+          // fixed size: the three cards have different heights (team rows), so
+          // stretching the logo made each one a different size
+          className="hidden lg:block w-[150px] h-[150px] object-contain self-start"
         />
 
         <div className="flex-1">
