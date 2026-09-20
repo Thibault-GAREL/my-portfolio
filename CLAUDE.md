@@ -117,6 +117,9 @@ Le portfolio est **fonctionnel et déployé**. Toutes les demandes de la session
 - Frises Academic et Experience alignées sur le CV du 2026-09-17, comme les SVG du README : 4 étapes académiques (Polytechnique, ECE Paris 2022-2027 en une carte, Napier, Bac) et 6 expériences (ajout des deux jobs d'été Solvay, LyRIDS terminé en août 2026).
 - "Dézoom" du site (2026-09-19), en ajustements ciblés validés par Thibault, pour moins défiler : présentation avec la photo à gauche du nom à partir de `md` (photo 160 → 112 px, titre `sm:text-5xl` → `sm:text-4xl`, intro `text-xl` → `text-lg`), titres de section `text-4xl` → `text-3xl`, marges entre sections `mb-16` → `mb-12`, cartes projets compactes en gardant 2 colonnes (image 128 → 96 px, padding `p-4` → `p-3`, titre `text-lg` → `text-base`), bandeau affiné sur PC seulement (`lg:py-2`, `lg:text-xl`), le bandeau téléphone reste identique. Mesuré en 1440×900 : page 12,3 → 10,4 écrans, projets 6,7 → 5,4 écrans. En mobile : page 18,8 → 16,3 écrans, projets 11 → 9 écrans.
 
+- Ordre des cartes de la vue By Category aligné sur le README (2026-09-20) : constante `CATEGORY_CARD_ORDER` dans `data/projects.ts`, qui liste les ids dans l'ordre du README pour les seules catégories où il diffère du tri par date (Language Models, Q-Learning, PPO, Games). Les autres catégories gardent le tri par date, qui correspond déjà au README. La vue By Date et le Gantt trient toujours par date. Quand l'ordre du README change, mettre à jour cette constante.
+- **Écart connu, laissé tel quel** : "Walking AI - Genetic Algorithm" pointe vers `Quadruped-AI` ici et vers `test_box2D_pygame` dans le README. Thibault a indiqué qu'il s'agit de deux projets différents, donc le projet manquant reste à ajouter des deux côtés.
+
 **En cours / non tranché :** voir sections 5 et 6.
 
 ---

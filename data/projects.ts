@@ -453,10 +453,44 @@ export const PROJECTS: Project[] = [
   }
 ]
 
-/** Projects of one category, oldest first. */
+/**
+ * Display order of the "By Category" view, mirroring the README of the GitHub
+ * profile. Only the categories whose README order differs from the date order
+ * are listed: every other category already reads the same both sides. An id
+ * that is not listed comes after the listed ones, by date.
+ * The "By Date" view and the Gantt chart keep sorting by date.
+ */
+const CATEGORY_CARD_ORDER: Partial<Record<CategoryId, string[]>> = {
+  'Language Models': [
+    'language-models',
+    'modern-transformer',
+    'rag-pdf-chatbot',
+    'clip-embedding-tools'
+  ],
+  'Q-Learning': ['q-learning-pathfinding', 'snake-ai-dqn', 'driving-ai-dqn'],
+  PPO: ['snake-ai-ppo', 'starcraft2-vlm-rl'],
+  Games: [
+    'snake-game',
+    'driving-game',
+    'human-sandbox',
+    'star-wars-ece-world',
+    'maze-asterix'
+  ]
+}
+
+/** Projects of one category, in the README order when there is one, else oldest first. */
 export function projectsInCategory(category: CategoryId): Project[] {
-  return PROJECTS.filter((project) => project.category === category).sort(
-    compareByStartDate
+  const order = CATEGORY_CARD_ORDER[category]
+  const projects = PROJECTS.filter((project) => project.category === category)
+
+  if (!order) return projects.sort(compareByStartDate)
+
+  const rank = (project: Project) => {
+    const i = order.indexOf(project.id)
+    return i === -1 ? order.length : i
+  }
+  return projects.sort(
+    (a, b) => rank(a) - rank(b) || compareByStartDate(a, b)
   )
 }
 
