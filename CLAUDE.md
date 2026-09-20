@@ -126,7 +126,7 @@ Le portfolio est **fonctionnel et déployé**. Toutes les demandes de la session
 
 - Cadres de famille dans la vue By Category (2026-09-20) : chaque catégorie est entourée d'un cadre `border-2` de sa couleur (composant `CategoryBox` dans `ProjectsByCategory.tsx`), avec le titre posé sur le trait du haut, sur fond de page. Les traits horizontaux de part et d'autre du titre ont disparu à ce niveau. Reinforcement Learning a **un seul** cadre pour tout le groupe, ses 6 sous-catégories gardent leur titre à filets à l'intérieur. La vue By Date et les Group Projects ne sont pas concernés.
 
-- Échange de couleurs et suppression de Robotics (2026-09-20) : Language Models prend le fuchsia `#c026d3` de Vision Models, Vision Models prend un rouge vif `#f81d1d`. La catégorie Robotics disparaît, son unique projet rejoint Language Models sous le nom **Robot Controlled by Local LLM** (dépôt renommé `Robot_Controlled_by_Local_LLM`). L'ancien nom parlait de RAG et de commandes vocales, les deux étaient faux : le projet fait tourner un Mistral local via Ollama qui traduit des phrases en codes moteur.
+- Échange de couleurs et suppression de Robotics (2026-09-20) : Language Models prend le fuchsia `#c026d3` de Vision Models, Vision Models prend le rouge `#ef4444`. La catégorie Robotics disparaît, son unique projet rejoint Language Models sous le nom **Robot Controlled by Local LLM** (dépôt renommé `Robot_Controlled_by_Local_LLM`). L'ancien nom parlait de RAG et de commandes vocales, les deux étaient faux : le projet fait tourner un Mistral local via Ollama qui traduit des phrases en codes moteur.
 
 **En cours / non tranché :** voir sections 5 et 6.
 
@@ -352,7 +352,7 @@ Le texte d'intro est limité à `max-w-3xl` (768 px) pour éviter des lignes tro
 
 - 📄 Research paper : `#FFD21E` (jaune Hugging Face, reprend la bande des vignettes du README)
 - 📝 Language Models : `#c026d3` (fuchsia, ex `#6e40c9` violet jusqu'au 2026-09-20)
-- 🖼️ Vision Models : `#f81d1d` (rouge vif, le `#ef4444` des skills schema-svg et thibault-remotion resaturé le 2026-09-20)
+- 🖼️ Vision Models : `#ef4444` (le rouge des skills schema-svg et thibault-remotion)
 - 🧠 Neural Networks : `#2563eb`
 - 🎮 Reinforcement Learning, toutes sous-catégories (🌳 Decision Tree, 🧬 Genetic Algorithm, 📈 Q-Learning, 🎯 PPO, 🌍 World Model, 🎮 Unity ML-Agents) et titre du groupe : `#22c55e`, le vert Decision Tree (constante `RL_GREEN` de `data/categories.ts`, unifié le 2026-09-18, avant chaque sous-catégorie avait sa nuance de vert)
 - 🎮 Games : `#0891b2`

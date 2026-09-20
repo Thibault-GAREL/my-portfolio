@@ -37,7 +37,7 @@ const RL_GREEN = '#22c55e'
 export const CATEGORIES: Record<CategoryId, CategoryInfo> = {
   'Research paper': { emoji: '📄', hex: '#FFD21E' },
   'Language Models': { emoji: '📝', hex: '#c026d3' },
-  'Vision Models': { emoji: '🖼️', hex: '#f81d1d' },
+  'Vision Models': { emoji: '🖼️', hex: '#ef4444' },
   'Neural Networks': { emoji: '🧠', hex: '#2563eb' },
   'Decision Tree': { emoji: '🌳', hex: RL_GREEN },
   'Genetic Algorithm': { emoji: '🧬', hex: RL_GREEN },
