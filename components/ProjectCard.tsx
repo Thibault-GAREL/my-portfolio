@@ -30,18 +30,21 @@ export default function ProjectCard({
       rel="noopener noreferrer"
       className="project-card bg-streamlit-secondary dark:bg-[#2d333b] rounded-xl p-3 border border-streamlit-border dark:border-[#444c56] group flex gap-3 w-full md:w-[calc(50%-0.5rem)]"
     >
+      {/* Same logos as the profile README, 221x152 with their rounded corners and
+          their coloured shadow already baked in. The box keeps that ratio, the
+          image is contained rather than cropped, and carries no shadow of its own. */}
       {image && (
-        <div className="flex-shrink-0 w-24 h-24 rounded-lg overflow-hidden shadow-lg group-hover:shadow-xl dark:shadow-[0_8px_16px_rgba(0,0,0,0.4)] dark:group-hover:shadow-[0_12px_24px_rgba(0,0,0,0.6)] transition-shadow">
+        <div className="flex-shrink-0 w-[140px] h-24">
           <img
             src={image}
             alt={name}
-            className={`w-full h-full object-cover ${imageDark ? 'dark:hidden' : ''}`}
+            className={`w-full h-full object-contain ${imageDark ? 'dark:hidden' : ''}`}
           />
           {imageDark && (
             <img
               src={imageDark}
               alt={name}
-              className="w-full h-full object-cover hidden dark:block"
+              className="w-full h-full object-contain hidden dark:block"
             />
           )}
         </div>

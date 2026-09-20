@@ -53,7 +53,7 @@ export const PROJECTS: Project[] = [
     name: 'Maze - Asterix & Obélix',
     description: 'Maze game with BFS pathfinding (C + Allegro 5)',
     link: 'https://github.com/Thibault-GAREL/Game_maze_Asterix-Obelix',
-    image: `${RAW}/Game_maze_Asterix-Obelix/main/img/menu_screen.png`,
+    image: `${PROFILE_ASSETS}/Logo_Featured_Projects_compressed/game_maze_asterix.png`,
     start: '2022-12-01',
     end: '2023-01-17',
     category: 'Games',
@@ -64,7 +64,7 @@ export const PROJECTS: Project[] = [
     name: 'Star Wars - ECE World',
     description: 'Star Wars minigames in an open world (C++)',
     link: 'https://github.com/Thibault-GAREL/Game_ECE_World_Minigame',
-    image: `${RAW}/Game_ECE_World_Minigame/main/img/Menu.png`,
+    image: `${PROFILE_ASSETS}/Logo_Featured_Projects_compressed/game_star_wars.png`,
     start: '2023-04-06',
     end: '2023-05-08',
     category: 'Games',
@@ -75,7 +75,7 @@ export const PROJECTS: Project[] = [
     name: 'Gravity Simulation 2D',
     description: '2D gravity and orbital mechanics simulation',
     link: 'https://github.com/Thibault-GAREL/gravity_simulation',
-    image: `${RAW}/gravity_simulation/main/img/Gif-gravity.gif`,
+    image: `${PROFILE_ASSETS}/Logo_Featured_Projects_compressed/physics_gravity.webp`,
     start: '2023-06-06',
     end: '2023-08-30',
     category: 'Physics Simulation'
@@ -85,7 +85,7 @@ export const PROJECTS: Project[] = [
     name: 'Neural Networks Library',
     description: 'Built from scratch in C',
     link: 'https://github.com/Thibault-GAREL/Neural_Network_from_Scratch',
-    image: `${RAW}/Neural_Network_from_Scratch/main/Images/Gif-neural-network.gif`,
+    image: `${PROFILE_ASSETS}/Logo_Featured_Projects_compressed/neural_net_from_scratch.webp`,
     start: '2023-08-01',
     end: '2024-05-31',
     category: 'Neural Networks'
@@ -95,7 +95,7 @@ export const PROJECTS: Project[] = [
     name: 'Q-Learning Pathfinding',
     description: 'Q-Learning algorithm to find optimal paths',
     link: 'https://github.com/Thibault-GAREL/Q-Learning',
-    image: `${RAW}/Q-Learning/main/img/Gif-DQN.gif`,
+    image: `${PROFILE_ASSETS}/Logo_Featured_Projects_compressed/rl_q_learning.webp`,
     start: '2023-08-01',
     end: '2023-10-20',
     category: 'Q-Learning'
@@ -105,7 +105,7 @@ export const PROJECTS: Project[] = [
     name: 'Snake Game',
     description: 'Classic snake game for AI training',
     link: 'https://github.com/Thibault-GAREL/snake_game',
-    image: `${RAW}/snake_game/main/img/Snake-game.gif`,
+    image: `${PROFILE_ASSETS}/Logo_Featured_Projects_compressed/game_snake.webp`,
     start: '2024-07-13',
     end: '2025-09-20',
     category: 'Games'
@@ -115,7 +115,7 @@ export const PROJECTS: Project[] = [
     name: 'Snake AI - Genetic Algorithm',
     description: 'Snake game AI using genetic algorithms',
     link: 'https://github.com/Thibault-GAREL/AI_snake_genetic_version',
-    image: `${RAW}/AI_snake_genetic_version/main/Images/score13.gif`,
+    image: `${PROFILE_ASSETS}/Logo_Featured_Projects_compressed/rl_snake_genetic.webp`,
     start: '2024-08-04',
     end: '2024-10-14',
     category: 'Genetic Algorithm',
@@ -126,7 +126,7 @@ export const PROJECTS: Project[] = [
     name: 'Unity AI - Movement',
     description: 'Unity AI learning to move using PPO',
     link: 'https://github.com/Thibault-GAREL/Unity_move',
-    image: `${RAW}/Unity_move/main/img/Gif-Unity_move.gif`,
+    image: `${PROFILE_ASSETS}/Logo_Featured_Projects_compressed/rl_unity_move.webp`,
     start: '2025-01-01',
     end: '2025-01-31',
     category: 'Unity ML-Agents'
@@ -136,7 +136,7 @@ export const PROJECTS: Project[] = [
     name: 'Unity AI - Greedy',
     description: 'Unity AI learning to catch coins using PPO',
     link: 'https://github.com/Thibault-GAREL/Unity_greedy',
-    image: `${RAW}/Unity_greedy/main/img_greedy/Greedy-gif-X9.gif`,
+    image: `${PROFILE_ASSETS}/Logo_Featured_Projects_compressed/rl_unity_greedy.webp`,
     start: '2025-01-01',
     end: '2025-01-31',
     category: 'Unity ML-Agents'
@@ -146,7 +146,7 @@ export const PROJECTS: Project[] = [
     name: 'Unity AI - Driving',
     description: 'Unity AI learning to drive using PPO',
     link: 'https://github.com/Thibault-GAREL/Unity_drive',
-    image: `${RAW}/Unity_drive/main/img_drive/Driving-maze-gif.gif`,
+    image: `${PROFILE_ASSETS}/Logo_Featured_Projects_compressed/rl_unity_drive.webp`,
     start: '2025-01-01',
     end: '2025-01-31',
     category: 'Unity ML-Agents'
@@ -156,7 +156,7 @@ export const PROJECTS: Project[] = [
     name: 'Driving AI - Deep Q-Learning',
     description: 'Self-driving car using Deep Q-Learning',
     link: 'https://github.com/Thibault-GAREL/AI_driving_DQN_version',
-    image: `${RAW}/AI_driving_DQN_version/main/Images/gif-driving.gif`,
+    image: `${PROFILE_ASSETS}/Logo_Featured_Projects_compressed/rl_driving_dql.webp`,
     start: '2025-01-04',
     end: '2025-09-09',
     category: 'Q-Learning',
@@ -167,7 +167,7 @@ export const PROJECTS: Project[] = [
     name: 'Driving Game',
     description: 'Driving simulation for AI training',
     link: 'https://github.com/Thibault-GAREL/driving_game',
-    image: `${RAW}/driving_game/main/img/Gif_driving_game.gif`,
+    image: `${PROFILE_ASSETS}/Logo_Featured_Projects_compressed/game_driving.webp`,
     start: '2025-01-04',
     end: '2025-09-20',
     category: 'Games'
@@ -177,7 +177,7 @@ export const PROJECTS: Project[] = [
     name: 'Driving AI - Genetic Algorithm',
     description: 'Self-driving car using genetic algorithms',
     link: 'https://github.com/Thibault-GAREL/AI_driving_genetic_version',
-    image: `${RAW}/AI_driving_genetic_version/main/Img/Driving_NEAT_gif.gif`,
+    image: `${PROFILE_ASSETS}/Logo_Featured_Projects_compressed/rl_driving_genetic.webp`,
     start: '2025-01-09',
     end: '2025-09-28',
     category: 'Genetic Algorithm',
@@ -188,7 +188,7 @@ export const PROJECTS: Project[] = [
     name: 'Attraction/Repulsion Simulation',
     description: 'Particle attraction and repulsion physics',
     link: 'https://github.com/Thibault-GAREL/Attraction_repulsion',
-    image: `${RAW}/Attraction_repulsion/main/img/Gif-orbit.gif`,
+    image: `${PROFILE_ASSETS}/Logo_Featured_Projects_compressed/physics_attraction_repulsion.webp`,
     start: '2025-01-23',
     end: '2025-01-29',
     category: 'Physics Simulation',
@@ -200,7 +200,7 @@ export const PROJECTS: Project[] = [
     description:
       'Generative Adversarial Network built from scratch for image generation',
     link: 'https://github.com/Thibault-GAREL/Image_generator_GAN',
-    image: `${RAW}/Image_generator_GAN/main/Img/Titre.png`,
+    image: `${PROFILE_ASSETS}/Logo_Featured_Projects_compressed/vision_gan.png`,
     start: '2025-02-22',
     end: '2025-09-24',
     category: 'Vision Models'
@@ -210,7 +210,7 @@ export const PROJECTS: Project[] = [
     name: 'ASR - Automatic Speech Recognition',
     description: 'School project on speech recognition',
     link: 'https://github.com/Thibault-GAREL/Speech_recognition',
-    image: `${RAW}/Speech_recognition/main/logo.png`,
+    image: `${PROFILE_ASSETS}/Logo_Featured_Projects_compressed/neural_asr.png`,
     start: '2025-04-12',
     end: '2025-06-11',
     category: 'Neural Networks',
@@ -221,7 +221,7 @@ export const PROJECTS: Project[] = [
     name: 'Human Sandbox',
     description: 'Natural Selection Simulation Engine',
     link: 'https://github.com/Thibault-GAREL/human_sandbox',
-    image: `${RAW}/human_sandbox/main/img/Gif-human-sandbox.gif`,
+    image: `${PROFILE_ASSETS}/Logo_Featured_Projects_compressed/game_human_sandbox.webp`,
     start: '2025-06-27',
     end: '2025-07-21',
     category: 'Games'
@@ -231,7 +231,7 @@ export const PROJECTS: Project[] = [
     name: 'WhatsApp AI',
     description: 'My own local AI accessible through WhatsApp',
     link: 'https://github.com/Thibault-GAREL/n8n_Whatsapp_LLM',
-    image: `${RAW}/n8n_Whatsapp_LLM/main/img/img.png`,
+    image: `${PROFILE_ASSETS}/Logo_Featured_Projects_compressed/n8n_whatsapp_ai.png`,
     start: '2025-07-11',
     end: '2025-07-24',
     category: 'Applied AI Workflows'
@@ -241,7 +241,7 @@ export const PROJECTS: Project[] = [
     name: 'Smart Mail Labeling',
     description: 'Automatic and intelligent email sorting with labeling',
     link: 'https://github.com/Thibault-GAREL/n8n_smart_mail_labeling',
-    image: `${RAW}/n8n_smart_mail_labeling/main/img/logo.png`,
+    image: `${PROFILE_ASSETS}/Logo_Featured_Projects_compressed/n8n_mail_sorting.png`,
     start: '2025-07-16',
     end: '2025-07-26',
     category: 'Applied AI Workflows'
@@ -252,7 +252,7 @@ export const PROJECTS: Project[] = [
     description:
       'Two-wheel robot driven by a local Mistral, which turns plain sentences into motor commands sent to a Raspberry Pi and an Arduino',
     link: 'https://github.com/Thibault-GAREL/Robot_Controlled_by_Local_LLM',
-    image: `${RAW}/Robot_Controlled_by_Local_LLM/main/img/Gif-bot.gif`,
+    image: `${PROFILE_ASSETS}/Logo_Featured_Projects_compressed/lm_robot_local_llm.webp`,
     start: '2025-07-22',
     end: '2025-10-11',
     category: 'Language Models',
@@ -263,7 +263,7 @@ export const PROJECTS: Project[] = [
     name: 'Original LLM',
     description: 'Bigram & Transformer Models coded from scratch',
     link: 'https://github.com/Thibault-GAREL/Language_Models',
-    image: `${RAW}/Language_Models/main/img/Titre-GPT_from_scratch.png`,
+    image: `${PROFILE_ASSETS}/Logo_Featured_Projects_compressed/lm_original_llm.png`,
     start: '2025-09-27',
     end: '2025-12-24',
     category: 'Language Models'
@@ -273,7 +273,7 @@ export const PROJECTS: Project[] = [
     name: 'RAG - PDF ChatBot',
     description: 'Retrieval Augmented Generation - A chatbot that reads PDFs',
     link: 'https://github.com/Thibault-GAREL/RAG_pdf',
-    image: `${RAW}/RAG_pdf/main/Video/Gif-video.gif`,
+    image: `${PROFILE_ASSETS}/Logo_Featured_Projects_compressed/lm_rag.webp`,
     start: '2025-10-11',
     end: '2025-10-12',
     category: 'Language Models'
@@ -294,7 +294,7 @@ export const PROJECTS: Project[] = [
     name: '2D Muscular Simulation',
     description: '2D muscular physics simulation with Box2D',
     link: 'https://github.com/Thibault-GAREL/2D-Muscular-Simulation',
-    image: `${PROFILE_ASSETS}/Logo_Featured_Projects/physics_muscular_simulation.png`,
+    image: `${PROFILE_ASSETS}/Logo_Featured_Projects_compressed/physics_muscular_simulation.png`,
     start: '2025-10-24',
     end: '2025-12-24',
     category: 'Physics Simulation',
@@ -305,7 +305,7 @@ export const PROJECTS: Project[] = [
     name: 'ISS Analysis with Spark',
     description: 'Real-time ISS data analysis using Apache Spark',
     link: 'https://github.com/Thibault-GAREL/ISS_Analysis_Spark',
-    image: `${RAW}/ISS_Analysis_Spark/master/Img/ISS-img.jpg`,
+    image: `${PROFILE_ASSETS}/Logo_Featured_Projects_compressed/data_iss_analysis.png`,
     start: '2025-11-12',
     end: '2025-12-21',
     category: 'Data Analysis',
@@ -317,7 +317,7 @@ export const PROJECTS: Project[] = [
     description:
       'A StarCraft 2 AI combining Vision-Language Model and Reinforcement Learning',
     link: 'https://github.com/Thibault-GAREL/AI-StarCraft2-VLM-RL',
-    image: `${PROFILE_ASSETS}/Logo_Featured_Projects/rl_starcraft2.webp`,
+    image: `${PROFILE_ASSETS}/Logo_Featured_Projects_compressed/rl_starcraft2.webp`,
     start: '2025-11-24',
     end: '2026-01-24',
     category: 'PPO',
@@ -328,7 +328,7 @@ export const PROJECTS: Project[] = [
     name: 'CLIP Embedding Tools',
     description: 'Opposite Embedding Finder and Embedding Arithmetic',
     link: 'https://github.com/Thibault-GAREL/CLIP_Embedding_Tools',
-    image: `${RAW}/CLIP_Embedding_Tools/main/img/Logo-Embedding_Tools.png`,
+    image: `${PROFILE_ASSETS}/Logo_Featured_Projects_compressed/lm_clip_embedding.png`,
     start: '2025-12-25',
     end: '2025-12-27',
     category: 'Language Models'
@@ -338,7 +338,7 @@ export const PROJECTS: Project[] = [
     name: 'Snake AI - Deep Q-Learning',
     description: 'Snake game AI using Deep Q-Learning',
     link: 'https://github.com/Thibault-GAREL/AI_snake_DQN_version',
-    image: `${RAW}/AI_snake_DQN_version/main/Images/SnakeDQL-Score36.gif`,
+    image: `${PROFILE_ASSETS}/Logo_Featured_Projects_compressed/rl_snake_dql.webp`,
     start: '2026-03-19',
     end: '2026-04-17',
     category: 'Q-Learning',
@@ -349,7 +349,7 @@ export const PROJECTS: Project[] = [
     name: 'Snake AI - Decision Tree',
     description: 'Snake game AI using a Decision Tree',
     link: 'https://github.com/Thibault-GAREL/AI_snake_decision_tree_version',
-    image: `${RAW}/AI_snake_decision_tree_version/main/img/Snake_arbre_de_decision-Score_31.gif`,
+    image: `${PROFILE_ASSETS}/Logo_Featured_Projects_compressed/rl_snake_decision_tree.webp`,
     start: '2026-03-23',
     end: '2026-04-01',
     category: 'Decision Tree',
@@ -360,7 +360,7 @@ export const PROJECTS: Project[] = [
     name: 'Snake AI - PPO',
     description: 'Snake game AI using Proximal Policy Optimization',
     link: 'https://github.com/Thibault-GAREL/AI_snake_PPO_version',
-    image: `${RAW}/AI_snake_PPO_version/main/img/SnakePPO-Score54.gif`,
+    image: `${PROFILE_ASSETS}/Logo_Featured_Projects_compressed/rl_snake_ppo.webp`,
     start: '2026-03-23',
     end: '2026-04-07',
     category: 'PPO'
@@ -371,7 +371,7 @@ export const PROJECTS: Project[] = [
     description:
       'Fine-tuning Stable Diffusion 1.5 with LoRA on 15 hand-drawn chibi self-portraits. Trained on RunPod for under 1 €.',
     link: 'https://github.com/Thibault-GAREL/ILab_Formation_Fine-tuning',
-    image: `${RAW}/ILab_Formation_Fine-tuning/main/data/1-raw/my_drawings/Capture%20Bienvenu.PNG`,
+    image: `${PROFILE_ASSETS}/Logo_Featured_Projects_compressed/vision_lora.png`,
     start: '2026-05-12',
     end: '2026-05-15',
     category: 'Vision Models'
@@ -393,7 +393,7 @@ export const PROJECTS: Project[] = [
     name: 'OPENER',
     description: 'Open NER from pre-trained bricks. 40.1 AMI e2e, 39.5 zero-shot.',
     link: 'https://github.com/Thibault-GAREL/LyRIDS_OPENER',
-    image: `${PROFILE_ASSETS}/Logo_Featured_Projects_compressed/research_opener_code_sq.png`,
+    image: `${PROFILE_ASSETS}/Logo_Featured_Projects_compressed/research_opener_code.png`,
     start: '2026-05-20',
     end: '2026-07-22',
     category: 'Research paper',
@@ -402,19 +402,19 @@ export const PROJECTS: Project[] = [
         name: 'OPENER Paper',
         description: 'Open NER from pre-trained bricks. 40.1 AMI e2e, 39.5 zero-shot.',
         link: 'https://scholar.google.com.au/citations?hl=fr&user=VEBOeF4AAAAJ',
-        image: `${PROFILE_ASSETS}/Logo_Featured_Projects_compressed/research_opener_paper_sq.png`
+        image: `${PROFILE_ASSETS}/Logo_Featured_Projects_compressed/research_opener_paper.png`
       },
       {
         name: 'OPENER Models',
         description: 'opener-zs and opener-sup, ready to use from the HF Hub.',
         link: 'https://huggingface.co/collections/Thibault-GAREL/opener-open-partitioning-embedding-for-named-entity-recogn',
-        image: `${PROFILE_ASSETS}/Logo_Featured_Projects_compressed/research_opener_model_sq.png`
+        image: `${PROFILE_ASSETS}/Logo_Featured_Projects_compressed/research_opener_model.png`
       },
       {
         name: 'OPENER Code',
         description: 'Full pipeline and the 13-dataset benchmark on quality, latency, energy.',
         link: 'https://github.com/Thibault-GAREL/LyRIDS_OPENER',
-        image: `${PROFILE_ASSETS}/Logo_Featured_Projects_compressed/research_opener_code_sq.png`
+        image: `${PROFILE_ASSETS}/Logo_Featured_Projects_compressed/research_opener_code.png`
       }
     ]
   },
@@ -424,7 +424,7 @@ export const PROJECTS: Project[] = [
     description:
       'JEPA world model built from scratch. Plans in latent space by MPC, with no learned policy.',
     link: 'https://github.com/Thibault-GAREL/AI_snake_world_model_version',
-    image: `${RAW}/AI_snake_world_model_version/main/assets/snake_gameplay.gif`,
+    image: `${PROFILE_ASSETS}/Logo_Featured_Projects_compressed/rl_snake_world_model.webp`,
     start: '2026-06-23',
     end: '2026-08-11',
     category: 'World Model',
@@ -436,7 +436,7 @@ export const PROJECTS: Project[] = [
     description:
       'GPT-style LLM trained with every modern upgrade since Attention Is All You Need, each one ablated.',
     link: 'https://github.com/Thibault-GAREL/LLMs_modern_from_scratch',
-    image: `${RAW}/LLMs_modern_from_scratch/main/assets/Titre-Modern_LLM.png`,
+    image: `${PROFILE_ASSETS}/Logo_Featured_Projects_compressed/lm_modern_llm.png`,
     start: '2026-08-04',
     end: '2026-08-15',
     category: 'Language Models'
@@ -447,7 +447,7 @@ export const PROJECTS: Project[] = [
     description:
       'Guide to world models and JEPA, explained with Meta FAIR figures. Model training for the IntPhys 2 leaderboard coming soon.',
     link: 'https://github.com/Thibault-GAREL/World_model_from_scratch',
-    image: `${RAW}/World_model_from_scratch/main/assets/Titre-World_Models_from_scratch.png`,
+    image: `${PROFILE_ASSETS}/Logo_Featured_Projects_compressed/vision_world_models.png`,
     start: '2026-08-28',
     end: '2026-09-17',
     category: 'Vision Models'

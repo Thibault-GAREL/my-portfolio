@@ -25,7 +25,7 @@ const GROUP_PROJECTS: GroupProject[] = [
     award: '🏆 3rd / 15 schools',
     description: 'AI system to detect anomalies and breakdowns in French army logs',
     period: '📅 November 18-20, 2025 • 4th year',
-    logo: 'https://www.defense.gouv.fr/sites/default/files/styles/homepage_medallion/public/cnd/Logo_CND_PA.png?itok=MRux1fZ_',
+    logo: 'https://raw.githubusercontent.com/Thibault-GAREL/Thibault-GAREL/main/Logo_Group_Projects_compressed/group_hackathon_cnd_sq.png',
     logoAlt: 'CND Logo',
     logoFit: 'contain',
     team: [
@@ -56,7 +56,7 @@ const GROUP_PROJECTS: GroupProject[] = [
     description:
       'LLM benchmarking & LoRA fine-tuning for Solidity smart contract vulnerability analysis',
     period: '📅 2024 - 2025 • 3rd - 4th year',
-    logo: 'https://raw.githubusercontent.com/Thibault-GAREL/Thibault-GAREL/main/Logo_Group_Projects/group_ppe_smart_contract.jpg',
+    logo: 'https://raw.githubusercontent.com/Thibault-GAREL/Thibault-GAREL/main/Logo_Group_Projects_compressed/group_ppe_smart_contract_sq.png',
     logoAlt: 'PPE Logo',
     logoFit: 'cover',
     team: [
@@ -90,7 +90,7 @@ const GROUP_PROJECTS: GroupProject[] = [
     titleLink: 'https://www.sustainableaicoalition.org/resilient-ai-challenge/',
     description: 'International AI competition on resilient and sustainable AI systems',
     period: '📅 2025 • 4th year',
-    logo: 'https://raw.githubusercontent.com/Thibault-GAREL/Thibault-GAREL/main/Logo_Group_Projects/REs.png',
+    logo: 'https://raw.githubusercontent.com/Thibault-GAREL/Thibault-GAREL/main/Logo_Group_Projects_compressed/group_resilient_sq.png',
     logoAlt: 'Resilient AI Logo',
     logoFit: 'cover',
     team: [
@@ -135,9 +135,7 @@ function GroupProjectCard({ project }: { project: GroupProject }) {
         <img
           src={project.logo}
           alt={project.logoAlt}
-          className={`hidden lg:block w-24 h-24 shadow-lg dark:shadow-[0_8px_16px_rgba(0,0,0,0.4)] ${
-            project.logoFit === 'cover' ? 'object-cover rounded-lg' : 'object-contain'
-          }`}
+          className="hidden lg:block w-24 h-24 object-contain"
         />
 
         <div className="flex-1">
