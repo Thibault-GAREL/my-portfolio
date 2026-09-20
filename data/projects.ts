@@ -317,8 +317,7 @@ export const PROJECTS: Project[] = [
     description:
       'A StarCraft 2 AI combining Vision-Language Model and Reinforcement Learning',
     link: 'https://github.com/Thibault-GAREL/AI-StarCraft2-VLM-RL',
-    image: `${PROFILE_ASSETS}/Logo_Featured_Projects/rl_starcraft2.gif`,
-    imageDark: `${PROFILE_ASSETS}/Logo_Featured_Projects/rl_starcraft2_dark.gif`,
+    image: `${PROFILE_ASSETS}/Logo_Featured_Projects/rl_starcraft2.webp`,
     start: '2025-11-24',
     end: '2026-01-24',
     category: 'PPO',
