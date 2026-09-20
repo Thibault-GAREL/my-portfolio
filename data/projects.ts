@@ -283,7 +283,7 @@ export const PROJECTS: Project[] = [
     name: 'Walking AI - Genetic Algorithm',
     description: 'AI learning to walk with complete physics engine (Box2D)',
     link: 'https://github.com/Thibault-GAREL/Quadruped-AI',
-    image: `${RAW}/Quadruped-AI/main/assets/logo.png`,
+    image: `${PROFILE_ASSETS}/Logo_Featured_Projects_compressed/rl_walking_quadruped.png`,
     start: '2025-10-24',
     end: '2025-12-24',
     category: 'Genetic Algorithm',
