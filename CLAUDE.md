@@ -128,6 +128,8 @@ Le portfolio est **fonctionnel et déployé**. Toutes les demandes de la session
 
 - Échange de couleurs et suppression de Robotics (2026-09-20) : Language Models prend le fuchsia `#c026d3` de Vision Models, Vision Models prend le rouge `#ef4444`. La catégorie Robotics disparaît, son unique projet rejoint Language Models sous le nom **Robot Controlled by Local LLM** (dépôt renommé `Robot_Controlled_by_Local_LLM`). L'ancien nom parlait de RAG et de commandes vocales, les deux étaient faux : le projet fait tourner un Mistral local via Ollama qui traduit des phrases en codes moteur.
 
+- Logos alignés sur le README (2026-09-21) : les cartes projets affichent les fichiers de `Logo_Featured_Projects_compressed/` du dépôt profil (via `PROFILE_ASSETS`), dans une boîte de 200×138 en `object-contain`, donc jamais rognés, avec leurs coins arrondis et leur ombre de couleur déjà cuits dans l'image. Les logos de groupe viennent de `Logo_Group_Projects_compressed/`, font tous 208×208 et occupent toute la hauteur intérieure de leur carte. Comme les trois cartes ont un nombre différent de membres d'équipe, leur grille porte `lg:min-h-[208px]` (la hauteur de la plus haute, celle à 7 membres), ce qui leur donne la même hauteur et donc des logos de taille identique. Le champ `logoFit` de `GroupProjects.tsx` a disparu avec le rognage.
+
 **En cours / non tranché :** voir sections 5 et 6.
 
 ---

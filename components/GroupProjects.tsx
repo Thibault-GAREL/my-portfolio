@@ -11,8 +11,6 @@ type GroupProject = {
   period: string
   logo: string
   logoAlt: string
-  /** The CND crest is transparent and must not be cropped, unlike the others. */
-  logoFit: 'contain' | 'cover'
   team: TeamMember[]
   repos: RepoLink[]
 }
@@ -28,7 +26,6 @@ const GROUP_PROJECTS: GroupProject[] = [
     period: '📅 November 18-20, 2025 • 4th year',
     logo: 'https://raw.githubusercontent.com/Thibault-GAREL/Thibault-GAREL/main/Logo_Group_Projects_compressed/group_hackathon_cnd_sq.png',
     logoAlt: 'CND Logo',
-    logoFit: 'contain',
     team: [
       { name: 'Thibault GAREL', link: 'https://github.com/Thibault-GAREL' },
       { name: 'Alfred de Vulpian', link: 'https://github.com/Alfred0404' },
@@ -59,7 +56,6 @@ const GROUP_PROJECTS: GroupProject[] = [
     period: '📅 2024 - 2025 • 3rd - 4th year',
     logo: 'https://raw.githubusercontent.com/Thibault-GAREL/Thibault-GAREL/main/Logo_Group_Projects_compressed/group_ppe_smart_contract_sq.png',
     logoAlt: 'PPE Logo',
-    logoFit: 'cover',
     team: [
       { name: 'Thibault GAREL', link: 'https://github.com/Thibault-GAREL' },
       { name: 'Axel Bröns', link: 'https://github.com/axelbrons' },
@@ -94,7 +90,6 @@ const GROUP_PROJECTS: GroupProject[] = [
     period: '📅 2025 • 4th year',
     logo: 'https://raw.githubusercontent.com/Thibault-GAREL/Thibault-GAREL/main/Logo_Group_Projects_compressed/group_resilient_sq.png',
     logoAlt: 'Resilient AI Logo',
-    logoFit: 'cover',
     team: [
       { name: 'Thibault GAREL', link: 'https://github.com/Thibault-GAREL' },
       { name: 'Axel Bröns', link: 'https://github.com/axelbrons' },
@@ -132,14 +127,15 @@ const GROUP_PROJECTS: GroupProject[] = [
 function GroupProjectCard({ project }: { project: GroupProject }) {
   return (
     <div className="group-project-card bg-streamlit-secondary dark:bg-[#2d333b] rounded-xl p-6 mb-6 border border-streamlit-border dark:border-[#444c56]">
-      <div className="grid grid-cols-1 lg:grid-cols-[auto_1fr_auto] gap-6 mb-4">
-        {/* Logo on the left, desktop only */}
+      {/* min-h = the tallest card's content (7 team rows), so the three cards
+          share one inner height and the three logos can share one size */}
+      <div className="grid grid-cols-1 lg:grid-cols-[auto_1fr_auto] gap-6 lg:min-h-[208px]">
+        {/* Logo on the left, desktop only. Square, full inner height, and
+            larger than the 200x138 box of a personal project card. */}
         <img
           src={project.logo}
           alt={project.logoAlt}
-          // fixed size: the three cards have different heights (team rows), so
-          // stretching the logo made each one a different size
-          className="hidden lg:block w-[150px] h-[150px] object-contain self-start"
+          className="hidden lg:block w-[208px] h-[208px] object-contain"
         />
 
         <div className="flex-1">
