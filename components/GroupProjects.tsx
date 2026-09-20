@@ -199,9 +199,9 @@ function GroupProjectCard({ project }: { project: GroupProject }) {
 
 export default function GroupProjects() {
   return (
-    <section className="mb-16">
+    <section className="mb-12">
       <h2
-        className="text-4xl font-bold mb-8 pb-2 border-b-2 border-streamlit-border dark:border-[#444c56] flex items-center gap-3"
+        className="text-3xl font-bold mb-6 pb-2 border-b-2 border-streamlit-border dark:border-[#444c56] flex items-center gap-3"
         style={{ color: GROUP_PROJECTS_COLOR }}
       >
         <div

@@ -71,7 +71,7 @@ export default function ProjectsByCategory() {
         if (section.kind === 'category') {
           const { category } = section
           return (
-            <div key={category} className="mb-10">
+            <div key={category} className="mb-8">
               <RuledHeading
                 label={categoryTitle(category)}
                 hex={categoryHex(category)}
@@ -84,9 +84,9 @@ export default function ProjectsByCategory() {
 
         // Reinforcement Learning wraps five sub-categories under one heading.
         return (
-          <div key={REINFORCEMENT_LEARNING.title} className="mb-10">
+          <div key={REINFORCEMENT_LEARNING.title} className="mb-8">
             <h3
-              className="text-2xl font-bold mb-6 flex items-center justify-center gap-3"
+              className="text-2xl font-bold mb-4 flex items-center justify-center gap-3"
               style={{ color: REINFORCEMENT_LEARNING.hex }}
             >
               <div
@@ -101,7 +101,7 @@ export default function ProjectsByCategory() {
             </h3>
 
             {REINFORCEMENT_LEARNING.categories.map((category) => (
-              <div key={category} className="mb-8">
+              <div key={category} className="mb-6">
                 <RuledHeading
                   label={categoryBadge(category)}
                   hex={categoryHex(category)}

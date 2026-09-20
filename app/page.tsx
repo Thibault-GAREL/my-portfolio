@@ -50,9 +50,10 @@ export default function Home() {
     <main id="top" className="min-h-screen bg-streamlit-bg dark:bg-[#22272e]">
       {/* Header */}
       <header className="border-b border-streamlit-border dark:border-[#444c56] bg-white dark:bg-[#2d333b] sticky top-0 z-50">
-        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-4">
+        {/* Slimmer on desktop only, the phone header stays as it was */}
+        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-4 lg:py-2">
           <div className="flex justify-between items-center gap-4">
-            <h1 className="text-2xl font-bold text-streamlit-text dark:text-[#cdd9e5]">
+            <h1 className="text-2xl lg:text-xl font-bold text-streamlit-text dark:text-[#cdd9e5]">
               Thibault GAREL&apos;s Portfolio
             </h1>
 
@@ -84,20 +85,21 @@ export default function Home() {
         </div>
       </header>
 
-      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-12">
+      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-8">
         {/* Hero */}
-        <section className="mb-16">
-          <div className="flex flex-col items-center gap-6 mb-6">
+        {/* Photo above the name on phones, to its left from tablet width up */}
+        <section className="mb-12">
+          <div className="flex flex-col md:flex-row items-center justify-center gap-4 md:gap-8 mb-6">
             <img
               src="https://github.com/Thibault-GAREL.png"
               alt="Thibault GAREL"
-              className="w-40 h-40 rounded-full border-4 border-streamlit-border dark:border-[#444c56] shadow-lg dark:shadow-[0_8px_16px_rgba(0,0,0,0.4)]"
+              className="w-28 h-28 flex-shrink-0 rounded-full border-4 border-streamlit-border dark:border-[#444c56] shadow-lg dark:shadow-[0_8px_16px_rgba(0,0,0,0.4)]"
             />
-            <div className="text-center">
-              <h1 className="text-3xl sm:text-5xl font-bold text-streamlit-text dark:text-[#cdd9e5] mb-4">
+            <div className="text-center md:text-left">
+              <h1 className="text-3xl sm:text-4xl font-bold text-streamlit-text dark:text-[#cdd9e5] mb-3">
                 Hi! My name is Thibault GAREL
               </h1>
-              <div className="flex flex-wrap justify-center gap-3 sm:gap-4">
+              <div className="flex flex-wrap justify-center md:justify-start gap-3 sm:gap-4">
                 {CONTACT_LINKS.map((link) => (
                   <a
                     key={link.href}
@@ -113,7 +115,7 @@ export default function Home() {
             </div>
           </div>
 
-          <div className="text-xl text-gray-700 dark:text-[#adbac7] mb-6 leading-relaxed text-center">
+          <div className="text-lg text-gray-700 dark:text-[#adbac7] leading-relaxed text-center">
             <p className="mb-4">
               I am currently in my 5th year of engineering at{' '}
               <strong>École Polytechnique</strong>, where I am pursuing a Master 2 in{' '}
@@ -126,7 +128,7 @@ export default function Home() {
               <strong>AI</strong> 🤖.
             </p>
 
-            <div className="mb-6 flex flex-col items-center gap-4">
+            <div className="flex flex-col md:flex-row items-center justify-center gap-3">
               <span>I'm an AI maker at</span>
               <div className="flex flex-col sm:flex-row items-center gap-3 bg-streamlit-secondary dark:bg-[#2d333b] px-4 py-3 rounded-lg border border-streamlit-border dark:border-[#444c56]">
                 <div className="flex items-center gap-3">
@@ -177,16 +179,16 @@ export default function Home() {
         </section>
 
         {/* Academic Background */}
-        <section id="academic-background" className="mb-16 scroll-mt-20">
-          <h2 className="text-4xl font-bold text-streamlit-text dark:text-[#cdd9e5] mb-8 pb-2 border-b-2 border-streamlit-border dark:border-[#444c56]">
+        <section id="academic-background" className="mb-12 scroll-mt-20">
+          <h2 className="text-3xl font-bold text-streamlit-text dark:text-[#cdd9e5] mb-6 pb-2 border-b-2 border-streamlit-border dark:border-[#444c56]">
             🎓 Academic Background
           </h2>
           <AcademicTimeline />
         </section>
 
         {/* Professional Experience */}
-        <section id="experience" className="mb-16 scroll-mt-20">
-          <h2 className="text-4xl font-bold text-streamlit-text dark:text-[#cdd9e5] mb-8 pb-2 border-b-2 border-streamlit-border dark:border-[#444c56]">
+        <section id="experience" className="mb-12 scroll-mt-20">
+          <h2 className="text-3xl font-bold text-streamlit-text dark:text-[#cdd9e5] mb-6 pb-2 border-b-2 border-streamlit-border dark:border-[#444c56]">
             💼 Professional Experience
           </h2>
           <ProfessionalExperience />
@@ -201,8 +203,8 @@ export default function Home() {
         <GroupProjects />
 
         {/* Skills */}
-        <section id="skills" className="mb-16 scroll-mt-20">
-          <h2 className="text-4xl font-bold text-streamlit-text dark:text-[#cdd9e5] mb-8 pb-2 border-b-2 border-streamlit-border dark:border-[#444c56]">
+        <section id="skills" className="mb-12 scroll-mt-20">
+          <h2 className="text-3xl font-bold text-streamlit-text dark:text-[#cdd9e5] mb-6 pb-2 border-b-2 border-streamlit-border dark:border-[#444c56]">
             🛠️ Skills & Tools
           </h2>
 
@@ -227,8 +229,8 @@ export default function Home() {
         </section>
 
         {/* GitHub Statistics */}
-        <section id="github-stats" className="mb-16 scroll-mt-20">
-          <h2 className="text-4xl font-bold text-streamlit-text dark:text-[#cdd9e5] mb-8 pb-2 border-b-2 border-streamlit-border dark:border-[#444c56]">
+        <section id="github-stats" className="mb-12 scroll-mt-20">
+          <h2 className="text-3xl font-bold text-streamlit-text dark:text-[#cdd9e5] mb-6 pb-2 border-b-2 border-streamlit-border dark:border-[#444c56]">
             📊 My GitHub Statistics
           </h2>
 
@@ -263,8 +265,8 @@ export default function Home() {
         </section>
 
         {/* Hobbies */}
-        <section id="hobbies" className="mb-16 scroll-mt-20">
-          <h2 className="text-4xl font-bold text-streamlit-text dark:text-[#cdd9e5] mb-8 pb-2 border-b-2 border-streamlit-border dark:border-[#444c56]">
+        <section id="hobbies" className="mb-12 scroll-mt-20">
+          <h2 className="text-3xl font-bold text-streamlit-text dark:text-[#cdd9e5] mb-6 pb-2 border-b-2 border-streamlit-border dark:border-[#444c56]">
             ❤️ Hobbies
           </h2>
 

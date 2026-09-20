@@ -16,9 +16,9 @@ type TimelineEntry = {
 const TIMELINE: TimelineEntry[] = [
   {
     date: '2026 - 2027',
-    tag: 'Double-Degree',
-    title: '⭐ École Polytechnique',
-    lines: ['M2 Data Science · Applied Mathematics & Statistics'],
+    tag: 'Double Degree',
+    title: "⭐ École Polytechnique (l'X)",
+    lines: ['M2 Data Science · AI focus: generative AI, language, vision, audio, XAI'],
     color: '#e0a82e',
     bgLight: '#faf1df',
     bgDark: '#1c1709',
@@ -27,12 +27,13 @@ const TIMELINE: TimelineEntry[] = [
     featured: true
   },
   {
-    date: '2025 - 2026',
+    date: '2022 - 2027',
     tag: 'Data & AI Major',
-    title: '🎓 ECE Paris · 4th Year',
+    title: '🎓 ECE Paris · Engineering School',
     lines: [
-      'Paris Campus · taught in English',
-      'Joined the Intelligence Lab to pursue my AI research goal'
+      '4th year · Paris campus · Data & AI major',
+      '3rd year · Lyon campus · Semester in Scotland',
+      '1st & 2nd years · Lyon campus · Preparatory classes · Valedictorian'
     ],
     color: '#2563eb',
     bgLight: '#edf2fd',
@@ -41,13 +42,10 @@ const TIMELINE: TimelineEntry[] = [
     tagDark: '#92b1f5'
   },
   {
-    date: '2024 - 2025',
-    tag: 'Exchange in Scotland',
-    title: '🏴 ECE Lyon · 3rd Year',
-    lines: [
-      'Sep - Dec 2024 · Edinburgh Napier University',
-      'R&D · Game Engineering with AI · 3D Modelling'
-    ],
+    date: 'Sep - Dec 2024',
+    tag: 'Exchange Semester',
+    title: '🏴 Edinburgh Napier University, Scotland',
+    lines: ['Computer science courses: R&D, Game Engineering with AI, 3D Modelling'],
     color: '#0f766e',
     bgLight: '#ebf4f3',
     bgDark: '#161b22',
@@ -55,37 +53,10 @@ const TIMELINE: TimelineEntry[] = [
     tagDark: '#87bab6'
   },
   {
-    date: '2023 - 2024',
-    tag: 'The AI turning point',
-    title: '💡 ECE Lyon · 2nd Year',
-    lines: [
-      'Discovered AI on my own - chose it over astrophysics',
-      'First personal project: a NN library in C, fully from scratch',
-      'My dogma since: build everything from scratch with rock-solid theory',
-      "(maths, physics...) to grasp every cog, then study & master others' work"
-    ],
-    color: '#6e40c9',
-    bgLight: '#f3effa',
-    bgDark: '#161b22',
-    tagLight: '#6e40c9',
-    tagDark: '#b69fe4'
-  },
-  {
-    date: '2022 - 2023',
-    tag: 'Valedictorian',
-    title: '🏆 ECE Lyon · 1st Year',
-    lines: ['Preparatory classes · 🏆 Top 1 student / Valedictorian at ECE Lyon'],
-    color: '#16a34a',
-    bgLight: '#ecf7f0',
-    bgDark: '#161b22',
-    tagLight: '#16a34a',
-    tagDark: '#8ad1a4'
-  },
-  {
     date: '2022',
     tag: 'Highest Honours',
     title: '📜 High School Diploma · European Section',
-    lines: ['La Xavière, Lyon'],
+    lines: ['Maths, Physics-Chemistry & Advanced Maths · La Xavière, Lyon'],
     color: '#6b7280',
     bgLight: '#f3f3f4',
     bgDark: '#161b22',

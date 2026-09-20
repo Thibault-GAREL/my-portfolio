@@ -10,7 +10,7 @@ export default function ProjectsByDate() {
   return (
     <>
       {projectsByAcademicYear().map(({ title, projects }) => (
-        <div key={title} className="mb-10">
+        <div key={title} className="mb-8">
           <h3 className="text-2xl font-bold text-streamlit-text dark:text-[#cdd9e5] mb-6">
             {title}
           </h3>

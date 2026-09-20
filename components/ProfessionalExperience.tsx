@@ -14,15 +14,10 @@ type Experience = {
 
 const EXPERIENCES: Experience[] = [
   {
-    date: 'Apr 2026 - Present',
+    date: 'Apr - Aug 2026',
     company: 'LyRIDS · ECE',
     title: '🔬 AI Research Intern',
-    lines: [
-      'Greater Paris · On-site · R&D internship',
-      'NLP & Named Entity Recognition on low-resource domains',
-      '(programming languages, medical corpora, technical docs)',
-      'Goal: robust methods aimed at a scientific publication'
-    ],
+    lines: ['Improving NLP models on low-resource domains · Paris'],
     color: '#6e40c9',
     bgLight: '#f3effa',
     bgDark: '#161b22',
@@ -30,14 +25,14 @@ const EXPERIENCES: Experience[] = [
     tagDark: '#b69fe4'
   },
   {
-    date: 'Sep 2025 - Present',
+    date: '2025 - 2027',
     company: 'Intelligence Lab · ECE',
     title: '🧠 AI Maker',
     lines: [
-      'Greater Paris',
-      'AI hackathons: fast prototyping under time constraints',
-      'Authored advanced AI training content',
-      'R&D on new AI architectures'
+      'R&D in the AI lab of ECE Paris',
+      'CND Hackathon (French defence): 1st place, AI detecting cyberattacks on the army',
+      "Resilient AI Hackathon (France, India, UNESCO): compressing Google's Gemma 4",
+      'Created technical training courses on how AI works'
     ],
     color: '#2563eb',
     bgLight: '#edf2fd',
@@ -49,11 +44,7 @@ const EXPERIENCES: Experience[] = [
     date: 'Jan 2025',
     company: 'Toray Films Europe',
     title: '🏭 AI Engineer Intern',
-    lines: [
-      'Lyon, France · On-site',
-      'Studied, mapped & experimented with AI tools to optimize',
-      'their usage and foster AI knowledge across the company'
-    ],
+    lines: ['Studied, mapped & tested AI tools to optimize their use in the company · Lyon'],
     color: '#ea580c',
     bgLight: '#fdf1eb',
     bgDark: '#161b22',
@@ -63,17 +54,35 @@ const EXPERIENCES: Experience[] = [
   {
     date: 'Jan 2024',
     company: 'Dakatech',
-    title: '⚙️ Embedded Software Engineer Intern',
-    lines: [
-      'Lyon, France · On-site · Autonomous Coding Project',
-      'Reorganized & simplified the embedded codebase',
-      '→ 20-30% improvement in battery autonomy'
-    ],
+    title: '⚙️ Embedded Software Intern',
+    lines: ['Reorganized & optimized their embedded code: +20-30% battery life · Lyon'],
     color: '#0d9488',
     bgLight: '#ebf6f5',
     bgDark: '#161b22',
     tagLight: '#0d9488',
     tagDark: '#86c9c3'
+  },
+  {
+    date: 'Summer 2023',
+    company: 'Solvay',
+    title: '📅 Summer Job',
+    lines: ['Programmed an automatic scheduling tool on my own · Lyon'],
+    color: '#6b7280',
+    bgLight: '#f3f3f4',
+    bgDark: '#161b22',
+    tagLight: '#6b7280',
+    tagDark: '#b5b8bf'
+  },
+  {
+    date: 'Summer 2022',
+    company: 'Solvay',
+    title: '📊 Summer Job',
+    lines: ['Data reorganization · Lyon'],
+    color: '#6b7280',
+    bgLight: '#f3f3f4',
+    bgDark: '#161b22',
+    tagLight: '#6b7280',
+    tagDark: '#b5b8bf'
   }
 ]
 
