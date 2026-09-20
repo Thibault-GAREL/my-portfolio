@@ -130,6 +130,10 @@ Le portfolio est **fonctionnel et déployé**. Toutes les demandes de la session
 
 - Logos alignés sur le README (2026-09-21) : les cartes projets affichent les fichiers de `Logo_Featured_Projects_compressed/` du dépôt profil (via `PROFILE_ASSETS`), dans une boîte de 200×138 en `object-contain`, donc jamais rognés, avec leurs coins arrondis et leur ombre de couleur déjà cuits dans l'image. Les logos de groupe viennent de `Logo_Group_Projects_compressed/`, font tous 208×208 et occupent toute la hauteur intérieure de leur carte. Comme les trois cartes ont un nombre différent de membres d'équipe, leur grille porte `lg:min-h-[208px]` (la hauteur de la plus haute, celle à 7 membres), ce qui leur donne la même hauteur et donc des logos de taille identique. Le champ `logoFit` de `GroupProjects.tsx` a disparu avec le rognage.
 
+- Cartes projets empilées sur petit écran (2026-09-21) : `ProjectCard` passe en `flex-col` avec le logo en haut sur toute la largeur (boîte `w-full h-[160px]`) et le texte en dessous. Le retour en `flex-row` (logo à gauche) se fait à partir de **`lg`**, pas de `md`. À 768 px la carte fait déjà deux colonnes, donc environ 360 px, et un logo de 200 px n'y laissait que 140 px de texte, avec le badge de catégorie coupé et des titres sur quatre lignes. Vérifié en 390, 768 et 1280 px.
+
+> Piège de mesure : sur Windows, `chrome --headless --window-size=390,...` ne donne pas un viewport de 390 px (la fenêtre a une largeur minimale, mesurée à 482 px), et la capture est quand même produite en 390 de large, donc elle ment. Pour mesurer une largeur téléphone, charger le site dans une page contenant un `<iframe width:390px>` et capturer cette page.
+
 **En cours / non tranché :** voir sections 5 et 6.
 
 ---

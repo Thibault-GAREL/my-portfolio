@@ -28,13 +28,16 @@ export default function ProjectCard({
       href={link}
       target="_blank"
       rel="noopener noreferrer"
-      className="project-card bg-streamlit-secondary dark:bg-[#2d333b] rounded-xl p-3 border border-streamlit-border dark:border-[#444c56] group flex gap-3 w-full md:w-[calc(50%-0.5rem)]"
+      className="project-card bg-streamlit-secondary dark:bg-[#2d333b] rounded-xl p-3 border border-streamlit-border dark:border-[#444c56] group flex flex-col lg:flex-row gap-3 w-full md:w-[calc(50%-0.5rem)]"
     >
       {/* Same logos as the profile README, 221x152 with their rounded corners and
           their coloured shadow already baked in. The box keeps that ratio, the
-          image is contained rather than cropped, and carries no shadow of its own. */}
+          image is contained rather than cropped, and carries no shadow of its own.
+          On a phone and a tablet the card stacks, so the logo sits on top across
+          the full width. It only goes back to the left of the text from lg,
+          where the card is wide enough for a 200 px logo plus readable text. */}
       {image && (
-        <div className="flex-shrink-0 w-[200px] self-stretch min-h-[138px]">
+        <div className="flex-shrink-0 w-full h-[160px] lg:w-[200px] lg:h-auto lg:self-stretch lg:min-h-[138px]">
           <img
             src={image}
             alt={name}
