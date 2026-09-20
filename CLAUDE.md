@@ -124,6 +124,8 @@ Le portfolio est **fonctionnel et déployé**. Toutes les demandes de la session
 
 - Frises Academic et Experience sur deux colonnes (2026-09-20) : elles sont dans une grille `lg:grid-cols-2` dans `page.tsx`, côte à côte sur PC et l'une sous l'autre en dessous de `lg`. Cartes compactées (`p-3`, titre `text-base`, tag `text-xs`, `space-y-3`, pastilles remontées à `top-[22px]` pour rester alignées) et `max-w-4xl` retiré, chaque frise remplissant sa colonne. `ProfessionalExperience` rend la frise deux fois via un composant interne `Timeline` : visible directement en `hidden lg:block` sur PC (sinon la colonne de droite serait vide) et derrière le `details` repliable en `lg:hidden` sur téléphone et tablette, pour ne pas rallonger la page. Photo de la présentation remise à 160 px (`w-40`) à la demande de Thibault.
 
+- Cadres de famille dans la vue By Category (2026-09-20) : chaque catégorie est entourée d'un cadre `border-2` de sa couleur (composant `CategoryBox` dans `ProjectsByCategory.tsx`), avec le titre posé sur le trait du haut, sur fond de page. Les traits horizontaux de part et d'autre du titre ont disparu à ce niveau. Reinforcement Learning a **un seul** cadre pour tout le groupe, ses 6 sous-catégories gardent leur titre à filets à l'intérieur. La vue By Date et les Group Projects ne sont pas concernés.
+
 **En cours / non tranché :** voir sections 5 et 6.
 
 ---

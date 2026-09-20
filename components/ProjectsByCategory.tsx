@@ -1,3 +1,5 @@
+import type { ReactNode } from 'react'
+
 import {
   CATEGORY_SECTIONS,
   categoryBadge,
@@ -27,40 +29,49 @@ function CardGrid({ category }: { category: CategoryId }) {
   )
 }
 
-/** Heading framed by two rules, in the category colour. */
-function RuledHeading({
-  label,
-  hex,
-  level
-}: {
-  label: string
-  hex: string
-  level: 'section' | 'sub'
-}) {
+/** Sub-category heading (Reinforcement Learning only), framed by two rules. */
+function RuledHeading({ label, hex }: { label: string; hex: string }) {
   const rule = <div className="flex-1 h-0.5" style={{ backgroundColor: hex }} />
 
-  if (level === 'sub') {
-    return (
-      <h4
-        className="text-base font-semibold mb-4 flex items-center justify-center gap-2"
-        style={{ color: hex }}
-      >
-        {rule}
-        <span className="px-4">{label}</span>
-        {rule}
-      </h4>
-    )
-  }
-
   return (
-    <h3
-      className="text-xl font-bold mb-4 flex items-center justify-center gap-3"
+    <h4
+      className="text-base font-semibold mb-4 flex items-center justify-center gap-2"
       style={{ color: hex }}
     >
       {rule}
       <span className="px-4">{label}</span>
       {rule}
-    </h3>
+    </h4>
+  )
+}
+
+/**
+ * One family of projects, boxed in its own colour. The title sits on the top
+ * border, its background matching the page so the border reads as interrupted
+ * rather than crossed out.
+ */
+function CategoryBox({
+  label,
+  hex,
+  children
+}: {
+  label: string
+  hex: string
+  children: ReactNode
+}) {
+  return (
+    <div
+      className="relative rounded-2xl border-2 px-3 sm:px-5 pt-8 pb-5 mb-10"
+      style={{ borderColor: hex }}
+    >
+      <h3
+        className="absolute -top-4 left-1/2 -translate-x-1/2 max-w-[calc(100%-1.5rem)] px-3 text-center text-lg sm:text-xl font-bold bg-streamlit-bg dark:bg-[#22272e]"
+        style={{ color: hex }}
+      >
+        {label}
+      </h3>
+      {children}
+    </div>
   )
 }
 
@@ -71,46 +82,34 @@ export default function ProjectsByCategory() {
         if (section.kind === 'category') {
           const { category } = section
           return (
-            <div key={category} className="mb-8">
-              <RuledHeading
-                label={categoryTitle(category)}
-                hex={categoryHex(category)}
-                level="section"
-              />
+            <CategoryBox
+              key={category}
+              label={categoryTitle(category)}
+              hex={categoryHex(category)}
+            >
               <CardGrid category={category} />
-            </div>
+            </CategoryBox>
           )
         }
 
-        // Reinforcement Learning wraps five sub-categories under one heading.
+        // Reinforcement Learning is one family of six sub-categories, so the box
+        // goes around the whole group and the sub-categories keep a plain heading.
         return (
-          <div key={REINFORCEMENT_LEARNING.title} className="mb-8">
-            <h3
-              className="text-xl font-bold mb-4 flex items-center justify-center gap-3"
-              style={{ color: REINFORCEMENT_LEARNING.hex }}
-            >
-              <div
-                className="flex-1 h-0.5"
-                style={{ backgroundColor: REINFORCEMENT_LEARNING.hex }}
-              />
-              <span className="px-4">{REINFORCEMENT_LEARNING.title}</span>
-              <div
-                className="flex-1 h-0.5"
-                style={{ backgroundColor: REINFORCEMENT_LEARNING.hex }}
-              />
-            </h3>
-
+          <CategoryBox
+            key={REINFORCEMENT_LEARNING.title}
+            label={REINFORCEMENT_LEARNING.title}
+            hex={REINFORCEMENT_LEARNING.hex}
+          >
             {REINFORCEMENT_LEARNING.categories.map((category) => (
-              <div key={category} className="mb-6">
+              <div key={category} className="mb-6 last:mb-0">
                 <RuledHeading
                   label={categoryBadge(category)}
                   hex={categoryHex(category)}
-                  level="sub"
                 />
                 <CardGrid category={category} />
               </div>
             ))}
-          </div>
+          </CategoryBox>
         )
       })}
     </>
