@@ -2,8 +2,12 @@ import type { Metadata } from 'next'
 import './globals.css'
 
 export const metadata: Metadata = {
+  metadataBase: new URL('https://thibault-garel.vercel.app'),
   title: 'Thibault GAREL - AI Engineer Portfolio | Data & AI Projects',
   description: 'Portfolio of Thibault GAREL, 5th year engineering student at École Polytechnique (Master 2 in Data Science, double degree with ECE Paris). Explore my AI projects, machine learning applications, computer vision work, and Unity game development.',
+  applicationName: 'Thibault GAREL Portfolio',
+  category: 'technology',
+  formatDetection: { email: false, telephone: false, address: false },
   keywords: [
     'Thibault GAREL',
     'AI Engineer',
@@ -50,6 +54,7 @@ export const metadata: Metadata = {
         width: 460,
         height: 460,
         alt: 'Thibault GAREL',
+        type: 'image/png',
       },
     ],
   },
@@ -72,40 +77,65 @@ export default function RootLayout({
 }: {
   children: React.ReactNode
 }) {
+  const siteUrl = 'https://thibault-garel.vercel.app/'
   const structuredData = {
     '@context': 'https://schema.org',
-    '@type': 'Person',
-    name: 'Thibault GAREL',
-    jobTitle: 'AI Engineering Student',
-    description: '5th year engineering student at École Polytechnique (Master 2 in Data Science, double degree with ECE Paris)',
-    url: 'https://thibault-garel.vercel.app/',
-    image: 'https://github.com/Thibault-GAREL.png',
-    sameAs: [
-      'https://github.com/Thibault-GAREL',
-      'https://www.linkedin.com/in/thibaultgarel/',
-      'https://huggingface.co/Thibault-GAREL'
-    ],
-    alumniOf: [
+    '@graph': [
       {
-        '@type': 'EducationalOrganization',
-        name: 'École Polytechnique'
+        '@type': 'Person',
+        '@id': `${siteUrl}#person`,
+        name: 'Thibault GAREL',
+        jobTitle: 'AI Engineering Student',
+        description: '5th year engineering student at École Polytechnique (Master 2 in Data Science, double degree with ECE Paris)',
+        url: siteUrl,
+        image: 'https://github.com/Thibault-GAREL.png',
+        sameAs: [
+          'https://github.com/Thibault-GAREL',
+          'https://www.linkedin.com/in/thibaultgarel/',
+          'https://huggingface.co/Thibault-GAREL',
+          'https://scholar.google.com.au/citations?hl=fr&user=VEBOeF4AAAAJ'
+        ],
+        alumniOf: [
+          {
+            '@type': 'EducationalOrganization',
+            name: 'École Polytechnique'
+          },
+          {
+            '@type': 'EducationalOrganization',
+            name: 'ECE Engineering School'
+          }
+        ],
+        knowsAbout: [
+          'Artificial Intelligence',
+          'Machine Learning',
+          'Data Science',
+          'Computer Vision',
+          'Deep Learning',
+          'Natural Language Processing',
+          'Python Programming',
+          'Unity Game Development'
+        ],
+        knowsLanguage: ['French', 'English'],
+        email: 'thibault.garel@edu.ece.fr'
       },
       {
-        '@type': 'EducationalOrganization',
-        name: 'ECE Engineering School'
+        '@type': 'WebSite',
+        '@id': `${siteUrl}#website`,
+        url: siteUrl,
+        name: 'Thibault GAREL Portfolio',
+        inLanguage: 'en',
+        publisher: { '@id': `${siteUrl}#person` }
+      },
+      {
+        '@type': 'ProfilePage',
+        '@id': `${siteUrl}#webpage`,
+        url: siteUrl,
+        name: 'Thibault GAREL - AI Engineer Portfolio',
+        isPartOf: { '@id': `${siteUrl}#website` },
+        about: { '@id': `${siteUrl}#person` },
+        inLanguage: 'en'
       }
-    ],
-    knowsAbout: [
-      'Artificial Intelligence',
-      'Machine Learning',
-      'Data Science',
-      'Computer Vision',
-      'Deep Learning',
-      'Natural Language Processing',
-      'Python Programming',
-      'Unity Game Development'
-    ],
-    email: 'thibault.garel@edu.ece.fr'
+    ]
   }
 
   // Runs before the first paint, so a visitor on the dark theme never sees a
