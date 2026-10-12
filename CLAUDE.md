@@ -2,7 +2,7 @@
 
 Ce fichier assure la continuité du travail entre les sessions Claude Code (cloud) et le développement local sur VS Code. Il capture le contexte complet du projet, les décisions prises, les conventions et les prochaines étapes.
 
-Dernière mise à jour : 2026-08-22
+Dernière mise à jour : 2026-10-12
 
 ---
 
@@ -133,6 +133,15 @@ Le portfolio est **fonctionnel et déployé**. Toutes les demandes de la session
 - Cartes projets empilées sur petit écran (2026-09-21) : `ProjectCard` passe en `flex-col` avec le logo en haut sur toute la largeur (boîte `w-full h-[160px]`) et le texte en dessous. Le retour en `flex-row` (logo à gauche) se fait à partir de **`lg`**, pas de `md`. À 768 px la carte fait déjà deux colonnes, donc environ 360 px, et un logo de 200 px n'y laissait que 140 px de texte, avec le badge de catégorie coupé et des titres sur quatre lignes. Vérifié en 390, 768 et 1280 px.
 
 > Piège de mesure : sur Windows, `chrome --headless --window-size=390,...` ne donne pas un viewport de 390 px (la fenêtre a une largeur minimale, mesurée à 482 px), et la capture est quand même produite en 390 de large, donc elle ment. Pour mesurer une largeur téléphone, charger le site dans une page contenant un `<iframe width:390px>` et capturer cette page.
+
+- Passe SEO technique "cachée" (2026-10-12), sans aucun changement de contenu ni d'apparence du site, à la demande de Thibault. Rien de visible n'a bougé, seulement le `<head>` et des fichiers techniques :
+  - **`public/favicon.ico` réparé** : c'était un faux fichier texte de 11 octets ("placeholder"), donc invalide. C'était la cause la plus probable de l'absence du logo dans les résultats de recherche. Régénéré en vrai `.ico` multi-tailles (16/32/48, ~15 Ko) à partir de `app/icon.png` avec ImageMagick (`convert`). Commande : `convert app/icon.png -resize 48x48 \( -clone 0 -resize 16x16 \) \( -clone 0 -resize 32x32 \) public/favicon.ico`.
+  - **`app/apple-icon.png`** ajouté (180×180, dérivé de `app/icon.png`) : convention de fichier Next.js, injecte `<link rel="apple-touch-icon">` sans doublon.
+  - **`app/manifest.ts`** ajouté : génère `/manifest.webmanifest` et sa balise `<link rel="manifest">`. En `display: 'browser'` exprès, pour ne rien changer visuellement (ce n'est pas une PWA, juste un signal de qualité). `theme_color`/`background_color` en blanc, aucune balise `<meta name="theme-color">` ajoutée (pas de teinte de la barre du navigateur).
+  - **`app/layout.tsx`** : ajout de `metadataBase`, `applicationName`, `category`, `formatDetection`, `og:image:type`. JSON-LD passé en `@graph` relié par `@id` : `Person` + `WebSite` + `ProfilePage`. Ajout du profil **Google Scholar** dans `sameAs` et de `knowsLanguage: ['French', 'English']`.
+  - **`public/sitemap.xml`** : `lastmod` rafraîchi (2026-10-12).
+  - Vérifié : `npx tsc --noEmit` propre, `npx next build` passe, et le `<head>` généré (`out/index.html`) contient une seule balise par icône (pas de doublon) et un JSON-LD valide.
+  - Décision Open Graph tranchée : **on garde la photo GitHub** en carte `summary`. Grande carte `summary_large_image` et logo Intelligence Lab en image de partage écartés par Thibault (le 2026-10-12).
 
 **En cours / non tranché :** voir sections 5 et 6.
 
@@ -287,6 +296,12 @@ Le portfolio est **fonctionnel et déployé**. Toutes les demandes de la session
 - **Cause** : URL externe dans `metadata.icons` non fonctionnelle avec Next.js.
 - **Solution** : fichier `app/icon.png` (détection automatique).
 
+### Favicon.ico cassé (découvert et réparé le 2026-10-12)
+
+- **Cause** : `public/favicon.ico` était un faux fichier texte de 11 octets (contenu : "placeholder"), donc un `.ico` invalide servi tel quel à `/favicon.ico`. Les navigateurs et surtout Google (qui va chercher `/favicon.ico`) ne pouvaient pas afficher l'icône - cause la plus probable de l'absence du logo dans les résultats de recherche.
+- **Solution** : régénéré en vrai `.ico` multi-tailles (16/32/48) depuis `app/icon.png` via ImageMagick. `app/icon.png` reste la source unique du logo.
+- **Piège** : ne pas confondre `app/icon.png` (convention Next.js, injecte `<link rel="icon">`) et `public/favicon.ico` (servi par convention d'URL, non lié automatiquement mais requis par les crawlers). Les deux doivent exister et être valides.
+
 ### Layout des cartes cassé par `justify-items-center`
 
 - **Cause** : `justify-items-center` sur la grille rendait les badges de taille différente et décalait tout.
@@ -310,15 +325,24 @@ Le portfolio est **fonctionnel et déployé**. Toutes les demandes de la session
 
 ## 6. PROCHAINES ÉTAPES
 
+### Actions côté Thibault (hors code) - référencement Google / Bing
+
+Le code est prêt (sitemap, robots.txt, favicon, métadonnées, JSON-LD). Pour que Google et Microsoft (Bing) indexent vite et affichent le logo, actions **à faire par Thibault**, aucune modif de code requise :
+
+1. **Google Search Console** (`https://search.google.com/search-console`) : la propriété existe déjà (balise de vérification `OJ2423...` présente dans `layout.tsx`). À faire : (a) "Sitemaps" -> soumettre `https://thibault-garel.vercel.app/sitemap.xml` ; (b) "Inspection de l'URL" -> saisir l'URL du site -> "Demander une indexation" (relance le crawl, pour que le favicon réparé soit repris). Délai d'affichage du favicon : quelques jours à quelques semaines, côté Google.
+2. **Bing Webmaster Tools** (`https://www.bing.com/webmasters`) : créer le compte, ajouter le site, **importer depuis Google Search Console** (le plus simple) ou vérifier le domaine, puis soumettre le même sitemap. Bing alimente aussi DuckDuckGo et l'IA de Microsoft.
+3. Après chaque gros changement de contenu, resoumettre l'URL dans la Search Console accélère la prise en compte (facultatif).
+
 ### Tâches / questions en suspens (non tranchées)
 
-1. **Open Graph pour partages sociaux** : actuellement, l'image de partage (LinkedIn, Twitter) est la **photo de profil GitHub** de Thibault (`https://github.com/Thibault-GAREL.png`). Question posée mais non tranchée : faut-il la remplacer par le **logo Intelligence Lab** (via un `opengraph-image.png`) ou garder la photo personnelle ? -> à clarifier.
+1. **Frises cliquables** : proposition faite d'ajouter des liens sur les entrées des frises (École Polytechnique, Edinburgh Napier, Intelligence Lab, etc.). Thibault n'a pas répondu. -> à clarifier / optionnel.
 
-2. **Favicon dans les résultats de recherche Google** : le favicon (`app/icon.png`, logo Intelligence Lab) est bien en place, mais n'apparaît pas encore dans les résultats Google car Google n'a pas réindexé le site. Action recommandée à Thibault : demander une réindexation via **Google Search Console** (`https://search.google.com/search-console`) pour l'URL `https://thibault-garel.vercel.app/`. Délai naturel : quelques jours à quelques semaines. -> pas de modif de code requise, action côté Thibault.
+2. **Lien "Experience" dans le menu de navigation** : la section Professional Experience a un `id="experience"` mais n'a pas de lien dans le menu du header (le menu contient Home, Academic, Projects, Skills, Hobbies, GitHub). -> à ajouter éventuellement pour cohérence.
 
-3. **Frises cliquables** : proposition faite d'ajouter des liens sur les entrées des frises (École Polytechnique, Edinburgh Napier, Intelligence Lab, etc.). Thibault n'a pas répondu. -> à clarifier / optionnel.
+### Décisions tranchées récemment
 
-4. **Lien "Experience" dans le menu de navigation** : la section Professional Experience a un `id="experience"` mais n'a pas de lien dans le menu du header (le menu contient Home, Academic, Projects, Skills, Hobbies, GitHub). -> à ajouter éventuellement pour cohérence.
+- **Open Graph / partages sociaux** (2026-10-12) : on **garde la photo de profil GitHub** (`https://github.com/Thibault-GAREL.png`) en carte Twitter `summary`. Le passage en `summary_large_image` et le remplacement par le logo Intelligence Lab ont été écartés par Thibault.
+- **Favicon dans les recherches** (2026-10-12) : le `favicon.ico` cassé a été réparé (voir section 5). Reste seulement l'action de réindexation côté Thibault (ci-dessus).
 
 ### Idées évoquées (possibles évolutions, discutées mais non implémentées)
 
