@@ -53,9 +53,10 @@ export default function Home() {
         {/* Slimmer on desktop only, the phone header stays as it was */}
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-4 lg:py-2">
           <div className="flex justify-between items-center gap-4">
-            <h1 className="text-xl font-bold text-streamlit-text dark:text-[#cdd9e5]">
+            {/* Branding only - kept as a div (not <h1>) so the page has a single h1 (the hero), which is better for SEO. Same classes, identical rendering. */}
+            <div className="text-xl font-bold text-streamlit-text dark:text-[#cdd9e5]">
               Thibault GAREL&apos;s Portfolio
-            </h1>
+            </div>
 
             {/* Navigation (hidden on mobile) */}
             <nav className="hidden lg:flex items-center gap-6 text-sm">

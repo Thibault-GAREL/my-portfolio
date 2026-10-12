@@ -4,7 +4,7 @@ import './globals.css'
 export const metadata: Metadata = {
   metadataBase: new URL('https://thibault-garel.vercel.app'),
   title: 'Thibault GAREL - AI Engineer Portfolio | Data & AI Projects',
-  description: 'Portfolio of Thibault GAREL, 5th year engineering student at École Polytechnique (Master 2 in Data Science, double degree with ECE Paris). Explore my AI projects, machine learning applications, computer vision work, and Unity game development.',
+  description: 'Portfolio of Thibault GAREL, AI & Data Science engineering student (M2 École Polytechnique, double degree ECE Paris). AI, ML & computer vision projects.',
   applicationName: 'Thibault GAREL Portfolio',
   category: 'technology',
   formatDetection: { email: false, telephone: false, address: false },
