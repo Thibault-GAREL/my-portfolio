@@ -54,7 +54,7 @@ my-portfolio/
 ├── lib/
 │   └── format.ts         # formatDateRange, compareByStartDate
 ├── public/
-│   ├── favicon.ico       # ⚠ fichier placeholder invalide (11 octets), à remplacer
+│   ├── favicon.ico       # vrai .ico multi-tailles 16/32/48 généré depuis app/icon.png (réparé 2026-10-12)
 │   ├── robots.txt
 │   └── sitemap.xml
 ├── PROJECT_DATES_REFERENCE.md  # Document de référence des dates corrigées des projets
@@ -142,6 +142,11 @@ Le portfolio est **fonctionnel et déployé**. Toutes les demandes de la session
   - **`public/sitemap.xml`** : `lastmod` rafraîchi (2026-10-12).
   - Vérifié : `npx tsc --noEmit` propre, `npx next build` passe, et le `<head>` généré (`out/index.html`) contient une seule balise par icône (pas de doublon) et un JSON-LD valide.
   - Décision Open Graph tranchée : **on garde la photo GitHub** en carte `summary`. Grande carte `summary_large_image` et logo Intelligence Lab en image de partage écartés par Thibault (le 2026-10-12).
+
+- Correction des 2 problèmes signalés par Bing Webmaster Tools (2026-10-12), toujours sans aucun changement visuel :
+  - **Plusieurs `<h1>`** : le titre du header (branding "Thibault GAREL's Portfolio") est passé de `<h1>` à `<div>` avec les mêmes classes (rendu identique). La page n'a plus qu'une seule `<h1>`, le titre du Hero "Hi! My name is Thibault GAREL".
+  - **Meta description trop longue** : raccourcie de ~240 à 152 caractères dans `app/layout.tsx`, en gardant les mots-clés (AI, Data Science, ML, computer vision, École Polytechnique).
+  - Bing avait déjà **indexé** le site et détecté le JSON-LD avant ces corrections.
 
 **En cours / non tranché :** voir sections 5 et 6.
 
@@ -249,6 +254,7 @@ Le portfolio est **fonctionnel et déployé**. Toutes les demandes de la session
 - Créer la branche localement si elle n'existe pas.
 - Commits avec messages clairs et descriptifs.
 - Push : `git push -u origin claude/streamlit-portfolio-site-SBykX`.
+- **Modèle de branche (confirmé le 2026-10-12 via `git ls-remote --heads origin`)** : le dépôt GitHub `Thibault-GAREL/my-portfolio` ne contient **qu'une seule branche**, `claude/streamlit-portfolio-site-SBykX`, qui est aussi la **branche par défaut**. Il n'y a ni `main` ni `master`. C'est donc cette branche qui est déployée par Vercel : chaque push ici déclenche le déploiement en production, il n'y a **rien à merger**. "Merge vers main" ne s'applique pas tant que le dépôt reste mono-branche. Ne pas créer de `main` ni changer la branche par défaut sans accord explicite de Thibault (risque de casser la connexion Vercel).
 - En cas d'échec réseau uniquement : réessayer jusqu'à 4 fois avec backoff exponentiel (2s, 4s, 8s, 16s).
 - Pour fetch/pull : privilégier une branche spécifique (`git fetch origin <branch>`), même logique de retry.
 - Format de commit utilisé pendant la session cloud (à adapter en local) :
@@ -302,6 +308,11 @@ Le portfolio est **fonctionnel et déployé**. Toutes les demandes de la session
 - **Solution** : régénéré en vrai `.ico` multi-tailles (16/32/48) depuis `app/icon.png` via ImageMagick. `app/icon.png` reste la source unique du logo.
 - **Piège** : ne pas confondre `app/icon.png` (convention Next.js, injecte `<link rel="icon">`) et `public/favicon.ico` (servi par convention d'URL, non lié automatiquement mais requis par les crawlers). Les deux doivent exister et être valides.
 
+### Problèmes SEO signalés par Bing Webmaster Tools (corrigés le 2026-10-12)
+
+- **Plusieurs balises `<h1>`** : la page avait deux `<h1>` (le branding du header et le titre du Hero). Correction : le branding du header est devenu un `<div>` avec les mêmes classes Tailwind, donc rendu strictement identique, et la seule `<h1>` restante est celle du Hero. Règle à garder : **une seule `<h1>` par page**, réservée au titre de contenu principal.
+- **Meta description trop longue** : elle faisait ~240 caractères, raccourcie à 152 (cible 150-160). Piège de mesure : dans le HTML exporté, `&` devient `&amp;` (chaque occurrence +4 caractères), donc un `grep` sur `out/index.html` peut afficher 160 alors que le texte réel décodé fait 152.
+
 ### Layout des cartes cassé par `justify-items-center`
 
 - **Cause** : `justify-items-center` sur la grille rendait les badges de taille différente et décalait tout.
@@ -332,6 +343,7 @@ Le code est prêt (sitemap, robots.txt, favicon, métadonnées, JSON-LD). Pour q
 1. **Google Search Console** (`https://search.google.com/search-console`) : la propriété existe déjà (balise de vérification `OJ2423...` présente dans `layout.tsx`). À faire : (a) "Sitemaps" -> soumettre `https://thibault-garel.vercel.app/sitemap.xml` ; (b) "Inspection de l'URL" -> saisir l'URL du site -> "Demander une indexation" (relance le crawl, pour que le favicon réparé soit repris). Délai d'affichage du favicon : quelques jours à quelques semaines, côté Google.
 2. **Bing Webmaster Tools** (`https://www.bing.com/webmasters`) : créer le compte, ajouter le site, **importer depuis Google Search Console** (le plus simple) ou vérifier le domaine, puis soumettre le même sitemap. Bing alimente aussi DuckDuckGo et l'IA de Microsoft.
 3. Après chaque gros changement de contenu, resoumettre l'URL dans la Search Console accélère la prise en compte (facultatif).
+4. **Après chaque déploiement en production**, relancer l'analyse SEO dans Bing Webmaster Tools ("Recrawl"/relancer l'analyse) et "Demander une indexation" dans Google Search Console, pour que les corrections (h1, meta description, favicon, JSON-LD) soient reprises.
 
 ### Tâches / questions en suspens (non tranchées)
 
