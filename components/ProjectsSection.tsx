@@ -2,6 +2,8 @@
 
 import { useState, type ReactNode } from 'react'
 
+import { T } from '@/lib/i18n'
+
 /**
  * Featured Projects, with the sort toggle. Both views are rendered on the
  * server and handed over as props, so this client component only carries the
@@ -27,7 +29,7 @@ export default function ProjectsSection({
     <section id="projects" className="mb-12 scroll-mt-20">
       <div className="flex items-center justify-between mb-6 pb-2 border-b-2 border-streamlit-border dark:border-[#444c56]">
         <h2 className="text-2xl font-bold text-streamlit-text dark:text-[#cdd9e5]">
-          ✨ Featured Projects
+          ✨ <T text={{ en: 'Featured Projects', fr: 'Projets phares' }} />
         </h2>
 
         <div className="flex gap-2 bg-streamlit-secondary dark:bg-[#22272e] rounded-lg p-1 border border-streamlit-border dark:border-[#444c56]">
@@ -35,13 +37,13 @@ export default function ProjectsSection({
             onClick={() => setSortBy('category')}
             className={buttonClass(sortBy === 'category')}
           >
-            By Category
+            <T text={{ en: 'By Category', fr: 'Par catégorie' }} />
           </button>
           <button
             onClick={() => setSortBy('date')}
             className={buttonClass(sortBy === 'date')}
           >
-            By Date
+            <T text={{ en: 'By Date', fr: 'Par date' }} />
           </button>
         </div>
       </div>

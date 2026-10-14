@@ -3,6 +3,8 @@
 
 import type { CSSProperties } from 'react'
 
+import type { Localized } from '@/lib/i18n'
+
 export type CategoryId =
   | 'Research paper'
   | 'Language Models'
@@ -24,8 +26,10 @@ export type Rgb = { r: number; g: number; b: number }
 type CategoryInfo = {
   emoji: string
   hex: string
-  /** Section heading, when it differs from the category id. */
-  sectionTitle?: string
+  /** French label. The English one is the category id itself. */
+  fr: string
+  /** Section heading, when it differs from the label. */
+  sectionTitle?: Localized
 }
 
 /**
@@ -35,20 +39,25 @@ type CategoryInfo = {
 const RL_GREEN = '#22c55e'
 
 export const CATEGORIES: Record<CategoryId, CategoryInfo> = {
-  'Research paper': { emoji: '📄', hex: '#FFD21E' },
-  'Language Models': { emoji: '📝', hex: '#c026d3' },
-  'Vision Models': { emoji: '🖼️', hex: '#ef4444' },
-  'Neural Networks': { emoji: '🧠', hex: '#2563eb' },
-  'Decision Tree': { emoji: '🌳', hex: RL_GREEN },
-  'Genetic Algorithm': { emoji: '🧬', hex: RL_GREEN },
-  'Q-Learning': { emoji: '📈', hex: RL_GREEN },
-  PPO: { emoji: '🎯', hex: RL_GREEN },
-  'World Model': { emoji: '🌍', hex: RL_GREEN },
-  'Unity ML-Agents': { emoji: '🎮', hex: RL_GREEN },
-  Games: { emoji: '🎮', hex: '#0891b2', sectionTitle: 'Games (for training AI)' },
-  'Physics Simulation': { emoji: '🪐', hex: '#0d9488' },
-  'Applied AI Workflows': { emoji: '🤖', hex: '#db2777' },
-  'Data Analysis': { emoji: '📊', hex: '#d97706' }
+  'Research paper': { emoji: '📄', hex: '#FFD21E', fr: 'Article de recherche' },
+  'Language Models': { emoji: '📝', hex: '#c026d3', fr: 'Modèles de langage' },
+  'Vision Models': { emoji: '🖼️', hex: '#ef4444', fr: 'Modèles de vision' },
+  'Neural Networks': { emoji: '🧠', hex: '#2563eb', fr: 'Réseaux de neurones' },
+  'Decision Tree': { emoji: '🌳', hex: RL_GREEN, fr: 'Arbre de décision' },
+  'Genetic Algorithm': { emoji: '🧬', hex: RL_GREEN, fr: 'Algorithme génétique' },
+  'Q-Learning': { emoji: '📈', hex: RL_GREEN, fr: 'Q-Learning' },
+  PPO: { emoji: '🎯', hex: RL_GREEN, fr: 'PPO' },
+  'World Model': { emoji: '🌍', hex: RL_GREEN, fr: 'World Model' },
+  'Unity ML-Agents': { emoji: '🎮', hex: RL_GREEN, fr: 'Unity ML-Agents' },
+  Games: {
+    emoji: '🎮',
+    hex: '#0891b2',
+    fr: 'Jeux',
+    sectionTitle: { en: 'Games (for training AI)', fr: 'Jeux (pour entraîner des IA)' }
+  },
+  'Physics Simulation': { emoji: '🪐', hex: '#0d9488', fr: 'Simulation physique' },
+  'Applied AI Workflows': { emoji: '🤖', hex: '#db2777', fr: "Workflows d'IA appliquée" },
+  'Data Analysis': { emoji: '📊', hex: '#d97706', fr: 'Analyse de données' }
 }
 
 /** Colour of the Group Projects heading, which is not a project category. */
@@ -56,7 +65,8 @@ export const GROUP_PROJECTS_COLOR = '#00b4c2'
 
 /** Reinforcement Learning wraps six categories under one heading. */
 export const REINFORCEMENT_LEARNING = {
-  title: 'Reinforcement Learning',
+  id: 'Reinforcement Learning',
+  title: { en: 'Reinforcement Learning', fr: 'Apprentissage par renforcement' } as Localized,
   hex: RL_GREEN,
   categories: [
     'Decision Tree',
@@ -102,14 +112,21 @@ export function categoryRgb(category: CategoryId): Rgb {
   return hexToRgb(categoryHex(category))
 }
 
+/** Category name, without its emoji: "Research paper" / "Article de recherche". */
+export function categoryLabel(category: CategoryId): Localized {
+  return { en: category, fr: CATEGORIES[category].fr }
+}
+
 /** Badge label, emoji included: "📄 Research paper". */
-export function categoryBadge(category: CategoryId): string {
-  return `${CATEGORIES[category].emoji} ${category}`
+export function categoryBadge(category: CategoryId): Localized {
+  const { emoji } = CATEGORIES[category]
+  const label = categoryLabel(category)
+  return { en: `${emoji} ${label.en}`, fr: `${emoji} ${label.fr}` }
 }
 
 /** Section heading, emoji excluded unless the category is a sub-section. */
-export function categoryTitle(category: CategoryId): string {
-  return CATEGORIES[category].sectionTitle ?? category
+export function categoryTitle(category: CategoryId): Localized {
+  return CATEGORIES[category].sectionTitle ?? categoryLabel(category)
 }
 
 /**
@@ -154,6 +171,12 @@ export function ganttCategoryHex(category: GanttCategory): string {
   return category === 'Reinforcement Learning'
     ? REINFORCEMENT_LEARNING.hex
     : categoryHex(category)
+}
+
+export function ganttCategoryLabel(category: GanttCategory): Localized {
+  return category === 'Reinforcement Learning'
+    ? REINFORCEMENT_LEARNING.title
+    : categoryLabel(category)
 }
 
 /** Legend order: featured categories first, side projects after. */

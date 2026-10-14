@@ -1,3 +1,5 @@
+import type { Text } from '@/lib/i18n'
+
 export type Skill = {
   name: string
   icon?: string
@@ -5,13 +7,13 @@ export type Skill = {
 }
 
 export type SkillGroup = {
-  title: string
+  title: Text
   skills: Skill[]
 }
 
 export const SKILL_GROUPS: SkillGroup[] = [
   {
-    title: 'Languages',
+    title: { en: 'Languages', fr: 'Langages' },
     skills: [
       { name: 'Python', icon: 'https://cdn.simpleicons.org/python/3776AB', url: 'https://www.python.org/' },
       { name: 'C', icon: 'https://cdn.simpleicons.org/c/00599C', url: 'https://isocpp.org/' },
@@ -33,7 +35,7 @@ export const SKILL_GROUPS: SkillGroup[] = [
     ]
   },
   {
-    title: 'AI / ML',
+    title: { en: 'AI / ML', fr: 'IA / ML' },
     skills: [
       { name: 'PyTorch', icon: 'https://cdn.simpleicons.org/pytorch/EE4C2C', url: 'https://pytorch.org/' },
       { name: 'TensorFlow', icon: 'https://cdn.simpleicons.org/tensorflow/FF6F00', url: 'https://www.tensorflow.org/' },
@@ -44,7 +46,7 @@ export const SKILL_GROUPS: SkillGroup[] = [
     ]
   },
   {
-    title: 'Visualization',
+    title: { en: 'Visualization', fr: 'Visualisation' },
     skills: [
       { name: 'Matplotlib', icon: 'https://upload.wikimedia.org/wikipedia/commons/8/84/Matplotlib_icon.svg', url: 'https://matplotlib.org/' },
       { name: 'Excel', icon: 'https://img.icons8.com/color/48/microsoft-excel-2019--v1.png', url: 'https://www.microsoft.com/en-us/microsoft-365/excel' },
@@ -54,7 +56,7 @@ export const SKILL_GROUPS: SkillGroup[] = [
     ]
   },
   {
-    title: 'Dev Tools',
+    title: { en: 'Dev Tools', fr: 'Outils de dev' },
     skills: [
       { name: 'VS Code', icon: 'https://upload.wikimedia.org/wikipedia/commons/9/9a/Visual_Studio_Code_1.35_icon.svg', url: 'https://code.visualstudio.com/' },
       { name: 'GitHub', icon: 'https://cdn.simpleicons.org/github/181717', url: 'https://github.com/' },
@@ -65,7 +67,7 @@ export const SKILL_GROUPS: SkillGroup[] = [
     ]
   },
   {
-    title: 'Hardware',
+    title: { en: 'Hardware', fr: 'Matériel' },
     skills: [
       { name: 'CUDA', icon: 'https://cdn.simpleicons.org/nvidia/76B900', url: 'https://developer.nvidia.com/cuda-zone' },
       { name: 'Raspberry Pi', icon: 'https://cdn.simpleicons.org/raspberrypi/C51A4A', url: 'https://www.raspberrypi.com/' },

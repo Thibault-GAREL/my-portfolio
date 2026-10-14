@@ -1,14 +1,15 @@
 import { GROUP_PROJECTS_COLOR } from '@/data/categories'
+import { T, type Text } from '@/lib/i18n'
 
 type TeamMember = { name: string; link: string }
-type RepoLink = { label: string; link: string }
+type RepoLink = { label: Text; link: string }
 
 type GroupProject = {
-  title: string
+  title: Text
   titleLink: string
-  award?: string
-  description: string
-  period: string
+  award?: Text
+  description: Text
+  period: Text
   logo: string
   logoAlt: string
   team: TeamMember[]
@@ -17,13 +18,15 @@ type GroupProject = {
 
 const GROUP_PROJECTS: GroupProject[] = [
   {
-    title: 'Hackathon with the CND',
+    title: { en: 'Hackathon with the CND', fr: 'Hackathon avec le CND' },
     titleLink:
       'https://www.linkedin.com/feed/update/urn:li:activity:7397600929350336512/',
-    award: '🏆 1st place, hackathon winner',
-    description:
-      'AI detecting cyberattacks against the French army. Ranked 3rd out of 11 engineering schools in phase 1, then 1st at the final',
-    period: '📅 November 18-20, 2025 • 4th year',
+    award: { en: '🏆 1st place, hackathon winner', fr: '🏆 1re place, vainqueurs du hackathon' },
+    description: {
+      en: 'AI detecting cyberattacks against the French army. Ranked 3rd out of 11 engineering schools in phase 1, then 1st at the final',
+      fr: "IA qui détecte les cyberattaques contre l'armée française. 3e sur 11 écoles d'ingénieurs en phase 1, puis 1re en finale"
+    },
+    period: { en: '📅 November 18-20, 2025 • 4th year', fr: '📅 18-20 novembre 2025 • 4e année' },
     logo: 'https://raw.githubusercontent.com/Thibault-GAREL/Thibault-GAREL/main/Logo_Group_Projects_compressed/group_hackathon_cnd_sq.png',
     logoAlt: 'CND Logo',
     team: [
@@ -51,9 +54,11 @@ const GROUP_PROJECTS: GroupProject[] = [
   {
     title: 'PPE - Smart Contract AI Analysis',
     titleLink: 'https://www.ece.fr/la-pedagogie-par-projets/',
-    description:
-      'LLM benchmarking & LoRA fine-tuning for Solidity smart contract vulnerability analysis',
-    period: '📅 2024 - 2025 • 3rd - 4th year',
+    description: {
+      en: 'LLM benchmarking & LoRA fine-tuning for Solidity smart contract vulnerability analysis',
+      fr: 'Benchmark de LLM et fine-tuning LoRA pour analyser les vulnérabilités des smart contracts Solidity'
+    },
+    period: { en: '📅 2024 - 2025 • 3rd - 4th year', fr: '📅 2024 - 2025 • 3e - 4e année' },
     logo: 'https://raw.githubusercontent.com/Thibault-GAREL/Thibault-GAREL/main/Logo_Group_Projects_compressed/group_ppe_smart_contract_sq.png',
     logoAlt: 'PPE Logo',
     team: [
@@ -85,9 +90,11 @@ const GROUP_PROJECTS: GroupProject[] = [
   {
     title: 'Resilient AI Challenge',
     titleLink: 'https://www.sustainableaicoalition.org/resilient-ai-challenge/',
-    description:
-      'Compressing Google Gemma 4 to make it lighter and more resilient, for France, India and UNESCO',
-    period: '📅 2025 • 4th year',
+    description: {
+      en: 'Compressing Google Gemma 4 to make it lighter and more resilient, for France, India and UNESCO',
+      fr: "Compression de Gemma 4 de Google pour le rendre plus léger et plus résilient, pour la France, l'Inde et l'UNESCO"
+    },
+    period: { en: '📅 2025 • 4th year', fr: '📅 2025 • 4e année' },
     logo: 'https://raw.githubusercontent.com/Thibault-GAREL/Thibault-GAREL/main/Logo_Group_Projects_compressed/group_resilient_sq.png',
     logoAlt: 'Resilient AI Logo',
     team: [
@@ -113,7 +120,7 @@ const GROUP_PROJECTS: GroupProject[] = [
     ],
     repos: [
       {
-        label: '🐱 Test Repo',
+        label: { en: '🐱 Test Repo', fr: '🐱 Dépôt de test' },
         link: 'https://github.com/Thibault-GAREL/ILab_Hackathon-Resiliant_AI-test'
       },
       {
@@ -146,20 +153,26 @@ function GroupProjectCard({ project }: { project: GroupProject }) {
               rel="noopener noreferrer"
               className="text-blue-600 hover:underline"
             >
-              {project.title}
+              <T text={project.title} />
             </a>
             {project.award && (
-              <span className="text-base text-green-600 ml-3">{project.award}</span>
+              <span className="text-base text-green-600 ml-3">
+                <T text={project.award} />
+              </span>
             )}
           </h3>
 
-          <p className="text-base mb-2 dark:text-[#adbac7]">{project.description}</p>
+          <p className="text-base mb-2 dark:text-[#adbac7]">
+            <T text={project.description} />
+          </p>
           <p className="text-sm text-gray-600 dark:text-[#768390] mb-4">
-            {project.period}
+            <T text={project.period} />
           </p>
 
           <div>
-            <p className="font-semibold mb-2 dark:text-[#cdd9e5]">Team:</p>
+            <p className="font-semibold mb-2 dark:text-[#cdd9e5]">
+              <T text={{ en: 'Team:', fr: 'Équipe\u00a0:' }} />
+            </p>
             <div className="flex flex-wrap gap-2">
               {project.team.map((member) => (
                 <a
@@ -180,13 +193,13 @@ function GroupProjectCard({ project }: { project: GroupProject }) {
         <div className="flex flex-col gap-3 justify-center">
           {project.repos.map((repo) => (
             <a
-              key={repo.label}
+              key={repo.link}
               href={repo.link}
               target="_blank"
               rel="noopener noreferrer"
               className="bg-white dark:bg-[#2d333b] px-3 lg:px-4 py-2 lg:py-3 rounded-lg border border-streamlit-border dark:border-[#444c56] text-blue-600 dark:text-[#539bf5] hover:bg-blue-50 dark:hover:bg-[#316dca20] transition-colors text-center text-sm lg:text-base"
             >
-              {repo.label}
+              <T text={repo.label} />
             </a>
           ))}
         </div>
@@ -206,11 +219,13 @@ export default function GroupProjects() {
           className="w-3 h-3 rounded-full flex-shrink-0"
           style={{ backgroundColor: GROUP_PROJECTS_COLOR }}
         />
-        👥 Group Projects
+        <span>
+          👥 <T text={{ en: 'Group Projects', fr: 'Projets de groupe' }} />
+        </span>
       </h2>
 
       {GROUP_PROJECTS.map((project) => (
-        <GroupProjectCard key={project.title} project={project} />
+        <GroupProjectCard key={project.titleLink} project={project} />
       ))}
     </section>
   )

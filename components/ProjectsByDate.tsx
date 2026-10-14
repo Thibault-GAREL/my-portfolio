@@ -1,4 +1,5 @@
 import { projectsByAcademicYear } from '@/data/projects'
+import { T } from '@/lib/i18n'
 import GanttChart from './GanttChart'
 import ProjectCard from './ProjectCard'
 
@@ -9,10 +10,10 @@ import ProjectCard from './ProjectCard'
 export default function ProjectsByDate() {
   return (
     <>
-      {projectsByAcademicYear().map(({ title, projects }) => (
-        <div key={title} className="mb-8">
+      {projectsByAcademicYear().map(({ ordinal, title, projects }) => (
+        <div key={ordinal} className="mb-8">
           <h3 className="text-xl font-bold text-streamlit-text dark:text-[#cdd9e5] mb-6">
-            {title}
+            <T text={title} />
           </h3>
           <div className="flex flex-wrap gap-4 justify-center">
             {projects.map((project) => (
@@ -30,10 +31,16 @@ export default function ProjectsByDate() {
               <span className="inline-block transition-transform duration-200 group-open:rotate-90 text-lg">
                 ▶
               </span>
-              📊 Project Timeline
+              <span>
+                📊 <T text={{ en: 'Project Timeline', fr: 'Frise des projets' }} />
+              </span>
               <span className="text-base font-normal text-gray-500 dark:text-[#768390] ml-auto">
-                <span className="group-open:hidden">Click to expand</span>
-                <span className="hidden group-open:inline">Click to collapse</span>
+                <span className="group-open:hidden">
+                  <T text={{ en: 'Click to expand', fr: 'Cliquer pour déplier' }} />
+                </span>
+                <span className="hidden group-open:inline">
+                  <T text={{ en: 'Click to collapse', fr: 'Cliquer pour replier' }} />
+                </span>
               </span>
             </h3>
           </summary>

@@ -9,6 +9,7 @@ import {
   type CategoryId
 } from '@/data/categories'
 import { projectsInCategory, type Project } from '@/data/projects'
+import { T, type Localized } from '@/lib/i18n'
 import ProjectCard from './ProjectCard'
 
 /** A project with variants (OPENER) shows one card per destination here. */
@@ -30,7 +31,7 @@ function CardGrid({ category }: { category: CategoryId }) {
 }
 
 /** Sub-category heading (Reinforcement Learning only), framed by two rules. */
-function RuledHeading({ label, hex }: { label: string; hex: string }) {
+function RuledHeading({ label, hex }: { label: Localized; hex: string }) {
   const rule = <div className="flex-1 h-0.5" style={{ backgroundColor: hex }} />
 
   return (
@@ -39,7 +40,9 @@ function RuledHeading({ label, hex }: { label: string; hex: string }) {
       style={{ color: hex }}
     >
       {rule}
-      <span className="px-4">{label}</span>
+      <span className="px-4">
+        <T text={label} />
+      </span>
       {rule}
     </h4>
   )
@@ -55,7 +58,7 @@ function CategoryBox({
   hex,
   children
 }: {
-  label: string
+  label: Localized
   hex: string
   children: ReactNode
 }) {
@@ -68,7 +71,7 @@ function CategoryBox({
         className="absolute -top-4 left-1/2 -translate-x-1/2 max-w-[calc(100%-1.5rem)] px-3 text-center text-lg sm:text-xl font-bold bg-streamlit-bg dark:bg-[#22272e]"
         style={{ color: hex }}
       >
-        {label}
+        <T text={label} />
       </h3>
       {children}
     </div>
@@ -96,7 +99,7 @@ export default function ProjectsByCategory() {
         // goes around the whole group and the sub-categories keep a plain heading.
         return (
           <CategoryBox
-            key={REINFORCEMENT_LEARNING.title}
+            key={REINFORCEMENT_LEARNING.id}
             label={REINFORCEMENT_LEARNING.title}
             hex={REINFORCEMENT_LEARNING.hex}
           >

@@ -37,6 +37,8 @@ The whole site is exported as static HTML at build time, so nothing runs on a se
 
   🌗 Dark mode switch revealed by a circle growing from the button (**View Transitions API**)
 
+  🌐 **English / French** switch next to it, English by default and the choice remembered
+
   🗂️ Featured Projects with two views, **By Category** and **By Date**, behind a single toggle
 
   📅 **Gantt chart** of every project across the four school years, drawn from the same dates as the cards
@@ -47,7 +49,7 @@ The whole site is exported as static HTML at build time, so nothing runs on a se
 
   📱 Responsive layout, from phone to wide screen
 
-  ⚡ **Static export**, only the projects toggle and the theme switch ship JavaScript (1.5 kB for the page)
+  ⚡ **Static export**, only the projects toggle and the two switches ship JavaScript (1.8 kB for the page)
 
   🔍 SEO ready: metadata, JSON-LD `Person`, `sitemap.xml`, `robots.txt` and a favicon
 
@@ -61,7 +63,10 @@ One project is typed once in `data/projects.ts`:
 {
   id: 'snake-ai-decision-tree',
   name: 'Snake AI - Decision Tree',
-  description: 'Snake game AI using a Decision Tree',
+  description: {
+    en: 'Snake game AI using a Decision Tree',
+    fr: 'IA du jeu Snake par arbre de décision'
+  },
   link: 'https://github.com/Thibault-GAREL/AI_snake_decision_tree_version',
   image: `${RAW}/AI_snake_decision_tree_version/main/img/Snake_arbre_de_decision-Score_31.gif`,
   start: '2026-03-23',
@@ -75,7 +80,7 @@ And the rest of the site builds itself from that entry:
 
 | Where | What the entry produces |
 |---|---|
-| Card | A 🌳 **Decision Tree** badge, the green shadow of that category, the label **Mar - Apr 2026** and the mention **4th year** |
+| Card | A 🌳 **Decision Tree** badge, the green shadow of that category, the label **Mar - Apr 2026** and the mention **4th year** (*mars - avr. 2026* and *4e année* in French) |
 | By Category | The card lands in the *Reinforcement Learning* section, sorted by start date |
 | By Date | The card lands in the **4th Year** block |
 | Gantt | A bar labelled *Snake AI - DT*, from 23 March to 1 April 2026 |
@@ -98,7 +103,9 @@ And the rest of the site builds itself from that entry:
 
   🌗 The `dark` class on `<html>` is the only source of truth for the theme. An inline script in `app/layout.tsx` sets it **before the first paint** (reading `localStorage`, falling back on the OS preference), so a visitor on the dark theme never sees a white flash.
 
-  🧩 Only `ProjectsSection` and `ThemeToggle` are client components. Both project views are rendered on the server and handed over as props, so the project data and the Gantt chart stay out of the JavaScript bundle.
+  🌐 Both languages are written into the HTML, each text as a pair of spans carrying their own `lang`. The `lang` of `<html>` picks the one shown, set before the first paint like the theme.
+
+  🧩 Only `ProjectsSection`, `ThemeToggle` and `LanguageToggle` are client components. Both project views are rendered on the server and handed over as props, so the project data and the Gantt chart stay out of the JavaScript bundle.
 
   🚀 `npm run build` writes a plain static site into `out/`, which Vercel serves as is.
 
@@ -134,8 +141,8 @@ out/index.html          one static page, served by Vercel
 ```bash
 ├── app/
 │   ├── page.tsx          # Assembles every section (server component)
-│   ├── layout.tsx        # Metadata, SEO, JSON-LD and the anti-flash theme script
-│   ├── globals.css       # Tailwind, card shadows, theme reveal keyframes
+│   ├── layout.tsx        # Metadata, SEO, JSON-LD and the anti-flash theme and language scripts
+│   ├── globals.css       # Tailwind, card shadows, language rule, reveal keyframes
 │   └── icon.png          # Favicon, picked up automatically by Next.js
 │
 ├── components/           # One file per component
@@ -148,6 +155,7 @@ out/index.html          one static page, served by Vercel
 │   ├── ProfessionalExperience.tsx
 │   ├── GroupProjects.tsx
 │   ├── SkillCategory.tsx
+│   ├── LanguageToggle.tsx       # 'use client', flips the html lang
 │   └── ThemeToggle.tsx          # 'use client', flips the html class
 │
 ├── data/                 # Single source of every piece of content
@@ -157,7 +165,9 @@ out/index.html          one static page, served by Vercel
 │   └── skills.ts         # Skills and tools
 │
 ├── lib/
-│   └── format.ts         # formatDateRange, compareByStartDate
+│   ├── format.ts         # formatDateRange, compareByStartDate, in both languages
+│   ├── i18n.tsx          # The T component that renders a text in English and French
+│   └── reveal.ts         # The circle reveal shared by both switches
 │
 ├── public/
 │   ├── robots.txt

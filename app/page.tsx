@@ -1,5 +1,6 @@
 import AcademicTimeline from '@/components/AcademicTimeline'
 import GroupProjects from '@/components/GroupProjects'
+import LanguageToggle from '@/components/LanguageToggle'
 import ProfessionalExperience from '@/components/ProfessionalExperience'
 import ProjectsByCategory from '@/components/ProjectsByCategory'
 import ProjectsByDate from '@/components/ProjectsByDate'
@@ -7,14 +8,15 @@ import ProjectsSection from '@/components/ProjectsSection'
 import SkillCategory from '@/components/SkillCategory'
 import ThemeToggle from '@/components/ThemeToggle'
 import { SKILL_GROUPS } from '@/data/skills'
+import { english, T, type Text } from '@/lib/i18n'
 
-const NAV_LINKS = [
-  { href: '#top', label: '🏠 Home' },
-  { href: '#academic-background', label: '🎓 Academic' },
-  { href: '#projects', label: '✨ Projects' },
-  { href: '#skills', label: '🛠️ Skills' },
-  { href: '#hobbies', label: '❤️ Hobbies' },
-  { href: '#github-stats', label: '📊 GitHub' }
+const NAV_LINKS: { href: string; emoji: string; label: Text }[] = [
+  { href: '#top', emoji: '🏠', label: { en: 'Home', fr: 'Accueil' } },
+  { href: '#academic-background', emoji: '🎓', label: { en: 'Academic', fr: 'Parcours' } },
+  { href: '#projects', emoji: '✨', label: { en: 'Projects', fr: 'Projets' } },
+  { href: '#skills', emoji: '🛠️', label: { en: 'Skills', fr: 'Compétences' } },
+  { href: '#hobbies', emoji: '❤️', label: { en: 'Hobbies', fr: 'Loisirs' } },
+  { href: '#github-stats', emoji: '📊', label: 'GitHub' }
 ]
 
 const CONTACT_LINKS = [
@@ -55,18 +57,20 @@ export default function Home() {
           <div className="flex justify-between items-center gap-4">
             {/* Branding only - kept as a div (not <h1>) so the page has a single h1 (the hero), which is better for SEO. Same classes, identical rendering. */}
             <div className="text-xl font-bold text-streamlit-text dark:text-[#cdd9e5]">
-              Thibault GAREL&apos;s Portfolio
+              <T text={{ en: "Thibault GAREL's Portfolio", fr: 'Portfolio de Thibault GAREL' }} />
             </div>
 
-            {/* Navigation (hidden on mobile) */}
-            <nav className="hidden lg:flex items-center gap-6 text-sm">
+            {/* Navigation (hidden on mobile). Between lg and xl the emojis go and
+                the gaps tighten, so the French labels fit next to both toggles. */}
+            <nav className="hidden lg:flex items-center gap-4 xl:gap-6 text-sm">
               {NAV_LINKS.map((link) => (
                 <a
                   key={link.href}
                   href={link.href}
-                  className="text-gray-600 dark:text-[#768390] hover:text-streamlit-text dark:hover:text-[#cdd9e5] transition-colors"
+                  className="whitespace-nowrap text-gray-600 dark:text-[#768390] hover:text-streamlit-text dark:hover:text-[#cdd9e5] transition-colors"
                 >
-                  {link.label}
+                  <span className="hidden xl:inline">{link.emoji} </span>
+                  <T text={link.label} />
                 </a>
               ))}
             </nav>
@@ -80,6 +84,7 @@ export default function Home() {
               >
                 📄 CV
               </a>
+              <LanguageToggle />
               <ThemeToggle />
             </div>
           </div>
@@ -98,7 +103,7 @@ export default function Home() {
             />
             <div className="text-center md:text-left">
               <h1 className="text-3xl font-bold text-streamlit-text dark:text-[#cdd9e5] mb-3">
-                Hi! My name is Thibault GAREL
+                <T text={{ en: 'Hi! My name is Thibault GAREL', fr: "Bonjour\u00a0! Je m'appelle Thibault GAREL" }} />
               </h1>
               <div className="flex flex-wrap justify-center md:justify-start gap-3 sm:gap-4">
                 {CONTACT_LINKS.map((link) => (
@@ -118,19 +123,51 @@ export default function Home() {
 
           <div className="text-lg text-gray-700 dark:text-[#adbac7] leading-relaxed text-center max-w-3xl mx-auto">
             <p className="mb-4">
-              I am currently in my 5th year of engineering at{' '}
-              <strong>École Polytechnique</strong>, where I am pursuing a Master 2 in{' '}
-              <strong>Data Science</strong>, as part of a double degree with{' '}
-              <strong>ECE Paris</strong>.
+              <T
+                text={{
+                  en: (
+                    <>
+                      I am currently in my 5th year of engineering at{' '}
+                      <strong>École Polytechnique</strong>, where I am pursuing a Master 2 in{' '}
+                      <strong>Data Science</strong>, as part of a double degree with{' '}
+                      <strong>ECE Paris</strong>.
+                    </>
+                  ),
+                  fr: (
+                    <>
+                      Je suis en 5e année d&apos;école d&apos;ingénieurs à l&apos;
+                      <strong>École Polytechnique</strong>, où je suis un Master 2 en{' '}
+                      <strong>Data Science</strong>, dans le cadre d&apos;un double diplôme
+                      avec l&apos;<strong>ECE Paris</strong>.
+                    </>
+                  )
+                }}
+              />
             </p>
 
             <p className="mb-4">
-              Since 2023, I've been building personal projects mostly on{' '}
-              <strong>AI</strong> 🤖.
+              <T
+                text={{
+                  en: (
+                    <>
+                      Since 2023, I&apos;ve been building personal projects mostly on{' '}
+                      <strong>AI</strong> 🤖.
+                    </>
+                  ),
+                  fr: (
+                    <>
+                      Depuis 2023, je développe des projets personnels, surtout en{' '}
+                      <strong>IA</strong> 🤖.
+                    </>
+                  )
+                }}
+              />
             </p>
 
             <div className="flex flex-col md:flex-row items-center justify-center gap-3">
-              <span>I'm an AI maker at</span>
+              <span>
+                <T text={{ en: "I'm an AI maker at", fr: 'Je suis AI maker chez' }} />
+              </span>
               <div className="flex flex-col sm:flex-row items-center gap-3 bg-streamlit-secondary dark:bg-[#2d333b] px-4 py-3 rounded-lg border border-streamlit-border dark:border-[#444c56]">
                 <div className="flex items-center gap-3">
                   <img
@@ -171,7 +208,7 @@ export default function Home() {
                     rel="noopener noreferrer"
                     className="text-gray-600 dark:text-[#768390] hover:underline text-sm"
                   >
-                    🌐 Website
+                    🌐 <T text={{ en: 'Website', fr: 'Site web' }} />
                   </a>
                 </div>
               </div>
@@ -184,14 +221,14 @@ export default function Home() {
         <div className="grid lg:grid-cols-2 lg:gap-x-8 items-start mb-12">
           <section id="academic-background" className="mb-12 lg:mb-0 scroll-mt-20">
             <h2 className="text-2xl font-bold text-streamlit-text dark:text-[#cdd9e5] mb-6 pb-2 border-b-2 border-streamlit-border dark:border-[#444c56]">
-              🎓 Academic Background
+              🎓 <T text={{ en: 'Academic Background', fr: 'Parcours académique' }} />
             </h2>
             <AcademicTimeline />
           </section>
 
           <section id="experience" className="mb-12 lg:mb-0 scroll-mt-20">
             <h2 className="text-2xl font-bold text-streamlit-text dark:text-[#cdd9e5] mb-6 pb-2 border-b-2 border-streamlit-border dark:border-[#444c56]">
-              💼 Professional Experience
+              💼 <T text={{ en: 'Professional Experience', fr: 'Expérience professionnelle' }} />
             </h2>
             <ProfessionalExperience />
           </section>
@@ -208,34 +245,38 @@ export default function Home() {
         {/* Skills */}
         <section id="skills" className="mb-12 scroll-mt-20">
           <h2 className="text-2xl font-bold text-streamlit-text dark:text-[#cdd9e5] mb-6 pb-2 border-b-2 border-streamlit-border dark:border-[#444c56]">
-            🛠️ Skills & Tools
+            🛠️ <T text={{ en: 'Skills & Tools', fr: 'Compétences et outils' }} />
           </h2>
 
           {SKILL_GROUPS.map((group) => (
-            <SkillCategory key={group.title} title={group.title} skills={group.skills} />
+            <SkillCategory key={english(group.title)} title={group.title} skills={group.skills} />
           ))}
 
           <div className="text-center mt-8">
             <h4 className="text-xl font-bold text-streamlit-text dark:text-[#cdd9e5] mb-4">
-              🌍 Languages
+              🌍 <T text={{ en: 'Languages', fr: 'Langues' }} />
             </h4>
             <p className="text-gray-600 dark:text-[#768390] text-lg mb-6">
-              • 🇫🇷 French (Native)
-              <br />• 🇬🇧 English (B2) - TOEIC 815 pts, Cambridge B2 First, DET 110 pts
-              <br />• 🇩🇪 German (B1)
+              • 🇫🇷 <T text={{ en: 'French (Native)', fr: 'Français (langue maternelle)' }} />
+              <br />• 🇬🇧{' '}
+              <T text={{ en: 'English (B2)', fr: 'Anglais (B2)' }} /> - TOEIC 815 pts, Cambridge
+              B2 First, DET 110 pts
+              <br />• 🇩🇪 <T text={{ en: 'German (B1)', fr: 'Allemand (B1)' }} />
             </p>
 
             <h4 className="text-xl font-bold text-streamlit-text dark:text-[#cdd9e5] mb-4">
-              🚗 Driving License
+              🚗 <T text={{ en: 'Driving License', fr: 'Permis de conduire' }} />
             </h4>
-            <p className="text-gray-600 dark:text-[#768390] text-lg">• Category B</p>
+            <p className="text-gray-600 dark:text-[#768390] text-lg">
+              • <T text={{ en: 'Category B', fr: 'Permis B' }} />
+            </p>
           </div>
         </section>
 
         {/* GitHub Statistics */}
         <section id="github-stats" className="mb-12 scroll-mt-20">
           <h2 className="text-2xl font-bold text-streamlit-text dark:text-[#cdd9e5] mb-6 pb-2 border-b-2 border-streamlit-border dark:border-[#444c56]">
-            📊 My GitHub Statistics
+            📊 <T text={{ en: 'My GitHub Statistics', fr: 'Mes statistiques GitHub' }} />
           </h2>
 
           <div className="flex flex-col md:flex-row gap-1 justify-center mb-6">
@@ -271,21 +312,21 @@ export default function Home() {
         {/* Hobbies */}
         <section id="hobbies" className="mb-12 scroll-mt-20">
           <h2 className="text-2xl font-bold text-streamlit-text dark:text-[#cdd9e5] mb-6 pb-2 border-b-2 border-streamlit-border dark:border-[#444c56]">
-            ❤️ Hobbies
+            ❤️ <T text={{ en: 'Hobbies', fr: 'Loisirs' }} />
           </h2>
 
           <div className="space-y-6">
             {/* Chess */}
             <div className="text-center">
               <h3 className="text-xl font-semibold text-streamlit-text dark:text-[#cdd9e5] mb-4">
-                ♟️ Chess -{' '}
+                ♟️ <T text={{ en: 'Chess', fr: 'Échecs' }} /> -{' '}
                 <a
                   href="https://www.chess.com/member/T2G2"
                   target="_blank"
                   rel="noopener noreferrer"
                   className="text-blue-600 dark:text-[#539bf5] hover:underline"
                 >
-                  My Chess.com Profile
+                  <T text={{ en: 'My Chess.com Profile', fr: 'Mon profil Chess.com' }} />
                 </a>
               </h3>
               <div className="flex justify-center">
@@ -303,19 +344,36 @@ export default function Home() {
                 🤺 Sport
               </h3>
               <p className="text-lg text-gray-600 dark:text-[#768390]">
-                2-3 times per week: Fencing, Swimming, Tennis & Weight training
+                <T
+                  text={{
+                    en: '2-3 times per week: Fencing, Swimming, Tennis & Weight training',
+                    fr: '2 à 3 fois par semaine\u00a0: escrime, natation, tennis et musculation'
+                  }}
+                />
               </p>
             </div>
 
             {/* Drawing */}
             <div className="text-center">
               <h3 className="text-xl font-semibold text-streamlit-text dark:text-[#cdd9e5] mb-2">
-                🎨 Drawing
+                🎨 <T text={{ en: 'Drawing', fr: 'Dessin' }} />
               </h3>
               <p className="text-lg text-gray-600 dark:text-[#768390]">
-                Watercolor, Inking & Digital painting{' '}
+                <T
+                  text={{
+                    en: 'Watercolor, Inking & Digital painting',
+                    fr: 'Aquarelle, encrage et peinture numérique'
+                  }}
+                />{' '}
                 <em>
-                  (one-year evening course at{' '}
+                  {/* The English text ends on a space, the French one on "l'" */}
+                  (
+                  <T
+                    text={{
+                      en: 'one-year evening course at ',
+                      fr: "un an de cours du soir à l'"
+                    }}
+                  />
                   <a
                     href="https://www.cohl.fr/"
                     target="_blank"
@@ -357,7 +415,7 @@ export default function Home() {
         <footer className="border-t border-streamlit-border dark:border-[#444c56] pt-8 mt-16">
           <div className="text-center">
             <p className="text-gray-600 dark:text-[#768390] mb-4">
-              Code created by me, Thibault GAREL -{' '}
+              <T text={{ en: 'Code created by me', fr: 'Code créé par moi' }} />, Thibault GAREL -{' '}
               <a
                 href="https://github.com/Thibault-GAREL"
                 target="_blank"
@@ -367,7 +425,9 @@ export default function Home() {
                 GitHub
               </a>
             </p>
-            <p className="text-lg mb-4 dark:text-[#adbac7]">Feel free to contact me! 😊</p>
+            <p className="text-lg mb-4 dark:text-[#adbac7]">
+              <T text={{ en: 'Feel free to contact me!', fr: "N'hésitez pas à me contacter\u00a0!" }} /> 😊
+            </p>
             <div className="flex justify-center gap-4">
               {CONTACT_LINKS.map((link) => (
                 <a

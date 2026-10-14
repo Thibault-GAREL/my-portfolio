@@ -87,14 +87,24 @@ body {
 }
 
 /*
- * Theme switch, revealed by a circle growing from the toggle button.
+ * Language. Every translated text is a pair of spans, one per language (the T
+ * component of lib/i18n.tsx), and the lang of <html> hides the other one. The
+ * !important keeps a utility class such as group-open:inline from showing a
+ * hidden text again.
+ */
+html[lang='en'] [lang='fr'],
+html[lang='fr'] [lang='en'] {
+  display: none !important;
+}
+
+/*
+ * Theme and language switches, revealed by a circle growing from the button.
  *
- * The whole page changing colour at once is a jarring cut, so the new theme is
- * wiped over the old one instead of replacing it. The default cross-fade of the
+ * The whole page changing at once is a jarring cut, so the new state is wiped
+ * over the old one instead of replacing it. The default cross-fade of the
  * View Transitions API is turned off, the old snapshot stays underneath, and
  * only the new one is clipped. Origin and radius are measured on the button by
- * ThemeToggle. Browsers without the API simply switch, which is the same
- * behaviour as before.
+ * lib/reveal.ts. Browsers without the API simply switch.
  */
 ::view-transition-old(root),
 ::view-transition-new(root) {
@@ -120,7 +130,7 @@ body {
   }
 }
 
-/* Reduced motion: the theme still switches, it just does not travel. */
+/* Reduced motion: the switch still happens, it just does not travel. */
 @media (prefers-reduced-motion: reduce) {
   ::view-transition-new(root) {
     animation: none;

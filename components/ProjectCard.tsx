@@ -2,6 +2,7 @@ import { academicYearFor, yearLabel } from '@/data/academic-years'
 import { categoryBadge, categoryBadgeStyle } from '@/data/categories'
 import type { Project, ProjectVariant } from '@/data/projects'
 import { formatDateRange } from '@/lib/format'
+import { T } from '@/lib/i18n'
 
 /**
  * One project card. The hover and dark-mode shadows live in globals.css under
@@ -59,18 +60,24 @@ export default function ProjectCard({
             className="inline-block px-3 py-1 rounded-full text-xs font-semibold md:flex-shrink-0 md:order-2"
             style={categoryBadgeStyle(project.category)}
           >
-            {categoryBadge(project.category)}
+            <T text={categoryBadge(project.category)} />
           </span>
           <h4 className="text-[15px] font-semibold text-streamlit-text dark:text-[#cdd9e5] group-hover:text-blue-600 dark:group-hover:text-[#539bf5] text-center md:text-left md:flex-1 md:order-1">
             {name}
           </h4>
         </div>
 
-        <p className="text-gray-600 dark:text-[#768390] text-sm mb-2">{description}</p>
+        <p className="text-gray-600 dark:text-[#768390] text-sm mb-2">
+          <T text={description} />
+        </p>
 
         <div className="flex gap-3 text-xs text-gray-500 dark:text-[#768390]">
-          <span>📅 {date}</span>
-          <span>🎓 {year}</span>
+          <span>
+            📅 <T text={date} />
+          </span>
+          <span>
+            🎓 <T text={year} />
+          </span>
         </div>
       </div>
     </a>

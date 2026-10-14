@@ -2,7 +2,7 @@
 
 Ce fichier assure la continuité du travail entre les sessions Claude Code (cloud) et le développement local sur VS Code. Il capture le contexte complet du projet, les décisions prises, les conventions et les prochaines étapes.
 
-Dernière mise à jour : 2026-10-12
+Dernière mise à jour : 2026-10-14
 
 ---
 
@@ -45,6 +45,7 @@ my-portfolio/
 │   ├── ProfessionalExperience.tsx  # Frise des expériences, repliable
 │   ├── GroupProjects.tsx        # Les 3 projets de groupe
 │   ├── SkillCategory.tsx        # Une catégorie de compétences
+│   ├── LanguageToggle.tsx       # 'use client' : bascule anglais / français
 │   └── ThemeToggle.tsx          # 'use client' : bascule du dark mode
 ├── data/                 # SOURCE UNIQUE de tout le contenu
 │   ├── projects.ts       # Les 33 projets, saisis une seule fois
@@ -52,7 +53,9 @@ my-portfolio/
 │   ├── academic-years.ts # Bornes des années scolaires + calcul de l'année d'un projet
 │   └── skills.ts         # Compétences et outils
 ├── lib/
-│   └── format.ts         # formatDateRange, compareByStartDate
+│   ├── format.ts         # formatDateRange, monthLabel, compareByStartDate (dans les deux langues)
+│   ├── i18n.tsx          # Types Localized / Text, composant T, english()
+│   └── reveal.ts         # Cercle qui grandit depuis un bouton, partagé par les deux bascules
 ├── public/
 │   ├── favicon.ico       # vrai .ico multi-tailles 16/32/48 généré depuis app/icon.png (réparé 2026-10-12)
 │   ├── robots.txt
@@ -87,7 +90,8 @@ Assemblé par le composant `Home` dans `app/page.tsx` :
 - `data/projects.ts` : les 33 projets. **Un projet est saisi une seule fois.** Seules les dates ISO (`start`, `end`) sont écrites à la main, tout le reste en est dérivé.
 - `data/categories.ts` : `CATEGORIES` (emoji + hex), `CATEGORY_SECTIONS` (ordre d'affichage), `REINFORCEMENT_LEARNING` (le groupe qui coiffe 5 catégories), et les helpers `categoryBadge()`, `categoryBadgeStyle()`, `toGanttCategory()`. Les RGB sont calculés depuis les hex, plus jamais saisis en double.
 - `data/academic-years.ts` : bornes des années scolaires (septembre -> août) et `academicYearFor()`. Le Gantt y prend ses bandes d'en-tête, les cartes y prennent leur année. Une seule définition pour les deux.
-- `lib/format.ts` : `formatDateRange()` (le libellé "Mar - Apr 2026" affiché sur les cartes) et `compareByStartDate()`.
+- `lib/format.ts` : `formatDateRange()` (le libellé "Mar - Apr 2026" / "mars - avr. 2026" affiché sur les cartes), `monthLabel()` (axe du Gantt) et `compareByStartDate()`.
+- `lib/i18n.tsx` : le mécanisme des deux langues (voir "Deux langues sur la même URL" en section 2).
 - Un projet avec plusieurs destinations (OPENER : Paper, Models, Code) porte un champ `variants` : la vue Catégorie rend une carte par variant, la vue Date et le Gantt n'en rendent qu'une.
 - Un nom trop long pour une barre de Gantt porte un champ `ganttLabel`.
 
@@ -148,6 +152,8 @@ Le portfolio est **fonctionnel et déployé**. Toutes les demandes de la session
   - **Meta description trop longue** : raccourcie de ~240 à 152 caractères dans `app/layout.tsx`, en gardant les mots-clés (AI, Data Science, ML, computer vision, École Polytechnique).
   - Bing avait déjà **indexé** le site et détecté le JSON-LD avant ces corrections.
 
+- Bascule anglais / français (2026-10-14) : bouton « FR » / « EN » entre le CV et le 🌙, même taille que lui, qui affiche la langue vers laquelle on bascule. Anglais par défaut, même pour un navigateur en français. Le choix est gardé dans `localStorage` (clé `lang`). Tout le site est traduit (descriptions, frises, projets de groupe, compétences, Gantt, dates), sauf les noms de projets (ceux des dépôts GitHub) et les cartes externes (stats GitHub, Chess.com). Les catégories sont traduites ("Modèles de langage", "Apprentissage par renforcement"). Entre `lg` et `xl`, le menu du bandeau perd ses emojis et resserre ses espaces, sinon il ne tenait plus sur une ligne à 1024 px avec le bouton en plus.
+
 **En cours / non tranché :** voir sections 5 et 6.
 
 ---
@@ -186,6 +192,15 @@ Le portfolio est **fonctionnel et déployé**. Toutes les demandes de la session
 - **Le changement est révélé par un cercle qui grandit depuis le bouton** (View Transitions API). Le JS ne fait que mesurer l'origine et le rayon, l'animation est dans `globals.css` (`@keyframes theme-reveal`, sur `::view-transition-new(root)`). Sans l'API (Firefox, Safari ancien) ou en `prefers-reduced-motion`, la bascule est directe. Seul token d'easing du projet : `--ease-out` dans `:root`.
 - **Piège identifié** : les badges/stats GitHub utilisaient au départ des `<picture>` avec `media="(prefers-color-scheme: dark)"`, qui suit la préférence **système** et non la classe du site. Cela cassait l'affichage. Corrigé (voir section 5).
 - **Ancien pattern supprimé** : les composants détectaient le thème avec un state `isDark` + un `MutationObserver` sur `document.documentElement` (quatre copies, dont une par carte projet). Remplacé par des variables CSS. Ne pas le réintroduire.
+
+### Deux langues sur la même URL (2026-10-14)
+
+- **Choix de Thibault** : une seule URL, un bouton comme celui du dark mode. Écarté : deux URL (`/` et `/fr`), qui auraient permis un lien direct en français et l'indexation Google du français, au prix d'un rechargement à chaque bascule. Conséquence assumée : Google n'indexe que l'anglais, et `<title>` et les métadonnées restent en anglais.
+- **Le `lang` de `<html>` est la seule source de vérité**, comme la classe `dark`. Les deux langues sont écrites dans le HTML. Chaque texte traduit est une paire `<span lang="en">` / `<span lang="fr">`, rendue par le composant `T` de `lib/i18n.tsx`, et la règle `html[lang='fr'] [lang='en']` de `globals.css` masque l'autre (avec `!important`, sinon une classe comme `group-open:inline` réafficherait le texte masqué). Aucun state React de la langue, et les composants serveur le restent.
+- Un script inline du `<head>` passe `lang` à `fr` avant le premier paint si `localStorage` le demande. Sinon c'est l'anglais, sans regarder la langue du navigateur.
+- `LanguageToggle` bascule `lang` avec le même cercle que le thème (`revealFrom()` de `lib/reveal.ts`, partagé avec `ThemeToggle`).
+- **Format des données** : un texte traduit est un `Localized` (`{ en, fr }`). Un `Text` accepte aussi une simple chaîne quand le texte est identique dans les deux langues (dates comme "2022 - 2027", noms propres). Ce que le CSS ne peut pas basculer (clés React, `alt`) utilise `english()`.
+- Typographie française : espace insécable écrite `\u00a0` avant `:` `!` `?` `%` `€` dans les chaînes `fr`, sinon le retour à la ligne tombe avant la ponctuation.
 
 ### Couleurs dynamiques via `style` inline
 
@@ -245,7 +260,8 @@ Le portfolio est **fonctionnel et déployé**. Toutes les demandes de la session
 - Couleurs "streamlit" définies dans `tailwind.config.js` : `streamlit-bg`, `streamlit-secondary`, `streamlit-text`, `streamlit-accent`, `streamlit-border`.
 - **Le contenu va dans `data/`, jamais en dur dans un composant.** Ajouter un projet = ajouter une entrée dans `data/projects.ts`, et les trois vues (Catégorie, Date, Gantt) se mettent à jour toutes seules.
 - **Ne jamais saisir à la main une information dérivable d'une date** : ni le libellé "Mar - Apr 2026", ni l'année scolaire. C'est ce qui avait produit des divergences entre les vues.
-- `'use client'` uniquement sur les composants qui portent vraiment un state (`ProjectsSection`, `ThemeToggle`). Tout le reste est serveur.
+- **Tout nouveau texte visible existe en anglais et en français** : `{ en, fr }` dans `data/`, `<T text={{ en, fr }} />` dans un composant. Un projet ajouté sans `fr` ne compile pas (`description` est un `Localized`).
+- `'use client'` uniquement sur les composants qui portent vraiment un state (`ProjectsSection`, `ThemeToggle`, `LanguageToggle`). Tout le reste est serveur.
 - Les couleurs qui dépendent du thème passent par des variables CSS (`--bg-light` / `--bg-dark`, classes `.themed-card` et `.themed-tag` dans `globals.css`), pas par du JS.
 
 ### Workflow Git (règle explicite de la session)
@@ -330,7 +346,8 @@ Le portfolio est **fonctionnel et déployé**. Toutes les demandes de la session
 - Ne pas utiliser une URL externe pour le favicon ; passer par `app/icon.png`.
 - Ne pas passer de couleur dynamique par classe Tailwind ; utiliser `style` inline.
 - Ne plus saisir un libellé de date ou une année scolaire à la main : les deux sont calculés depuis `start` et `end`. Le tri chronologique est fait par le code, il n'y a plus de tableau à maintenir dans l'ordre.
-- Ne pas ajouter de dépendance JS pour le thème : le script inline du `<head>` et les variables CSS suffisent.
+- Ne pas ajouter de dépendance JS pour le thème ni pour la langue : les scripts inline du `<head>` et le CSS suffisent.
+- Ne pas mettre `lang="en"` ou `lang="fr"` sur un élément pour une autre raison que la traduction : la règle de `globals.css` le masquerait dans l'autre langue.
 
 ---
 

@@ -1,10 +1,12 @@
 import type { CSSProperties } from 'react'
 
+import { english, T, type Text } from '@/lib/i18n'
+
 type Experience = {
-  date: string
+  date: Text
   company: string
-  title: string
-  lines: string[]
+  title: Text
+  lines: Text[]
   color: string
   bgLight: string
   bgDark: string
@@ -14,10 +16,15 @@ type Experience = {
 
 const EXPERIENCES: Experience[] = [
   {
-    date: 'Apr - Aug 2026',
+    date: { en: 'Apr - Aug 2026', fr: 'avr. - août 2026' },
     company: 'LyRIDS · ECE',
-    title: '🔬 AI Research Intern',
-    lines: ['Improving NLP models on low-resource domains · Paris'],
+    title: { en: '🔬 AI Research Intern', fr: '🔬 Stagiaire en recherche IA' },
+    lines: [
+      {
+        en: 'Improving NLP models on low-resource domains · Paris',
+        fr: 'Amélioration de modèles de NLP sur des domaines peu dotés · Paris'
+      }
+    ],
     color: '#6e40c9',
     bgLight: '#f3effa',
     bgDark: '#161b22',
@@ -29,10 +36,22 @@ const EXPERIENCES: Experience[] = [
     company: 'Intelligence Lab · ECE',
     title: '🧠 AI Maker',
     lines: [
-      'R&D in the AI lab of ECE Paris',
-      'CND Hackathon (French defence): 1st place, AI detecting cyberattacks on the army',
-      "Resilient AI Hackathon (France, India, UNESCO): compressing Google's Gemma 4",
-      'Created technical training courses on how AI works'
+      {
+        en: 'R&D in the AI lab of ECE Paris',
+        fr: "R&D au sein du laboratoire d'IA de l'ECE Paris"
+      },
+      {
+        en: 'CND Hackathon (French defence): 1st place, AI detecting cyberattacks on the army',
+        fr: "Hackathon du CND (Défense)\u00a0: 1re place, IA qui détecte les cyberattaques contre l'armée"
+      },
+      {
+        en: "Resilient AI Hackathon (France, India, UNESCO): compressing Google's Gemma 4",
+        fr: 'Hackathon Resilient AI (France, Inde, UNESCO)\u00a0: compression de Gemma 4 de Google'
+      },
+      {
+        en: 'Created technical training courses on how AI works',
+        fr: "Création de formations techniques sur le fonctionnement de l'IA"
+      }
     ],
     color: '#2563eb',
     bgLight: '#edf2fd',
@@ -41,10 +60,15 @@ const EXPERIENCES: Experience[] = [
     tagDark: '#92b1f5'
   },
   {
-    date: 'Jan 2025',
+    date: { en: 'Jan 2025', fr: 'janv. 2025' },
     company: 'Toray Films Europe',
-    title: '🏭 AI Engineer Intern',
-    lines: ['Studied, mapped & tested AI tools to optimize their use in the company · Lyon'],
+    title: { en: '🏭 AI Engineer Intern', fr: '🏭 Stagiaire ingénieur IA' },
+    lines: [
+      {
+        en: 'Studied, mapped & tested AI tools to optimize their use in the company · Lyon',
+        fr: "Étude, cartographie et test d'outils d'IA pour optimiser leur usage dans l'entreprise · Lyon"
+      }
+    ],
     color: '#ea580c',
     bgLight: '#fdf1eb',
     bgDark: '#161b22',
@@ -52,10 +76,15 @@ const EXPERIENCES: Experience[] = [
     tagDark: '#f4ab85'
   },
   {
-    date: 'Jan 2024',
+    date: { en: 'Jan 2024', fr: 'janv. 2024' },
     company: 'Dakatech',
-    title: '⚙️ Embedded Software Intern',
-    lines: ['Reorganized & optimized their embedded code: +20-30% battery life · Lyon'],
+    title: { en: '⚙️ Embedded Software Intern', fr: '⚙️ Stagiaire en logiciel embarqué' },
+    lines: [
+      {
+        en: 'Reorganized & optimized their embedded code: +20-30% battery life · Lyon',
+        fr: "Réorganisation et optimisation de leur code embarqué\u00a0: +20-30\u00a0% d'autonomie · Lyon"
+      }
+    ],
     color: '#0d9488',
     bgLight: '#ebf6f5',
     bgDark: '#161b22',
@@ -63,10 +92,15 @@ const EXPERIENCES: Experience[] = [
     tagDark: '#86c9c3'
   },
   {
-    date: 'Summer 2023',
+    date: { en: 'Summer 2023', fr: 'Été 2023' },
     company: 'Solvay',
-    title: '📅 Summer Job',
-    lines: ['Programmed an automatic scheduling tool on my own · Lyon'],
+    title: { en: '📅 Summer Job', fr: "📅 Job d'été" },
+    lines: [
+      {
+        en: 'Programmed an automatic scheduling tool on my own · Lyon',
+        fr: "Développement en autonomie d'un outil de planification automatique · Lyon"
+      }
+    ],
     color: '#6b7280',
     bgLight: '#f3f3f4',
     bgDark: '#161b22',
@@ -74,10 +108,10 @@ const EXPERIENCES: Experience[] = [
     tagDark: '#b5b8bf'
   },
   {
-    date: 'Summer 2022',
+    date: { en: 'Summer 2022', fr: 'Été 2022' },
     company: 'Solvay',
-    title: '📊 Summer Job',
-    lines: ['Data reorganization · Lyon'],
+    title: { en: '📊 Summer Job', fr: "📊 Job d'été" },
+    lines: [{ en: 'Data reorganization · Lyon', fr: 'Réorganisation de données · Lyon' }],
     color: '#6b7280',
     bgLight: '#f3f3f4',
     bgDark: '#161b22',
@@ -96,7 +130,7 @@ function Timeline() {
 
           <div className="space-y-3">
             {EXPERIENCES.map((item) => (
-              <div key={item.title} className="relative pl-9 sm:pl-12">
+              <div key={english(item.date)} className="relative pl-9 sm:pl-12">
                 {/* Node on the line */}
                 <span
                   className="absolute left-[5px] sm:left-[9px] top-[22px] w-[18px] h-[18px] rounded-full border-[3px] border-white dark:border-[#0d1117]"
@@ -119,7 +153,7 @@ function Timeline() {
                       className="inline-block px-3 py-1 rounded-full text-xs font-bold text-white"
                       style={{ backgroundColor: item.color }}
                     >
-                      {item.date}
+                      <T text={item.date} />
                     </span>
                     <span
                       className="themed-tag text-xs font-semibold"
@@ -134,14 +168,14 @@ function Timeline() {
                     </span>
                   </div>
                   <h4 className="text-base font-bold text-streamlit-text dark:text-[#f0f6fc] mb-1">
-                    {item.title}
+                    <T text={item.title} />
                   </h4>
                   {item.lines.map((line, i) => (
                     <p
                       key={i}
                       className="text-sm text-gray-600 dark:text-[#b8c2cc] leading-relaxed"
                     >
-                      {line}
+                      <T text={line} />
                     </p>
                   ))}
                 </div>
@@ -152,7 +186,13 @@ function Timeline() {
 
         <div className="text-center mt-6">
           <p className="text-sm text-gray-600 dark:text-[#768390]">
-            👉 See all my professional experience on{' '}
+            👉{' '}
+            <T
+              text={{
+                en: 'See all my professional experience on',
+                fr: 'Toutes mes expériences professionnelles sur'
+              }}
+            />{' '}
             <a
               href="https://www.linkedin.com/in/thibaultgarel/details/experience/"
               target="_blank"
@@ -185,9 +225,23 @@ export default function ProfessionalExperience() {
       <details className="group lg:hidden">
         <summary className="cursor-pointer list-none mb-6 text-center">
           <span className="inline-block px-6 py-3 bg-streamlit-secondary dark:bg-[#2d333b] rounded-lg border border-streamlit-border dark:border-[#444c56] text-streamlit-text dark:text-[#cdd9e5] font-semibold hover:bg-blue-50 dark:hover:bg-[#316dca20] transition-colors">
-            📂 Click to <span className="group-open:hidden">expand</span>
-            <span className="hidden group-open:inline">collapse</span> my
-            experience timeline
+            📂{' '}
+            <span className="group-open:hidden">
+              <T
+                text={{
+                  en: 'Click to expand my experience timeline',
+                  fr: "Cliquer pour déplier ma frise d'expériences"
+                }}
+              />
+            </span>
+            <span className="hidden group-open:inline">
+              <T
+                text={{
+                  en: 'Click to collapse my experience timeline',
+                  fr: "Cliquer pour replier ma frise d'expériences"
+                }}
+              />
+            </span>
           </span>
         </summary>
 

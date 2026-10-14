@@ -1,10 +1,12 @@
 import type { CSSProperties } from 'react'
 
+import { english, T, type Text } from '@/lib/i18n'
+
 type TimelineEntry = {
-  date: string
-  tag: string
-  title: string
-  lines: string[]
+  date: Text
+  tag: Text
+  title: Text
+  lines: Text[]
   color: string
   bgLight: string
   bgDark: string
@@ -16,9 +18,14 @@ type TimelineEntry = {
 const TIMELINE: TimelineEntry[] = [
   {
     date: '2026 - 2027',
-    tag: 'Double Degree',
+    tag: { en: 'Double Degree', fr: 'Double diplôme' },
     title: "⭐ École Polytechnique (l'X)",
-    lines: ['M2 Data Science · AI focus: generative AI, language, vision, audio, XAI'],
+    lines: [
+      {
+        en: 'M2 Data Science · AI focus: generative AI, language, vision, audio, XAI',
+        fr: 'M2 Data Science · Spécialité IA\u00a0: IA générative, langage, vision, audio, XAI'
+      }
+    ],
     color: '#e0a82e',
     bgLight: '#faf1df',
     bgDark: '#1c1709',
@@ -28,12 +35,21 @@ const TIMELINE: TimelineEntry[] = [
   },
   {
     date: '2022 - 2027',
-    tag: 'Data & AI Major',
-    title: '🎓 ECE Paris · Engineering School',
+    tag: { en: 'Data & AI Major', fr: 'Majeure Data & IA' },
+    title: { en: '🎓 ECE Paris · Engineering School', fr: "🎓 ECE Paris · École d'ingénieurs" },
     lines: [
-      '4th year · Paris campus · Data & AI major',
-      '3rd year · Lyon campus · Semester in Scotland',
-      '1st & 2nd years · Lyon campus · Preparatory classes · Valedictorian'
+      {
+        en: '4th year · Paris campus · Data & AI major',
+        fr: '4e année · Campus de Paris · Majeure Data & IA'
+      },
+      {
+        en: '3rd year · Lyon campus · Semester in Scotland',
+        fr: '3e année · Campus de Lyon · Semestre en Écosse'
+      },
+      {
+        en: '1st & 2nd years · Lyon campus · Preparatory classes · Valedictorian',
+        fr: '1re et 2e années · Campus de Lyon · Prépa intégrée · Major de promotion'
+      }
     ],
     color: '#2563eb',
     bgLight: '#edf2fd',
@@ -42,10 +58,18 @@ const TIMELINE: TimelineEntry[] = [
     tagDark: '#92b1f5'
   },
   {
-    date: 'Sep - Dec 2024',
-    tag: 'Exchange Semester',
-    title: '🏴 Edinburgh Napier University, Scotland',
-    lines: ['Computer science courses: R&D, Game Engineering with AI, 3D Modelling'],
+    date: { en: 'Sep - Dec 2024', fr: 'sept. - déc. 2024' },
+    tag: { en: 'Exchange Semester', fr: "Semestre d'échange" },
+    title: {
+      en: '🏴 Edinburgh Napier University, Scotland',
+      fr: '🏴 Edinburgh Napier University, Écosse'
+    },
+    lines: [
+      {
+        en: 'Computer science courses: R&D, Game Engineering with AI, 3D Modelling',
+        fr: "Cours d'informatique\u00a0: R&D, Game Engineering avec IA, modélisation 3D"
+      }
+    ],
     color: '#0f766e',
     bgLight: '#ebf4f3',
     bgDark: '#161b22',
@@ -54,9 +78,17 @@ const TIMELINE: TimelineEntry[] = [
   },
   {
     date: '2022',
-    tag: 'Highest Honours',
-    title: '📜 High School Diploma · European Section',
-    lines: ['Maths, Physics-Chemistry & Advanced Maths · La Xavière, Lyon'],
+    tag: { en: 'Highest Honours', fr: 'Mention très bien' },
+    title: {
+      en: '📜 High School Diploma · European Section',
+      fr: '📜 Baccalauréat · Section européenne'
+    },
+    lines: [
+      {
+        en: 'Maths, Physics-Chemistry & Advanced Maths · La Xavière, Lyon',
+        fr: 'Maths, physique-chimie et maths expertes · La Xavière, Lyon'
+      }
+    ],
     color: '#6b7280',
     bgLight: '#f3f3f4',
     bgDark: '#161b22',
@@ -78,7 +110,7 @@ export default function AcademicTimeline() {
 
       <div className="space-y-3">
         {TIMELINE.map((item) => (
-          <div key={item.title} className="relative pl-9 sm:pl-12">
+          <div key={english(item.title)} className="relative pl-9 sm:pl-12">
             {/* Node on the line */}
             {item.featured ? (
               <>
@@ -116,7 +148,7 @@ export default function AcademicTimeline() {
                   className="inline-block px-3 py-1 rounded-full text-xs font-bold text-white"
                   style={{ backgroundColor: item.color }}
                 >
-                  {item.date}
+                  <T text={item.date} />
                 </span>
                 <span
                   className="themed-tag text-xs font-semibold"
@@ -127,18 +159,18 @@ export default function AcademicTimeline() {
                     } as CSSProperties
                   }
                 >
-                  {item.tag}
+                  <T text={item.tag} />
                 </span>
               </div>
               <h4 className="text-base font-bold text-streamlit-text dark:text-[#f0f6fc] mb-1">
-                {item.title}
+                <T text={item.title} />
               </h4>
               {item.lines.map((line, i) => (
                 <p
                   key={i}
                   className="text-sm text-gray-600 dark:text-[#b8c2cc] leading-relaxed"
                 >
-                  {line}
+                  <T text={line} />
                 </p>
               ))}
             </div>

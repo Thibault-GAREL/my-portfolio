@@ -2,31 +2,18 @@ import { ACADEMIC_YEARS, yearLabel } from '@/data/academic-years'
 import {
   GANTT_CATEGORY_ORDER,
   ganttCategoryHex,
+  ganttCategoryLabel,
   toGanttCategory
 } from '@/data/categories'
 import { PROJECTS } from '@/data/projects'
-import { compareByStartDate } from '@/lib/format'
+import { compareByStartDate, monthLabel } from '@/lib/format'
+import { T } from '@/lib/i18n'
 
 const TIMELINE_START = new Date('2022-09-01')
 const TIMELINE_END = new Date('2026-09-30')
 const TOTAL_DAYS = Math.ceil(
   (TIMELINE_END.getTime() - TIMELINE_START.getTime()) / (1000 * 60 * 60 * 24)
 )
-
-const MONTH_NAMES = [
-  'Jan',
-  'Feb',
-  'Mar',
-  'Apr',
-  'May',
-  'Jun',
-  'Jul',
-  'Aug',
-  'Sep',
-  'Oct',
-  'Nov',
-  'Dec'
-]
 
 /** Position and width of a bar, as percentages of the whole timeline. */
 function getBarStyle(start: string, end: string) {
@@ -59,7 +46,7 @@ const CIVIL_YEARS = [
 ]
 
 function buildMonthMarkers() {
-  const markers: { position: number; label: string; month: number }[] = []
+  const markers: { position: number; month: number }[] = []
   const cursor = new Date('2022-09-01')
 
   while (cursor <= TIMELINE_END) {
@@ -68,7 +55,6 @@ function buildMonthMarkers() {
         ((cursor.getTime() - TIMELINE_START.getTime()) /
           (TOTAL_DAYS * 24 * 60 * 60 * 1000)) *
         100,
-      label: MONTH_NAMES[cursor.getMonth()],
       month: cursor.getMonth()
     })
     cursor.setMonth(cursor.getMonth() + 1)
@@ -102,7 +88,7 @@ export default function GanttChart() {
                   }}
                 >
                   <span className="text-sm font-bold text-gray-800">
-                    {yearLabel(period)}
+                    <T text={yearLabel(period)} />
                   </span>
                 </div>
               )
@@ -147,7 +133,7 @@ export default function GanttChart() {
                 className="absolute bottom-1 text-[10px] text-gray-600 dark:text-[#768390]"
                 style={{ left: `${marker.position}%`, transform: 'translateX(-50%)' }}
               >
-                {marker.label}
+                <T text={monthLabel(marker.month)} />
               </div>
             ))}
           </div>
@@ -221,7 +207,7 @@ export default function GanttChart() {
                 style={{ backgroundColor: ganttCategoryHex(category) }}
               />
               <span className="text-sm text-streamlit-text dark:text-[#cdd9e5]">
-                {category}
+                <T text={ganttCategoryLabel(category)} />
               </span>
             </div>
           ))}

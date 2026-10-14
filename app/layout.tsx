@@ -1,4 +1,6 @@
 import type { Metadata } from 'next'
+
+import { LANGUAGE_STORAGE_KEY } from '@/lib/i18n'
 import './globals.css'
 
 export const metadata: Metadata = {
@@ -142,10 +144,15 @@ export default function RootLayout({
   // flash of the light one. Falls back to the OS preference on a first visit.
   const themeScript = `(function(){try{var s=localStorage.getItem('darkMode');var d=s===null?window.matchMedia('(prefers-color-scheme: dark)').matches:s==='true';if(d){document.documentElement.classList.add('dark')}}catch(e){}})()`
 
+  // Same idea for the language, except that a first visit stays in English
+  // whatever the browser language: French only shows once it has been chosen.
+  const languageScript = `(function(){try{if(localStorage.getItem('${LANGUAGE_STORAGE_KEY}')==='fr'){document.documentElement.lang='fr'}}catch(e){}})()`
+
   return (
     <html lang="en" suppressHydrationWarning>
       <head>
         <script dangerouslySetInnerHTML={{ __html: themeScript }} />
+        <script dangerouslySetInnerHTML={{ __html: languageScript }} />
         <script
           type="application/ld+json"
           dangerouslySetInnerHTML={{ __html: JSON.stringify(structuredData) }}
