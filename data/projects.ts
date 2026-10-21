@@ -368,7 +368,7 @@ export const PROJECTS: Project[] = [
       fr: 'Simulation physique musculaire en 2D avec Box2D'
     },
     link: 'https://github.com/Thibault-GAREL/2D-Muscular-Simulation',
-    image: `${PROFILE_ASSETS}/Logo_Featured_Projects_compressed/physics_muscular_simulation.png`,
+    image: `${PROFILE_ASSETS}/Logo_Featured_Projects_compressed/physics_muscular_simulation.webp`,
     start: '2025-10-24',
     end: '2025-12-24',
     category: 'Physics Simulation',
