@@ -22,15 +22,40 @@ function cardsFor(project: Project) {
   return [<ProjectCard key={project.id} project={project} />]
 }
 
-function CardGrid({ category }: { category: CategoryId }) {
+function CardGrid({ projects }: { projects: Project[] }) {
   return (
     <div className="flex flex-wrap gap-4 justify-center">
-      {projectsInCategory(category).flatMap(cardsFor)}
+      {projects.flatMap(cardsFor)}
     </div>
   )
 }
 
-/** Sub-category heading (Reinforcement Learning only), framed by two rules. */
+/**
+ * Cards of one category. When every project in it has several destinations
+ * (Research paper: OPENER, then Law-OPENER), each project gets its own ruled
+ * heading, like the Reinforcement Learning sub-categories, so the two papers
+ * read as separate blocks.
+ */
+function CategoryCards({ category }: { category: CategoryId }) {
+  const projects = projectsInCategory(category)
+  const perProject =
+    projects.length > 1 && projects.every((project) => project.variants)
+  if (!perProject) return <CardGrid projects={projects} />
+
+  const hex = categoryHex(category)
+  return (
+    <>
+      {projects.map((project) => (
+        <div key={project.id} className="mb-6 last:mb-0">
+          <RuledHeading label={{ en: project.name, fr: project.name }} hex={hex} />
+          <CardGrid projects={[project]} />
+        </div>
+      ))}
+    </>
+  )
+}
+
+/** Sub-section heading (RL sub-categories, Research paper projects), framed by two rules. */
 function RuledHeading({ label, hex }: { label: Localized; hex: string }) {
   const rule = <div className="flex-1 h-0.5" style={{ backgroundColor: hex }} />
 
@@ -90,7 +115,7 @@ export default function ProjectsByCategory() {
               label={categoryTitle(category)}
               hex={categoryHex(category)}
             >
-              <CardGrid category={category} />
+              <CategoryCards category={category} />
             </CategoryBox>
           )
         }
@@ -109,7 +134,7 @@ export default function ProjectsByCategory() {
                   label={categoryBadge(category)}
                   hex={categoryHex(category)}
                 />
-                <CardGrid category={category} />
+                <CardGrid projects={projectsInCategory(category)} />
               </div>
             ))}
           </CategoryBox>
