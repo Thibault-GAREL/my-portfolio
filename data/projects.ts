@@ -354,7 +354,7 @@ export const PROJECTS: Project[] = [
       fr: 'IA qui apprend à marcher avec un moteur physique complet (Box2D)'
     },
     link: 'https://github.com/Thibault-GAREL/Quadruped-AI',
-    image: `${PROFILE_ASSETS}/Logo_Featured_Projects_compressed/rl_walking_quadruped.png`,
+    image: `${PROFILE_ASSETS}/Logo_Featured_Projects_compressed/rl_walking_quadruped.webp`,
     start: '2025-10-24',
     end: '2025-12-24',
     category: 'Genetic Algorithm',
@@ -521,6 +521,15 @@ export const PROJECTS: Project[] = [
         },
         link: 'https://github.com/Thibault-GAREL/LyRIDS_OPENER',
         image: `${PROFILE_ASSETS}/Logo_Featured_Projects_compressed/research_opener_code.png`
+      },
+      {
+        name: 'Law-OPENER Code',
+        description: {
+          en: 'OPENER unchanged on legal NER in EN, PT, DE. 35.9 AMI e2e, 61.4 on gold.',
+          fr: 'OPENER inchangé sur la NER juridique en EN, PT, DE. 35,9 AMI e2e, 61,4 sur gold.'
+        },
+        link: 'https://github.com/Thibault-GAREL/LyRIDS_Law-OPENER',
+        image: `${PROFILE_ASSETS}/Logo_Featured_Projects_compressed/research_law_opener_code.png`
       }
     ]
   },
