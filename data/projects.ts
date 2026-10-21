@@ -521,15 +521,6 @@ export const PROJECTS: Project[] = [
         },
         link: 'https://github.com/Thibault-GAREL/LyRIDS_OPENER',
         image: `${PROFILE_ASSETS}/Logo_Featured_Projects_compressed/research_opener_code.png`
-      },
-      {
-        name: 'Law-OPENER Code',
-        description: {
-          en: 'OPENER unchanged on legal NER in EN, PT, DE. 35.9 AMI e2e, 61.4 on gold.',
-          fr: 'OPENER inchangé sur la NER juridique en EN, PT, DE. 35,9 AMI e2e, 61,4 sur gold.'
-        },
-        link: 'https://github.com/Thibault-GAREL/LyRIDS_Law-OPENER',
-        image: `${PROFILE_ASSETS}/Logo_Featured_Projects_compressed/research_law_opener_code.png`
       }
     ]
   },
@@ -546,6 +537,39 @@ export const PROJECTS: Project[] = [
     end: '2026-08-11',
     category: 'World Model',
     ganttLabel: 'Snake AI - WM'
+  },
+  {
+    id: 'law-opener',
+    name: 'Law-OPENER',
+    description: {
+      en: 'NLLP 2026 @ EMNLP. Legal NER, no retraining. 35.9 AMI e2e, 61.4 on gold.',
+      fr: 'NLLP 2026 @ EMNLP. NER juridique, sans réentraînement. 35,9 AMI e2e, 61,4 sur gold.'
+    },
+    link: 'https://github.com/Thibault-GAREL/LyRIDS_Law-OPENER',
+    image: `${PROFILE_ASSETS}/Logo_Featured_Projects_compressed/research_law_opener_code.png`,
+    start: '2026-06-30',
+    end: '2026-09-23',
+    category: 'Research paper',
+    variants: [
+      {
+        name: 'Law-OPENER Paper',
+        description: {
+          en: 'NLLP 2026 @ EMNLP. Legal NER, no retraining. 35.9 AMI e2e, 61.4 on gold.',
+          fr: 'NLLP 2026 @ EMNLP. NER juridique, sans réentraînement. 35,9 AMI e2e, 61,4 sur gold.'
+        },
+        link: 'https://scholar.google.com.au/citations?hl=fr&user=VEBOeF4AAAAJ',
+        image: `${PROFILE_ASSETS}/Logo_Featured_Projects_compressed/research_law_opener_paper.png`
+      },
+      {
+        name: 'Law-OPENER Code',
+        description: {
+          en: 'Full pipeline and the legal benchmark (EN, PT, DE) on quality, latency, energy.',
+          fr: 'Pipeline complet et benchmark juridique (EN, PT, DE) : qualité, latence, énergie.'
+        },
+        link: 'https://github.com/Thibault-GAREL/LyRIDS_Law-OPENER',
+        image: `${PROFILE_ASSETS}/Logo_Featured_Projects_compressed/research_law_opener_code.png`
+      }
+    ]
   },
   {
     id: 'modern-llm',

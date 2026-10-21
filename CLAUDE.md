@@ -92,7 +92,7 @@ Assemblé par le composant `Home` dans `app/page.tsx` :
 - `data/academic-years.ts` : bornes des années scolaires (septembre -> août) et `academicYearFor()`. Le Gantt y prend ses bandes d'en-tête, les cartes y prennent leur année. Une seule définition pour les deux.
 - `lib/format.ts` : `formatDateRange()` (le libellé "Mar - Apr 2026" / "mars - avr. 2026" affiché sur les cartes), `monthLabel()` (axe du Gantt) et `compareByStartDate()`.
 - `lib/i18n.tsx` : le mécanisme des deux langues (voir "Deux langues sur la même URL" en section 2).
-- Un projet avec plusieurs destinations (OPENER : Paper, Models, Code, puis Law-OPENER Code ajouté le 2026-10-21) porte un champ `variants` : la vue Catégorie rend une carte par variant, la vue Date et le Gantt n'en rendent qu'une.
+- Un projet avec plusieurs destinations (OPENER : Paper, Models, Code, et Law-OPENER : Paper, Code, projet séparé ajouté le 2026-10-21 comme dans le README) porte un champ `variants` : la vue Catégorie rend une carte par variant, la vue Date et le Gantt n'en rendent qu'une.
 - Un nom trop long pour une barre de Gantt porte un champ `ganttLabel`.
 
 ### État d'avancement actuel
