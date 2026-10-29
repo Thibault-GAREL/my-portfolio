@@ -134,7 +134,8 @@ export default function RootLayout({
         url: siteUrl,
         name: 'Thibault GAREL - AI Engineer Portfolio',
         isPartOf: { '@id': `${siteUrl}#website` },
-        about: { '@id': `${siteUrl}#person` },
+        // Google requires mainEntity on a ProfilePage, about alone is rejected.
+        mainEntity: { '@id': `${siteUrl}#person` },
         inLanguage: 'en'
       }
     ]

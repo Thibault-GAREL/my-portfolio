@@ -329,6 +329,11 @@ Le portfolio est **fonctionnel et déployé**. Toutes les demandes de la session
 - **Plusieurs balises `<h1>`** : la page avait deux `<h1>` (le branding du header et le titre du Hero). Correction : le branding du header est devenu un `<div>` avec les mêmes classes Tailwind, donc rendu strictement identique, et la seule `<h1>` restante est celle du Hero. Règle à garder : **une seule `<h1>` par page**, réservée au titre de contenu principal.
 - **Meta description trop longue** : elle faisait ~240 caractères, raccourcie à 152 (cible 150-160). Piège de mesure : dans le HTML exporté, `&` devient `&amp;` (chaque occurrence +4 caractères), donc un `grep` sur `out/index.html` peut afficher 160 alors que le texte réel décodé fait 152.
 
+### "Champ mainEntity manquant" dans Google Search Console (corrigé le 2026-10-29)
+
+- **Cause** : la passe SEO du 2026-10-12 a relié le `ProfilePage` du JSON-LD à la `Person` par `about`. Google exige `mainEntity` sur un `ProfilePage`, donc l'élément était jugé invalide et exclu des résultats enrichis.
+- **Solution** : `about` remplacé par `mainEntity: { '@id': '...#person' }` dans `app/layout.tsx`. La référence par `@id` vers la `Person` du même `@graph` est acceptée par Google.
+
 ### Layout des cartes cassé par `justify-items-center`
 
 - **Cause** : `justify-items-center` sur la grille rendait les badges de taille différente et décalait tout.
