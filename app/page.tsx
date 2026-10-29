@@ -1,6 +1,7 @@
 import AcademicTimeline from '@/components/AcademicTimeline'
 import GroupProjects from '@/components/GroupProjects'
 import LanguageToggle from '@/components/LanguageToggle'
+import LearningNotes from '@/components/LearningNotes'
 import ProfessionalExperience from '@/components/ProfessionalExperience'
 import ProjectsByCategory from '@/components/ProjectsByCategory'
 import ProjectsByDate from '@/components/ProjectsByDate'
@@ -239,6 +240,8 @@ export default function Home() {
           byCategory={<ProjectsByCategory />}
           byDate={<ProjectsByDate />}
         />
+
+        <LearningNotes />
 
         <GroupProjects />
 

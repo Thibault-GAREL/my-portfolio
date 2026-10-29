@@ -43,6 +43,7 @@ my-portfolio/
 │   ├── GanttChart.tsx           # Diagramme de Gantt
 │   ├── AcademicTimeline.tsx     # Frise du parcours académique
 │   ├── ProfessionalExperience.tsx  # Frise des expériences, repliable
+│   ├── LearningNotes.tsx        # Liste repliable des repos de documentation (fermée par défaut)
 │   ├── GroupProjects.tsx        # Les 3 projets de groupe
 │   ├── SkillCategory.tsx        # Une catégorie de compétences
 │   ├── LanguageToggle.tsx       # 'use client' : bascule anglais / français
@@ -51,6 +52,7 @@ my-portfolio/
 │   ├── projects.ts       # Les 33 projets, saisis une seule fois
 │   ├── categories.ts     # Couleurs, emoji, titres, groupes du Gantt
 │   ├── academic-years.ts # Bornes des années scolaires + calcul de l'année d'un projet
+│   ├── learning-notes.ts # Les repos de documentation (LLM Harness, Transformer Alternatives), hors projects.ts
 │   └── skills.ts         # Compétences et outils
 ├── lib/
 │   ├── format.ts         # formatDateRange, monthLabel, compareByStartDate (dans les deux langues)
@@ -78,11 +80,12 @@ Assemblé par le composant `Home` dans `app/page.tsx` :
 3. **Academic Background** (`id="academic-background"`) : frise chronologique via `<AcademicTimeline />`
 4. **Professional Experience** (`id="experience"`) : frise chronologique repliable via `<ProfessionalExperience />`
 5. **Featured Projects** (`id="projects"`) : toggle "By Category / By Date" à droite du titre, puis `<ProjectsByCategory />` ou `<ProjectsByDate />`
-6. **Group Projects** : projets de groupe (Resiliant AI, CND)
-7. **Skills & Tools** (`id="skills"`) : plusieurs `<SkillCategory />` + section Languages (parlées) + Driving License
-8. **GitHub Statistics** (`id="github-stats"`) : stats GitHub en thème transparent
-9. **Hobbies** (`id="hobbies"`) : Chess, Sport, Drawing
-10. **Footer** : liens de contact + badge profile views
+6. **Learning notes** (`id="learning-notes"`, ajouté le 2026-10-29) : `<LearningNotes />`, un `details` fermé par défaut avec une liste légère (emoji, lien, une phrase), sans logo, sans couleur de catégorie, sans date. Ce sont des repos de documentation sans code livré, donc ils ne sont pas dans `projects.ts` (ni carte, ni Gantt). Même section repliable dans le README GitHub, juste avant Group Projects.
+7. **Group Projects** : projets de groupe (Resiliant AI, CND)
+8. **Skills & Tools** (`id="skills"`) : plusieurs `<SkillCategory />` + section Languages (parlées) + Driving License
+9. **GitHub Statistics** (`id="github-stats"`) : stats GitHub en thème transparent
+10. **Hobbies** (`id="hobbies"`) : Chess, Sport, Drawing
+11. **Footer** : liens de contact + badge profile views
 
 ### Où vit quoi
 
