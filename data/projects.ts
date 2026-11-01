@@ -532,10 +532,10 @@ export const PROJECTS: Project[] = [
       fr: "World model JEPA codé de zéro. Planifie dans l'espace latent par MPC, sans politique apprise."
     },
     link: 'https://github.com/Thibault-GAREL/AI_snake_world_model_version',
-    image: `${PROFILE_ASSETS}/Logo_Featured_Projects_compressed/rl_snake_world_model.webp`,
+    image: `${PROFILE_ASSETS}/Logo_Featured_Projects_compressed/wm_snake.webp`,
     start: '2026-06-23',
     end: '2026-08-11',
-    category: 'World Model',
+    category: 'World Models',
     ganttLabel: 'Snake AI - WM'
   },
   {
@@ -592,10 +592,10 @@ export const PROJECTS: Project[] = [
       fr: "Guide des world models et de JEPA, expliqué avec les figures de Meta FAIR. Entraînement d'un modèle pour le leaderboard IntPhys 2 à venir."
     },
     link: 'https://github.com/Thibault-GAREL/World_model_from_scratch',
-    image: `${PROFILE_ASSETS}/Logo_Featured_Projects_compressed/vision_world_models.png`,
+    image: `${PROFILE_ASSETS}/Logo_Featured_Projects_compressed/wm_from_scratch.png`,
     start: '2026-08-28',
     end: '2026-09-17',
-    category: 'Vision Models'
+    category: 'World Models'
   }
 ]
 
@@ -614,6 +614,7 @@ const CATEGORY_CARD_ORDER: Partial<Record<CategoryId, string[]>> = {
     'clip-embedding-tools',
     'robot-local-llm'
   ],
+  'World Models': ['world-models', 'snake-world-model'],
   'Q-Learning': ['q-learning-pathfinding', 'snake-ai-dqn', 'driving-ai-dqn'],
   PPO: ['snake-ai-ppo', 'starcraft2-vlm-rl'],
   Games: [

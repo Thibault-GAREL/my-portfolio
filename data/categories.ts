@@ -9,12 +9,12 @@ export type CategoryId =
   | 'Research paper'
   | 'Language Models'
   | 'Vision Models'
+  | 'World Models'
   | 'Neural Networks'
   | 'Decision Tree'
   | 'Genetic Algorithm'
   | 'Q-Learning'
   | 'PPO'
-  | 'World Model'
   | 'Unity ML-Agents'
   | 'Games'
   | 'Physics Simulation'
@@ -42,12 +42,12 @@ export const CATEGORIES: Record<CategoryId, CategoryInfo> = {
   'Research paper': { emoji: '📄', hex: '#FFD21E', fr: 'Article de recherche' },
   'Language Models': { emoji: '📝', hex: '#c026d3', fr: 'Modèles de langage' },
   'Vision Models': { emoji: '🖼️', hex: '#ef4444', fr: 'Modèles de vision' },
+  'World Models': { emoji: '🌍', hex: '#a0522d', fr: 'World Models' },
   'Neural Networks': { emoji: '🧠', hex: '#2563eb', fr: 'Réseaux de neurones' },
   'Decision Tree': { emoji: '🌳', hex: RL_GREEN, fr: 'Arbre de décision' },
   'Genetic Algorithm': { emoji: '🧬', hex: RL_GREEN, fr: 'Algorithme génétique' },
   'Q-Learning': { emoji: '📈', hex: RL_GREEN, fr: 'Q-Learning' },
   PPO: { emoji: '🎯', hex: RL_GREEN, fr: 'PPO' },
-  'World Model': { emoji: '🌍', hex: RL_GREEN, fr: 'World Model' },
   'Unity ML-Agents': { emoji: '🎮', hex: RL_GREEN, fr: 'Unity ML-Agents' },
   Games: {
     emoji: '🎮',
@@ -63,7 +63,7 @@ export const CATEGORIES: Record<CategoryId, CategoryInfo> = {
 /** Colour of the Group Projects heading, which is not a project category. */
 export const GROUP_PROJECTS_COLOR = '#00b4c2'
 
-/** Reinforcement Learning wraps six categories under one heading. */
+/** Reinforcement Learning wraps five categories under one heading. */
 export const REINFORCEMENT_LEARNING = {
   id: 'Reinforcement Learning',
   title: { en: 'Reinforcement Learning', fr: 'Apprentissage par renforcement' } as Localized,
@@ -73,7 +73,6 @@ export const REINFORCEMENT_LEARNING = {
     'Genetic Algorithm',
     'Q-Learning',
     'PPO',
-    'World Model',
     'Unity ML-Agents'
   ] as CategoryId[]
 }
@@ -87,6 +86,7 @@ export const CATEGORY_SECTIONS: CategorySection[] = [
   { kind: 'category', category: 'Research paper' },
   { kind: 'category', category: 'Language Models' },
   { kind: 'category', category: 'Vision Models' },
+  { kind: 'category', category: 'World Models' },
   { kind: 'category', category: 'Neural Networks' },
   { kind: 'group', group: REINFORCEMENT_LEARNING },
   { kind: 'category', category: 'Games' },
@@ -156,7 +156,6 @@ export type GanttCategory =
       | 'Genetic Algorithm'
       | 'Q-Learning'
       | 'PPO'
-      | 'World Model'
       | 'Unity ML-Agents'
     >
   | 'Reinforcement Learning'
@@ -184,6 +183,7 @@ export const GANTT_CATEGORY_ORDER: GanttCategory[] = [
   'Research paper',
   'Language Models',
   'Vision Models',
+  'World Models',
   'Neural Networks',
   'Reinforcement Learning',
   'Games',

@@ -157,6 +157,8 @@ Le portfolio est **fonctionnel et déployé**. Toutes les demandes de la session
 
 - Bascule anglais / français (2026-10-14) : bouton « FR » / « EN » entre le CV et le 🌙, même taille que lui, qui affiche la langue vers laquelle on bascule. Anglais par défaut, même pour un navigateur en français. Le choix est gardé dans `localStorage` (clé `lang`). Tout le site est traduit (descriptions, frises, projets de groupe, compétences, Gantt, dates), sauf les noms de projets (ceux des dépôts GitHub) et les cartes externes (stats GitHub, Chess.com). Les catégories sont traduites ("Modèles de langage", "Apprentissage par renforcement"). Entre `lg` et `xl`, le menu du bandeau perd ses emojis et resserre ses espaces, sinon il ne tenait plus sur une ligne à 1024 px avec le bouton en plus.
 
+- Catégorie World Models (2026-11-01) : World Models (jusque-là dans Vision Models) et Snake AI - World Model (jusque-là sous-catégorie du RL) forment une catégorie à part **🌍 World Models** (`#a0522d`, terre sienne), entre Vision Models et Neural Networks, avec sa propre entrée dans la légende du Gantt. Même découpage dans le README GitHub. Reinforcement Learning passe à 5 sous-catégories. `CATEGORY_CARD_ORDER` gagne une entrée, car l'ordre du README (from scratch puis Snake) diffère du tri par date. Les logos sont renommés `wm_from_scratch.png` et `wm_snake.webp` : le dépôt profil doit être poussé avant ce dépôt, sinon ces deux images sont en 404.
+
 **En cours / non tranché :** voir sections 5 et 6.
 
 ---
@@ -420,8 +422,9 @@ Le texte d'intro est limité à `max-w-3xl` (768 px) pour éviter des lignes tro
 - 📄 Research paper : `#FFD21E` (jaune Hugging Face, reprend la bande des vignettes du README)
 - 📝 Language Models : `#c026d3` (fuchsia, ex `#6e40c9` violet jusqu'au 2026-09-20)
 - 🖼️ Vision Models : `#ef4444` (le rouge des skills schema-svg et thibault-remotion)
+- 🌍 World Models : `#a0522d` (terre sienne, choisie par Thibault le 2026-11-01)
 - 🧠 Neural Networks : `#2563eb`
-- 🎮 Reinforcement Learning, toutes sous-catégories (🌳 Decision Tree, 🧬 Genetic Algorithm, 📈 Q-Learning, 🎯 PPO, 🌍 World Model, 🎮 Unity ML-Agents) et titre du groupe : `#22c55e`, le vert Decision Tree (constante `RL_GREEN` de `data/categories.ts`, unifié le 2026-09-18, avant chaque sous-catégorie avait sa nuance de vert)
+- 🎮 Reinforcement Learning, toutes sous-catégories (🌳 Decision Tree, 🧬 Genetic Algorithm, 📈 Q-Learning, 🎯 PPO, 🎮 Unity ML-Agents) et titre du groupe : `#22c55e`, le vert Decision Tree (constante `RL_GREEN` de `data/categories.ts`, unifié le 2026-09-18, avant chaque sous-catégorie avait sa nuance de vert)
 - 🎮 Games : `#0891b2`
 - 📊 Data Analysis : `#d97706`
 - 👥 Group Projects : `#00b4c2`
