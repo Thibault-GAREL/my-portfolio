@@ -557,7 +557,7 @@ export const PROJECTS: Project[] = [
           en: 'NLLP 2026 @ EMNLP. Legal NER, no retraining. 35.9 AMI e2e, 61.4 on gold.',
           fr: 'NLLP 2026 @ EMNLP. NER juridique, sans réentraînement. 35,9 AMI e2e, 61,4 sur gold.'
         },
-        link: 'https://scholar.google.com.au/citations?hl=fr&user=VEBOeF4AAAAJ',
+        link: 'https://aclanthology.org/2026.nllp-1.40/',
         image: `${PROFILE_ASSETS}/Logo_Featured_Projects_compressed/research_law_opener_paper.png`
       },
       {
