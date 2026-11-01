@@ -31,30 +31,6 @@ The whole site is exported as static HTML at build time, so nothing runs on a se
 
 ---
 
-## ⚙️ Features
-
-  🎨 Clean **Streamlit-inspired** design, in light and dark theme
-
-  🌗 Dark mode switch revealed by a circle growing from the button (**View Transitions API**)
-
-  🌐 **English / French** switch next to it, English by default and the choice remembered
-
-  🗂️ Featured Projects with two views, **By Category** and **By Date**, behind a single toggle
-
-  📅 **Gantt chart** of every project across the four school years, drawn from the same dates as the cards
-
-  🎓 **Academic Background** and **Professional Experience** timelines, written as React components
-
-  📊 Live **GitHub statistics** and **Chess.com** rating
-
-  📱 Responsive layout, from phone to wide screen
-
-  ⚡ **Static export**, only the projects toggle and the two switches ship JavaScript (1.8 kB for the page)
-
-  🔍 SEO ready: metadata, JSON-LD `Person`, `sitemap.xml`, `robots.txt` and a favicon
-
----
-
 ## Example Outputs
 
 One project is typed once in `data/projects.ts`:
@@ -93,25 +69,7 @@ And the rest of the site builds itself from that entry:
 
 ---
 
-## ⚙️ How it works
-
-  📦 `data/projects.ts` is the **single source of truth**. Adding a project there makes it appear in the category grid, in the year blocks and in the Gantt chart at once.
-
-  🗓️ `lib/format.ts` turns the ISO dates into the label printed on the card, and `data/academic-years.ts` turns them into the school year.
-
-  🎨 `data/categories.ts` carries the emoji and the hex colour of every category. Badges, section titles, card shadows and Gantt bars all read their colour from there, and the RGB values are computed rather than written twice.
-
-  🌗 The `dark` class on `<html>` is the only source of truth for the theme. An inline script in `app/layout.tsx` sets it **before the first paint** (reading `localStorage`, falling back on the OS preference), so a visitor on the dark theme never sees a white flash.
-
-  🌐 Both languages are written into the HTML, each text as a pair of spans carrying their own `lang`. The `lang` of `<html>` picks the one shown, set before the first paint like the theme.
-
-  🧩 Only `ProjectsSection`, `ThemeToggle` and `LanguageToggle` are client components. Both project views are rendered on the server and handed over as props, so the project data and the Gantt chart stay out of the JavaScript bundle.
-
-  🚀 `npm run build` writes a plain static site into `out/`, which Vercel serves as is.
-
----
-
-## 🗺️ Architecture Diagram
+## 🗺️ How it works
 
 Everything flows one way, from the data folder to the three views:
 
