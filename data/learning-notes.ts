@@ -29,5 +29,14 @@ export const LEARNING_NOTES: LearningNote[] = [
       en: 'State space models, linear attention, modern RNNs and hybrids, or what replaces attention once the KV cache stops fitting',
       fr: "Modèles à espace d'états, attention linéaire, RNN modernes et hybrides, ou ce qui remplace l'attention quand le cache KV ne tient plus en mémoire"
     }
+  },
+  {
+    emoji: '💭',
+    name: 'J-space',
+    link: 'https://github.com/Thibault-GAREL/J-space',
+    description: {
+      en: 'The J-space explained, how the J-lens reads the thoughts a language model never writes, and how it could apply to a local Qwen 3.5',
+      fr: "Le J-space expliqué, comment le J-lens lit les pensées qu'un modèle de langage n'écrit jamais, et comment l'appliquer à un Qwen 3.5 en local"
+    }
   }
 ]
