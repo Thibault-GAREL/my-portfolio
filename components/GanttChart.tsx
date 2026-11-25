@@ -10,7 +10,7 @@ import { compareByStartDate, monthLabel } from '@/lib/format'
 import { T } from '@/lib/i18n'
 
 const TIMELINE_START = new Date('2022-09-01')
-const TIMELINE_END = new Date('2026-09-30')
+const TIMELINE_END = new Date('2027-08-31')
 const TOTAL_DAYS = Math.ceil(
   (TIMELINE_END.getTime() - TIMELINE_START.getTime()) / (1000 * 60 * 60 * 24)
 )
@@ -42,7 +42,8 @@ const CIVIL_YEARS = [
   { label: '2023', start: '2023-01-01', end: '2023-12-31' },
   { label: '2024', start: '2024-01-01', end: '2024-12-31' },
   { label: '2025', start: '2025-01-01', end: '2025-12-31' },
-  { label: '2026', start: '2026-01-01', end: '2026-09-30' }
+  { label: '2026', start: '2026-01-01', end: '2026-12-31' },
+  { label: '2027', start: '2027-01-01', end: '2027-08-31' }
 ]
 
 function buildMonthMarkers() {

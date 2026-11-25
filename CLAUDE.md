@@ -2,7 +2,7 @@
 
 Ce fichier assure la continuité du travail entre les sessions Claude Code (cloud) et le développement local sur VS Code. Il capture le contexte complet du projet, les décisions prises, les conventions et les prochaines étapes.
 
-Dernière mise à jour : 2026-10-14
+Dernière mise à jour : 2026-11-25
 
 ---
 
@@ -158,6 +158,8 @@ Le portfolio est **fonctionnel et déployé**. Toutes les demandes de la session
 - Bascule anglais / français (2026-10-14) : bouton « FR » / « EN » entre le CV et le 🌙, même taille que lui, qui affiche la langue vers laquelle on bascule. Anglais par défaut, même pour un navigateur en français. Le choix est gardé dans `localStorage` (clé `lang`). Tout le site est traduit (descriptions, frises, projets de groupe, compétences, Gantt, dates), sauf les noms de projets (ceux des dépôts GitHub) et les cartes externes (stats GitHub, Chess.com). Les catégories sont traduites ("Modèles de langage", "Apprentissage par renforcement"). Entre `lg` et `xl`, le menu du bandeau perd ses emojis et resserre ses espaces, sinon il ne tenait plus sur une ligne à 1024 px avec le bouton en plus.
 
 - Catégorie World Models (2026-11-01) : World Models (jusque-là dans Vision Models) et Snake AI - World Model (jusque-là sous-catégorie du RL) forment une catégorie à part **🌍 World Models** (`#a0522d`, terre sienne), entre Vision Models et Neural Networks, avec sa propre entrée dans la légende du Gantt. Même découpage dans le README GitHub. Reinforcement Learning passe à 5 sous-catégories. `CATEGORY_CARD_ORDER` gagne une entrée, car l'ordre du README (from scratch puis Snake) diffère du tri par date. Les logos sont renommés `wm_from_scratch.png` et `wm_snake.webp` : le dépôt profil doit être poussé avant ce dépôt, sinon ces deux images sont en 404.
+
+- 5e année 2026-2027 (2026-11-25) : nouvelle entrée `5th` / `5e` dans `data/academic-years.ts` (bande rose `#FCE4EC`). Le Gantt va désormais jusqu'au 31 août 2027 (`TIMELINE_END`), avec 2026 complète et 2027 dans les années civiles. Avant, il s'arrêtait au 30 septembre 2026 et la barre de J-space (novembre 2026) sortait du graphique. J-space est le premier projet en 5e année, la vue By Date gagne donc un bloc « 5th Year ».
 
 **En cours / non tranché :** voir sections 5 et 6.
 

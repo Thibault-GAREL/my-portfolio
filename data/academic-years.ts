@@ -21,7 +21,8 @@ export const ACADEMIC_YEARS: AcademicYear[] = [
   { ordinal: '1st', ordinalFr: '1re', start: '2022-09-01', end: '2023-08-31', color: '#E3F2FD' },
   { ordinal: '2nd', ordinalFr: '2e', start: '2023-09-01', end: '2024-08-31', color: '#F3E5F5' },
   { ordinal: '3rd', ordinalFr: '3e', start: '2024-09-01', end: '2025-08-31', color: '#FFF3E0' },
-  { ordinal: '4th', ordinalFr: '4e', start: '2025-09-01', end: '2026-08-31', color: '#E8F5E9' }
+  { ordinal: '4th', ordinalFr: '4e', start: '2025-09-01', end: '2026-08-31', color: '#E8F5E9' },
+  { ordinal: '5th', ordinalFr: '5e', start: '2026-09-01', end: '2027-08-31', color: '#FCE4EC' }
 ]
 
 /** Days since epoch, parsed without the local timezone shifting the date. */
