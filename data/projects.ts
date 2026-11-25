@@ -596,6 +596,19 @@ export const PROJECTS: Project[] = [
     start: '2026-08-28',
     end: '2026-09-17',
     category: 'World Models'
+  },
+  {
+    id: 'j-space',
+    name: 'J-space',
+    description: {
+      en: 'The J-space explained, how the J-lens reads the thoughts a language model never writes, and how to fit one on Qwen 3.5',
+      fr: "Le J-space expliqué, comment le J-lens lit les pensées qu'un modèle de langage n'écrit jamais, et comment en calculer un sur Qwen 3.5"
+    },
+    link: 'https://github.com/Thibault-GAREL/J-space',
+    image: `${PROFILE_ASSETS}/Logo_Featured_Projects_compressed/lm_j_space.png`,
+    start: '2026-11-24',
+    end: '2026-11-25',
+    category: 'Language Models'
   }
 ]
 
@@ -610,6 +623,7 @@ const CATEGORY_CARD_ORDER: Partial<Record<CategoryId, string[]>> = {
   'Language Models': [
     'original-llm',
     'modern-llm',
+    'j-space',
     'rag-pdf-chatbot',
     'clip-embedding-tools',
     'robot-local-llm'
