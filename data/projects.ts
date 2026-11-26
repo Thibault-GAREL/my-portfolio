@@ -607,7 +607,7 @@ export const PROJECTS: Project[] = [
     link: 'https://github.com/Thibault-GAREL/J-space',
     image: `${PROFILE_ASSETS}/Logo_Featured_Projects_compressed/lm_j_space.png`,
     start: '2026-11-24',
-    end: '2026-11-25',
+    end: '2026-11-26',
     category: 'Language Models'
   }
 ]
